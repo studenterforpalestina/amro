@@ -2,6 +2,7 @@
     import favicon from "$lib/assets/favicon.svg";
     import Navbar from "$lib/Navbar.svelte";
     import Footer from "$lib/footer/footer.svelte";
+    import Navbar from "$lib/Navbar.svelte";
 
     const { children } = $props();
     import "../app.css";
