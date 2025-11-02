@@ -1,4 +1,4 @@
-<!-- <script lang="ts">
+<script lang="ts">
 import favicon from "$lib/assets/favicon.svg";
 
 const { children } = $props();
@@ -8,4 +8,4 @@ const { children } = $props();
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
-{@render children()} -->
+{@render children()}
