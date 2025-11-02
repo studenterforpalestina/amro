@@ -1,6 +1,6 @@
 import adapter from 'svelte-adapter-bun';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
-import { Config } from '@sveltejs/kit';
+import type { Config } from '@sveltejs/kit';
 
 const config: Config = {
 	// Consult https://svelte.dev/docs/kit/integrations
