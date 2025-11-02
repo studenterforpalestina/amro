@@ -8,7 +8,7 @@ on:
 
 jobs:
   build-and-test:
-    runs-on: docker
+    runs-on: codeberg-small
 
     steps:
       - name: Checkout code
