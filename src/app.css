@@ -1,27 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&display=swap");
 @import "tailwindcss";
 
 :root {
-    --font-sans: 'Schibsted Grotesk', sans-serif;
+	--font-sans: "Schibsted Grotesk", sans-serif;
 
-    --color-bg-light: #FEF6EC;
-    --color-bg-dark: #1F1A16;
-    --color-text-dark: #212121;
-    --color-text-light: #FFF9EB;
-    --color-theme-red: #C52128;
+	--color-bg-light: #fef6ec;
+	--color-bg-dark: #1f1a16;
+	--color-text-dark: #212121;
+	--color-text-light: #fff9eb;
+	--color-theme-red: #c52128;
 }
 
 body {
-    font-family: var(--font-sans);
-    background-color: var(--color-bg-light);
-    color: var(--color-text-dark);
-    margin: 0;
-    padding: 0;
+	font-family: var(--font-sans);
+	background-color: var(--color-bg-light);
+	color: var(--color-text-dark);
+	margin: 0;
+	padding: 0;
 }
 a {
-    color: var(--color-theme-red);
-    text-decoration: none;
+	color: var(--color-theme-red);
+	text-decoration: none;
 }
 a:hover {
-    text-decoration: underline;
+	text-decoration: underline;
 }
