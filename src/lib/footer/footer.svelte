@@ -1,6 +1,6 @@
 <script>
-    import InstagramIcon from "./social_icons/instagram.svelte"
     import FacebookIcon from "./social_icons/facebook.svelte"
+    import InstagramIcon from "./social_icons/instagram.svelte"
     import MailIcon from "./social_icons/mail.svelte"
 
     export let instagram = "https://instagram.com/studenterforpalestina.trd";
