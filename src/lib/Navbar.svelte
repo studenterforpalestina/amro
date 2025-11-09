@@ -1,21 +1,24 @@
 <script lang="ts">
-    import data from "../config.json";
-    import Sun from "./Sun.svelte";
     import Moon from "./Moon.svelte";
+    import Sun from "./Sun.svelte";
 
+    let data = [
+        { url: "url1", string: "Hva skjer?" },
+        { url: "url2", string: "Komiteer" },
+    ];
     let dark = false;
 </script>
 
 <nav>
-    <div class="parent">
+    <div class="flex items-center justify-between p-4">
         <div class="logo-container">
             <a href="/">
-                <img class="logo" src="/images/logo.png" alt="logo" />
+                <img class="w-24" src="/images/logo.png" alt="logo" />
             </a>
         </div>
 
-        <div class="right-side">
-            <button class="theme-button" on:click={() => (dark = !dark)}>
+        <div class="flex">
+            <button class="bg-transparent border-0 cursor-pointer" on:click={() => (dark = !dark)}>
                 {#if dark}
                     <Moon />
                 {:else}
@@ -23,55 +26,18 @@
                 {/if}
             </button>
 
-            <ul>
-                {#each data.navbar as item}
-                    <li><a href="/">{item}</a></li>
+            <ul class="flex list-none items-center gap-4 m-0 pl-4 p-0">
+                {#each data as item}
+                    <li>
+                        <a href={item.url} class="flex no-underline">
+                            <p class="text-black text-lg">{item.string}</p> </a>
+                    </li>
                 {/each}
-                <a class="red-button" href="/">Støtt oss</a>
+
+                <a href="/" class="p-2.5 text-lg no-underline rounded-md bg-[#c52128] hover:bg-[#91161b]">
+                    <p class="text-white">Bli medlem</p>
+                </a>
             </ul>
         </div>
     </div>
 </nav>
-
-<style>
-    .parent {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 1rem;
-    }
-    .right-side {
-        display: flex;
-    }
-
-    .logo {
-        width: 64px;
-    }
-
-    ul {
-        display: flex;
-        list-style-type: none;
-        align-items: center;
-        gap: 1rem;
-        margin: 0px;
-        padding: 0px 0px 0px 1em;
-    }
-
-    a {
-        display: flex;
-        text-decoration: none;
-        color: black;
-    }
-
-    .theme-button {
-        background-color: transparent;
-        border: none;
-    }
-
-    .red-button {
-        padding: 10px;
-        border-radius: 5px;
-        background-color: #c52128;
-        color: white;
-    }
-</style>
