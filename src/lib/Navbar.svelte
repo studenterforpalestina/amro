@@ -1,9 +1,12 @@
 <script lang="ts">
-    import data from "../config.json"
-    import Sun from "./Sun.svelte"
-    import Moon from "./Moon.svelte"
+    import Moon from "./Moon.svelte";
+    import Sun from "./Sun.svelte";
 
-    let dark = false
+    let data = [
+        { url: "events", string: "Hva skjer?" },
+        { url: "groups", string: "Komiteer" },
+    ];
+    let dark = false;
 </script>
 
 <style>
