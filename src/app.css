@@ -8,7 +8,8 @@
 	--color-bg-dark: #1f1a16;
 	--color-text-dark: #212121;
 	--color-text-light: #fff9eb;
-	--color-theme-red: #c52128;
+	--color-red: #c52128;
+	--color-dark-red: #91161b;
 }
 
 body {

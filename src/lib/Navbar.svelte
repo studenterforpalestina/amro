@@ -10,14 +10,11 @@
 </script>
 
 <nav>
-    <div class="flex items-center justify-between p-4">
-        <div class="logo-container">
-            <a href="/">
-                <img class="w-24" src="/images/logo.png" alt="logo" />
-            </a>
-        </div>
-
-        <div class="flex">
+    <div class="flex items-center justify-between px-10 py-6">
+        <a href="/">
+            <img class="w-16" src="/images/logo.png" alt="logo" />
+        </a>
+        <ul class="flex list-none items-center gap-10">
             <button class="bg-transparent border-0 cursor-pointer" on:click={() => (dark = !dark)}>
                 {#if dark}
                     <Moon />
@@ -25,19 +22,16 @@
                     <Sun />
                 {/if}
             </button>
+            {#each data as item}
+                <li>
+                    <a href={item.url} class="flex">
+                        <p class="text-black text-lg">{item.string}</p> </a>
+                </li>
+            {/each}
 
-            <ul class="flex list-none items-center gap-4 m-0 pl-4 p-0">
-                {#each data as item}
-                    <li>
-                        <a href={item.url} class="flex no-underline">
-                            <p class="text-black text-lg">{item.string}</p> </a>
-                    </li>
-                {/each}
-
-                <a href="/" class="p-2.5 text-lg no-underline rounded-md bg-[#c52128] hover:bg-[#91161b]">
-                    <p class="text-white">Bli medlem</p>
-                </a>
-            </ul>
-        </div>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScR_Y7bGd3znYgbsZC6ECHexUsgjfZkyZYIaTvPtE7nsLSukg/viewform" class="px-4 py-3 text-lg rounded-lg bg-[var(--color-red)] hover:bg-[var(--color-dark-red)] transition-colors duration-300">
+                <p class="text-white">Bli medlem</p>
+            </a>
+        </ul>
     </div>
 </nav>
