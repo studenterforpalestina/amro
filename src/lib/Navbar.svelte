@@ -3,8 +3,8 @@
     import Sun from "./Sun.svelte";
 
     let data = [
-        { url: "url1", string: "Hva skjer?" },
-        { url: "url2", string: "Komiteer" },
+        { url: "events", string: "Hva skjer?" },
+        { url: "groups", string: "Komiteer" },
     ];
     let dark = false;
 </script>
