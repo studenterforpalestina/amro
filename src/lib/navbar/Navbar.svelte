@@ -4,11 +4,11 @@
     import { c } from "../../utils/classes";
     import ThemeToggle from "./theme-toggle.svelte";
 
-    let data = [
-        { url: "events", string: "Hva skjer?" },
-        { url: "groups", string: "Komiteer" },
-    ];
-    
+	let data = [
+		{ url: "events", string: "Hva skjer?" },
+		{ url: "groups", string: "Komiteer" },
+	];
+	let dark = false;
     let menuOpen = $state(false);
 </script>
 
