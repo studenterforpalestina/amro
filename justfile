@@ -38,15 +38,15 @@ test-coverage *args="":
     bun test --coverage {{ args }}
 
 # check the formatting of files
-fmt *files=".":
+fmt *files="":
     bunx biome format {{ files }}
 
 # run various checks on a set of files
-lint *files=".":
+lint *files="":
     bunx biome lint {{ files }}
 
 # check formatting, linting, and import organization
-check *files=".":
+check *files="":
     bunx biome check {{ files }}
 
 # clean build artifacts
