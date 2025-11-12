@@ -37,17 +37,17 @@ test-watch *args="":
 test-coverage *args="":
     bun test --coverage {{ args }}
 
-# format files
+# check the formatting of files
 fmt *files=".":
-    bunx biome format --write {{ files }}
+    bunx biome format {{ files }}
 
-# lint and apply safe fixes to files
+# run various checks on a set of files
 lint *files=".":
-    bunx biome lint --write {{ files }}
+    bunx biome lint {{ files }}
 
-# format, lint, and organize imports of files
+# check formatting, linting, and import organization
 check *files=".":
-    bunx biome check --write {{ files }}
+    bunx biome check {{ files }}
 
 # clean build artifacts
 clean:
