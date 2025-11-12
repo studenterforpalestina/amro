@@ -24,7 +24,3 @@ a {
 	color: var(--color-theme-red);
 	text-decoration: none;
 }
-
-a:hover {
-	text-decoration: underline;
-}
