@@ -3,12 +3,12 @@
     import Footer from "$lib/footer/footer.svelte";
     import Navbar from "$lib/navbar/Navbar.svelte";
 
-    const { children } = $props();
-    import "../app.css";
+	const { children } = $props();
+	import "../app.css";
 </script>
 
 <svelte:head>
-    <link rel="icon" href={favicon} />
+	<link rel="icon" href={favicon}>
 </svelte:head>
 
 <Navbar />
