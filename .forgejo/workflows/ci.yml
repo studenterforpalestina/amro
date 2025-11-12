@@ -19,14 +19,17 @@ jobs:
         with:
           bun-version: latest
 
+      - name: Setup just
+        uses: extractions/setup-just@v3
+
       - name: Install dependencies
-        run: bun install
+        run: just install
 
       - name: Run Biome checks
-        run: bunx biome check
+        run: just check
 
       - name: Run tests
-        run: bun test
+        run: just test
 
       - name: Build project
-        run: bun --bun run build
+        run: just build
