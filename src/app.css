@@ -21,6 +21,5 @@ body {
 }
 
 a {
-	color: var(--color-theme-red);
 	text-decoration: none;
 }
