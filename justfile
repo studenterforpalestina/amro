@@ -7,11 +7,11 @@ install:
 
 # start dev server
 dev:
-    bun --bun run dev
+    bun run dev
 
 # build for production
 build:
-    bun run build
+    bun --bun run build
 
 # preview production build
 preview:
