@@ -12,6 +12,22 @@
 	--color-dark-red: #91161b;
 }
 
+.light {
+	--background: #fef6ec;
+	--primText: #fff9eb;
+
+	--color-red: #c52128;
+	--color-dark-red: #91161b;
+}
+
+.dark {
+	--background: #1f1a16;
+	--primText: #212121;
+
+	--card: #c52128;
+	--cardHover: #91161b;
+}
+
 body {
 	font-family: var(--font-sans);
 	background-color: var(--color-bg-light);

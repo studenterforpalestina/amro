@@ -9,6 +9,7 @@
 		{ url: '/events' as const, string: 'Hva skjer?' },
 		{ url: '/groups' as const, string: 'Komiteer' }
 	];
+	let dark = false;
 	let menuOpen = $state(false);
 </script>
 
