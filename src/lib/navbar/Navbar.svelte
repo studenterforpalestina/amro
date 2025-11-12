@@ -15,23 +15,27 @@
             <img class="w-16" src="/images/logo.png" alt="logo" />
         </a>
         <ul class="flex list-none items-center gap-10">
-            <button class="bg-transparent border-0 cursor-pointer" on:click={() => (dark = !dark)}>
-                {#if dark}
-                  <Moon />
-                {:else}
-                  <Sun />
-                {/if}
-            </button>
+            <li>
+                <button class="bg-transparent border-0 cursor-pointer" on:click={() => (dark = !dark)}>
+                    {#if dark}
+                        <Moon />
+                    {:else}
+                        <Sun />
+                    {/if}
+                </button>
+            </li>
             {#each data as item}
                 <li>
-                    <a href={item.url} class="flex">
-                        <p class="text-black text-lg">{item.string}</p> </a>
+                    <a href={item.url} class="flex text-black text-lg ">
+                        {item.string} 
+                    </a>
                 </li>
             {/each}
-
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLScR_Y7bGd3znYgbsZC6ECHexUsgjfZkyZYIaTvPtE7nsLSukg/viewform" class="px-4 py-3 text-lg rounded-lg bg-[var(--color-red)] hover:bg-[var(--color-dark-red)] transition-colors duration-300">
-                <p class="text-white">Bli medlem</p>
-            </a>
+            <li>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScR_Y7bGd3znYgbsZC6ECHexUsgjfZkyZYIaTvPtE7nsLSukg/viewform" class="px-4 py-3 text-lg text-white rounded-lg bg-[var(--color-red)] hover:bg-[var(--color-dark-red)] transition-colors duration-300">
+                    Bli medlem
+                </a>
+            </li>
         </ul>
     </div>
 </nav>
