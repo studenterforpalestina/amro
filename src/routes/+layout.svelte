@@ -15,4 +15,3 @@
 <Footer />
 
 {@render children()}
-
