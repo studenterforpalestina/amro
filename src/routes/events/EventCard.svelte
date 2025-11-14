@@ -21,27 +21,37 @@
 </script>
 
 <div>
-	<div class="p-4 grid grid-cols-[1fr_5fr] gap-4 items-start">
+	<div class="grid grid-cols-[auto_auto_6fr] gap-2 items-start md:gap-4">
+		<date
+			datetime={date.toISOString()}
+			class="text-3xl col-span-2 font-bold text-red-600 md:text-4xl"
+		>
+			{getDate(date)}
+		</date>
+		<h1 class="font-bold text-xl md:text-3xl">{title}</h1>
+
 		<div class="flex flex-col items-start space-y-1">
-			<p class="text-3xl font-bold text-red-600 ">{getDate(date)}</p>
-			<p class="text-sm">🕔 {getTime(date)}</p>
-			<p class="text-sm">📍 {location}</p>
+			<p class="text-sm">🕔</p>
+			<p class="text-sm">📍</p>
 		</div>
-
-		<div class="flex flex-col space-y-2">
-			{#if title}
-			<p class="font-bold text-xl">{title}</p>
-			{/if}
-
+		<div class="flex flex-col items-start space-y-1 w-[60px]">
+			<p class="text-sm">{getTime(date)}</p>
+			<p class="text-sm">{location}</p>
+		</div>
+		<p>
 			{#if description}
-			<p>{description}</p>
+			{description}
 			{/if}
-		</div>
-		<div></div>
-		<div>
+			<br>
 			{#if url}
-			<a class="text-red-600" src="/{url}">Facebook-event</a>
+			<a
+				class="text-red-600 col-start-3"
+				href="{url}"
+				target="_blank"
+				rel="noopener noreferrer"
+				>Facebook-event</a
+			>
 			{/if}
-		</div>
+		</p>
 	</div>
 </div>
