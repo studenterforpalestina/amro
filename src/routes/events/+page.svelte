@@ -15,11 +15,12 @@
 			title: "Commie Meetup",
 			date: new Date("2025-12-01T17:00:00"),
 			location: "Close to you",
-			description: "We are going to recite Das kapital backwards in german",
+			description:
+				"We are going to recite Das kapital backwards in german. Here is a really long description of the event to see what the layout looks like with more text. Das Kapital is a really long book, I wouldn't recommend it as the first book to read about communism, but it is very important nonetheless.",
 			url: "https://facebook.com/event1",
 		},
 		{
-			title: "Wepons Workshop",
+			title: "Weapons Workshop",
 			date: new Date("2025-12-01T17:00:00"),
 			location: "OmegaV",
 			description: ":)",
@@ -38,11 +39,13 @@
 <div
 	class="max-w-xl mx-auto px-8 py-4 font-sans md:py-8 md:max-w-3xl lg:max-w-5xl"
 >
-	<h1 class="text-3xl md:text-6xl font-bold mb-4 text-gray-900">
+	<h1
+		class="text-3xl md:text-6xl lg:text-center lg:text-7xl font-bold mb-6 text-gray-900 md:mb-12 lg:mb-16"
+	>
 		Kommende arrangementer
 	</h1>
 
-	<div class="max-w-2xl mx-auto space-y-6 md:space-y-8 md:max-w-2xl">
+	<div class="mx-auto space-y-6 md:space-y-8 lg:space-y-12 lg:max-w-3xl">
 		{#if events.length > 0}
 		{#each events as event}
 		<EventCard
