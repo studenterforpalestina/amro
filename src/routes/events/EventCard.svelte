@@ -45,7 +45,7 @@
 			<br>
 			{#if url}
 			<a
-				class="text-red-600 col-start-3"
+				class="text-red-600 col-start-3 hover:underline"
 				href="{url}"
 				target="_blank"
 				rel="noopener noreferrer"
