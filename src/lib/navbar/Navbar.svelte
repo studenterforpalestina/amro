@@ -5,11 +5,9 @@
 	import BecomeAMember from '$lib/components/become-a-member.svelte';
 	import { c } from '../../utils/classes';
 	import ThemeToggle from './theme-toggle.svelte';
+	import LangageSwapper from '$lib/components/langage_swapper.svelte';
 
-	let data = [
-		{ url: '/events' as const, string: $_('components.navbar.events') },
-		{ url: '/groups' as const, string: $_('components.navbar.groups') }
-	];
+	let data = ['events' as const, 'groups' as const];
 
 	let menuOpen = $state(false);
 </script>
@@ -33,15 +31,15 @@
 		<li>
 			<ThemeToggle />
 		</li>
-		{#each data as item (item.url)}
+		{#each data as item (item)}
 			<li>
 				<a
-					href={resolve(item.url)}
+					href={resolve(`/${item}`)}
 					class="flex rounded-md px-3 py-2 text-lg text-nowrap
                             text-black transition-colors duration-200
                             hover:bg-red-100 hover:text-red-600 active:bg-red-200"
 				>
-					{item.string}
+					{$_(`components.navbar.${item}`)}
 				</a>
 			</li>
 		{/each}
@@ -75,16 +73,17 @@
 				</button>
 				<ThemeToggle />
 			</li>
-			{#each data as item (item.url)}
+			<LangageSwapper />
+			{#each data as item (item)}
 				<li>
 					<a
 						onclick={() => (menuOpen = false)}
-						href={resolve(item.url)}
+						href={resolve(`/${item}`)}
 						class="flex rounded-md px-3 py-2 text-lg text-nowrap
                                 text-black transition-colors duration-200
                                 hover:bg-red-100 hover:text-red-600 active:bg-red-200"
 					>
-						{item.string}
+						{$_(`components.navbar.${item}`)}
 					</a>
 				</li>
 			{/each}
