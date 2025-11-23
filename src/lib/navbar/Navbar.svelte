@@ -1,12 +1,13 @@
 <script lang="ts">
+    import { _ } from "svelte-i18n";
     import { ChevronLeft, Menu } from "@lucide/svelte";
     import BecomeAMember from "$lib/components/become-a-member.svelte";
     import { c } from "../../utils/classes";
     import ThemeToggle from "./theme-toggle.svelte";
 
     let data = [
-        { url: "events", string: "Hva skjer?" },
-        { url: "groups", string: "Komiteer" },
+        { url: "events", string: $_('components.navbar.events') },
+        { url: "groups", string: $_('components.navbar.groups') },
     ];
     
     let menuOpen = $state(false);
@@ -15,7 +16,7 @@
 <nav class="flex items-center justify-between px-10 py-6 gap-2">
     <div class="flex w-full justify-between items-center">
         <a href="/">
-            <img class="w-16" src="/images/logo.png" alt="logo" />
+            <img class="w-16" src="/images/logo.png" alt="logo"  />
         </a>
         <button class="cursor-pointer text-red-600 text-lg px-3 py-2 rounded-md
                     hover:bg-red-100 active:bg-red-200
