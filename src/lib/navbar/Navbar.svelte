@@ -1,10 +1,11 @@
 <script lang="ts">
+    import { _ } from "svelte-i18n";
     import Moon from "./Moon.svelte";
     import Sun from "./Sun.svelte";
 
     let data = [
-        { url: "events", string: "Hva skjer?" },
-        { url: "groups", string: "Komiteer" },
+        { url: "events", string: $_('components.navbar.events') },
+        { url: "groups", string: $_('components.navbar.groups') },
     ];
     let dark = false;
 </script>
@@ -12,7 +13,7 @@
 <nav>
     <div class="flex items-center justify-between px-10 py-6">
         <a href="/">
-            <img class="w-16" src="/images/logo.png" alt="logo" />
+            <img class="w-16" src="/images/logo.png" alt="logo"  />
         </a>
         <ul class="flex list-none items-center gap-10">
             <li>
@@ -48,7 +49,7 @@
                            hover:bg-red-800 active:bg-red-900
                            transition-colors duration-200"
                 >
-                    Bli medlem
+                    {$_('components.navbar.join')}
                 </a>
             </li>
         </ul>
