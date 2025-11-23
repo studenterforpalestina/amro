@@ -2,11 +2,9 @@
     import { _ } from "svelte-i18n";
     import Moon from "./Moon.svelte";
     import Sun from "./Sun.svelte";
+    import LangageSwapper from "$lib/components/langage_swapper.svelte";
 
-    let data = [
-        { url: "events", string: $_('components.navbar.events') },
-        { url: "groups", string: $_('components.navbar.groups') },
-    ];
+    let data = ["events", "groups"];
     let dark = false;
 </script>
 
@@ -30,15 +28,16 @@
                     {/if}
                 </button>
             </li>
+            <LangageSwapper />
             {#each data as item}
                 <li>
                     <a
-                        href={item.url}
+                        href={`/${item}`}
                         class="flex text-black text-lg px-3 py-2 rounded-md
                                hover:text-red-600 hover:bg-red-100 active:bg-red-200
                                transition-colors duration-200"
                     >
-                        {item.string}
+                        {$_(`components.navbar.${item}`)}
                     </a>
                 </li>
             {/each}
