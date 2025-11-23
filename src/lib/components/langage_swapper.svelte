@@ -8,9 +8,14 @@
   ];
 </script>
 
-<select class="border-0 cursor-pointer px-3 py-2 rounded-md
-               hover:text-red-600 hover:bg-red-100 active:bg-red-200
-               transition-colors duration-200 text-lg" bind:value={$locale} on:change={(e) => e?.target?.value && locale.set(e.target.value)}>
+<select
+  class="border-0 cursor-pointer px-3 py-2 rounded-md hover:text-red-600
+  hover:bg-red-100 active:bg-red-200 transition-colors duration-200 text-lg"
+  bind:value={$locale}
+  on:change={(e) => {
+    if (e?.currentTarget?.value) locale.set(e.currentTarget.value)
+  }}
+  >
   {#each languages as { code, name }}
     <option class="bg-red-400" value={code}>{name}</option>
   {/each}
