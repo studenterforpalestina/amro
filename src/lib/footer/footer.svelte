@@ -1,4 +1,5 @@
 <script>
+	import { _ } from 'svelte-i18n';
 	import FacebookIcon from './social_icons/facebook.svelte';
 	import InstagramIcon from './social_icons/instagram.svelte';
 	import MailIcon from './social_icons/mail.svelte';
@@ -9,9 +10,13 @@
 	export let email = 'styret@studenterforpalestina.no';
 
 	const socialLinks = [
-		{ href: facebook, Icon: FacebookIcon, label: 'Facebook' },
-		{ href: instagram, Icon: InstagramIcon, label: 'Instagram' },
-		{ href: `mailto:${email}`, Icon: MailIcon, label: `Email ${email}` }
+		{ href: facebook, Icon: FacebookIcon, label: $_('common.facebook') },
+		{ href: instagram, Icon: InstagramIcon, label: $_('common.instagram') },
+		{
+			href: `mailto:${email}`,
+			Icon: MailIcon,
+			label: $_('common.email_address', { values: { email } })
+		}
 	];
 </script>
 

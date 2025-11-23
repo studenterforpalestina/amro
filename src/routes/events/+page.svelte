@@ -1,7 +1,11 @@
+<script>
+	import { _ } from 'svelte-i18n';
+</script>
+
 <svelte:head>
-	<title>Events</title>
-	<meta name="description" content="Upcoming events" />
+	<title>{$_('page.events.title')}</title>
+	<meta name="description" content={$_('page.events.description')} />
 </svelte:head>
 <div>
-	<h1>Upcoming Events</h1>
+	<h1>{$_('page.events.header')}</h1>
 </div>

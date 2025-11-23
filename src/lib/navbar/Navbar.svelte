@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { _ } from 'svelte-i18n';
 	import { resolve } from '$app/paths';
 	import { ChevronLeft, Menu } from '@lucide/svelte';
 	import BecomeAMember from '$lib/components/become-a-member.svelte';
@@ -6,9 +7,10 @@
 	import ThemeToggle from './theme-toggle.svelte';
 
 	let data = [
-		{ url: '/events' as const, string: 'Hva skjer?' },
-		{ url: '/groups' as const, string: 'Komiteer' }
+		{ url: '/events' as const, string: $_('components.navbar.events') },
+		{ url: '/groups' as const, string: $_('components.navbar.groups') }
 	];
+
 	let menuOpen = $state(false);
 </script>
 
@@ -26,6 +28,7 @@
 			<Menu />
 		</button>
 	</div>
+
 	<ul class="hidden list-none items-center gap-1 sm:flex">
 		<li>
 			<ThemeToggle />
@@ -46,15 +49,13 @@
 			<BecomeAMember />
 		</li>
 	</ul>
-	<button
-		type="button"
-		aria-label="Close menu"
+	<div
 		class={c(
 			'fixed top-0 right-0 bottom-0 left-0 bg-black opacity-25 sm:hidden',
 			!menuOpen && 'hidden'
 		)}
 		onclick={() => (menuOpen = false)}
-	></button>
+	/>
 	<div
 		class={c(
 			'fixed top-0 left-full h-dvh bg-(--color-bg-light) px-3 py-5 transition-transform sm:hidden',
@@ -77,11 +78,11 @@
 			{#each data as item (item.url)}
 				<li>
 					<a
+						onclick={() => (menuOpen = false)}
 						href={resolve(item.url)}
 						class="flex rounded-md px-3 py-2 text-lg text-nowrap
                                 text-black transition-colors duration-200
                                 hover:bg-red-100 hover:text-red-600 active:bg-red-200"
-						onclick={() => (menuOpen = false)}
 					>
 						{item.string}
 					</a>

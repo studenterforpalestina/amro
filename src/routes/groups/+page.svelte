@@ -1,7 +1,11 @@
+<script>
+	import { _ } from 'svelte-i18n';
+</script>
+
 <svelte:head>
-	<title>Groups</title>
-	<meta name="description" content="Explore the groups in SfP" />
+	<title>{$_('page.groups.title')}</title>
+	<meta name="description" content={$_('page.groups.description')} />
 </svelte:head>
 <div>
-	<h1>Groups</h1>
+	<h1>{$_('page.groups.header')}</h1>
 </div>
