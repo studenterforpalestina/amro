@@ -1,0 +1,30 @@
+{
+	"page": {
+		"home": {
+			"title": "Homepage"
+		},
+		"events": {
+			"title": "Events",
+			"description": "Upcoming events",
+			"header": "Upcoming events"
+		},
+		"groups": {
+			"title": "Groups",
+			"description": "Explore the groups in SfP",
+			"header": "Groups"
+		}
+	},
+	"components": {
+		"navbar": {
+			"events": "Whats happening?",
+			"groups": "Groups",
+			"join": "Become a member"
+		}
+	},
+	"common": {
+		"facebook": "Facebook",
+		"instagram": "Instagram",
+		"email": "Email",
+		"email_address": "Email {email}"
+	}
+}

@@ -1,0 +1,30 @@
+{
+	"page": {
+		"home": {
+			"title": "Hjem"
+		},
+		"events": {
+			"title": "Arrangementer",
+			"description": "Kommende arrangementer",
+			"header": "Kommende arrangementer"
+		},
+		"groups": {
+			"title": "Komiteer",
+			"description": "Utforsk de forskjellige komiteene i SfP",
+			"header": "Komiteer"
+		}
+	},
+	"components": {
+		"navbar": {
+			"events": "Hva skjer?",
+			"groups": "Komiteer",
+			"join": "Bli medlem"
+		}
+	},
+	"common": {
+		"facebook": "Facebook",
+		"instagram": "Instagram",
+		"email": "Epost",
+		"email_address": "Epost {email}"
+	}
+}
