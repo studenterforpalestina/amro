@@ -1,5 +1,6 @@
 <script lang="ts">
   import { locale } from 'svelte-i18n';
+
   
   // Set so we dont need to fetch the entire language file of all locales
   const languages = [

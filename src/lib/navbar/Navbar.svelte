@@ -1,8 +1,8 @@
 <script lang="ts">
     import { _ } from "svelte-i18n";
+    import LangageSwapper from "$lib/components/langage_swapper.svelte";
     import Moon from "./Moon.svelte";
     import Sun from "./Sun.svelte";
-    import LangageSwapper from "$lib/components/langage_swapper.svelte";
 
     let data = ["events", "groups"];
     let dark = false;
