@@ -1,5 +1,5 @@
+import { type CalendarEvent, parseICS } from "$lib/utils/cal_parser";
 import type { PageLoad } from "./$types";
-import { parseICS, type CalendarEvent } from "$lib/utils/cal_parser";
 
 export const load: PageLoad = async () => {
 	const icsUrl =
