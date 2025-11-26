@@ -13,7 +13,7 @@
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
-<Navbar />
-<Footer />
+<Navbar/>
+<CustomFooter/>
 
 {@render children()}
