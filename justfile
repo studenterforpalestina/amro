@@ -18,11 +18,11 @@ preview:
     bun run preview
 
 # type check
-type-check:
+check:
     bun run check
 
 # type check in watch mode
-type-check-watch:
+check-watch:
     bun run check:watch
 
 # run tests
@@ -37,17 +37,13 @@ test-watch *args="":
 test-coverage *args="":
     bun test --coverage {{ args }}
 
-# check the formatting of files
-fmt *files="":
-    bunx biome format {{ files }}
+# format files with Prettier
+fmt:
+    bun run format
 
-# run various checks on a set of files
-lint *files="":
-    bunx biome lint {{ files }}
-
-# check formatting, linting, and import organization
-check *files="":
-    bunx biome check {{ files }}
+# run linting with ESLint and Prettier
+lint:
+    bun run lint
 
 # clean build artifacts
 clean:
