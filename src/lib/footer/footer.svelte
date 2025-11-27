@@ -17,12 +17,10 @@
 
 <footer class="absolute bottom-0 opacity-70">
 	<ul class="m-10 flex list-none items-center gap-4 p-0">
-		{#each socialLinks as { href, Icon, label }}
+		{#each socialLinks as { href, Icon, label } (href)}
 			<li>
-				<a
-					{href}
-					target={href.startsWith('mailto:') ? undefined : '_blank'}
-					rel={href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
+				<button
+					on:click={() => (window.location.href = href)}
 					aria-label={label}
 					class="inline-flex h-10 w-10
                            items-center justify-center rounded-md
@@ -30,7 +28,7 @@
                            hover:bg-red-100 hover:text-red-600"
 				>
 					<Icon />
-				</a>
+				</button>
 			</li>
 		{/each}
 	</ul>
