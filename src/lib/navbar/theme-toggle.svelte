@@ -1,8 +1,8 @@
 <script lang="ts">
     import { MoonStar, Sun } from '@lucide/svelte';
     import type { HTMLButtonAttributes } from 'svelte/elements';
-    import { c } from '../../utils/classes';
     import { darkMode } from '$lib/stores/darkmode';
+    import { c } from '../../utils/classes';
 
     const { class: clas, ...props }: HTMLButtonAttributes = $props();
     function toggleDarkMode() {
@@ -21,8 +21,8 @@
     }}
 >
     {#if $darkMode}
-        <MoonStar />
+    <MoonStar />
     {:else}
-        <Sun />
+    <Sun />
     {/if}
 </button>
