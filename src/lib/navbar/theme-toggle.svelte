@@ -13,7 +13,7 @@
 
 <button
     class={c(`bg-transparent border-0 cursor-pointer px-3 py-2 rounded-md
-            hover:text-red-600 hover:bg-red-100 active:bg-red-200
+            hover:text-(--color-red) hover:bg-(--color-red)/15 active:bg-(--color-red)/40
             transition-colors duration-200`, clas)}
     {...props}
     onclick={() => {

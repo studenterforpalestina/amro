@@ -24,8 +24,8 @@
 					aria-label={label}
 					class="inline-flex h-10 w-10
                            items-center justify-center rounded-md
-                           text-gray-700 transition-colors duration-200
-                           hover:bg-red-100 hover:text-red-600"
+                           text-gray-700 dark:text-gray-100 transition-colors duration-200
+                           hover:text-(--color-red) hover:bg-(--color-red)/10"
 				>
 					<Icon />
 				</button>

@@ -20,8 +20,8 @@
 		</a>
 		<button
 			class="cursor-pointer rounded-md px-3 py-2 text-lg text-nowrap
-                    text-red-600 transition-colors
-                    duration-200 hover:bg-red-100 active:bg-red-200 sm:hidden"
+                    text-(--color-red) transition-colors
+                    duration-200 hover:bg-(--color-red)/10 active:bg-(--color-red)/40 sm:hidden"
 			onclick={() => (menuOpen = true)}
 		>
 			<Menu />
@@ -37,7 +37,7 @@
 					href={resolve(item.url)}
 					class="flex rounded-md px-3 py-2 text-lg text-nowrap
                             text-black transition-colors duration-200
-                            hover:bg-red-100 hover:text-red-600 active:bg-red-200"
+                            hover:text-(--color-red) hover:bg-(--color-red)/10 active:bg-(--color-red)/40"
 				>
 					{item.string}
 				</a>
@@ -58,7 +58,7 @@
 	></button>
 	<div
 		class={c(
-			'fixed top-0 left-full h-dvh bg-(--color-bg-light) px-3 py-5 transition-transform sm:hidden',
+			'fixed top-0 left-full h-dvh bg-(--background) px-3 py-5 transition-transform sm:hidden',
 			menuOpen && 'transform-[translateX(-100%)]'
 		)}
 	>
@@ -66,8 +66,8 @@
 			<li class="mb-4 flex w-full items-center justify-between gap-1">
 				<button
 					class="flex cursor-pointer items-center rounded-md py-2 pr-5 pl-2
-                text-lg text-red-600
-                transition-colors duration-200 hover:bg-red-100 active:bg-red-200"
+                text-lg text-(--color-red)
+                transition-colors duration-200 hover:bg-(--color-red)/10 active:bg-(--color-red)/40"
 					onclick={() => (menuOpen = false)}
 				>
 					<ChevronLeft />
@@ -81,7 +81,7 @@
 						href={resolve(item.url)}
 						class="flex rounded-md px-3 py-2 text-lg text-nowrap
                                 text-black transition-colors duration-200
-                                hover:bg-red-100 hover:text-red-600 active:bg-red-200"
+                                hover:text-(--color-red) hover:bg-(--color-red)/20 active:bg-(--color-red)/50"
 						onclick={() => (menuOpen = false)}
 					>
 						{item.string}
