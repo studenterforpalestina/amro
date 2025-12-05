@@ -17,8 +17,8 @@
         <a href="/">
             <img class="w-16" src="/images/logo.png" alt="logo" />
         </a>
-        <button class="cursor-pointer text-red-600 text-lg px-3 py-2 rounded-md
-                    hover:bg-red-100 active:bg-red-200
+        <button class="cursor-pointer text-(--color-red) text-lg px-3 py-2 rounded-md
+                    hover:bg-(--color-red)/10 active:bg-(--color-red)/40
                     transition-colors duration-200 text-nowrap sm:hidden"
             onclick={() => menuOpen = true}
         >
@@ -34,8 +34,8 @@
             <li>
                 <a
                     href={item.url}
-                    class="flex text-black text-lg px-3 py-2 rounded-md
-                            hover:text-red-600 hover:bg-red-100 active:bg-red-200
+                    class="flex text-lg px-3 py-2 rounded-md
+                            hover:text-(--color-red) hover:bg-(--color-red)/10 active:bg-(--color-red)/40
                             transition-colors duration-200 text-nowrap"
                 >
                     {item.string}
@@ -47,11 +47,11 @@
         </li>
     </ul>
     <div class={c("fixed top-0 left-0 right-0 bottom-0 bg-black opacity-25 sm:hidden", !menuOpen && "hidden")} onclick={() => menuOpen = false} />
-    <div class={c('transition-transform fixed top-0 left-full h-dvh bg-(--color-bg-light) px-3 py-5 sm:hidden', menuOpen && 'transform-[translateX(-100%)]')}>
+    <div class={c('transition-transform fixed top-0 left-full h-dvh bg-(--background) px-3 py-5 sm:hidden', menuOpen && 'transform-[translateX(-100%)]')}>
         <ul class="list-none flex flex-col items-start p-4 gap-2 min-w-60">
             <li class="flex w-full justify-between items-center gap-1 mb-4">
-                <button class="cursor-pointer text-red-600 text-lg pl-2 pr-5 py-2 rounded-md
-                hover:bg-red-100 active:bg-red-200
+                <button class="cursor-pointer text-(--color-red) text-lg pl-2 pr-5 py-2 rounded-md
+                hover:bg-(--color-red)/10 active:bg-(--color-red)/40
                 transition-colors duration-200 flex items-center"
                     onclick={() => menuOpen = false}
                 >
@@ -66,8 +66,8 @@
                     <a
                         onclick={() => menuOpen = false}
                         href={item.url}
-                        class="flex text-black text-lg px-3 py-2 rounded-md
-                                hover:text-red-600 hover:bg-red-100 active:bg-red-200
+                        class="flex text-lg px-3 py-2 rounded-md
+                                hover:text-(--color-red) hover:bg-(--color-red)/20 active:bg-(--color-red)/50
                                 transition-colors duration-200 text-nowrap"
                     >
                         {item.string}
