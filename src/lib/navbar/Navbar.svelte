@@ -46,15 +46,15 @@
 			<BecomeAMember />
 		</li>
 	</ul>
-	<!-- svelte-ignore a11y_click_events_have_key_events -->
-	<!-- svelte-ignore a11y_no_static_element_interactions -->
-	<div
+	<button
+        type="button"
+        aria-label="Close menu"
 		class={c(
 			'fixed top-0 right-0 bottom-0 left-0 bg-black opacity-25 sm:hidden',
 			!menuOpen && 'hidden'
 		)}
 		onclick={() => (menuOpen = false)}
-	></div>
+	></button>
 	<div
 		class={c(
 			'fixed top-0 left-full h-dvh bg-(--color-bg-light) px-3 py-5 transition-transform sm:hidden',
