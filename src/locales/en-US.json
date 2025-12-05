@@ -6,17 +6,17 @@
 		"events": {
 			"title": "Events",
 			"description": "Upcoming events",
-			"header": "Upcoming events"
+			"header": "Upcoming Events"
 		},
 		"groups": {
 			"title": "Groups",
-			"description": "Explore the groups in SfP",
+			"description": "Explore the groups in Students for Palestine Trondheim",
 			"header": "Groups"
 		}
 	},
 	"components": {
 		"navbar": {
-			"events": "Whats happening?",
+			"events": "What's happening?",
 			"groups": "Groups",
 			"join": "Become a member"
 		}

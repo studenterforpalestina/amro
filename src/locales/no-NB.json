@@ -1,7 +1,7 @@
 {
 	"page": {
 		"home": {
-			"title": "Hjem"
+			"title": "Hjemmeside"
 		},
 		"events": {
 			"title": "Arrangementer",
@@ -10,7 +10,7 @@
 		},
 		"groups": {
 			"title": "Komiteer",
-			"description": "Utforsk de forskjellige komiteene i SfP",
+			"description": "Utforsk de forskjellige komiteene i Studenter for Palestina Trondheim",
 			"header": "Komiteer"
 		}
 	},
@@ -24,7 +24,7 @@
 	"common": {
 		"facebook": "Facebook",
 		"instagram": "Instagram",
-		"email": "Epost",
-		"email_address": "Epost {email}"
+		"email": "E-post",
+		"email_address": "E-post {email}"
 	}
 }
