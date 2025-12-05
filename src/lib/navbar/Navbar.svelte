@@ -1,13 +1,13 @@
 <script lang="ts">
     import { ChevronLeft, Menu } from "@lucide/svelte";
     import BecomeAMember from "$lib/components/become-a-member.svelte";
+    import { darkMode } from "$lib/stores/darkmode";
     import { c } from "../../utils/classes";
     import ThemeToggle from "./theme-toggle.svelte";
-    import { darkMode } from "$lib/stores/darkmode";
-	let data = [
-		{ url: "events", string: "Hva skjer?" },
-		{ url: "groups", string: "Komiteer" },
-	];
+    let data = [
+        { url: "events", string: "Hva skjer?" },
+        { url: "groups", string: "Komiteer" },
+    ];
     let menuOpen = $state(false);
 </script>
 
