@@ -29,6 +29,7 @@
         <li>
             <ThemeToggle />
         </li>
+        <LangageSwapper />
         {#each data as item}
             <li>
                 <a
