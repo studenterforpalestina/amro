@@ -4,19 +4,22 @@
 	import BecomeAMember from '$lib/components/become-a-member.svelte';
 	import { c } from '../../utils/classes';
 	import ThemeToggle from './theme-toggle.svelte';
-
+    import { darkMode } from "$lib/stores/darkmode";
 	let data = [
 		{ url: '/events' as const, string: 'Hva skjer?' },
 		{ url: '/groups' as const, string: 'Komiteer' }
 	];
-	let dark = false;
-	let menuOpen = $state(false);
+    let menuOpen = $state(false);
 </script>
 
 <nav class="flex items-center justify-between gap-2 px-10 py-6">
 	<div class="flex w-full items-center justify-between">
 		<a href={resolve('/')}>
+           {#if $darkMode}
+                <img class="w-16" src="/images/logo_darkmode.png" alt="logo" />
+            {:else}
 			<img class="w-16" src="/images/logo.png" alt="logo" />
+            {/if}
 		</a>
 		<button
 			class="cursor-pointer rounded-md px-3 py-2 text-lg text-nowrap
