@@ -47,8 +47,8 @@
 		</li>
 	</ul>
 	<button
-        type="button"
-        aria-label="Close menu"
+		type="button"
+		aria-label="Close menu"
 		class={c(
 			'fixed top-0 right-0 bottom-0 left-0 bg-black opacity-25 sm:hidden',
 			!menuOpen && 'hidden'
