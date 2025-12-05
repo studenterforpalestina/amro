@@ -10,30 +10,21 @@
 	--color-text-light: #fff9eb;
 	--color-red: #c52128;
 	--color-dark-red: #91161b;
-}
-
-.light {
-	--background: #fef6ec;
-	--primText: #fff9eb;
-
-	--color-red: #c52128;
-	--color-dark-red: #91161b;
+	--background: var(--color-bg-light);
+	--body-text: var(--color-text-dark);
 }
 
 .dark {
-	--background: #1f1a16;
-	--primText: #212121;
-
-	--card: #c52128;
-	--cardHover: #91161b;
+	--background: var(--color-bg-dark);
+	--body-text: var(--color-text-light);
 }
 
 body {
 	font-family: var(--font-sans);
-	background-color: var(--color-bg-light);
-	color: var(--color-text-dark);
 	margin: 0;
 	padding: 0;
+	background-color: var(--background);
+	color: var(--body-text);
 }
 
 a {
