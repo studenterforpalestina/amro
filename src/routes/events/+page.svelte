@@ -16,23 +16,23 @@
 		{$_('page.events.header')}
 	</h1>
 
-	<div class="max-w-3xl mx-auto space-y-6">
+	<div class="mx-auto max-w-3xl space-y-6">
 		{#if data.events.length > 0}
-		{#each data.events as event}
-		<EventCard
-			title={event.name}
-			date={event.start_time}
-			location={event.place ?? ""}
-			description={event.description ?? ""}
-			id={event.id}
-		/>
-		{/each}
+			{#each data.events as event}
+				<EventCard
+					title={event.name}
+					date={event.start_time}
+					location={event.place ?? ''}
+					description={event.description ?? ''}
+					id={event.id}
+				/>
+			{/each}
 		{:else}
-		<div class="bg-gray-50 border border-gray-200 rounded-lg p-8 text-center">
-			<p class="text-lg text-gray-500">
-				Ingen kommende arrangementer for øyeblikket. Sjekk igjen senere!
-			</p>
-		</div>
+			<div class="rounded-lg border border-gray-200 bg-gray-50 p-8 text-center">
+				<p class="text-lg text-gray-500">
+					Ingen kommende arrangementer for øyeblikket. Sjekk igjen senere!
+				</p>
+			</div>
 		{/if}
 	</div>
 </div>
