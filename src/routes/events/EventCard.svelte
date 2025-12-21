@@ -3,7 +3,6 @@
 	export let date: Date;
 	export let location: string;
 	export let description: string;
-	export let url: string;
 
 	function getTime(date: Date) {
 		return date.toLocaleTimeString(undefined, {
@@ -38,10 +37,8 @@
 			{/if}
 		</div>
 		<div></div>
-		<div>
-			{#if url}
+		<!-- <div>
 			<a class="text-red-600" src="/{url}">Facebook-event</a>
-			{/if}
-		</div>
+		</div> -->
 	</div>
 </div>
