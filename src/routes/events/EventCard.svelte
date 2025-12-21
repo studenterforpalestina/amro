@@ -20,23 +20,23 @@
 </script>
 
 <div>
-	<div class="p-4 grid grid-cols-[1fr_5fr] gap-4 items-start">
-		<div class="flex flex-col items-start space-y-1">
-			<p class="text-3xl font-bold text-red-600 ">{getDate(date)}</p>
-			<p class="text-sm">🕔 {getTime(date)}</p>
-			<p class="text-sm">📍 {location}</p>
+	<div class="p-4 grid grid-cols-[5px_6rem_6fr] gap-4 items-start">
+		<div class="col-span-2 w-20">
+			<p class="text-3xl font-bold text-red-600 col-span-2">{getDate(date)}</p>
 		</div>
-
-		<div class="flex flex-col space-y-2">
-			{#if title}
-			<p class="font-bold text-xl">{title}</p>
-			{/if}
-
-			{#if description}
-			<p>{description}</p>
-			{/if}
+		
+		<p class="font-bold text-2xl">{title}</p>
+		<div class ="flex flex-col items-start gap-1 pr-2 max-w-px">
+			<p class="text-sm">🕔</p>
+			<p class="text-sm">📍</p>
 		</div>
-		<div></div>
+		<div class ="flex flex-col items-start gap-1">
+			<p class="text-sm">{getTime(date)}</p>
+			<p class="text-sm whitespace-pre-line wrap-break-word">{location}</p>
+		</div>
+		{#if description}
+			<p class="whitespace-pre-line">{description}</p>
+			{/if}
 		<!-- <div>
 			<a class="text-red-600" src="/{url}">Facebook-event</a>
 		</div> -->
