@@ -22,7 +22,7 @@
 		<EventCard
 			title={event.name}
 			date={event.start_time}
-			location={event.place}
+			location={event.place ?? ""}
 			description={event.description ?? ""}
 			id={event.id}
 		/>
