@@ -21,7 +21,6 @@ export const load: PageServerLoad = async () => {
 		}
 
 		const data = await res.json();
-		console.log('Fetched event data:', data);
 		const events: Event[] = parseEvents(data);
 
 		// Sort events by start date, earliest first
