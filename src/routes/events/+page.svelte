@@ -24,6 +24,7 @@
 			date={event.start_time}
 			location={event.place?.name}
 			description={event.description ?? ""}
+			id={event.id}
 		/>
 		{/each}
 		{:else}
