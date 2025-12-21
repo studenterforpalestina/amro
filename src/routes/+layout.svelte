@@ -1,7 +1,7 @@
 <script lang="ts">
 	import './layout.css';
 	import favicon from '$lib/assets/favicon.svg';
-	import Footer from '$lib/footer/footer.svelte';
+	import Footer from '$lib/footer/Footer.svelte';
 	import Navbar from '$lib/navbar/Navbar.svelte';
 
 	const { children } = $props();
@@ -14,6 +14,6 @@
 </svelte:head>
 
 <Navbar/>
-<CustomFooter/>
+<Footer/>
 
 {@render children()}
