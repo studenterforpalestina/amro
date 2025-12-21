@@ -18,7 +18,7 @@
 
 	<div class="mx-auto max-w-3xl space-y-6">
 		{#if data.events.length > 0}
-			{#each data.events as event}
+			{#each data.events as event (event.id)}
 				<EventCard
 					title={event.name}
 					date={event.start_time}
