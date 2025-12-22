@@ -39,7 +39,7 @@
 				<a
 					href={resolve(item.url)}
 					class="flex rounded-md px-3 py-2 text-lg text-nowrap
-                            text-black transition-colors duration-200
+                            transition-colors duration-200
                             hover:bg-(--color-red)/10 hover:text-(--color-red) active:bg-(--color-red)/40"
 				>
 					{item.string}
