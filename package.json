@@ -14,7 +14,8 @@
 		"preview": "vite preview"
 	},
 	"dependencies": {
-		"@lucide/svelte": "^0.556.0"
+		"@lucide/svelte": "^0.556.0",
+		"@prisma/client": "^7.2.0"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^2.0.0",
