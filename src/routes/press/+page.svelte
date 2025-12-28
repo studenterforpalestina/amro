@@ -21,7 +21,7 @@
 	</p>
 	{#each data.posts as post (post.slug)}
 		<div class="mx-8 mb-8 max-w-2xl md:max-w-3xl">
-			<date class="text-red-600">{post.date}</date>
+			<time class="text-red-600">{post.date}</time>
 			<a
 				href={resolve(`/press/${post.slug}`)}
 				class="mb-6 block cursor-pointer rounded-md

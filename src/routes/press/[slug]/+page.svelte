@@ -13,7 +13,7 @@
 </a>
 
 <article class="mx-8 my-8 md:mx-auto md:max-w-3xl">
-	<date class="text-red-700">{data.date}</date>
+	<time class="text-red-700">{data.date}</time>
 	<h1 class="mb-4 text-2xl font-bold text-gray-900 md:text-3xl">{data.title}</h1>
 	<p class="text-md whitespace-pre-line text-gray-800 md:text-lg">{data.content}</p>
 </article>
