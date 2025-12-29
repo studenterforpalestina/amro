@@ -1,12 +1,5 @@
-import { prisma } from '$lib/server/prisma';
+import { sql } from 'bun';
 
 export const fetchBlogPosts = async () => {
-	return prisma.pressPost.findMany({
-		select: {
-			slug: true,
-			title: true,
-			date: true
-		},
-		orderBy: { date: 'desc' }
-	});
+	return await sql`SELECT * FROM "PressPost" ORDER BY date DESC`.then((results) => results);
 };

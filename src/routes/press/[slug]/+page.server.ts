@@ -1,13 +1,14 @@
-import { prisma } from '$lib/server/prisma';
+import { sql } from 'bun';
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async ({ params }) => {
 	const { slug } = params;
 
-	const pressRelease = await prisma.pressPost.findUnique({
-		where: { slug }
-	});
+	const pressRelease =
+		await sql`SELECT title, content, date FROM "PressPost" WHERE slug = ${slug}`.then(
+			(results) => results[0]
+		);
 
 	if (!pressRelease) {
 		throw error(404, 'Press release not found');
