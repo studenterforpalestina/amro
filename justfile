@@ -5,6 +5,14 @@ default:
 install:
     bun install
 
+# start docker services from compose
+docker:
+    docker compose up
+
+# creates migration for prisma db
+migrate:
+    bunx prisma migrate dev
+
 # start dev server
 dev:
     bun run dev
