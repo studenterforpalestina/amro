@@ -18,6 +18,14 @@
 		const month = String(date.getMonth() + 1).padStart(2, '0');
 		return `${day}.${month}`;
 	}
+
+	const urlRegex = /(https?:\/\/[^\s]+)/g;
+	export let descriptionParts: string[];
+	if (description) {
+		descriptionParts = description.split(urlRegex);
+	}
+
+
 </script>
 
 <div>
@@ -39,12 +47,28 @@
 		</div>
 		<div>
 			{#if description}
-				<p class="whitespace-pre-line">{description}</p>
+				<p class="whitespace-pre-line">
+				{#each descriptionParts as part}
+					{#if urlRegex.test(part)}
+						<a
+							class="text-red-600 duration-200 hover:opacity-50"
+							href="{part}"
+							target="_blank"
+							rel="noopener noreferrer"
+							>{part}</a
+						>
+					{:else}
+						<span>{part}</span>
+					{/if}
+				{/each}
+				</p>
 			{/if}
 			<a
 				class="font-bold text-red-600 duration-200 hover:opacity-50"
-				href="https://www.facebook.com/events/{id}">Facebook-event</a
-			>
+				href="https://www.facebook.com/events/{id}" 
+				target="_blank" rel="noopener noreferrer">
+				Facebook-event
+			</a>
 		</div>
 	</div>
 </div>
