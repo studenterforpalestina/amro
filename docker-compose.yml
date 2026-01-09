@@ -9,6 +9,23 @@ services:
       - '5432:5432'
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres -d amrodb']
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  migrate:
+    image: oven/bun:latest
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgres://postgres:postgres@db:5432/amrodb
+    volumes:
+      - ./:/app:z
+    working_dir: /app
+    command: ['bun', 'run', 'scripts/migrate.ts']
 
 volumes:
   postgres_data:

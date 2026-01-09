@@ -7,18 +7,14 @@
 		"build": "vite build",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"dev": "vite dev --port 3000",
+		"dev": "bun --bun vite dev --port 3000",
 		"format": "prettier --write .",
 		"lint": "prettier --check . && eslint .",
 		"prepare": "svelte-kit sync || echo ''",
 		"preview": "vite preview"
 	},
 	"dependencies": {
-		"@lucide/svelte": "^0.556.0",
-		"@prisma/adapter-libsql": "^7.2.0",
-		"@prisma/adapter-pg": "^7.2.0",
-		"@prisma/client": "^7.2.0",
-		"@prisma/extension-accelerate": "^3.0.1"
+		"@lucide/svelte": "^0.556.0"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^2.0.0",

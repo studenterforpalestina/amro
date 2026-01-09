@@ -9,9 +9,17 @@ install:
 docker:
     docker compose up
 
-# creates migration for prisma db
-migrate:
-    bunx prisma migrate dev
+# shuts down compose and wipes stored data
+down-wipe:
+    docker compose down -v
+
+# shuts down compose without wiping stored data
+down:
+    docker compose down
+
+# seeds postgres db with test data
+seed:
+    bun run scripts/seed.ts
 
 # start dev server
 dev:
