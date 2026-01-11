@@ -15,7 +15,7 @@
     ]
 </script>
 
-<footer class="absolute bottom-0 opacity-70">
+<footer class="w-full opacity-70">
     <ul class="flex items-center m-10 p-0 gap-4 list-none">
         {#each socialLinks as { href, Icon, label }}
             <li>

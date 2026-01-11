@@ -12,6 +12,6 @@
 </svelte:head>
 
 <Navbar />
+{@render children()}
 <Footer />
 
-{@render children()}
