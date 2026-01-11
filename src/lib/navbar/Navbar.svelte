@@ -7,7 +7,8 @@
 	import { darkMode } from '$lib/stores/darkmode';
 	let data = [
 		{ url: '/events' as const, string: 'Hva skjer?' },
-		{ url: '/groups' as const, string: 'Komiteer' }
+		{ url: '/groups' as const, string: 'Komiteer' },
+		{ url: '/press' as const, string: 'Presse' }
 	];
 	let menuOpen = $state(false);
 </script>
