@@ -13,7 +13,7 @@
 	let menuOpen = $state(false);
 </script>
 
-<nav class="flex items-center justify-between gap-2 px-10 py-6">
+<nav class="flex items-center justify-between gap-2 px-10 py-6 sticky top-0 left-0 w-full">
 	<div class="flex w-full items-center justify-between">
 		<a href={resolve('/')}>
 			{#if $darkMode}
@@ -64,7 +64,7 @@
 	></button>
 	<div
 		class={c(
-			'fixed top-0 left-full h-dvh bg-(--background) px-3 py-5 transition-transform sm:hidden',
+			'fixed top-0 z-50 left-full h-dvh bg-(--background) px-3 py-5 transition-transform sm:hidden',
 			menuOpen && 'transform-[translateX(-100%)]'
 		)}
 	>
