@@ -5,7 +5,7 @@
 
 <a
 	href={resolve('/press')}
-	class="mx-8 my-4 rounded-md px-3 py-2 text-lg text-nowrap 
+	class="mx-8 my-4 rounded-md px-3 py-2 text-lg text-nowrap
                             underline transition-colors duration-200
                             hover:bg-(--color-red)/10 hover:text-(--color-red) active:bg-(--color-red)/40"
 >
