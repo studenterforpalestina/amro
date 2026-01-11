@@ -9,9 +9,9 @@
 
 	import { darkMode } from '$lib/stores/darkmode';
 	let data = [
-		{ url: '/events' as const, string: $_('components.navbar.events') },
-		{ url: '/groups' as const, string: $_('components.navbar.groups') },
-		{ url: '/press' as const, string: 'Presse' }
+		'events' as const,
+		'groups' as const,
+		'press' as const
 	];
 
 	let menuOpen = $state(false);

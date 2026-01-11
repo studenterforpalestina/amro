@@ -1,30 +1,31 @@
 {
-	"page": {
-		"home": {
-			"title": "Homepage"
-		},
-		"events": {
-			"title": "Events",
-			"description": "Upcoming events",
-			"header": "Upcoming Events"
-		},
-		"groups": {
-			"title": "Groups",
-			"description": "Explore the groups in Students for Palestine Trondheim",
-			"header": "Groups"
-		}
-	},
-	"components": {
-		"navbar": {
-			"events": "What's happening?",
-			"groups": "Groups",
-			"join": "Become a member"
-		}
-	},
-	"common": {
-		"facebook": "Facebook",
-		"instagram": "Instagram",
-		"email": "Email",
-		"email_address": "Email {email}"
-	}
+  "page": {
+    "home": {
+      "title": "Homepage"
+    },
+    "events": {
+      "title": "Events",
+      "description": "Upcoming events",
+      "header": "Upcoming Events"
+    },
+    "groups": {
+      "title": "Groups",
+      "description": "Explore the groups in Students for Palestine Trondheim",
+      "header": "Groups"
+    }
+  },
+  "components": {
+    "navbar": {
+      "events": "What's happening?",
+      "groups": "Groups",
+	  "press": "Press",
+      "join": "Become a member"
+    }
+  },
+  "common": {
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "email": "Email",
+    "email_address": "Email {email}"
+  }
 }
