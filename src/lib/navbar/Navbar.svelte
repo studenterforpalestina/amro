@@ -8,11 +8,7 @@
 	import LangageSwapper from '$lib/components/langage_swapper.svelte';
 
 	import { darkMode } from '$lib/stores/darkmode';
-	let data = [
-		'events' as const,
-		'groups' as const,
-		'press' as const
-	];
+	let data = ['events' as const, 'groups' as const, 'press' as const];
 
 	let menuOpen = $state(false);
 </script>

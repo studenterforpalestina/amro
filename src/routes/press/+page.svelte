@@ -1,17 +1,17 @@
 <script>
 	import { resolve } from '$app/paths';
 	export let data;
+	import { _ } from 'svelte-i18n';
 </script>
 
 <svelte:head>
-	<title>Press</title>
-	<meta name="description" content="Read recent press releases from Students for Palestine" />
+	<title>{$_('page.press.title')}</title>
+	<meta name="description" content={$_('page.press.description')} />
 </svelte:head>
 <div class="mx-auto max-w-5xl p-4 font-sans md:p-8">
-	<h1 class="mb-8 text-3xl font-bold md:text-7xl">Pressemeldinger</h1>
-	<p class="mb-12 text-lg md:text-xl">
-		Her finner du alle våre pressemeldinger. <br />
-		Presse kan kontakte oss på
+	<h1 class="mb-8 text-3xl font-bold md:text-7xl">{$_(`page.press.header`)}</h1>
+	<p class="mb-12 text-lg whitespace-pre-line md:text-xl">
+		{$_(`page.press.lead`)}
 		<a
 			href="mailto:styret@studenterforpalestina.no"
 			class="200 text-(--color-red) transition hover:text-(--color-dark-red)"
