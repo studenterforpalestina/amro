@@ -2,10 +2,10 @@
 	import { _ } from 'svelte-i18n';
 	import { resolve } from '$app/paths';
 	import { ChevronLeft, Menu } from '@lucide/svelte';
-	import BecomeAMember from '$lib/components/become-a-member.svelte';
+	import BecomeAMember from '$lib/components/BecomeAMember.svelte';
 	import { c } from '../../utils/classes';
-	import ThemeToggle from './theme-toggle.svelte';
-	import LangageSwapper from '$lib/components/langage_swapper.svelte';
+	import ThemeToggle from './ThemeToggle.svelte';
+	import LangageSwapper from '$lib/components/LanguageSwitcher.svelte';
 
 	import { darkMode } from '$lib/stores/darkmode';
 	let data = ['events' as const, 'groups' as const, 'press' as const];
