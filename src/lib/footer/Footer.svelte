@@ -1,8 +1,8 @@
 <script>
 	import { _ } from 'svelte-i18n';
-	import FacebookIcon from './social_icons/Facebook.svelte';
-	import InstagramIcon from './social_icons/Instagram.svelte';
-	import MailIcon from './social_icons/Mail.svelte';
+	import FacebookIcon from './social-icons/Facebook.svelte';
+	import InstagramIcon from './social-icons/Instagram.svelte';
+	import MailIcon from './social-icons/Mail.svelte';
 
 	export let instagram = 'https://instagram.com/studenterforpalestina.trd';
 	export let facebook =
