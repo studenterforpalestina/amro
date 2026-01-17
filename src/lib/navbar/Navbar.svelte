@@ -5,7 +5,7 @@
 	import BecomeAMember from '$lib/components/BecomeAMember.svelte';
 	import { c } from '../../utils/classes';
 	import ThemeToggle from './ThemeToggle.svelte';
-	import LangageSwapper from '$lib/components/LanguageSwitcher.svelte';
+	import LanguageSwapper from '$lib/components/LanguageSwitcher.svelte';
 
 	import { darkMode } from '$lib/stores/darkMode';
 	let data = ['events' as const, 'groups' as const, 'press' as const];
@@ -36,7 +36,7 @@
 		<li>
 			<ThemeToggle />
 		</li>
-		<LangageSwapper />
+		<LanguageSwapper />
 		{#each data as item (item)}
 			<li>
 				<a
@@ -79,7 +79,7 @@
 				</button>
 				<ThemeToggle />
 			</li>
-			<LangageSwapper />
+			<LanguageSwapper />
 			{#each data as item (item)}
 				<li>
 					<a
