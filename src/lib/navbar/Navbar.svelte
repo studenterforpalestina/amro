@@ -53,13 +53,15 @@
 			<BecomeAMember />
 		</li>
 	</ul>
-	<div
+	<button
+		type="button"
+		aria-label="Close menu"
 		class={c(
-			'fixed top-0 right-0 bottom-0 left-0 bg-black opacity-25 sm:hidden',
+			'fixed top-0 right-0 bottom-0 left-0 cursor-default border-none bg-black opacity-25 sm:hidden',
 			!menuOpen && 'hidden'
 		)}
 		onclick={() => (menuOpen = false)}
-	/>
+	></button>
 	<div
 		class={c(
 			'fixed top-0 left-full h-dvh bg-(--background) px-3 py-5 transition-transform sm:hidden',
