@@ -11,10 +11,8 @@
 	<link rel="icon" href="/images/logo.png" />
 </svelte:head>
 
-<div class="max-w-5xl mx-auto p-4 md:p-8 font-sans">
-	<h1 class="text-3xl md:text-7xl font-bold mb-4 text-gray-900">
-		{$_('page.events.header')}
-	</h1>
+<div class="mx-auto max-w-5xl p-4 font-sans md:p-8">
+	<h1 class="mb-4 text-3xl font-bold text-gray-900 md:text-7xl md:mb-8">{$_('page.events.header')}</h1>
 
 	<div class="mx-auto max-w-3xl space-y-6">
 		{#if data.events.length > 0}
