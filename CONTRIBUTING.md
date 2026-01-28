@@ -50,6 +50,7 @@ bun dev
 To keep the repository clean and organized, please follow this workflow:
 
 I don't really care. 
+Try having GPG commits enabled
 
 ---
 
