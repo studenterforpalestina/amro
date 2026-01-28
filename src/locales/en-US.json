@@ -1,37 +1,43 @@
 {
-	"page": {
-		"home": {
-			"title": "Homepage"
-		},
-		"events": {
-			"title": "Events",
-			"description": "Upcoming events",
-			"header": "Upcoming Events"
-		},
-		"groups": {
-			"title": "Groups",
-			"description": "Explore the groups in Students for Palestine Trondheim",
-			"header": "Groups"
-		},
-		"press": {
-			"title": "Press",
-			"description": "Read recent press releases from Students for Palestine",
-			"header": "Press Releases",
-			"lead": "Here you can find all our press releases. \n The press can contact us at "
-		}
-	},
-	"components": {
-		"navbar": {
-			"events": "What's happening?",
-			"groups": "Groups",
-			"press": "Press",
-			"join": "Become a member"
-		}
-	},
-	"common": {
-		"facebook": "Facebook",
-		"instagram": "Instagram",
-		"email": "Email",
-		"email_address": "Email {email}"
-	}
+  "page": {
+    "home": {
+      "title": "Homepage"
+    },
+    "events": {
+      "title": "Events",
+      "description": "Upcoming events",
+      "header": "Upcoming Events"
+    },
+    "groups": {
+      "title": "Groups",
+      "description": "Explore the groups in Students for Palestine Trondheim",
+      "header": "Groups"
+    },
+    "press": {
+      "title": "Press",
+      "description": "Read recent press releases from Students for Palestine",
+      "header": "Press Releases",
+      "lead": "Here you can find all our press releases. \n The press can contact us at "
+    }
+  },
+  "components": {
+    "navbar": {
+      "events": "What's happening?",
+      "groups": "Groups",
+      "press": "Press",
+      "join": "Become a member"
+    },
+    "homepage": {
+      "for_palestina": "for Palestine",
+      "join": "Join Students",
+      "about_us": "About us",
+      "newsletter": "Sign up for our newsletter"
+    }
+  },
+  "common": {
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "email": "Email",
+    "email_address": "Email {email}"
+  }
 }
