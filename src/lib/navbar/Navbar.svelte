@@ -13,7 +13,7 @@
 	let menuOpen = $state(false);
 </script>
 
-<nav class="flex items-center justify-between gap-2 px-10 py-6 sticky top-0 left-0 w-full">
+<nav class="flex items-center justify-between gap-2 px-10 py-6 sticky top-0 left-0 w-full bg-(--background) z-50">
 	<div class="flex w-full items-center justify-between">
 		<a href={resolve('/')}>
 			{#if $darkMode}
