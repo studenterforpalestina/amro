@@ -1,5 +1,7 @@
 # Contributing to Amro
 
+Thank you for your interest in contributing to Amro!
+
 ## Prerequisites
 
 Before you start, ensure you have the following installed on your local machine:
