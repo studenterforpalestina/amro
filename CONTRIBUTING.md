@@ -2,6 +2,9 @@
 
 Thank you for your interest in contributing to Amro!
 
+Please note that the project adheres to a [Code of Conduct](CODE_OF_CONDUCT.md).
+By participating, you are expected to uphold this code.
+
 ## Prerequisites
 
 Before you start, ensure you have the following installed on your local machine:
