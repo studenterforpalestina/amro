@@ -6,8 +6,8 @@ Thank you for your interest in contributing to Amro!
 
 Before you start, ensure you have the following installed on your local machine:
 
-* **[Bun](https://bun.sh/):** Our JavaScript runtime and package manager.
-* **[Docker Compose](https://docs.docker.com/compose/):** Used to orchestrate the database environment.
+- **[Bun](https://bun.sh/):** Our JavaScript runtime and package manager.
+- **[Docker Compose](https://docs.docker.com/compose/):** Used to orchestrate the database environment.
 
 ---
 
@@ -19,8 +19,8 @@ Copy the example environment file to create your local configuration:
 cp .env.example .env
 ```
 
-*Note: Open `.env` and adjust any credentials if your local Docker setup
-requires specific ports, however the default should be OK*
+_Note: Open `.env` and adjust any credentials if your local Docker setup
+requires specific ports, however the default should be OK_
 
 ### 2. Spin up the Database
 
@@ -51,7 +51,7 @@ bun dev
 
 To keep the repository clean and organized, please follow this workflow:
 
-I don't really care. 
+I don't really care.
 Try having GPG commits enabled
 
 ---
