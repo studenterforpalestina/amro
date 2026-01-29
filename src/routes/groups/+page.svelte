@@ -19,5 +19,5 @@
 	<p class="text-xl p-4"> Stand Committee </p>
 	<p class="p-4"> The stand committee are responsible for stands, posters, and recruitment on campus.</p>
 	<p class="text-xl p-4"> Writing Group </p>
-	<p class="p-4"> The writing group are tasked with writing texts, opinion pieces and other works of similar nature  </p>
+	<p class="p-4"> The writing group are tasked with writing texts, opinion pieces and other works of similar nature.  </p>
 </div>
