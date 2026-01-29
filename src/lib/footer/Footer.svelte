@@ -20,8 +20,8 @@
 	];
 </script>
 
-<footer class="absolute bottom-0 opacity-70">
-	<ul class="m-10 flex list-none items-center gap-4 p-0">
+<footer class="bottom-0 opacity-70">
+	<ul class="mx-10 flex list-none items-center gap-4 p-0">
 		{#each socialLinks as { href, Icon, label } (href)}
 			<li>
 				<button
