@@ -9,7 +9,7 @@
 </script>
 
 <select
-	class="cursor-pointer rounded-md border-0 px-3 py-2 text-lg
+	class="cursor-pointer rounded-md border-0 pl-3 py-2 text-lg
   transition-colors duration-200 hover:bg-red-100 hover:text-red-600 active:bg-red-200"
 	bind:value={$locale}
 	on:change={(e) => {
