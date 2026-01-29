@@ -8,4 +8,5 @@
 </svelte:head>
 <div>
 	<h1>{$_('page.groups.header')}</h1>
+	<p> whateverrrr </p>
 </div>
