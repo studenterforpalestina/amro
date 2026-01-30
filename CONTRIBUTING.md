@@ -3,64 +3,57 @@
 Thank you for your interest in contributing to Amro!
 
 Please note that the project adheres to a [Code of Conduct](CODE_OF_CONDUCT.md).
-By participating, you are expected to uphold this code.
+By participating, you're expected to uphold this code.
 
-## Prerequisites
+## Getting Started
 
-Before you start, ensure you have the following installed on your local machine:
+You'll need the following tools installed locally:
 
 - [Bun](https://bun.sh/) —
   JavaScript runtime and package manager
 - [Docker Compose](https://docs.docker.com/compose/) —
-  used to orchestrate the database environment
-- [Just](https://just.systems/) —
+  for running the database
+- [Just](https://just.systems/man/en/) —
   command runner for common development tasks
 
-### 1. Environment Setup
-
-Copy the example environment file to create your local configuration:
+Once you have these installed, setting up the project is straightforward:
 
 ```bash
+# Create your local environment configuration
 cp .env.example .env
-```
 
-_Note: Open `.env` and adjust any credentials if your local Docker setup
-requires specific ports, however the default should be OK_
-
-### 2. Spin up the Database
-
-We use Docker to manage our PostgreSQL instance. Run the following command to start the database and automatically run migrations:
-
-```bash
+# Start the database and run migrations
 just docker
-```
 
-### 3. Seed the Database
-
-To make development easier, we provide a script to populate your database with dummy data:
-
-```bash
+# Populate the database with sample data
 just seed
-```
 
-### 4. Install Dependencies & Run
-
-```bash
+# Install dependencies and start the development server
 just install
 just dev
 ```
 
----
+The default configuration in `.env.example` should work out of the box. If your
+local Docker setup uses different ports, adjust them in your `.env` file.
 
-## 🏗 Development Workflow
+## Making Changes
 
-To keep the repository clean and organized, please follow this workflow:
+Before submitting a pull request, please ensure your changes are well-tested and
+follow the existing code style. If you're fixing a bug, consider adding a test
+that would've caught it.
 
-I don't really care.
-Try having GPG commits enabled
+We recommend signing your commits with a GPG key, as this helps verify the
+authenticity of contributions. See [Codeberg's guide on adding a GPG key to your account](
+https://docs.codeberg.org/security/gpg-key/) if you haven't set this up before.
 
----
+## Getting Help
 
-## 🤝 Need Help?
+If you run into issues or have questions about the codebase, there are a few 
+ways to get help:
 
-If you get stuck or have questions about the codebase, feel free to open an issue or reach out to the maintainers. We're happy to help!
+- Open an issue — For bugs, feature requests, or general questions
+- Zulip — Organization members can reach out in the [#it-komité channel](
+  https://studenterforpalestina.zulipchat.com/#narrow/channel/557303-it-komit.C3.A9)
+  for discussion
+
+We're happy to help you get started or work through any problems you encounter.
