@@ -41,6 +41,7 @@
 	},
 	"dependencies": {
 		"@lucide/svelte": "^0.556.0",
+		"oidc-client-ts": "^3.4.1",
 		"svelte-i18n": "^4.0.1"
 	}
 }
