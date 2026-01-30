@@ -28,7 +28,7 @@ services:
     command: ['bun', 'run', 'scripts/migrate.ts']
 
   # --- Authentik Stack ---
-  postgresql:
+  authentik_db:
     image: postgres:18-alpine
     restart: unless-stopped
     env_file:
@@ -53,12 +53,12 @@ services:
     restart: unless-stopped
     command: server
     depends_on:
-      postgresql:
+      authentik_db:
         condition: service_healthy
     env_file:
       - .env
     environment:
-      AUTHENTIK_POSTGRESQL__HOST: postgresql
+      AUTHENTIK_POSTGRESQL__HOST: authentik_db
       AUTHENTIK_POSTGRESQL__NAME: ${PG_DB:-authentik}
       AUTHENTIK_POSTGRESQL__USER: ${PG_USER:-authentik}
       AUTHENTIK_POSTGRESQL__PASSWORD: ${PG_PASS}
@@ -76,12 +76,12 @@ services:
     command: worker
     user: root
     depends_on:
-      postgresql:
+      authentik_db:
         condition: service_healthy
     env_file:
       - .env
     environment:
-      AUTHENTIK_POSTGRESQL__HOST: postgresql
+      AUTHENTIK_POSTGRESQL__HOST: authentik_db
       AUTHENTIK_POSTGRESQL__NAME: ${PG_DB:-authentik}
       AUTHENTIK_POSTGRESQL__PASSWORD: ${PG_PASS}
       AUTHENTIK_POSTGRESQL__USER: ${PG_USER:-authentik}
@@ -91,6 +91,7 @@ services:
       - ./data:/data
       - ./certs:/certs
       - ./custom-templates:/templates
+      - ./blueprints:/blueprints/custom
 
 volumes:
   postgres_data:
