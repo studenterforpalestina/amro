@@ -43,17 +43,28 @@ follow the existing code style. If you're fixing a bug, consider adding a test
 that would've caught it.
 
 We recommend signing your commits with a GPG key, as this helps verify the
-authenticity of contributions. See [Codeberg's guide on adding a GPG key to your account](
-https://docs.codeberg.org/security/gpg-key/) if you haven't set this up before.
+authenticity of contributions. See [Codeberg's guide on adding a GPG key to your account](https://docs.codeberg.org/security/gpg-key/) if you haven't set this up before.
+
+## Reviewing Changes
+
+All pull requests require approval from two maintainers before they can be
+merged. Maintainers may request changes or decline contributions that don't
+align with the project's direction.
+
+Maintainers may push minor fixes like formatting or style adjustments directly
+to your branch. If you prefer to handle all changes yourself, please mention
+this in your pull request description.
+
+Pull requests are rebased onto main before merging, so please keep your commits
+well-organized.
 
 ## Getting Help
 
-If you run into issues or have questions about the codebase, there are a few 
+If you run into issues or have questions about the codebase, there are a few
 ways to get help:
 
 - Open an issue — For bugs, feature requests, or general questions
-- Zulip — Organization members can reach out in the [#it-komité channel](
-  https://studenterforpalestina.zulipchat.com/#narrow/channel/557303-it-komit.C3.A9)
+- Zulip — Organization members can reach out in the [#it-komité channel](https://studenterforpalestina.zulipchat.com/#narrow/channel/557303-it-komit.C3.A9)
   for discussion
 
 We're happy to help you get started or work through any problems you encounter.
