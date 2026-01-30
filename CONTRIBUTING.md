@@ -9,10 +9,12 @@ By participating, you are expected to uphold this code.
 
 Before you start, ensure you have the following installed on your local machine:
 
-- **[Bun](https://bun.sh/):** Our JavaScript runtime and package manager.
-- **[Docker Compose](https://docs.docker.com/compose/):** Used to orchestrate the database environment.
-
----
+- [Bun](https://bun.sh/) —
+  JavaScript runtime and package manager
+- [Docker Compose](https://docs.docker.com/compose/) —
+  used to orchestrate the database environment
+- [Just](https://just.systems/) —
+  command runner for common development tasks
 
 ### 1. Environment Setup
 
@@ -30,7 +32,7 @@ requires specific ports, however the default should be OK_
 We use Docker to manage our PostgreSQL instance. Run the following command to start the database and automatically run migrations:
 
 ```bash
-docker-compose up -d
+just docker
 ```
 
 ### 3. Seed the Database
@@ -38,14 +40,14 @@ docker-compose up -d
 To make development easier, we provide a script to populate your database with dummy data:
 
 ```bash
-bun scripts/seed.ts
+just seed
 ```
 
 ### 4. Install Dependencies & Run
 
 ```bash
-bun install
-bun dev
+just install
+just dev
 ```
 
 ---
