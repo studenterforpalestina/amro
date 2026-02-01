@@ -30,20 +30,21 @@
 		</button>
 	</div>
 
-	<form
-		method="POST"
-		action="?/editMember"
-		use:enhance={() =>
-			async ({ update }) => {
-				await update();
-				close();
-			}}
-		class="space-y-4"
-	>
+<form
+    method="POST"
+    action="?/editMember"
+    use:enhance={() => {
+        return async ({ update }) => {
+            await update({ reset: false }); 
+            close();
+        };
+    }}
+    class="space-y-4"
+>
 		<input type="hidden" name="id" value={member.id} />
 
 		<div class="flex flex-col gap-4">
-			{#each [['Full Name', 'name', 'text'], ['Email', 'email', 'email'], ['Phone Number', 'phoneNumber', 'tel'], ['Birth Year', 'birthYear', 'number'], ['Graduation Year', 'graduationYear', 'number']] as [label, key, type]}
+			{#each [['Full Name', 'name', 'text'], ['Email', 'email', 'email'], ['Phone Number', 'phoneNumber', 'tel'], ['Graduation Year', 'graduationYear', 'number'], ['Birth Year', 'birthYear', 'number'] ] as [label, key, type]}
 				<label class="flex w-full flex-col gap-1">
 					<span class="ml-1 text-sm font-semibold opacity-70">{label}</span>
 					<input
