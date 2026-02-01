@@ -1,7 +1,12 @@
+import { json, error } from '@sveltejs/kit';
 import { fetchBlogPosts } from '$lib/server/fetchPress';
+
 export const GET = async () => {
-	const posts = await fetchBlogPosts();
-	return new Response(JSON.stringify(posts), {
-		headers: { 'Content-Type': 'application/json' }
-	});
+	try {
+		const posts = await fetchBlogPosts();
+		return json(posts);
+	} catch (e) {
+		console.error('Failed to fetch press posts', e);
+		throw error(500, 'Failed to fetch press posts');
+	}
 };
