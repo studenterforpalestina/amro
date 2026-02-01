@@ -1,8 +1,10 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
 	import { X } from '@lucide/svelte';
+	import type { Member } from '$lib/types';
 
-	export let member: any;
+	export let member: Member;
+
 	let dialog: HTMLDialogElement;
 
 	export function show() {
@@ -30,27 +32,27 @@
 		</button>
 	</div>
 
-<form
-    method="POST"
-    action="?/editMember"
-    use:enhance={() => {
-        return async ({ update }) => {
-            await update({ reset: false }); 
-            close();
-        };
-    }}
-    class="space-y-4"
->
+	<form
+		method="POST"
+		action="?/editMember"
+		use:enhance={() => {
+			return async ({ update }) => {
+				await update({ reset: false });
+				close();
+			};
+		}}
+		class="space-y-4"
+	>
 		<input type="hidden" name="id" value={member.id} />
 
 		<div class="flex flex-col gap-4">
-			{#each [['Full Name', 'name', 'text'], ['Email', 'email', 'email'], ['Phone Number', 'phoneNumber', 'tel'], ['Graduation Year', 'graduationYear', 'number'], ['Birth Year', 'birthYear', 'number'] ] as [label, key, type]}
+			{#each [['Full Name', 'name', 'text'], ['Email', 'email', 'email'], ['Phone Number', 'phoneNumber', 'tel'], ['Graduation Year', 'graduationYear', 'number'], ['Birth Year', 'birthYear', 'number']] as [label, key, type] (key)}
 				<label class="flex w-full flex-col gap-1">
 					<span class="ml-1 text-sm font-semibold opacity-70">{label}</span>
 					<input
 						name={key}
 						{type}
-						value={member[key]}
+						value={member[key as keyof Member]}
 						step={type === 'number' ? '1' : null}
 						required={key === 'name'}
 						class="w-full rounded-xl border border-gray-500/20 bg-transparent p-2.5 transition-all outline-none focus:border-(--color-red) focus:ring-2 focus:ring-red-500/20"

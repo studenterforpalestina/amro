@@ -1,15 +1,16 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
+	import { resolve } from '$app/paths';
 	import { userManager } from '$lib/auth/UserManager';
 
 	onMount(async () => {
 		try {
 			await userManager.signinRedirectCallback();
-			goto('/admin');
+			goto(resolve('/admin'));
 		} catch (error) {
 			console.error('Authentication callback failed:', error);
-			goto('/');
+			goto(resolve('/'));
 		}
 	});
 </script>
