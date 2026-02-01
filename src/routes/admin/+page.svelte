@@ -3,7 +3,7 @@
 	import { _ } from 'svelte-i18n';
 	import { getUser, login } from '$lib/auth/UserManager';
 	import type { User } from 'oidc-client-ts';
-	import MemberRow from '$lib/components/MemberRow.svelte';
+	import MemberRow from '$lib/adminPage/MemberRow.svelte';
 
 	export let data;
 
