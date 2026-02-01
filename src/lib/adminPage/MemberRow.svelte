@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
 	import { Trash2, SquarePen } from '@lucide/svelte';
-	import EditMemberModal from '$lib/components/EditMemberModal.svelte';
+	import EditMemberModal from '$lib/adminPage/EditMemberModal.svelte';
 	import type { Member } from '$lib/types';
 
 	export let member: Member;
