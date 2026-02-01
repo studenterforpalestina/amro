@@ -1,11 +1,10 @@
 <script lang="ts">
 	export let member: any;
-	import { Trash2 } from '@lucide/svelte';
-	import { SquarePen } from '@lucide/svelte';
+	import { enhance } from '$app/forms';
+	import { Trash2, SquarePen } from '@lucide/svelte';
+	import EditMemberModal from '$lib/components/EditMemberModal.svelte';
 
-  function softDeleteButton() {
-    console.log("LMAO")
-	}
+	let editModal: EditMemberModal;
 </script>
 
 <li class="grid grid-cols-6 items-center p-2 text-center">
@@ -16,14 +15,18 @@
 	<span>{member.birthYear}</span>
 
 	<div class="gap-auto mx-auto flex">
-		<button on:click={softDeleteButton} 
-      class="p-2 mx-2 rounded-xl hover:bg-(--color-red)/40">
-				<SquarePen/>
+		<button on:click={() => editModal.show()} class="mx-2 rounded-xl p-2 hover:bg-(--color-red)/40">
+			<SquarePen />
 		</button>
-		<button on:click={softDeleteButton} 
-      class="p-2 mx-2 rounded-xl hover:bg-(--color-red)/40">
-				<Trash2/>
-		</button>
+
+		<form method="POST" action="?/softDelete" use:enhance>
+			<input type="hidden" name="id" value={member.id} />
+
+			<button type="submit" class="mx-2 rounded-xl p-2 text-(--color-red) hover:bg-red-500/40">
+				<Trash2 />
+			</button>
+		</form>
 	</div>
 </li>
 
+<EditMemberModal bind:this={editModal} {member} />
