@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { onMount } from 'svelte';
 	import { _ } from 'svelte-i18n';
 	import { getUser, login } from '$lib/auth/UserManager';
@@ -6,7 +6,7 @@
 
 	export let data;
 
-	let user = null;
+	let user: any = null;
 	let loading = true;
 
 	onMount(async () => {

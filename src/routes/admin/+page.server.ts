@@ -1,4 +1,3 @@
-// src/routes/admin/+page.server.ts
 import { sql } from 'bun';
 import type { PageServerLoad } from './$types';
 
