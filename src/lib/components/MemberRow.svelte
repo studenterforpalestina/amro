@@ -1,9 +1,10 @@
 <script lang="ts">
-	export let member: any;
 	import { enhance } from '$app/forms';
 	import { Trash2, SquarePen } from '@lucide/svelte';
 	import EditMemberModal from '$lib/components/EditMemberModal.svelte';
+	import type { Member } from '$lib/types';
 
+	export let member: Member;
 	let editModal: EditMemberModal;
 </script>
 
