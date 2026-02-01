@@ -2,11 +2,12 @@
 	import { onMount } from 'svelte';
 	import { _ } from 'svelte-i18n';
 	import { getUser, login } from '$lib/auth/UserManager';
+	import type { User } from 'oidc-client-ts';
 	import MemberRow from '$lib/components/MemberRow.svelte';
 
 	export let data;
 
-	let user: any = null;
+	let user: User | null = null;
 	let loading = true;
 
 	onMount(async () => {
@@ -52,7 +53,7 @@
 
 		{#if data.members && data.members.length > 0}
 			<ul class=" h-120 divide-y divide-gray-400 overflow-auto">
-				{#each data.members as member}
+				{#each data.members as member (member.id)}
 					<MemberRow {member} />
 				{/each}
 			</ul>
