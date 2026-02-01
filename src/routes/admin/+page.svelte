@@ -51,7 +51,7 @@
 		</div>
 
 		{#if data.members && data.members.length > 0}
-			<ul class="divide-y divide-gray-400">
+			<ul class=" h-120 overflow-auto divide-y divide-gray-400">
 				{#each data.members as member}
 					<MemberRow {member} />
 				{/each}
