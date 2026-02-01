@@ -16,6 +16,20 @@ await sql.begin(async (tx) => {
   `;
 
 	await tx`
+    CREATE TABLE IF NOT EXISTS "Member" (
+      id SERIAL PRIMARY KEY,
+      name TEXT NOT NULL,
+      "phoneNumber" TEXT,
+      "birthYear" INTEGER,
+      "graduationYear" INTEGER,
+      "isActive" BOOLEAN DEFAULT true NOT NULL, 
+      "email" TEXT UNIQUE, 
+      "createdAt" TIMESTAMPTZ DEFAULT now() NOT NULL,
+      "updatedAt" TIMESTAMPTZ DEFAULT now() NOT NULL
+    );
+  `;
+
+	await tx`
     CREATE TABLE IF NOT EXISTS "EventsCache" (
     key TEXT PRIMARY KEY,
     payload JSONB NOT NULL,
@@ -33,10 +47,17 @@ await sql.begin(async (tx) => {
   `;
 
 	await tx`DROP TRIGGER IF EXISTS update_presspost_timestamp ON "PressPost";`;
-
 	await tx`
     CREATE TRIGGER update_presspost_timestamp
     BEFORE UPDATE ON "PressPost"
+    FOR EACH ROW
+    EXECUTE FUNCTION update_timestamp();
+  `;
+
+	await tx`DROP TRIGGER IF EXISTS update_member_timestamp ON "Member";`;
+	await tx`
+    CREATE TRIGGER update_member_timestamp
+    BEFORE UPDATE ON "Member"
     FOR EACH ROW
     EXECUTE FUNCTION update_timestamp();
   `;
