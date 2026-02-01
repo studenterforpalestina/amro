@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 	import { _ } from 'svelte-i18n';
 	import { getUser, login } from '$lib/auth/UserManager';
-  import MemberRow from '$lib/components/MemberRow.svelte';
+	import MemberRow from '$lib/components/MemberRow.svelte';
 
 	export let data;
 
@@ -39,19 +39,21 @@
 			<p class="ml-auto">Logged in as: {user?.profile.preferred_username}</p>
 		</div>
 
-<div class="grid text-white grid-cols-6 bg-(--color-red) rounded-lg font-bold items-center my-5 p-2 text-center">
-    <h3 class="text-xl">Name</h3>
-    <h3 class="text-xl">Email</h3>
-    <h3 class="text-xl">Number</h3>
-    <h3 class="text-xl">Graduation</h3>
-    <h3 class="text-xl">Birthyear</h3>
-    <h3 class="text-xl">Action</h3>
-</div>
+		<div
+			class="my-5 grid grid-cols-6 items-center rounded-lg bg-(--color-red) p-2 text-center font-bold text-white"
+		>
+			<h3 class="text-xl">Name</h3>
+			<h3 class="text-xl">Email</h3>
+			<h3 class="text-xl">Number</h3>
+			<h3 class="text-xl">Graduation</h3>
+			<h3 class="text-xl">Birthyear</h3>
+			<h3 class="text-xl">Action</h3>
+		</div>
 
 		{#if data.members && data.members.length > 0}
 			<ul class="divide-y divide-gray-400">
 				{#each data.members as member}
-          <MemberRow {member} />
+					<MemberRow {member} />
 				{/each}
 			</ul>
 		{:else}
