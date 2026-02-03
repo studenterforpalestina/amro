@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { _ } from 'svelte-i18n';
-	import StandardButton, { type StandardButtonProps } from './standard-button.svelte';
+	import StandardButton, { type StandardButtonProps } from './StandardButton.svelte';
 	const props: StandardButtonProps = $props();
 </script>
 

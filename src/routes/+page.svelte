@@ -1,7 +1,8 @@
 <script>
 	import { _ } from 'svelte-i18n';
-	import BecomeAMember from '$lib/components/become-a-member.svelte';
-	import Section from '$lib/components/section.svelte';
+	import BecomeAMember from '$lib/components/BecomeAMember.svelte';
+	import Section from '$lib/components/Section.svelte';
+	import { resolve } from '$app/paths';
 </script>
 
 <Section class="flex flex-col items-start">
@@ -31,7 +32,7 @@
 	<h2 class="text-center text-5xl font-bold">{$_('components.navbar.events')}</h2>
 
 	<a
-		href="/events"
+		href={resolve('/events')}
 		class="rounded-xl bg-(--color-text-light) px-10 py-4 text-xl font-bold
         text-nowrap text-(--color-green) transition-colors
           duration-200 hover:bg-(--color-text-light)/80 active:bg-green-900"

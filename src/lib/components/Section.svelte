@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { ExtendHTML, HTML } from '../../utils/types';
+	import type { ExtendHTML } from '../../utils/types';
 
 	export type SectionProps = ExtendHTML<
 		'div',
