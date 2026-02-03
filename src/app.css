@@ -11,6 +11,7 @@
 	--color-text-light: #fff9eb;
 	--color-red: #c52128;
 	--color-dark-red: #91161b;
+	--color-green: #074835;
 	--background: var(--color-bg-light);
 	--body-text: var(--color-text-dark);
 }
@@ -33,7 +34,7 @@ a {
 	text-decoration: none;
 }
 @layer base {
-	input[type="checkbox"] {
+	input[type='checkbox'] {
 		cursor: pointer;
 		background-color: transparent;
 		position: relative;
@@ -44,8 +45,8 @@ a {
 		min-width: 1.5rem;
 		min-height: 1.5rem;
 	}
-	input[type="checkbox"]:checked::after {
-		content: "";
+	input[type='checkbox']:checked::after {
+		content: '';
 		position: absolute;
 		width: 1.2rem;
 		height: 1.8rem;

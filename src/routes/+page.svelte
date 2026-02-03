@@ -1,39 +1,58 @@
 <script>
-    import { _ } from "svelte-i18n";
-    import BecomeAMember from "$lib/components/become-a-member.svelte";
-    import Section from "$lib/components/section.svelte";
+	import { _ } from 'svelte-i18n';
+	import BecomeAMember from '$lib/components/become-a-member.svelte';
+	import Section from '$lib/components/section.svelte';
 </script>
 
 <Section class="flex flex-col items-start">
-  <div class="flex flex-col items-start">
-    <h1 class="text-8xl font-bold">{$_('components.homepage.join')}</h1>
-    <div class="flex gap-16 flex-col xl:flex-row">
-      <div class="flex flex-col gap-8">
-        <h1 class="text-8xl font-bold md:text-nowrap">{$_('components.homepage.for_palestina')}</h1>
-        <BecomeAMember size="large" class="ml-4" />
-      </div>
-      <div class="w-full self-end mt-8">
-        <img src="/images/demo.png" alt="Demonstrasjon på Trondheims Torg" class="w-full h-auto grow-0 basis-7/12">
-      </div>
-    </div>
-  </div>
+	<div class="flex flex-col items-start">
+		<h1 class="text-6xl font-bold md:text-8xl">{$_('components.homepage.join')}</h1>
+		<div class="flex flex-col gap-16 xl:flex-row">
+			<div class="flex flex-col gap-8">
+				<h1 class="text-6xl font-bold md:text-8xl md:text-nowrap">
+					{$_('components.homepage.for_palestina')}
+				</h1>
+				<BecomeAMember size="large" class="ml-4" />
+			</div>
+			<div class="mt-8 w-full self-end">
+				<img
+					src="/images/demo.webp"
+					alt="Demonstrasjon på Trondheims Torg"
+					class="h-auto w-full grow-0 basis-7/12"
+					width="2744"
+					height="1822"
+					decoding="async"
+				/>
+			</div>
+		</div>
+	</div>
 </Section>
-<Section red class="flex flex-col md:flex-row justify-between items-center gap-4 ">
-  <h2 class="text-5xl font-bold text-center">{$_('components.navbar.events')}</h2>
-  
-    <button class="px-8 py-2 text-(--color-red) rounded-lg bg-(--color-text-light)
-        hover:bg-red-800 active:bg-red-900 text-nowrap
-          transition-colors duration-200 font-bold">{$_('components.homepage.see_events')}</button>
+<Section green class="flex flex-col items-center justify-between gap-4 lg:flex-row">
+	<h2 class="text-center text-5xl font-bold">{$_('components.navbar.events')}</h2>
 
+	<a
+		href="/events"
+		class="rounded-xl bg-(--color-text-light) px-10 py-4 font-bold text-xl
+        text-nowrap text-(--color-green) transition-colors
+          duration-200 hover:bg-(--color-text-light)/80 active:bg-green-900"
+		>{$_('components.homepage.see_events')}</a
+	>
 </Section>
-<Section class="flex flex-row gap-12">
-  <div class="flex flex-col gap-6 grow-0 lg:basis-5/12">
-    <h2 class="text-5xl font-bold max-w-xl">{$_('components.homepage.about_us')}</h2>
-    <p>Studenter for Palestina er en studentorganisasjon dedikert til å øke bevisstheten om det palestinske folkets kamp for frihet, rettferdighet ogselvbestemmelse.</p>
-    <p>Vi består av studenter fra ulike studieretninger og bakgrunner som er forent i vår solidaritet med Palestina. Vi arrangerer foredrag, filmvisniger og andre arrangementer for å spre informasjon.</p>
-  </div>
-  <img src="/images/søtnosene.png" alt="Søtnoser" class="hidden w-full lg:block grow-0 basis-7/12">
+<Section class="flex flex-col gap-12 lg:flex-row">
+	<div class="flex grow-0 flex-col gap-6 lg:basis-5/12">
+		<h2 class="max-w-xl text-5xl font-bold">{$_('components.homepage.about_us')}</h2>
+		<p>
+			{$_('components.homepage.about_us_paragraph_1')}
+		</p>
+		<p>
+			{$_('components.homepage.about_us_paragraph_2')}
+		</p>
+	</div>
+	<img
+		src="/images/hovedbygget_demo.jpg"
+		alt="Studenter for Palestina på demonstrasjon"
+		class="w-full grow-0 lg:basis-7/12"
+		decoding="async"
+		loading="lazy"
+	/>
 </Section>
-<img src="/images/søtnosene.png" alt="Søtnoser" class="block w-full lg:hidden">
-
-
