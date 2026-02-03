@@ -18,7 +18,7 @@
 		green && 'bg-(--color-green)/80 text-(--color-text-light)'
 	]}
 >
-	<div class={['w-[80svw] max-w-[1200px]', clas]}>
+	<div class={['w-[80svw] max-w-300', clas]}>
 		{@render children?.()}
 	</div>
 </section>

@@ -7,7 +7,7 @@
 <StandardButton
 	{...props}
 	asLink
-	href="https://docs.google.com/forms/d/e/1FAIpQLScR_Y7bGd3znYgbsZC6ECHexUsgjfZkyZYIaTvPtE7nsLSukg/viewform"
+	href="https://forms.gle/AkFEN1X5mfPvBF6i8"
 >
 	{$_('components.navbar.join')}
 </StandardButton>
