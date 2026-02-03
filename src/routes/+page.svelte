@@ -32,7 +32,7 @@
 
 	<a
 		href="/events"
-		class="rounded-xl bg-(--color-text-light) px-10 py-4 font-bold text-xl
+		class="rounded-xl bg-(--color-text-light) px-10 py-4 text-xl font-bold
         text-nowrap text-(--color-green) transition-colors
           duration-200 hover:bg-(--color-text-light)/80 active:bg-green-900"
 		>{$_('components.homepage.see_events')}</a

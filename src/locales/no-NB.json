@@ -1,46 +1,46 @@
 {
-  "page": {
-    "home": {
-      "title": "Hjemmeside"
-    },
-    "events": {
-      "title": "Arrangementer",
-      "description": "Kommende arrangementer",
-      "header": "Kommende arrangementer"
-    },
-    "groups": {
-      "title": "Komiteer",
-      "description": "Utforsk de forskjellige komiteene i Studenter for Palestina Trondheim",
-      "header": "Komiteer"
-    },
-    "press": {
-      "title": "Presse",
-      "description": "Les nylige pressemeldinger fra Studenter for Palestina",
-      "header": "Pressemeldinger",
-      "lead": "Her finner du alle våre pressemeldinger. \n Presse kan kontakte oss på"
-    }
-  },
-  "components": {
-    "navbar": {
-      "events": "Hva skjer?",
-      "groups": "Komiteer",
-      "press": "Presse",
-      "join": "Bli medlem"
-    },
-    "homepage": {
-      "for_palestina": "for Palestina",
-      "join": "Bli med i Studenter",
-      "about_us": "Om oss",
-      "newsletter": "Meld deg på nyhetsbrevet",
-      "see_events": "Se kommende arrangementer",
-      "about_us_paragraph_1": "Studenter for Palestina er en studentorganisasjon dedikert til å øke bevisstheten om det palestinske folkets kamp for frihet, rettferdighet og selvbestemmelse.",
-      "about_us_paragraph_2": "Vi består av studenter fra ulike studieretninger og bakgrunner som er forent i vår solidaritet med Palestina. Vi arrangerer foredrag, filmvisniger og andre arrangementer for å spre informasjon."
-    }
-  },
-  "common": {
-    "facebook": "Facebook",
-    "instagram": "Instagram",
-    "email": "E-post",
-    "email_address": "E-post {email}"
-  }
+	"page": {
+		"home": {
+			"title": "Hjemmeside"
+		},
+		"events": {
+			"title": "Arrangementer",
+			"description": "Kommende arrangementer",
+			"header": "Kommende arrangementer"
+		},
+		"groups": {
+			"title": "Komiteer",
+			"description": "Utforsk de forskjellige komiteene i Studenter for Palestina Trondheim",
+			"header": "Komiteer"
+		},
+		"press": {
+			"title": "Presse",
+			"description": "Les nylige pressemeldinger fra Studenter for Palestina",
+			"header": "Pressemeldinger",
+			"lead": "Her finner du alle våre pressemeldinger. \n Presse kan kontakte oss på"
+		}
+	},
+	"components": {
+		"navbar": {
+			"events": "Hva skjer?",
+			"groups": "Komiteer",
+			"press": "Presse",
+			"join": "Bli medlem"
+		},
+		"homepage": {
+			"for_palestina": "for Palestina",
+			"join": "Bli med i Studenter",
+			"about_us": "Om oss",
+			"newsletter": "Meld deg på nyhetsbrevet",
+			"see_events": "Se kommende arrangementer",
+			"about_us_paragraph_1": "Studenter for Palestina er en studentorganisasjon dedikert til å øke bevisstheten om det palestinske folkets kamp for frihet, rettferdighet og selvbestemmelse.",
+			"about_us_paragraph_2": "Vi består av studenter fra ulike studieretninger og bakgrunner som er forent i vår solidaritet med Palestina. Vi arrangerer foredrag, filmvisniger og andre arrangementer for å spre informasjon."
+		}
+	},
+	"common": {
+		"facebook": "Facebook",
+		"instagram": "Instagram",
+		"email": "E-post",
+		"email_address": "E-post {email}"
+	}
 }
