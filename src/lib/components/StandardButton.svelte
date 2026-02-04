@@ -33,19 +33,22 @@
 		...props
 	}: StandardButtonProps = $props();
 
-	const useA = asLink || ('href' in props && !!props?.href);
-	if (!asLink && 'href' in props && props?.href)
-		console.warn(
-			"Don't use the StandardButton with the 'href' attribute without setting asLink to true"
-		);
+	const useA = $derived(asLink || ('href' in props && !!props?.href));
+	$effect(() => {
+		if (!asLink && 'href' in props && props?.href) {
+			console.warn(
+				"Don't use the StandardButton with the 'href' attribute without setting asLink to true"
+			);
+		}
+	});
 
-	const classes = [
+	const classes = $derived([
 		`px-4 py-2 text-(--color-text-light) rounded-lg bg-(--color-red)
-        hover:bg-red-800 active:bg-red-900 text-nowrap
-        transition-colors duration-200 cursor-pointer w-fit`,
+	    hover:bg-red-800 active:bg-red-900 text-nowrap
+	    transition-colors duration-200 cursor-pointer w-fit`,
 		sizes[size],
 		clas
-	];
+	]);
 </script>
 
 {#if useA}

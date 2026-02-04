@@ -4,10 +4,6 @@
 	const props: StandardButtonProps = $props();
 </script>
 
-<StandardButton
-	{...props}
-	asLink
-	href="https://forms.gle/AkFEN1X5mfPvBF6i8"
->
+<StandardButton {...props} asLink href="https://forms.gle/AkFEN1X5mfPvBF6i8">
 	{$_('components.navbar.join')}
 </StandardButton>
