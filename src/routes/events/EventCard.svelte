@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import { onMount } from 'svelte';
 
 	export let title: string;
@@ -51,13 +52,12 @@
 	});
 
 	$: descriptionSegments = description ? description.split(urlRegex) : [];
-	$: descriptionElement && (isOverflowing = checkOverflow(descriptionElement));
-
+	$: if (descriptionElement) {
+		isOverflowing = checkOverflow(descriptionElement);
+	}
 </script>
 
-<div
-	class="grid grid-cols-[12px_4rem_6fr] items-start gap-2 md:grid-cols-[12px_7rem_6fr] md:gap-4"
->
+<div class="grid grid-cols-[12px_4rem_6fr] items-start gap-2 md:grid-cols-[12px_7rem_6fr] md:gap-4">
 	<div class="col-span-2 w-20 self-center">
 		<p class="col-span-2 text-2xl font-bold text-red-600 md:text-4xl">{getDate(date)}</p>
 	</div>
@@ -68,26 +68,25 @@
 		<p class="text-xs md:text-sm">📍</p>
 	</div>
 	<div class="flex flex-col items-start gap-1">
-		<p class="text-xs md:text-sm font-bold">{getTime(date)}</p>
-		<p class="text-xs md:text-sm font-bold wrap-anywhere md:wrap-break-word">{location}</p>
+		<p class="text-xs font-bold md:text-sm">{getTime(date)}</p>
+		<p class="text-xs font-bold wrap-anywhere md:text-sm md:wrap-break-word">{location}</p>
 	</div>
 	<div>
 		{#if description}
 			<p
-				id={"desc-" + id}
+				id={'desc-' + id}
 				bind:this={descriptionElement}
-				class="whitespace-pre-line max-h-48 overflow-hidden text-ellipsis text-sm transition-all duration-300 ease-in-out md:text-base"
+				class="max-h-48 overflow-hidden text-sm text-ellipsis whitespace-pre-line transition-all duration-300 ease-in-out md:text-base"
 				class:overflow-auto={isExpanded}
 				class:max-h-256={isExpanded}
 			>
-				{#each descriptionSegments as segment}
+				{#each descriptionSegments as segment (segment)}
 					{#if isUrl(segment)}
 						<a
 							class="text-red-600 duration-200 hover:opacity-50"
-							href={segment}
+							href={resolve(segment)}
 							target="_blank"
-							rel="noopener noreferrer"
-						>{segment}</a
+							rel="noopener noreferrer">{segment}</a
 						>
 					{:else}
 						<span>{segment}</span>
@@ -101,7 +100,7 @@
 			{/if}
 			<button
 				type="button"
-				class="block text-md font-semibold text-red-600 duration-200 hover:opacity-50"
+				class="text-md block font-semibold text-red-600 duration-200 hover:opacity-50"
 				aria-expanded={isExpanded}
 				on:click={toggleExpanded}
 			>
@@ -109,8 +108,8 @@
 			</button>
 		{/if}
 		<a
-			class="text-lg font-bold text-red-600 duration-200 hover:opacity-50 mt-2 block"
-			href={getFacebookEventUrl(id)}
+			class="mt-2 block text-lg font-bold text-red-600 duration-200 hover:opacity-50"
+			href={resolve(getFacebookEventUrl(id))}
 			target="_blank"
 			rel="noopener noreferrer"
 		>
@@ -118,4 +117,3 @@
 		</a>
 	</div>
 </div>
-
