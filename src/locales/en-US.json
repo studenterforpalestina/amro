@@ -11,7 +11,31 @@
     "groups": {
       "title": "Groups",
       "description": "Explore the groups in Students for Palestine Trondheim",
-      "header": "Groups"
+      "header": "Groups",
+      "action": {
+        "title": "Action Committee",
+        "description": "The action committee organize and coordinate actions and demonstrations."
+      },
+      "design": {
+        "title": "Design and Social Media",
+        "description": "Design and Social Media are responsible for all our graphic designs and all posts on our different platforms."
+      },
+      "events": {
+        "title": "Events Committee",
+        "description": "The events committee are responsible for planning events, both social and cultural."
+      },
+      "it": {
+        "title": "IT Committee",
+        "description": "The IT committee work with managing and developing the digital solutions of the organization, like the page you're reading right now. ;)"
+      },
+      "stand": {
+        "title": "Stand Committee",
+        "description": "The stand committee are responsible for stands, posters, and recruitment on campus."
+      },
+      "writing": {
+        "title": "Writing Group",
+        "description": "The writing group are tasked with writing texts, opinion pieces, and other works of similar nature."
+      }
     },
     "press": {
       "title": "Press",

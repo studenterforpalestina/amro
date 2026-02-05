@@ -1,4 +1,5 @@
 <script>
+	import { page } from '$app/state';
 	import { _ } from 'svelte-i18n';
 </script>
 
@@ -8,30 +9,30 @@
 </svelte:head>
 <div>
 	<h1 class="text-5xl font-bold p-8">{$_('page.groups.header')}</h1>
-	<div class="flex gap-4 m-8">
+	<div class="flex gap-4 m-24">
 		<div>
-	<p class="text-xl p-4 bg-(--color-red) rounded-xl text-white"> Action Committee </p>
-	<p class="p-4"> The action committee organize and coordinate actions and demonstrations. </p>
+	<p class="text-xl p-4 bg-lime-800 rounded-xl text-white"> {$_('page.groups.action.title')}</p>
+	<p class="p-4"> {$_('page.groups.action.description')} </p>
 	</div>
 	<div>
-	<p class="text-xl p-4 bg-(--color-red) rounded-xl text-white"> Design and Social Media </p>
-	<p class="p-4"> Design and Social Media are responsible for all our graphic designs and all posts on our different platforms LINK TO DIFF PLATFORMS HERE ?? </p>
+	<p class="text-xl p-4 bg-lime-800 rounded-xl text-white"> {$_("page.groups.design.title")}</p>
+	<p class="p-4"> {$_("page.groups.design.description")} </p>
 	</div>
 	<div>
-	<p class="text-xl p-4 bg-(--color-red) rounded-xl text-white"> Events Committee  </p>
-	<p class="p-4"> The events committee are responsible for planning events, both social and cultural. </p>
+	<p class="text-xl p-4 bg-lime-800 rounded-xl text-white"> {$_("page.groups.events.title")}  </p>
+	<p class="p-4"> {$_("page.groups.events.description")} </p>
 	</div>
 	<div>
-	<p class="text-xl p-4 bg-(--color-red) rounded-xl text-white"> IT Committee </p>
-	<p class="p-4"> The IT committee work with managing and developing the digital solutions of the organization. </p>
+	<p class="text-xl p-4 bg-lime-800 rounded-xl text-white"> {$_("page.groups.it.title")} </p>
+	<p class="p-4"> {$_("page.groups.it.description")} </p>
 	</div>
 	<div>
-	<p class="text-xl p-4 bg-(--color-red) rounded-xl text-white"> Stand Committee </p>
-	<p class="p-4"> The stand committee are responsible for stands, posters, and recruitment on campus.</p>
+	<p class="text-xl p-4 bg-lime-800 rounded-xl text-white"> {$_("page.groups.stand.title")} </p>
+	<p class="p-4"> {$_("page.groups.stand.description")}</p>
 	</div>
 	<div>
-	<p class="text-xl p-4 bg-(--color-red) rounded-xl text-white"> Writing Group </p>
-	<p class="p-4"> The writing group are tasked with writing texts, opinion pieces and other works of similar nature.  </p>
+	<p class="text-xl p-4 bg-lime-800 rounded-xl text-white"> {$_("page.groups.writing.title")} </p>
+	<p class="p-4"> {$_("page.groups.writing.description")} </p>
 	</div>
 </div>
 </div>

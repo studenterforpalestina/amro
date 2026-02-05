@@ -11,7 +11,31 @@
 		"groups": {
 			"title": "Komiteer",
 			"description": "Utforsk de forskjellige komiteene i Studenter for Palestina Trondheim",
-			"header": "Komiteer"
+			"header": "Komiteer",
+			"action": {
+				"title": "Aksjonskomiteen",
+				"description": "Aksjonskomiteen organiserer og koordinerer aksjoner og demonstrasjoner."
+			},
+			"design": {
+				"title": "Design og SoMe",
+				"description": "Design og sosiale media komiteen er ansvarlige for alt fra flygeblad til innlegg på div. platformer og annet innen grafisk design."
+			},
+			"events": {
+				"title": "Eventkomiteen",
+				"description": "Eventkomiteen har som ansvar å planlegge arrangementer, både sosiale og kulturelle."
+			},
+			"it": {
+				"title": "IT-komiteen",
+				"description": "IT-komiteen utvikler og forbedrer de ulike digitale løsningene til organisasjonen. Som f.eks. siden du leser nå. ;)"
+			},
+			"stand": {
+				"title": "Standkomiteen",
+				"description": "Standkomiteen er ansvarlige for å planlegge og sette opp stands, henge opp plakater og rekruttering av nye medlemmer på de forskjellige campusene."
+			},
+			"writing": {
+				"title": "Skrivegruppa",
+				"description": "Skrivegruppa er satt til å skrive tekster, meningsartikler o.l."
+			}
 		},
 		"press": {
 			"title": "Presse",
