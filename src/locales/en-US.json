@@ -6,7 +6,8 @@
 		"events": {
 			"title": "Events",
 			"description": "Upcoming events",
-			"header": "Upcoming Events"
+			"header": "Upcoming Events",
+			"no_events": "No upcoming events, check back later!"
 		},
 		"groups": {
 			"title": "Groups",
@@ -41,6 +42,8 @@
 		"facebook": "Facebook",
 		"instagram": "Instagram",
 		"email": "Email",
-		"email_address": "Email {email}"
+		"email_address": "Email {email}",
+		"show_less": "Show less",
+		"show_more": "Show more"
 	}
 }

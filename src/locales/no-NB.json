@@ -6,7 +6,8 @@
 		"events": {
 			"title": "Arrangementer",
 			"description": "Kommende arrangementer",
-			"header": "Kommende arrangementer"
+			"header": "Kommende arrangementer",
+			"no_events": "Ingen kommende arrangementer for øyeblikket. Sjekk igjen senere!"
 		},
 		"groups": {
 			"title": "Komiteer",
@@ -41,6 +42,8 @@
 		"facebook": "Facebook",
 		"instagram": "Instagram",
 		"email": "E-post",
-		"email_address": "E-post {email}"
+		"email_address": "E-post {email}",
+		"show_less": "Vis mindre",
+		"show_more": "Vis mer"
 	}
 }

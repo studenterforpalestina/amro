@@ -1,7 +1,6 @@
 <script lang="ts">
-	import { resolve } from '$app/paths';
 	import { onMount } from 'svelte';
-
+	import {_} from 'svelte-i18n';
 	export let title: string;
 	export let date: Date;
 	export let location: string;
@@ -59,7 +58,7 @@
 
 <div class="grid grid-cols-[12px_4rem_6fr] items-start gap-2 md:grid-cols-[12px_7rem_6fr] md:gap-4">
 	<div class="col-span-2 w-20 self-center">
-		<p class="col-span-2 text-2xl font-bold text-red-600 md:text-4xl">{getDate(date)}</p>
+		<p class="col-span-2 text-2xl font-bold text-(--color-red) md:text-4xl">{getDate(date)}</p>
 	</div>
 
 	<p class="text-xl font-bold md:text-2xl">{title}</p>
@@ -82,9 +81,10 @@
 			>
 				{#each descriptionSegments as segment (segment)}
 					{#if isUrl(segment)}
+						<!-- svelte-ignore svelte/no-navigation-without-resolve -->
 						<a
-							class="text-red-600 duration-200 hover:opacity-50"
-							href={resolve(segment)}
+							class="text-(--color-red) duration-200 hover:opacity-50"
+							href={segment}
 							target="_blank"
 							rel="noopener noreferrer">{segment}</a
 						>
@@ -100,16 +100,17 @@
 			{/if}
 			<button
 				type="button"
-				class="text-md block font-semibold text-red-600 duration-200 hover:opacity-50"
+				class="text-md block font-semibold text-(--color-red) duration-200 hover:opacity-50"
 				aria-expanded={isExpanded}
 				on:click={toggleExpanded}
 			>
-				{isExpanded ? 'Vis mindre' : 'Vis mer'}
+				{isExpanded ? $_(`common.show_less`) : $_('common.show_more')}
 			</button>
 		{/if}
+		<!-- svelte-ignore svelte/no-navigation-without-resolve -->
 		<a
-			class="mt-2 block text-lg font-bold text-red-600 duration-200 hover:opacity-50"
-			href={resolve(getFacebookEventUrl(id))}
+			class="mt-2 block text-lg font-bold text-(--color-red) duration-200 hover:opacity-50"
+			href={getFacebookEventUrl(id)}
 			target="_blank"
 			rel="noopener noreferrer"
 		>
