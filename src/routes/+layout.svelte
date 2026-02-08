@@ -11,7 +11,7 @@
 </script>
 
 <svelte:head>
-	<title>{$_('page.home.title')}</title>
+	<title>Studenter for Palestina Trondheim</title>
 	<link rel="icon" href="/images/logo.png" />
 </svelte:head>
 
