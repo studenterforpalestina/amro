@@ -1,7 +1,14 @@
 <script>
 	import { resolve } from '$app/paths';
+	import { _ } from 'svelte-i18n';
 	export let data;
 </script>
+
+<svelte:head>
+	<title>{$_('page.press.title')}</title>
+	<meta name="description" content={$_('page.press.description')} />
+	<link rel="icon" href="/images/logo.png" />
+</svelte:head>
 
 <a
 	href={resolve('/press')}

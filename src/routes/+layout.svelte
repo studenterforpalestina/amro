@@ -1,10 +1,9 @@
 <script lang="ts">
 	import './layout.css';
-	import favicon from '$lib/assets/favicon.svg';
 	import Footer from '$lib/footer/Footer.svelte';
 	import Navbar from '$lib/navbar/Navbar.svelte';
 	import '../i18n';
-	import { isLoading } from 'svelte-i18n';
+	import { isLoading, _ } from 'svelte-i18n';
 
 	const { children } = $props();
 
@@ -12,7 +11,8 @@
 </script>
 
 <svelte:head>
-	<link rel="icon" href={favicon} />
+	<title>{$_('page.home.title')}</title>
+	<link rel="icon" href="/images/logo.png" />
 </svelte:head>
 
 {#if $isLoading}

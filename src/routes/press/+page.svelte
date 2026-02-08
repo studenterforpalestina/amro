@@ -7,6 +7,7 @@
 <svelte:head>
 	<title>{$_('page.press.title')}</title>
 	<meta name="description" content={$_('page.press.description')} />
+	<link rel="icon" href="/images/logo.png" />
 </svelte:head>
 <div class="mx-auto max-w-5xl p-4 font-sans md:p-8">
 	<h1 class="mb-8 text-3xl font-bold md:text-7xl">{$_(`page.press.header`)}</h1>
