@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import {_} from 'svelte-i18n';
+	import { _ } from 'svelte-i18n';
 	export let title: string;
 	export let date: Date;
 	export let location: string;
@@ -81,13 +81,13 @@
 			>
 				{#each descriptionSegments as segment (segment)}
 					{#if isUrl(segment)}
-						<!-- svelte-ignore svelte/no-navigation-without-resolve -->
-						<a
-							class="text-(--color-red) duration-200 hover:opacity-50"
-							href={segment}
-							target="_blank"
-							rel="noopener noreferrer">{segment}</a
+						<button
+							type="button"
+							class="font-inherit inline cursor-pointer border-none bg-transparent p-0 align-baseline text-(--color-red) duration-200 hover:opacity-50"
+							on:click|stopPropagation={() => window.open(segment, '_blank', 'noopener,noreferrer')}
 						>
+							{segment}
+						</button>
 					{:else}
 						<span>{segment}</span>
 					{/if}
@@ -107,14 +107,13 @@
 				{isExpanded ? $_(`common.show_less`) : $_('common.show_more')}
 			</button>
 		{/if}
-		<!-- svelte-ignore svelte/no-navigation-without-resolve -->
-		<a
-			class="mt-2 block text-lg font-bold text-(--color-red) duration-200 hover:opacity-50"
-			href={getFacebookEventUrl(id)}
-			target="_blank"
-			rel="noopener noreferrer"
+
+		<button
+			type="button"
+			class="mt-2 block cursor-pointer border-none bg-transparent p-0 text-left text-lg font-bold text-(--color-red) duration-200 hover:opacity-50"
+			on:click={() => window.open(getFacebookEventUrl(id), '_blank', 'noopener,noreferrer')}
 		>
 			Facebook-event
-		</a>
+		</button>
 	</div>
 </div>
