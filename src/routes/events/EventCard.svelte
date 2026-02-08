@@ -75,7 +75,7 @@
 			<p
 				id={'desc-' + id}
 				bind:this={descriptionElement}
-				class="max-h-48 overflow-hidden text-sm text-ellipsis whitespace-pre-line transition-all duration-300 ease-in-out md:text-base"
+				class="max-h-30 overflow-hidden text-sm text-ellipsis whitespace-pre-line transition-all duration-300 ease-in-out md:text-base"
 				class:overflow-auto={isExpanded}
 				class:max-h-256={isExpanded}
 			>
@@ -95,9 +95,6 @@
 			</p>
 		{/if}
 		{#if isOverflowing}
-			{#if !isExpanded}
-				<span class="text-sm text-gray-500">...</span>
-			{/if}
 			<button
 				type="button"
 				class="text-md block font-semibold text-(--color-red) duration-200 hover:opacity-50"
