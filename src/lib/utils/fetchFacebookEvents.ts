@@ -33,9 +33,11 @@ export async function fetchFacebookEvents() {
 		// Sort events by start date, earliest first
 		events.sort((a, b) => a.start_time.getTime() - b.start_time.getTime());
 
-		// Filter out events that have already passed
+		// Filter out events that have passed, allowing an hour grace period
 		const upcomingEvents = events.filter(
-			(event) => event.start_time >= now || (event.end_time && event.end_time >= now)
+			(event) =>
+				event.start_time >= new Date(now.getTime() + 60 * 60 * 1000) ||
+				(event.end_time && event.end_time >= now)
 		);
 
 		return {

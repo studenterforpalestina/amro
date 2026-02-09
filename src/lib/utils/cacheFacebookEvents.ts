@@ -2,19 +2,19 @@ import { sql } from 'bun';
 import { fetchFacebookEvents } from './fetchFacebookEvents';
 import { type Event } from '$lib/utils/eventParser';
 const CACHE_KEY = 'events';
-const TTL_MS = 60 * 60 * 1000; // 60 minutes
+const CACHE_LIFETIME_MS = 60 * 60 * 1000; // 60 minutes
 
 export async function getFacebookEvents() {
 	const now = Date.now();
-	const cached = await sql`
+	const [cached] = await sql`
         SELECT payload, "fetchedAt"
         FROM "EventsCache"
         WHERE key = ${CACHE_KEY}
-    `.then((res) => res[0]);
+    `;
 
 	if (cached) {
 		const fetchedAt = new Date(cached.fetchedAt).getTime();
-		if (now - fetchedAt < TTL_MS) {
+		if (now - fetchedAt < CACHE_LIFETIME_MS) {
 			return {
 				events: cached.payload.events.map((event: Event) => ({
 					...event,
