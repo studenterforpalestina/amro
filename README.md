@@ -14,3 +14,7 @@ that has come to symbolize Palestinian resistance.
 We welcome contributions to Amro! Please review our [`CONTRIBUTING.md`](CONTRIBUTING.md)
 before getting started. It covers environment setup, the change and review
 process, and where to find help for a smooth contribution experience.
+
+## License
+
+Amro is licensed under the [GNU Affero General Public License v3.0](LICENSE).
