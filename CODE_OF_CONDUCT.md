@@ -43,7 +43,7 @@ Conduct.
    unnecessary personal attention after any clear request to stop.
 2. **Character attacks.** Making insulting, demeaning, or pejorative comments
    directed at a community member or group of people.
-3. **Stereotyping or discrimination.** Characterizing anyone’s personality or
+3. **Stereotyping or discrimination.** Characterizing anyone's personality or
    behavior on the basis of immutable identities or traits.
 4. **Sexualization.** Behaving in a way that would generally be considered
    inappropriately intimate in the context or purpose of the community.
@@ -156,4 +156,4 @@ licensed under CC BY-SA 4.0. To view a copy of this license, visit [https://crea
 For answers to common questions about Contributor Covenant, see the FAQ at [https://www.contributor-covenant.org/faq](https://www.contributor-covenant.org/faq).
 Translations are provided at [https://www.contributor-covenant.org/translations](https://www.contributor-covenant.org/translations).
 Additional enforcement and community guideline resources can be found at [https://www.contributor-covenant.org/resources](https://www.contributor-covenant.org/resources).
-The enforcement ladder was inspired by the work of [Mozilla’s code of conduct team](https://github.com/mozilla/inclusion).
+The enforcement ladder was inspired by the work of [Mozilla's code of conduct team](https://github.com/mozilla/inclusion).
