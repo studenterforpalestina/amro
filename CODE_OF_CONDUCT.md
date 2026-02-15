@@ -72,7 +72,10 @@ and this Code of Conduct reinforces encouraged behaviors and norms that can help
 avoid conflicts and minimize harm.
 
 When an incident does occur, it is important to report it promptly. To report a
-possible violation, **[NOTE: describe your means of reporting here.]**
+possible violation, please email the Students for Palestina Trondheim board at
+[styret@studenterforpalestina.no](mailto:styret@studenterforpalestina.no). 
+Members who are registered on our Zulip may also reach out via direct message
+to any board member there.
 
 Community Moderators take reports of violations seriously and will make every
 effort to respond in a timely manner. They will investigate all reports of code
