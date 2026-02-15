@@ -1,4 +1,4 @@
-# Contributor Covenant 3.0 Code of Conduct
+# Contributor Covenant Code of Conduct
 
 ## Our Pledge
 
@@ -73,7 +73,7 @@ avoid conflicts and minimize harm.
 
 When an incident does occur, it is important to report it promptly. To report a
 possible violation, please email the Students for Palestina Trondheim board at
-[styret@studenterforpalestina.no](mailto:styret@studenterforpalestina.no). 
+[styret@studenterforpalestina.no](mailto:styret@studenterforpalestina.no).
 Members who are registered on our Zulip may also reach out via direct message
 to any board member there.
 
@@ -98,28 +98,28 @@ rungs on the ladder may be skipped.
    1. Event: A violation involving a single incident or series of incidents.
    2. Consequence: A private, written warning from the Community Moderators.
    3. Repair: Examples of repair include a private written apology,
-      acknowledgement of responsibility, and seeking clarification on 
+      acknowledgement of responsibility, and seeking clarification on
       expectations.
 2. Temporarily Limited Activities
    1. Event: A repeated incidence of a violation that previously resulted in a
       warning, or the first incidence of a more serious violation.
    2. Consequence: A private, written warning with a time-limited cooldown
-      period designed to underscore the seriousness of the situation and give 
-      the community members involved time to process the incident. The cooldown 
+      period designed to underscore the seriousness of the situation and give
+      the community members involved time to process the incident. The cooldown
       period may be limited to particular communication channels or interactions
       with particular community members.
    3. Repair: Examples of repair may include making an apology, using the
-      cooldown period to reflect on actions and impact, and being thoughtful 
+      cooldown period to reflect on actions and impact, and being thoughtful
       about re-entering community spaces after the period is over.
 3. Temporary Suspension
    1. Event: A pattern of repeated violation which the Community Moderators have
       tried to address with warnings, or a single serious violation.
    2. Consequence: A private written warning with conditions for return from
-      suspension. In general, temporary suspensions give the person being 
-      suspended time to reflect upon their behavior and possible corrective 
+      suspension. In general, temporary suspensions give the person being
+      suspended time to reflect upon their behavior and possible corrective
       actions.
    3. Repair: Examples of repair include respecting the spirit of the
-      suspension, meeting the specified conditions for return, and being 
+      suspension, meeting the specified conditions for return, and being
       thoughtful about how to reintegrate with the community when the suspension
       is lifted.
 4. Permanent Ban
@@ -128,8 +128,8 @@ rungs on the ladder may be skipped.
       Community Moderators determine there is no way to keep the community safe
       with this person as a member.
    2. Consequence: Access to all community spaces, tools, and communication
-      channels is removed. In general, permanent bans should be rarely used, 
-      should have strong reasoning behind them, and should only be resorted to 
+      channels is removed. In general, permanent bans should be rarely used,
+      should have strong reasoning behind them, and should only be resorted to
       if working through other remedies has failed to change the behavior.
    3. Repair: There is no possible repair in cases of this severity.
 
