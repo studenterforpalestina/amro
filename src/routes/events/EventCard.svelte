@@ -80,13 +80,16 @@
 			>
 				{#each descriptionSegments as segment (segment)}
 					{#if isUrl(segment)}
-						<button
-							type="button"
-							class="font-inherit inline cursor-pointer border-none bg-transparent p-0 align-baseline text-(--color-red) duration-200 hover:opacity-50"
-							on:click|stopPropagation={() => window.open(segment, '_blank', 'noopener,noreferrer')}
+						<!-- eslint-disable svelte/no-navigation-without-resolve -->
+						<a
+							class="text-(--color-red) duration-200 hover:opacity-50"
+							href={segment}
+							rel="external noopener noreferrer"
+							target="_blank"
 						>
 							{segment}
-						</button>
+						</a>
+						<!-- eslint-enable svelte/no-navigation-without-resolve -->
 					{:else}
 						<span>{segment}</span>
 					{/if}
@@ -103,13 +106,17 @@
 				{isExpanded ? $_(`common.show_less`) : $_('common.show_more')}
 			</button>
 		{/if}
+		<!-- eslint-disable svelte/no-navigation-without-resolve -->
 
-		<button
-			type="button"
-			class="mt-2 block cursor-pointer border-none bg-transparent p-0 text-left text-lg font-bold text-(--color-red) duration-200 hover:opacity-50"
-			on:click={() => window.open(getFacebookEventUrl(event.id), '_blank', 'noopener,noreferrer')}
+		<a
+			href={getFacebookEventUrl(event.id)}
+			class="mt-2 block text-lg font-bold text-(--color-red) duration-200 hover:opacity-50"
+			rel="external noopener noreferrer"
+			target="_blank"
 		>
 			Facebook-event
-		</button>
+		</a>
+		<!-- eslint-enable svelte/no-navigation-without-resolve -->
 	</div>
 </div>
+|
