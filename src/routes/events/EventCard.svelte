@@ -119,4 +119,3 @@
 		<!-- eslint-enable svelte/no-navigation-without-resolve -->
 	</div>
 </div>
-|
