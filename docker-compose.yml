@@ -66,9 +66,6 @@ services:
     ports:
       - ${COMPOSE_PORT_HTTP:-9000}:9000
       - ${COMPOSE_PORT_HTTPS:-9443}:9443
-    volumes:
-      - ./data:/data
-      - ./custom-templates:/templates
 
   worker:
     image: ${AUTHENTIK_IMAGE:-ghcr.io/goauthentik/server}:${AUTHENTIK_TAG:-2025.12.1}
@@ -88,10 +85,7 @@ services:
       AUTHENTIK_SECRET_KEY: ${AUTHENTIK_SECRET_KEY:?secret key required}
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - ./data:/data
       - ./certs:/certs
-      - ./custom-templates:/templates
-      - ./blueprints:/blueprints/custom
 
 volumes:
   postgres_data:
