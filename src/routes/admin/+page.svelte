@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { _ } from 'svelte-i18n';
-	import { getUser, login } from '$lib/auth/UserManager';
+	import { getUser, logout, login } from '$lib/auth/UserManager';
 	import type { User } from 'oidc-client-ts';
 	import MemberRow from '$lib/adminPage/MemberRow.svelte';
 
@@ -37,7 +37,18 @@
 	<div class="p-5">
 		<div class="flex flex-row items-baseline">
 			<h1 class="text-5xl">ADMIN PAGE</h1>
-			<p class="ml-auto">Logged in as: {user?.profile.preferred_username}</p>
+
+			<div class="ml-auto flex">
+				<p class="mr-3 py-3">Logged in as: {user?.profile.preferred_username}</p>
+
+				<button
+					on:click={logout}
+					class="rounded-lg bg-(--color-red) px-4 py-3 text-lg text-nowrap text-white
+		transition-colors duration-200 hover:bg-red-800 active:bg-red-900"
+				>
+					Logg out
+				</button>
+			</div>
 		</div>
 
 		<div
