@@ -6,7 +6,8 @@
 		"events": {
 			"title": "Events",
 			"description": "Upcoming events",
-			"header": "Upcoming Events"
+			"header": "Upcoming Events",
+			"no_events": "No upcoming events, check back later!"
 		},
 		"groups": {
 			"title": "Groups",
@@ -26,12 +27,23 @@
 			"groups": "Groups",
 			"press": "Press",
 			"join": "Become a member"
+		},
+		"homepage": {
+			"for_palestina": "for Palestine",
+			"join": "Join Students",
+			"about_us": "About us",
+			"newsletter": "Sign up for our newsletter",
+			"see_events": "See upcoming events",
+			"about_us_paragraph_1": "Students for Palestine is a student organization dedicated to raising awareness about the Palestinian people's struggle for freedom, justice, and self-determination.",
+			"about_us_paragraph_2": "We consist of students from various studies and backgrounds united in our solidarity with Palestine. We organize lectures, film screenings, and other events to spread information."
 		}
 	},
 	"common": {
 		"facebook": "Facebook",
 		"instagram": "Instagram",
 		"email": "Email",
-		"email_address": "Email {email}"
+		"email_address": "Email {email}",
+		"show_less": "Show less",
+		"show_more": "Show more"
 	}
 }

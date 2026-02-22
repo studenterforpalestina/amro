@@ -11,6 +11,7 @@
 	--color-text-light: #fff9eb;
 	--color-red: #c52128;
 	--color-dark-red: #91161b;
+	--color-green: #074825;
 	--background: var(--color-bg-light);
 	--body-text: var(--color-text-dark);
 }

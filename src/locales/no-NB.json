@@ -6,7 +6,8 @@
 		"events": {
 			"title": "Arrangementer",
 			"description": "Kommende arrangementer",
-			"header": "Kommende arrangementer"
+			"header": "Kommende arrangementer",
+			"no_events": "Ingen kommende arrangementer for øyeblikket. Sjekk igjen senere!"
 		},
 		"groups": {
 			"title": "Komiteer",
@@ -26,12 +27,23 @@
 			"groups": "Komiteer",
 			"press": "Presse",
 			"join": "Bli medlem"
+		},
+		"homepage": {
+			"for_palestina": "for Palestina",
+			"join": "Bli med i Studenter",
+			"about_us": "Om oss",
+			"newsletter": "Meld deg på nyhetsbrevet",
+			"see_events": "Se kommende arrangementer",
+			"about_us_paragraph_1": "Studenter for Palestina er en studentorganisasjon dedikert til å øke bevisstheten om det palestinske folkets kamp for frihet, rettferdighet og selvbestemmelse.",
+			"about_us_paragraph_2": "Vi består av studenter fra ulike studieretninger og bakgrunner som er forent i vår solidaritet med Palestina. Vi arrangerer foredrag, filmvisniger og andre arrangementer for å spre informasjon."
 		}
 	},
 	"common": {
 		"facebook": "Facebook",
 		"instagram": "Instagram",
 		"email": "E-post",
-		"email_address": "E-post {email}"
+		"email_address": "E-post {email}",
+		"show_less": "Vis mindre",
+		"show_more": "Vis mer"
 	}
 }
