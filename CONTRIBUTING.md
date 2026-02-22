@@ -2,7 +2,7 @@
 
 Thank you for your interest in contributing to Amro!
 
-Please note that the project adheres to a [Code of Conduct](CODE_OF_CONDUCT.md).
+Please note that the project adheres to a [Code of Conduct](https://codeberg.org/studenterforpalestina/.profile/src/branch/main/CODE_OF_CONDUCT.md).
 By participating, you're expected to uphold this code.
 
 ## Getting Started
