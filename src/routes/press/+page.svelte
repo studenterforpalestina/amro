@@ -2,6 +2,8 @@
 	import { resolve } from '$app/paths';
 	export let data;
 	import { _ } from 'svelte-i18n';
+	import Delete from '$lib/components/post/Delete.svelte';
+	import EditButton from '$lib/components/post/EditButton.svelte';
 </script>
 
 <svelte:head>
@@ -20,18 +22,23 @@
 			styret@studenterforpalestina.no
 		</a>
 	</p>
-	{#each data.posts as post (post.slug)}
-		<div class="mx-8 mb-8 max-w-2xl md:max-w-3xl">
-			<time class="text-(--color-red)">{post.date}</time>
-			<a
-				href={resolve(`/press/${post.slug}`)}
-				class="mb-6 block cursor-pointer rounded-md
+	<div>
+		{#each data.posts as post (post.slug)}
+			<div class="mx-8 max-w-2xl py-8 md:max-w-3xl">
+				<time class="text-(--color-red)">{post.date}</time>
+				<a
+					href={resolve(`/press/${post.slug}`)}
+					class="mb-6 block cursor-pointer rounded-md
              transition-colors
         duration-200 hover:text-(--color-red) active:bg-(--color-red)/40"
-			>
-				<h2 class="text-3xl font-semibold">{post.title}</h2>
-				<p class="mt-2 text-lg text-(--body-text)/60 duration-200">Les mer</p>
-			</a>
-		</div>
-	{/each}
+				>
+					<h2 class="text-3xl font-semibold">{post.title}</h2>
+				</a>
+				<div class="my-2 flex items-baseline gap-4">
+					<EditButton slug={post.slug} />
+					<Delete id={post.id} />
+				</div>
+			</div>
+		{/each}
+	</div>
 </div>
