@@ -1,7 +1,10 @@
-<script>
+<script lang="ts">
 	import { resolve } from '$app/paths';
 	import { _ } from 'svelte-i18n';
-	export let data;
+	import Authors from '$lib/components/post/Authors.svelte';
+	import type { Post } from '$lib/types';
+
+	export let data: { post: Post };
 </script>
 
 <svelte:head>
@@ -20,7 +23,17 @@
 </a>
 
 <article class="mx-8 my-8 md:mx-auto md:max-w-3xl">
-	<time class="text-(--contrast-text-red)">{data.date}</time>
-	<h1 class="mb-4 text-2xl font-bold md:text-3xl">{data.title}</h1>
-	<p class="text-md whitespace-pre-line md:text-lg">{data.content}</p>
+	<time class="text-(--contrast-text-red)">
+		{new Date(data.post.date).toLocaleDateString()}
+	</time>
+
+	<h1 class="mb-4 text-2xl font-bold md:text-3xl">
+		{data.post.title}
+	</h1>
+
+	<Authors authors={data.post.authors} />
+
+	<p class="text-md whitespace-pre-line md:text-lg">
+		{data.post.content}
+	</p>
 </article>

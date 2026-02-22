@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
 
-	export let id: number;
+	export let id: string;
 </script>
 
 <form method="POST" action="?/softDelete" use:enhance>

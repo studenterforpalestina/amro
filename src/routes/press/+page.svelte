@@ -1,9 +1,11 @@
-<script>
+<script lang="ts">
 	import { resolve } from '$app/paths';
-	export let data;
 	import { _ } from 'svelte-i18n';
 	import Delete from '$lib/components/post/Delete.svelte';
 	import EditButton from '$lib/components/post/EditButton.svelte';
+	import type { PageData } from './$types';
+
+	export let data: PageData;
 </script>
 
 <svelte:head>
