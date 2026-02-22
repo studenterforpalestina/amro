@@ -10,8 +10,9 @@ await sql.begin(async (tx) => {
       title TEXT NOT NULL,
       date TIMESTAMPTZ NOT NULL,
       content TEXT NOT NULL,
-      "createdAt" TIMESTAMPTZ DEFAULT now() NOT NULL,
-      "updatedAt" TIMESTAMPTZ DEFAULT now() NOT NULL
+      authors TEXT[] NOT NULL DEFAULT '{}',
+      createdAt TIMESTAMPTZ DEFAULT now() NOT NULL,
+      updatedAt TIMESTAMPTZ DEFAULT now() NOT NULL
     );
   `;
 

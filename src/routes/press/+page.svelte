@@ -1,9 +1,11 @@
-<script>
+<script lang="ts">
 	import { resolve } from '$app/paths';
-	export let data;
 	import { _ } from 'svelte-i18n';
 	import Delete from '$lib/components/post/Delete.svelte';
 	import EditButton from '$lib/components/post/EditButton.svelte';
+	import type { PageData } from './$types';
+
+	export let data: PageData;
 </script>
 
 <svelte:head>
@@ -25,7 +27,7 @@
 	<div>
 		{#each data.posts as post (post.slug)}
 			<div class="mx-8 max-w-2xl py-8 md:max-w-3xl">
-				<time class="text-(--color-red)">{post.date}</time>
+				<time class="text-(--color-red)">{new Date(post.date).toLocaleDateString()}</time>
 				<a
 					href={resolve(`/press/${post.slug}`)}
 					class="mb-6 block cursor-pointer rounded-md
