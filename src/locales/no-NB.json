@@ -19,6 +19,26 @@
 			"description": "Les nylige pressemeldinger fra Studenter for Palestina",
 			"header": "Pressemeldinger",
 			"lead": "Her finner du alle våre pressemeldinger. \n Presse kan kontakte oss på"
+		},
+		"join": {
+			"title": "Bli medlem",
+			"description": "Bli medlem i Studenter for Palestina Trondheim",
+			"header": "Bli medlem",
+			"name_label": "Fullt navn",
+			"name_placeholder": "Ditt fulle navn",
+			"email_label": "E-post",
+			"email_placeholder": "deg@eksempel.no",
+			"email_invalid": "Skriv inn en gyldig e-postadresse (for eksempel: deg@eksempel.no).",
+			"phone_label": "Telefonnummer",
+			"phone_placeholder": "+47 123 45 678",
+			"phone_invalid": "Skriv inn et gyldig telefonnummer (8-20 tegn, tall og +() - er tillatt).",
+			"birth_year_label": "Fødselsår",
+			"birth_year_placeholder": "f.eks. 2002",
+			"graduation_year_label": "Avgangsår",
+			"graduation_year_placeholder": "f.eks. 2028",
+			"consent_label": "Jeg samtykker til at Studenter for Palestina lagrer denne informasjonen for å behandle medlemskapet mitt.",
+			"submit_button": "Send inn",
+			"newsletter_label": "Jeg samtykker til at Studenter for Palestina sender meg medlemsbrev på mail"
 		}
 	},
 	"components": {
