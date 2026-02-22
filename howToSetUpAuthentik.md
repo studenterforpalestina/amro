@@ -1,21 +1,24 @@
 How to set up authentik
+
 1. run docker compose up -d
 2. bun run dev
 3. in your browser open localhost:80/if/flow/initial-setup/
 4. Sign up using the following data
-  email: it-komiteen@studenterforpalestina.no 
-  password: 123456
+   email: it-komiteen@studenterforpalestina.no
+   password: 123456
 5. Click on create a new application
 6. Fill in the following data
 
 - For the application step
-Application Name: sfp-admin
-Slug: sfp-admin 
+  Application Name: sfp-admin
+  Slug: sfp-admin
 
 - Choose a Provider Type step
-OAuth2/OpenID Provider
+  OAuth2/OpenID Provider
 
-- Configure OAuth2 Provider setp
+- Configure OAuth2 Provider setup
+  Provider Name: sfp-admin
+  Authorization flow: default-provider-authorization-explicit-consent (Authorize Application)
   Client type: public
   Client ID: H05hj25LtVS2HevWxT0Imfk0nABd7phiWSHBvnNo
   Redirect URIs/Origins: http://localhost:3000/callback

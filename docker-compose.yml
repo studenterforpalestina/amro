@@ -46,7 +46,7 @@ services:
         - pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}
       timeout: 5s
     volumes:
-      - database:/var/lib/postgresql/data
+      - database:/var/lib/postgresql
 
   server:
     image: ${AUTHENTIK_IMAGE:-ghcr.io/goauthentik/server}:${AUTHENTIK_TAG:-2025.12.1}
@@ -85,7 +85,6 @@ services:
       AUTHENTIK_SECRET_KEY: ${AUTHENTIK_SECRET_KEY:?secret key required}
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - ./certs:/certs
 
 volumes:
   postgres_data:
