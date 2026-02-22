@@ -8,6 +8,7 @@ export async function fetchFacebookEvents() {
 		console.error('Missing Facebook access token.');
 		return { events: [] };
 	}
+
 	const apiURL = new URL(`https://graph.facebook.com/v24.0/${FB_PAGE_ID}/events`);
 	apiURL.search = new URLSearchParams({
 		access_token: FB_ACCESS_TOKEN,
@@ -23,9 +24,11 @@ export async function fetchFacebookEvents() {
 		});
 
 		if (!res.ok) {
-			console.error('Failed to fetch events:', res.status, res.statusText);
-			throw new Error('Failed to fetch events');
+			const errorPayload = await res.json();
+			console.error('API Error Details:', JSON.stringify(errorPayload, null, 2));
+			throw new Error(`API Error: ${errorPayload.error?.message || res.statusText}`);
 		}
+
 		const data = await res.json();
 		const events: Event[] = parseEvents(data);
 		const now = new Date();
