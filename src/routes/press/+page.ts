@@ -1,4 +1,5 @@
 import type { PageLoad } from './$types';
+import type { Post } from '$lib/types';
 export const load: PageLoad = async ({ fetch }) => {
 	const response = await fetch('/press/posts');
 	if (!response.ok) {
@@ -7,7 +8,7 @@ export const load: PageLoad = async ({ fetch }) => {
 			error: new Error(`Could not load press posts: ${response.statusText}`)
 		};
 	}
-	const posts = await response.json();
+	const posts = (await response.json()) as Post[];
 	return {
 		posts
 	};
