@@ -1,3 +1,12 @@
+export interface Post {
+	id: string;
+	slug: string;
+	title: string;
+	date: Date;
+	content: string;
+	createdAt: Date;
+	updatedAt: Date;
+}
 export type { ActionData as AdminActionData } from '../routes/admin/$types';
 export interface Member {
 	id: string;
