@@ -10,7 +10,7 @@
 <div class="mx-auto max-w-5xl p-4 font-sans md:p-8">
 	<h1 class="mb-4 text-3xl font-bold md:mb-8 md:text-7xl">{$_('page.join.header')}</h1>
 	<p class="mb-8 text-lg">{$_('page.join.description')}</p>
-	<form class="mx-auto flex max-w-2xl flex-col gap-5 p-6 md:p-8" method="POST" action="/api/join">
+	<form class="mx-auto flex max-w-2xl flex-col gap-5 p-6 md:p-8" method="POST" action="?/join">
 		<div class="space-y-2">
 			<label for="name" class="text-sm font-medium">{$_('page.join.name_label')}</label>
 			<input
@@ -44,7 +44,6 @@
 				type="tel"
 				class="w-full rounded-xl border border-gray-400 bg-transparent p-2.5 transition-all outline-none focus:border-(--color-green) focus:ring-2 focus:ring-(--color-green)"
 				placeholder={$_('page.join.phone_placeholder')}
-				title={$_('page.join.phone_invalid')}
 				autocomplete="tel"
 				required
 			/>
@@ -85,32 +84,22 @@
 			</div>
 		</div>
 
-		<label for="consent" class="mt-1 flex items-start gap-3">
-			<input
-				type="checkbox"
-				id="consent"
-				name="consent"
-				class="mt-1 h-4 w-4 rounded border-gray-400 text-(--color-green) focus:ring-(--color-green)"
-				required
-			/>
-			<span>{$_('page.join.consent_label')}</span>
-		</label>
 		<label for="newsletter" class="mt-1 flex items-start gap-3">
 			<input
 				type="checkbox"
 				id="newsletter"
 				name="newsletter"
 				class="mt-1 h-4 w-4 rounded border-gray-400 text-(--color-green) focus:ring-(--color-green)"
-				required
 			/>
 			<span>{$_('page.join.newsletter_label')}</span>
 		</label>
 
 		<button
 			type="submit"
-			class="w-full rounded-xl bg-(--color-green) px-4 py-2 text-white transition-all hover:bg-(--color-green)/60"
+			class="w-30 rounded-xl bg-(--color-green) px-4 py-2 text-white transition-all hover:bg-(--color-green)/60"
 		>
 			{$_('page.join.submit_button')}
 		</button>
+		<p class="text-sm text-gray-500">{$_('page.join.consent_label')}</p>
 	</form>
 </div>
