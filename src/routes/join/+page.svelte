@@ -1,5 +1,6 @@
 <script>
 	import { _ } from 'svelte-i18n';
+	let { data, form } = $props();
 </script>
 
 <svelte:head>
@@ -10,7 +11,10 @@
 <div class="mx-auto max-w-5xl p-4 font-sans md:p-8">
 	<h1 class="mb-4 text-3xl font-bold md:mb-8 md:text-7xl">{$_('page.join.header')}</h1>
 	<p class="mb-8 text-lg">{$_('page.join.description')}</p>
-	<form class="mx-auto flex max-w-2xl flex-col gap-5 p-6 md:p-8" method="POST" action="?/join">
+	{#if form?.errors}
+		<p class="mb-8 text-sm text-(--color-red)">{JSON.stringify(form.errors)}</p>
+	{/if}
+	<form class="mx-auto flex max-w-2xl flex-col gap-5 p-6 md:p-8" method="POST">
 		<div class="space-y-2">
 			<label for="name" class="text-sm font-medium">{$_('page.join.name_label')}</label>
 			<input
@@ -18,6 +22,7 @@
 				name="name"
 				type="text"
 				class="w-full rounded-xl border border-gray-400 bg-transparent p-2.5 transition-all outline-none focus:border-(--color-green) focus:ring-2 focus:ring-(--color-green)"
+				value={form?.name || ''}
 				placeholder={$_('page.join.name_placeholder')}
 				required
 			/>
@@ -31,6 +36,7 @@
 				type="email"
 				class="w-full rounded-xl border border-gray-400 bg-transparent p-2.5 transition-all outline-none focus:border-(--color-green) focus:ring-2 focus:ring-(--color-green)"
 				placeholder={$_('page.join.email_placeholder')}
+				value={form?.email || ''}
 				autocomplete="email"
 				required
 			/>
@@ -45,6 +51,7 @@
 				class="w-full rounded-xl border border-gray-400 bg-transparent p-2.5 transition-all outline-none focus:border-(--color-green) focus:ring-2 focus:ring-(--color-green)"
 				placeholder={$_('page.join.phone_placeholder')}
 				autocomplete="tel"
+				value={form?.phone || ''}
 				required
 			/>
 		</div>
@@ -62,6 +69,7 @@
 					inputmode="numeric"
 					min="1900"
 					max="2100"
+					value={form?.birthYear || ''}
 					required
 				/>
 			</div>
@@ -79,6 +87,7 @@
 					inputmode="numeric"
 					min="1900"
 					max="2100"
+					value={form?.graduationYear || ''}
 					required
 				/>
 			</div>
