@@ -24,6 +24,7 @@
 			"title": "Bli medlem",
 			"description": "Bli medlem i Studenter for Palestina Trondheim",
 			"header": "Bli medlem",
+			"signup_lead": "Meld deg på for å bli medlem i Studenter for Palestina Trondheim. Ved å bli med, vil du motta oppdateringer om våre aktiviteter og arrangementer, og du vil være en del av et fellesskap som står i solidaritet med den palestinske saken.",
 			"name_label": "Fullt navn",
 			"name_placeholder": "Ditt fulle navn",
 			"email_label": "E-post",
@@ -38,7 +39,15 @@
 			"graduation_year_placeholder": "f.eks. 2028",
 			"consent_label": "Ved å bli med samtykker du til at Studenter for Palestina lagrer denne informasjonen for å behandle medlemskapet ditt.",
 			"submit_button": "Send inn",
-			"newsletter_label": "Jeg samtykker til at Studenter for Palestina sender meg medlemsbrev på mail"
+			"newsletter_label": "Jeg samtykker til at Studenter for Palestina sender meg medlemsbrev på mail",
+			"success_message": "Takk for at du meldte deg inn! Du får snart en bekreftelse på e-post.",
+			"errors": {
+				"required_fields": "Alle felter må fylles ut.",
+				"email_invalid": "Ugyldig e-postformat.",
+				"phone_invalid": "Ugyldig telefonnummerformat.",
+				"email_exists": "Denne e-postadressen er allerede registrert.",
+				"submit_failed": "Det oppstod en feil under behandling av medlemskapet. Prøv igjen senere."
+			}
 		}
 	},
 	"components": {

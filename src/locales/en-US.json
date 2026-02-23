@@ -24,6 +24,7 @@
 			"title": "Join",
 			"description": "Become a member of Students for Palestine Trondheim",
 			"header": "Become a member",
+			"signup_lead": "Sign up to become a member of Students for Palestine Trondheim. By joining, you will receive updates on our activities and events, and you will be part of a community that stands in solidarity with the Palestinian cause.",
 			"name_label": "Full name",
 			"name_placeholder": "Your full name",
 			"email_label": "Email",
@@ -38,7 +39,15 @@
 			"graduation_year_placeholder": "e.g. 2028",
 			"consent_label": "By joining, you consent to Students for Palestine storing this information to process your membership.",
 			"submit_button": "Submit",
-			"newsletter_label": "I consent to Students for Palestine sending me the newsletter once a week"
+			"newsletter_label": "I consent to Students for Palestine sending me the newsletter once a week",
+			"success_message": "Thank you for joining! You will receive a confirmation email soon.",
+			"errors": {
+				"required_fields": "All fields are required.",
+				"email_invalid": "Invalid email format.",
+				"phone_invalid": "Invalid phone number format.",
+				"email_exists": "This email is already registered.",
+				"submit_failed": "An error occurred while processing your membership. Please try again later."
+			}
 		}
 	},
 	"components": {
