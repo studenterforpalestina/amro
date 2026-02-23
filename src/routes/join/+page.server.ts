@@ -19,28 +19,16 @@ export const actions: Actions = {
 		const newsletter = formData.get('newsletter') === 'on';
 		const errors: Record<string, string> = {};
 
-		if (!name) {
-			errors.name = 'Name is required.';
+		if (!name || !email || !phone || !birthYear || !graduationYear) {
+			errors.form = 'page.join.errors.required_fields';
 		}
 
-		if (!email) {
-			errors.email = 'Email is required.';
-		} else if (!EMAIL_REGEX.test(email)) {
-			errors.email = 'Invalid email format.';
+		if (!EMAIL_REGEX.test(email)) {
+			errors.email = 'page.join.errors.email_invalid';
 		}
 
-		if (!phone) {
-			errors.phone = 'Phone number is required.';
-		} else if (!PHONE_REGEX.test(phone)) {
-			errors.phone = 'Invalid phone number format.';
-		}
-
-		if (!birthYear) {
-			errors.birthYear = 'Birth year is required.';
-		}
-
-		if (!graduationYear) {
-			errors.graduationYear = 'Graduation year is required.';
+		if (!PHONE_REGEX.test(phone)) {
+			errors.phone = 'page.join.errors.phone_invalid';
 		}
 
 		if (Object.keys(errors).length > 0) {
@@ -68,7 +56,7 @@ export const actions: Actions = {
 					birthYear,
 					graduationYear,
 					errors: {
-						email: 'This email is already registered.'
+						email: 'page.join.errors.email_exists'
 					}
 				});
 			}
@@ -80,7 +68,7 @@ export const actions: Actions = {
 				birthYear,
 				graduationYear,
 				errors: {
-					form: 'An error occurred while processing your membership. Please try again later.'
+					form: 'page.join.errors.submit_failed'
 				}
 			});
 		}
