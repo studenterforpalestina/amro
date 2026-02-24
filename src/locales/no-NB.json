@@ -29,10 +29,8 @@
 			"name_placeholder": "Ditt fulle navn",
 			"email_label": "E-post",
 			"email_placeholder": "deg@eksempel.no",
-			"email_invalid": "Skriv inn en gyldig e-postadresse (for eksempel: deg@eksempel.no).",
 			"phone_label": "Telefonnummer",
-			"phone_placeholder": "+47 123 45 678",
-			"phone_invalid": "Skriv inn et gyldig telefonnummer (8-20 tegn, tall og +() - er tillatt).",
+			"phone_placeholder": "123 45 678",
 			"birth_year_label": "Fødselsår",
 			"birth_year_placeholder": "f.eks. 2002",
 			"graduation_year_label": "Avgangsår",
@@ -46,6 +44,8 @@
 				"email_invalid": "Ugyldig e-postformat.",
 				"phone_invalid": "Ugyldig telefonnummerformat.",
 				"email_exists": "Denne e-postadressen er allerede registrert.",
+				"birth_year_invalid": "Vennligst oppgi et gyldig fødselsår.",
+				"graduation_year_invalid": "Vennligst oppgi et gyldig avgangsår.",
 				"submit_failed": "Det oppstod en feil under behandling av medlemskapet. Prøv igjen senere."
 			}
 		}

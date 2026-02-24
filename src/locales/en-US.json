@@ -29,10 +29,8 @@
 			"name_placeholder": "Your full name",
 			"email_label": "Email",
 			"email_placeholder": "you@example.com",
-			"email_invalid": "Please enter a valid email address (for example: you@example.com).",
 			"phone_label": "Phone number",
 			"phone_placeholder": "+47 123 45 678",
-			"phone_invalid": "Please enter a valid phone number (8-20 characters, numbers and +() - allowed).",
 			"birth_year_label": "Birth year",
 			"birth_year_placeholder": "e.g. 2002",
 			"graduation_year_label": "Graduation year",
@@ -46,6 +44,8 @@
 				"email_invalid": "Invalid email format.",
 				"phone_invalid": "Invalid phone number format.",
 				"email_exists": "This email is already registered.",
+				"birth_year_invalid": "Please enter a valid birth year.",
+				"graduation_year_invalid": "Please enter a valid graduation year.",
 				"submit_failed": "An error occurred while processing your membership. Please try again later."
 			}
 		}
