@@ -1,7 +1,9 @@
 <script lang="ts">
 	import { _ } from 'svelte-i18n';
+	import { enhance } from '$app/forms';
 	import type { HTMLInputAttributes } from 'svelte/elements';
 	let { form } = $props();
+	let submitting = $state(false);
 
 	type TextField = {
 		id: 'name' | 'email' | 'phone';
@@ -24,7 +26,7 @@
 			id: 'name',
 			name: 'name',
 			type: 'text',
-			autocomplete: 'off',
+			autocomplete: 'name',
 			labelKey: 'page.join.name_label',
 			placeholderKey: 'page.join.name_placeholder'
 		},
@@ -61,7 +63,8 @@
 		}
 	];
 
-	const getError = (field: string) => (form?.errors as Record<string, string> | undefined)?.[field];
+	const errors = $derived(form?.errors as Record<string, string> | undefined);
+	const getError = (field: string) => errors?.[field];
 
 	const inputClass =
 		'w-full rounded-xl border border-gray-400 bg-transparent p-2.5 placeholder-gray-400 transition-all outline-none focus:border-(--color-green) focus:ring-2 focus:ring-(--color-green)';
@@ -86,11 +89,21 @@
 	{/if}
 
 	{#if form?.success}
-		<p class="font-bold) mb-8 rounded-xl border-(--color-green) bg-(--color-green)/10 px-4 py-3">
+		<p class="mb-8 rounded-xl border border-(--color-green) bg-(--color-green)/10 px-4 py-3 font-bold">
 			{$_('page.join.success_message')}
 		</p>
 	{/if}
-	<form class="mx-auto flex max-w-2xl flex-col gap-5 p-6 md:p-8" method="POST">
+	<form
+		class="mx-auto flex max-w-2xl flex-col gap-5 p-6 md:p-8"
+		method="POST"
+		use:enhance={() => {
+			submitting = true;
+			return async ({ update }) => {
+				await update({ reset: true });
+				submitting = false;
+			};
+		}}
+	>
 		{#each textFields as field}
 			{@const fieldError = getError(field.name)}
 			<div class="space-y-2">
@@ -102,12 +115,13 @@
 					class={`${inputClass} ${fieldError ? errorInputClass : ''}`}
 					placeholder={$_(field.placeholderKey)}
 					aria-invalid={fieldError ? 'true' : undefined}
+					aria-describedby={fieldError ? `${field.id}-error` : undefined}
 					autocomplete={field.autocomplete}
 					value={form?.[field.name] || ''}
 					required
 				/>
 				{#if fieldError}
-					<p class="text-sm text-(--color-red)">{$_(fieldError)}</p>
+					<p id="{field.id}-error" class="text-sm text-(--color-red)">{$_(fieldError)}</p>
 				{/if}
 			</div>
 		{/each}
@@ -127,11 +141,12 @@
 						min="1900"
 						max="2100"
 						aria-invalid={fieldError ? 'true' : undefined}
+						aria-describedby={fieldError ? `${field.id}-error` : undefined}
 						required
 						value={form?.[field.name] || ''}
 					/>
 					{#if fieldError}
-						<p class="text-sm text-(--color-red)">{$_(fieldError)}</p>
+						<p id="{field.id}-error" class="text-sm text-(--color-red)">{$_(fieldError)}</p>
 					{/if}
 				</div>
 			{/each}
@@ -142,6 +157,7 @@
 				type="checkbox"
 				id="newsletter"
 				name="newsletter"
+				checked={(form as Record<string, unknown>)?.newsletter === true}
 				class="mt-1 h-4 w-4 rounded border-gray-400 text-(--color-green) focus:ring-(--color-green)"
 			/>
 			<span>{$_('page.join.newsletter_label')}</span>
@@ -149,7 +165,8 @@
 
 		<button
 			type="submit"
-			class="w-30 rounded-xl bg-(--color-green) px-4 py-2 text-white transition-all hover:bg-(--color-green)/60"
+			disabled={submitting}
+			class="w-30 rounded-xl bg-(--color-green) px-4 py-2 text-white transition-all hover:bg-(--color-green)/60 disabled:cursor-not-allowed disabled:opacity-50"
 		>
 			{$_('page.join.submit_button')}
 		</button>
