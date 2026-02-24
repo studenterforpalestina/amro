@@ -15,10 +15,10 @@
 	<span>{member.graduationYear}</span>
 	<span>{member.birthYear}</span>
 
-	<div class=" flex">
+	<div class="flex">
 		<button
 			on:click={() => editModal.show()}
-			class="mx-2 rounded-xl p-2 transition-colors duration-200 hover:bg-(--color-red)/40"
+			class="mx-2 rounded-xl p-2 transition-colors duration-200 hover:bg-(--color-red)/10"
 		>
 			<SquarePen />
 		</button>
@@ -28,7 +28,7 @@
 
 			<button
 				type="submit"
-				class="mx-2 rounded-xl p-2 text-(--color-red) transition-colors duration-200 hover:bg-(--color-red)/40"
+				class="mx-2 rounded-xl p-2 text-(--color-red) transition-colors duration-200 hover:bg-(--color-red)/10"
 			>
 				<Trash2 />
 			</button>
