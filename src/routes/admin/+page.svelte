@@ -36,7 +36,7 @@
 {:else}
 	<div class="mx-24 p-4 md:p-8">
 		<div class="flex flex-row items-baseline">
-			<h1 class="text-5xl font-bold">ADMIN PAGE</h1>
+			<h1 class="text-5xl font-bold">Members</h1>
 
 			<div class="ml-auto flex items-center">
 				<p class="mr-3 py-3">Logged in as: {user?.profile.preferred_username}</p>
@@ -46,13 +46,13 @@
 					class="max-w-24 rounded-md bg-(--color-red) px-2 py-2 text-sm text-nowrap
 		text-white transition-colors duration-200 hover:bg-red-800 active:bg-red-900"
 				>
-					Logg out
+					Log out
 				</button>
 			</div>
 		</div>
 
 		<div
-			class="mt-5 grid grid-cols-[1fr_1fr_1fr_0.8fr_0.8fr_0.5fr] rounded-md bg-(--color-red) p-2 font-bold text-gray-100"
+			class="mt-5 grid grid-cols-[1fr_1fr_1fr_0.8fr_0.8fr_0.5fr] rounded-md p-2 font-bold text-(--color-red)"
 		>
 			<h3 class="">Name</h3>
 			<h3>Email</h3>
