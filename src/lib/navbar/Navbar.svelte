@@ -7,8 +7,7 @@
 	import ThemeToggle from './ThemeToggle.svelte';
 	import LanguageSwapper from '$lib/components/LanguageSwitcher.svelte';
 
-	import { darkMode } from '$lib/stores/darkMode';
-	let data = ['events' as const];
+	let data = ['events' as const, 'groups' as const, 'press' as const];
 
 	let menuOpen = $state(false);
 </script>
@@ -18,23 +17,26 @@
 >
 	<div class="flex w-full items-center justify-between">
 		<a href={resolve('/')}>
-			{#if $darkMode}
-				<img class="w-16" src="/images/logo_darkmode.png" alt="logo" />
-			{:else}
-				<img class="w-16" src="/images/logo.png" alt="logo" />
-			{/if}
+			<img class="w-16 dark:hidden" src="/images/logo.webp" alt="logo" width="959" height="959" />
+			<img
+				class="hidden w-16 dark:block"
+				src="/images/logo_darkmode.webp"
+				alt="logo"
+				width="959"
+				height="959"
+			/>
 		</a>
 		<button
 			class="cursor-pointer rounded-md px-3 py-2 text-lg text-nowrap
                     text-(--color-red) transition-colors
-                    duration-200 hover:bg-(--color-red)/10 active:bg-(--color-red)/40 sm:hidden"
+                    duration-200 hover:bg-(--color-red)/10 active:bg-(--color-red)/40 md:hidden"
 			onclick={() => (menuOpen = true)}
 		>
 			<Menu />
 		</button>
 	</div>
 
-	<ul class="hidden list-none items-center gap-1 sm:flex">
+	<ul class="hidden list-none items-center gap-1 md:flex">
 		<li>
 			<ThemeToggle />
 		</li>
@@ -59,14 +61,14 @@
 		type="button"
 		aria-label="Close menu"
 		class={c(
-			'fixed top-0 right-0 bottom-0 left-0 cursor-default border-none bg-black opacity-25 sm:hidden',
+			'fixed top-0 right-0 bottom-0 left-0 cursor-default border-none bg-black opacity-25 md:hidden',
 			!menuOpen && 'hidden'
 		)}
 		onclick={() => (menuOpen = false)}
 	></button>
 	<div
 		class={c(
-			'fixed top-0 left-full z-50 h-dvh bg-(--background) px-3 py-5 transition-transform sm:hidden',
+			'fixed top-0 left-full z-50 h-dvh bg-(--background) px-3 py-5 transition-transform md:hidden',
 			menuOpen && 'transform-[translateX(-100%)]'
 		)}
 	>
@@ -90,7 +92,7 @@
 						onclick={() => (menuOpen = false)}
 						href={resolve(`/${item}`)}
 						class="flex rounded-md px-3 py-2 text-lg text-nowrap
-                                text-black transition-colors duration-200
+                                transition-colors duration-200
                                 hover:bg-(--color-red)/20 hover:text-(--color-red) active:bg-(--color-red)/50"
 					>
 						{$_(`components.navbar.${item}`)}

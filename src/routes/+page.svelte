@@ -25,7 +25,7 @@
 					class="h-auto w-full grow-0 basis-7/12"
 					width="2744"
 					height="1822"
-					decoding="async"
+					fetchpriority="high"
 				/>
 			</div>
 		</div>
@@ -45,9 +45,11 @@
 		</p>
 	</div>
 	<img
-		src="/images/hovedbygget_demo.jpg"
+		src="/images/hovedbygget_demo.webp"
 		alt="Studenter for Palestina på demonstrasjon"
 		class="w-full grow-0 lg:basis-7/12"
+		width="960"
+		height="720"
 		decoding="async"
 		loading="lazy"
 	/>
