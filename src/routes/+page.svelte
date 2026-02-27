@@ -8,8 +8,8 @@
 <Section class="flex flex-col items-start">
 	<div class="flex flex-col items-start">
 		<h1 class="text-6xl font-bold md:text-8xl">{$_('components.homepage.join')}</h1>
-		<div class="flex flex-col gap-16 xl:flex-row">
-			<div class="flex flex-col gap-8">
+		<div class="gap-16 xl:flex-row flex flex-col">
+			<div class="gap-8 flex flex-col">
 				<h1 class="text-6xl font-bold md:text-8xl md:text-nowrap">
 					{$_('components.homepage.for_palestina')}
 				</h1>
@@ -22,25 +22,25 @@
 					class="h-auto w-full grow-0 basis-7/12"
 					width="2744"
 					height="1822"
-					decoding="async"
+					fetchpriority="high"
 				/>
 			</div>
 		</div>
 	</div>
 </Section>
-<Section green class="flex flex-col items-center justify-between gap-4 lg:flex-row">
-	<h2 class="text-center text-5xl font-bold">{$_('components.navbar.events')}</h2>
+<Section green class="gap-4 lg:flex-row flex flex-col items-center justify-between">
+	<h2 class="text-5xl font-bold text-center">{$_('components.navbar.events')}</h2>
 
 	<a
 		href={resolve('/events')}
-		class="rounded-xl bg-(--color-text-light) px-10 py-4 text-xl font-bold
-        text-nowrap text-(--color-green) transition-colors
-          duration-200 hover:bg-(--color-text-light)/80 active:bg-green-900"
+		class="rounded-xl px-10 py-4 text-xl font-bold active:bg-green-900
+        bg-(--color-text-light) text-nowrap text-(--color-green)
+          transition-colors duration-200 hover:bg-(--color-text-light)/80"
 		>{$_('components.homepage.see_events')}</a
 	>
 </Section>
-<Section class="flex flex-col gap-12 lg:flex-row">
-	<div class="flex grow-0 flex-col gap-6 lg:basis-5/12">
+<Section class="gap-12 lg:flex-row flex flex-col">
+	<div class="gap-6 lg:basis-5/12 flex grow-0 flex-col">
 		<h2 class="max-w-xl text-5xl font-bold">{$_('components.homepage.about_us')}</h2>
 		<p class="text-lg">
 			{$_('components.homepage.about_us_paragraph_1')}
@@ -50,9 +50,11 @@
 		</p>
 	</div>
 	<img
-		src="/images/hovedbygget_demo.jpg"
+		src="/images/hovedbygget_demo.webp"
 		alt="Studenter for Palestina på demonstrasjon"
-		class="w-full grow-0 lg:basis-7/12"
+		class="lg:basis-7/12 w-full grow-0"
+		width="960"
+		height="720"
 		decoding="async"
 		loading="lazy"
 	/>

@@ -14,27 +14,27 @@
 </script>
 
 <nav
-	class="sticky top-0 left-0 z-50 flex w-full items-center justify-between gap-2 bg-(--background) px-10 py-6"
+	class="top-0 left-0 gap-2 px-10 py-6 sticky z-50 flex w-full items-center justify-between bg-(--background)"
 >
 	<div class="flex w-full items-center justify-between">
 		<a href={resolve('/')}>
 			{#if $darkMode}
-				<img class="w-16" src="/images/logo_darkmode.png" alt="logo" />
+				<img class="w-16" src="/images/logo_darkmode.webp" alt="logo" width="959" height="959" />
 			{:else}
-				<img class="w-16" src="/images/logo.png" alt="logo" />
+				<img class="w-16" src="/images/logo.webp" alt="logo" width="959" height="959" />
 			{/if}
 		</a>
 		<button
-			class="cursor-pointer rounded-md px-3 py-2 text-lg text-nowrap
-                    text-(--color-red) transition-colors
-                    duration-200 hover:bg-(--color-red)/10 active:bg-(--color-red)/40 sm:hidden"
+			class="rounded-md px-3 py-2 text-lg sm:hidden cursor-pointer
+                    text-nowrap text-(--color-red)
+                    transition-colors duration-200 hover:bg-(--color-red)/10 active:bg-(--color-red)/40"
 			onclick={() => (menuOpen = true)}
 		>
 			<Menu />
 		</button>
 	</div>
 
-	<ul class="hidden list-none items-center gap-1 sm:flex">
+	<ul class="gap-1 sm:flex hidden list-none items-center">
 		<li>
 			<ThemeToggle />
 		</li>
@@ -43,7 +43,7 @@
 			<li>
 				<a
 					href={resolve(`/${item}`)}
-					class="flex rounded-md px-3 py-2 text-lg text-nowrap
+					class="rounded-md px-3 py-2 text-lg flex text-nowrap
                             transition-colors duration-200
                             hover:bg-(--color-red)/10 hover:text-(--color-red) active:bg-(--color-red)/40"
 				>
@@ -59,22 +59,22 @@
 		type="button"
 		aria-label="Close menu"
 		class={c(
-			'fixed top-0 right-0 bottom-0 left-0 cursor-default border-none bg-black opacity-25 sm:hidden',
+			'top-0 right-0 bottom-0 left-0 bg-black sm:hidden fixed cursor-default border-none opacity-25',
 			!menuOpen && 'hidden'
 		)}
 		onclick={() => (menuOpen = false)}
 	></button>
 	<div
 		class={c(
-			'fixed top-0 left-full z-50 h-dvh bg-(--background) px-3 py-5 transition-transform sm:hidden',
+			'top-0 px-3 py-5 sm:hidden fixed left-full z-50 h-dvh bg-(--background) transition-transform',
 			menuOpen && 'transform-[translateX(-100%)]'
 		)}
 	>
-		<ul class="flex min-w-60 list-none flex-col items-start gap-2 p-4">
-			<li class="mb-4 flex w-full items-center justify-between gap-1">
+		<ul class="min-w-60 gap-2 p-4 flex list-none flex-col items-start">
+			<li class="mb-4 gap-1 flex w-full items-center justify-between">
 				<button
-					class="flex cursor-pointer items-center rounded-md py-2 pr-5 pl-2
-                text-lg text-(--color-red)
+					class="rounded-md py-2 pr-5 pl-2 text-lg flex cursor-pointer
+                items-center text-(--color-red)
                 transition-colors duration-200 hover:bg-(--color-red)/10 active:bg-(--color-red)/40"
 					onclick={() => (menuOpen = false)}
 				>
@@ -89,8 +89,8 @@
 					<a
 						onclick={() => (menuOpen = false)}
 						href={resolve(`/${item}`)}
-						class="flex rounded-md px-3 py-2 text-lg text-nowrap
-                                text-black transition-colors duration-200
+						class="rounded-md px-3 py-2 text-lg text-black flex
+                                text-nowrap transition-colors duration-200
                                 hover:bg-(--color-red)/20 hover:text-(--color-red) active:bg-(--color-red)/50"
 					>
 						{$_(`components.navbar.${item}`)}
