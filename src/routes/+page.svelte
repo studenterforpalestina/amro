@@ -1,8 +1,24 @@
-<script>
+<script lang="ts">
 	import { _ } from 'svelte-i18n';
 	import BecomeAMember from '$lib/components/BecomeAMember.svelte';
 	import Section from '$lib/components/Section.svelte';
 	import { resolve } from '$app/paths';
+	import type { PageProps } from './$types';
+
+	let { data }: PageProps = $props();
+	function getTime(eventDate: Date) {
+		return eventDate.toLocaleTimeString(undefined, {
+			hour: '2-digit',
+			minute: '2-digit',
+			hour12: false
+		});
+	}
+
+	function getDate(eventDate: Date) {
+		const day = String(eventDate.getDate()).padStart(2, '0');
+		const month = String(eventDate.getMonth() + 1).padStart(2, '0');
+		return `${day}.${month}`;
+	}
 </script>
 
 <Section class="flex flex-col items-start">
@@ -28,14 +44,32 @@
 		</div>
 	</div>
 </Section>
-<Section green class="flex flex-col items-center justify-between gap-4 lg:flex-row">
-	<h2 class="text-center text-5xl font-bold">{$_('components.navbar.events')}</h2>
+<Section green class="flex flex-col items-center justify-between gap-4">
+	<h2 class="self-start text-center text-5xl font-bold">{$_('components.navbar.events')}</h2>
 
+	{#if data.events.length > 0}
+		<div class="grid gap-4 md:grid-cols-3">
+			{#each data.events as event (event.id)}
+				<div class="bg-(--color-text-light)/10 p-6 backdrop-blur-sm">
+					<p class="text-lg font-bold text-(--color-text-light)/60">{getDate(event.start_time)}</p>
+					<h3 class="mt-1 text-2xl font-bold">{event.name}</h3>
+					<div class="mt-3 flex flex-col gap-1 text-sm">
+						<p>🕔 {getTime(event.start_time)}</p>
+						{#if event.place}
+							<p>📍 {event.place}</p>
+						{/if}
+					</div>
+				</div>
+			{/each}
+		</div>
+	{:else}
+		<p class="self-end text-center text-lg opacity-80">{$_('page.events.no_events')}</p>
+	{/if}
 	<a
 		href={resolve('/events')}
-		class="rounded-xl bg-(--color-text-light) px-10 py-4 text-xl font-bold
-        text-nowrap text-(--color-green) transition-colors
-          duration-200 hover:bg-(--color-text-light)/80 active:bg-green-900"
+		class="self-end rounded-xl bg-(--color-text-light) px-10 py-4 text-xl
+			font-bold text-nowrap text-(--color-green) transition-colors
+			  duration-200 hover:bg-(--color-text-light)/80 active:bg-green-900"
 		>{$_('components.homepage.see_events')}</a
 	>
 </Section>
