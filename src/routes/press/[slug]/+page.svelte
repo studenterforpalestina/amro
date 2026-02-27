@@ -7,7 +7,6 @@
 <svelte:head>
 	<title>{$_('page.press.title')}</title>
 	<meta name="description" content={$_('page.press.description')} />
-	<link rel="icon" href="/images/logo.png" />
 </svelte:head>
 
 <a
@@ -22,5 +21,5 @@
 <article class="mx-8 my-8 md:mx-auto md:max-w-3xl">
 	<time class="text-(--color-red)">{data.date}</time>
 	<h1 class="mb-4 text-2xl font-bold md:text-3xl">{data.title}</h1>
-	<p class="text-md whitespace-pre-line md:text-lg">{data.content}</p>
+	<p class="text-md md:text-lg whitespace-pre-line">{data.content}</p>
 </article>

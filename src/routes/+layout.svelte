@@ -12,7 +12,7 @@
 
 <svelte:head>
 	<title>Studenter for Palestina Trondheim</title>
-	<link rel="icon" href="/images/logo.png" />
+	<link rel="icon" href="/images/logo.webp" />
 </svelte:head>
 
 {#if $isLoading}

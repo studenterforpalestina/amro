@@ -7,11 +7,10 @@
 <svelte:head>
 	<title>{$_('page.press.title')}</title>
 	<meta name="description" content={$_('page.press.description')} />
-	<link rel="icon" href="/images/logo.png" />
 </svelte:head>
-<div class="mx-auto max-w-5xl p-4 font-sans md:p-8">
+<div class="max-w-5xl p-4 font-sans md:p-8 mx-auto">
 	<h1 class="mb-8 text-3xl font-bold md:text-7xl">{$_(`page.press.header`)}</h1>
-	<p class="mb-12 text-lg whitespace-pre-line md:text-xl">
+	<p class="mb-12 text-lg md:text-xl whitespace-pre-line">
 		{$_(`page.press.lead`)}
 		<a
 			href="mailto:styret@studenterforpalestina.no"
@@ -25,7 +24,7 @@
 			<time class="text-(--color-red)">{post.date}</time>
 			<a
 				href={resolve(`/press/${post.slug}`)}
-				class="mb-6 block cursor-pointer rounded-md
+				class="mb-6 rounded-md block cursor-pointer
              transition-colors
         duration-200 hover:text-(--color-red) active:bg-(--color-red)/40"
 			>
