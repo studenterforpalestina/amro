@@ -55,8 +55,8 @@ export const actions: Actions = {
                 VALUES (${name}, ${email}, ${phone}, ${birthYear}, ${graduationYear}, true)
             `;
 		} catch (error: unknown) {
-			const code = (error as { code?: string })?.code;
-			if (code === '23505') {
+			const errno = (error as { errno?: string })?.errno;
+			if (errno === '23505') {
 				console.log('Duplicate email detected:', error);
 				return fail(422, {
 					...formState,
