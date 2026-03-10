@@ -2,13 +2,11 @@
 	import { onMount } from 'svelte';
 	import { _ } from 'svelte-i18n';
 	import { logout, login } from '$lib/auth/UserManager';
-	import type { User } from 'oidc-client-ts';
 	import MemberRow from '$lib/adminPage/MemberRow.svelte';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
 
-	let user: User | null = null;
 	let loading = $derived(!data.authenticated);
 
 	onMount(async () => {
@@ -33,10 +31,10 @@
 			<h1 class="text-5xl font-bold">Members</h1>
 
 			<div class="ml-auto flex items-center">
-				<p class="mr-3 py-3">Logged in as: {user?.profile.preferred_username}</p>
+				<p class="mr-3 py-3">Logged in as: {data.user?.profile.preferred_username}</p>
 
 				<button
-					on:click={logout}
+					onclick={logout}
 					class="max-w-24 rounded-md bg-(--color-red) px-2 py-2 text-sm text-nowrap
 		text-white transition-colors duration-200 hover:bg-red-800 active:bg-red-900"
 				>
