@@ -3,29 +3,33 @@
 	import { X } from '@lucide/svelte';
 	import type { Member } from '$lib/types';
 
-	export let member: Member;
+	let { member, open = $bindable(false) }: { member: Member; open: boolean } = $props();
 
 	let dialog: HTMLDialogElement;
 
-	export function show() {
-		dialog.showModal();
-	}
+	$effect(() => {
+		if (open) {
+			dialog.showModal();
+		} else {
+			dialog.close();
+		}
+	});
 
 	function close() {
-		dialog.close();
+		open = false;
 	}
 </script>
 
 <dialog
 	bind:this={dialog}
-	class="fixed inset-0 m-auto w-full max-w-md rounded-2xl border-none bg-(--background) p-6 text-(--body-text) shadow-2xl"
+	class="fixed inset-0 m-auto w-full max-w-md rounded-2xl border bg-(--background) p-6 text-(--body-text) shadow-2xl"
 >
 	<div class="mb-6 flex items-center justify-between">
 		<h3 class="text-xl font-bold">Edit {member.name}</h3>
 
 		<button
 			type="button"
-			on:click={close}
+			onclick={close}
 			class="rounded-full p-1 transition-colors hover:bg-gray-500/10"
 		>
 			<X size={20} />
@@ -64,7 +68,7 @@
 		<div class="flex gap-3 pt-4">
 			<button
 				type="button"
-				on:click={close}
+				onclick={close}
 				class="flex-1 rounded-xl border border-gray-500/20 py-2.5 font-medium hover:bg-gray-500/5"
 			>
 				Cancel
