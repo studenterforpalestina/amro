@@ -1,12 +1,18 @@
 import { UserManager, type UserManagerSettings } from 'oidc-client-ts';
+import {
+	PUBLIC_OAUTH_CLIENT_AUTHORITY,
+	PUBLIC_OAUTH_CLIENT_ID,
+	PUBLIC_OAUTH_REDIRECT_URI,
+	PUBLIC_OAUTH_POST_LOGOUT_REDIRECT_URI
+} from '$env/static/public';
 
 const settings: UserManagerSettings = {
-	authority: 'http://localhost/application/o/sfp-admin/', // SHOULD BE HTTPS IN production
-	client_id: 'H05hj25LtVS2HevWxT0Imfk0nABd7phiWSHBvnNo',
-	redirect_uri: 'http://localhost:3000/callback',
+	authority: PUBLIC_OAUTH_CLIENT_AUTHORITY,
+	client_id: PUBLIC_OAUTH_CLIENT_ID,
+	redirect_uri: PUBLIC_OAUTH_REDIRECT_URI,
 	response_type: 'code',
 	scope: 'openid profile email',
-	post_logout_redirect_uri: 'http://localhost:3000/'
+	post_logout_redirect_uri: PUBLIC_OAUTH_POST_LOGOUT_REDIRECT_URI
 };
 
 export const userManager = new UserManager(settings);
