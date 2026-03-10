@@ -23,3 +23,18 @@ export async function logout() {
 export async function getUser() {
 	return userManager.getUser();
 }
+
+userManager.events.addUserLoaded(async (user) => {
+	await fetch('/api/auth/session', {
+		method: 'POST',
+		headers: { 'Content-Type': 'application/json' },
+		body: JSON.stringify({ access_token: user.access_token })
+	});
+});
+userManager.events.addAccessTokenExpired(async () => {
+	await fetch('/api/auth/session', { method: 'DELETE' });
+});
+userManager.events.addUserSignedOut(async () => {
+	await fetch('/api/auth/session', { method: 'DELETE' });
+	window.location.href = '/';
+});
