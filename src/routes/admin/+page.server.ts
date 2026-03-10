@@ -1,7 +1,29 @@
 import { sql } from 'bun';
 import type { PageServerLoad, Actions } from './$types';
+import { PUBLIC_OAUTH_USERINFO_ENDPOINT } from '$env/static/public';
 
-export const load: PageServerLoad = async () => {
+export const load: PageServerLoad = async (event) => {
+	const access_token = event.cookies.get('auth_token');
+	let user = null;
+	if (!access_token) {
+		return { authenticated: false as const, members: [], user: null };
+	}
+	try {
+		const response = await fetch(PUBLIC_OAUTH_USERINFO_ENDPOINT, {
+			headers: {
+				Authorization: `Bearer ${access_token}`
+			}
+		});
+		if (!response.ok) {
+			throw new Error('Failed to fetch user info');
+		}
+		user = await response.json();
+	} catch (error) {
+		console.error('User info fetch failed:', error);
+		event.cookies.delete('auth_token', { path: '/' });
+		return { authenticated: false as const, members: [], user: null };
+	}
+
 	try {
 		const members = await sql`
             SELECT id, name, "phoneNumber", "birthYear", "graduationYear", "isActive", email
@@ -9,10 +31,10 @@ export const load: PageServerLoad = async () => {
             WHERE "isActive" = true
             ORDER BY name ASC
         `;
-		return { members };
+		return { authenticated: true as const, members, user };
 	} catch (error) {
 		console.error('Database fetch failed:', error);
-		return { members: [], error: 'Failed to load members' };
+		return { authenticated: true as const, members: [], user };
 	}
 };
 
