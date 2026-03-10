@@ -19,6 +19,19 @@
 			"description": "Read recent press releases from Students for Palestine",
 			"header": "Press Releases",
 			"lead": "Here you can find all our press releases. \n The press can contact us at "
+		},
+		"admin": {
+			"title": "Members",
+			"loading": "Redirecting you to the login page...",
+			"logged_in": "Logged in as: ",
+			"logout": "Logout",
+			"name": "Name",
+			"email": "Email",
+			"phone_number": "Phone Number",
+			"graduation_year": "Graduation Year",
+			"birth_year": "Birth Year",
+			"action": "Edit",
+			"no_members_found": "No members found"
 		}
 	},
 	"components": {
