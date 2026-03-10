@@ -4,8 +4,8 @@
 	import EditMemberModal from '$lib/adminPage/EditMemberModal.svelte';
 	import type { Member } from '$lib/types';
 
-	export let member: Member;
-	let editModal: EditMemberModal;
+	let { member }: { member: Member } = $props();
+	let editOpen = $state(false);
 </script>
 
 <li class="grid grid-cols-[1fr_1fr_1fr_0.8fr_0.8fr_0.5fr] items-center p-2">
@@ -17,7 +17,8 @@
 
 	<div class="flex">
 		<button
-			on:click={() => editModal.show()}
+			onclick={() => (editOpen = true)}
+			aria-label="Edit {member.name}"
 			class="mx-2 rounded-xl p-2 transition-colors duration-200 hover:bg-(--color-red)/10"
 		>
 			<SquarePen />
@@ -36,4 +37,4 @@
 	</div>
 </li>
 
-<EditMemberModal bind:this={editModal} {member} />
+<EditMemberModal {member} bind:open={editOpen} />
