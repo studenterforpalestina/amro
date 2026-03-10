@@ -1,12 +1,13 @@
 import { sql } from 'bun';
-import type { PageServerLoad, Actions } from './$types';
+import type { PageServerLoad, Actions, RequestEvent } from './$types';
 import { PUBLIC_OAUTH_USERINFO_ENDPOINT } from '$env/static/public';
+import { redirect } from '@sveltejs/kit';
 
-export const load: PageServerLoad = async (event) => {
+async function requireAuth(event: RequestEvent) {
 	const access_token = event.cookies.get('auth_token');
 	let user = null;
 	if (!access_token) {
-		return { authenticated: false as const, members: [], user: null };
+		return user;
 	}
 	try {
 		const response = await fetch(PUBLIC_OAUTH_USERINFO_ENDPOINT, {
@@ -21,7 +22,19 @@ export const load: PageServerLoad = async (event) => {
 	} catch (error) {
 		console.error('User info fetch failed:', error);
 		event.cookies.delete('auth_token', { path: '/' });
-		return { authenticated: false as const, members: [], user: null };
+		return user;
+	}
+	if (!user) {
+		event.cookies.delete('auth_token', { path: '/' });
+		return user;
+	}
+	return user;
+}
+
+export const load: PageServerLoad = async (event) => {
+	const user = await requireAuth(event);
+	if (!user) {
+		return { authenticated: false as const, members: [], user };
 	}
 
 	try {
@@ -39,8 +52,12 @@ export const load: PageServerLoad = async (event) => {
 };
 
 export const actions: Actions = {
-	softDelete: async ({ request }) => {
-		const formData = await request.formData();
+	softDelete: async (event) => {
+		const user = await requireAuth(event);
+		if (!user) {
+			throw redirect(302, '/');
+		}
+		const formData = await event.request.formData();
 		const id = formData.get('id');
 
 		if (!id) return { success: false };
@@ -57,8 +74,12 @@ export const actions: Actions = {
 			return { success: false };
 		}
 	},
-	editMember: async ({ request }) => {
-		const formData = await request.formData();
+	editMember: async (event) => {
+		const user = await requireAuth(event);
+		if (!user) {
+			throw redirect(302, '/');
+		}
+		const formData = await event.request.formData();
 
 		const id = formData.get('id')?.toString();
 		if (!id) return { success: false, message: 'Missing ID' };
