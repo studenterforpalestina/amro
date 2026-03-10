@@ -18,27 +18,27 @@
 </script>
 
 <svelte:head>
-	<title>{$_('Admin page')}</title>
+	<title>{$_('page.admin.title')}</title>
 </svelte:head>
 
 {#if loading}
-	<div>
-		<p>Verifying permissions...</p>
+	<div class="flex h-screen items-center justify-center">
+		<p>{$_('page.admin.loading')}</p>
 	</div>
 {:else}
 	<div class="mx-24 p-4 md:p-8">
 		<div class="flex flex-row items-baseline">
-			<h1 class="text-5xl font-bold">Members</h1>
+			<h1 class="text-5xl font-bold">{$_('page.admin.title')}</h1>
 
 			<div class="ml-auto flex items-center">
-				<p class="mr-3 py-3">Logged in as: {data.user?.profile.preferred_username}</p>
+				<p class="mr-3 py-3">{$_('page.admin.logged_in')}: {data.user?.preferred_username}</p>
 
 				<button
 					onclick={logout}
 					class="max-w-24 rounded-md bg-(--color-red) px-2 py-2 text-sm text-nowrap
 		text-white transition-colors duration-200 hover:bg-red-800 active:bg-red-900"
 				>
-					Log out
+					{$_('page.admin.logout')}
 				</button>
 			</div>
 		</div>
@@ -46,12 +46,12 @@
 		<div
 			class="mt-5 grid grid-cols-[1fr_1fr_1fr_0.8fr_0.8fr_0.5fr] rounded-md p-2 font-bold text-(--color-red)"
 		>
-			<h3 class="">Name</h3>
-			<h3>Email</h3>
-			<h3>Number</h3>
-			<h3>Graduation</h3>
-			<h3>Birthyear</h3>
-			<h3>Action</h3>
+			<h3 class="">{$_('page.admin.name')}</h3>
+			<h3>{$_('page.admin.email')}</h3>
+			<h3>{$_('page.admin.phone_number')}</h3>
+			<h3>{$_('page.admin.graduation_year')}</h3>
+			<h3>{$_('page.admin.birth_year')}</h3>
+			<h3>{$_('page.admin.action')}</h3>
 		</div>
 
 		{#if data.members && data.members.length > 0}
@@ -61,7 +61,7 @@
 				{/each}
 			</ul>
 		{:else}
-			<p>No members found.</p>
+			<p>{$_('page.admin.no_members_found')}</p>
 		{/if}
 	</div>
 {/if}
