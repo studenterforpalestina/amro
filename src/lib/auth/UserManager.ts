@@ -22,8 +22,8 @@ export async function login() {
 }
 
 export async function logout() {
-	await userManager.removeUser();
-	window.location.href = 'http://localhost/if/flow/default-invalidation-flow/';
+	await fetch('/api/auth', { method: 'DELETE' });
+	return userManager.signoutRedirect();
 }
 
 export async function getUser() {
@@ -31,16 +31,16 @@ export async function getUser() {
 }
 
 userManager.events.addUserLoaded(async (user) => {
-	await fetch('/api/auth/session', {
+	await fetch('/api/auth', {
 		method: 'POST',
 		headers: { 'Content-Type': 'application/json' },
 		body: JSON.stringify({ access_token: user.access_token })
 	});
 });
 userManager.events.addAccessTokenExpired(async () => {
-	await fetch('/api/auth/session', { method: 'DELETE' });
+	await fetch('/api/auth', { method: 'DELETE' });
 });
 userManager.events.addUserSignedOut(async () => {
-	await fetch('/api/auth/session', { method: 'DELETE' });
+	await fetch('/api/auth', { method: 'DELETE' });
 	window.location.href = '/';
 });

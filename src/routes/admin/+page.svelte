@@ -11,7 +11,6 @@
 
 	onMount(async () => {
 		if (!data.authenticated) {
-			console.log('user not logged in');
 			await login();
 		}
 	});
