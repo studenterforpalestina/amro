@@ -6,7 +6,12 @@
 
 	onMount(async () => {
 		try {
-			await userManager.signinRedirectCallback();
+			const user = await userManager.signinRedirectCallback();
+			await fetch('/api/auth', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({ access_token: user.access_token })
+			});
 			goto(resolve('/admin'));
 		} catch (error) {
 			console.error('Authentication callback failed:', error);
