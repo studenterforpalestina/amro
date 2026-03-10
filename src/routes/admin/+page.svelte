@@ -1,26 +1,20 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { _ } from 'svelte-i18n';
-	import { getUser, logout, login } from '$lib/auth/UserManager';
+	import { logout, login } from '$lib/auth/UserManager';
 	import type { User } from 'oidc-client-ts';
 	import MemberRow from '$lib/adminPage/MemberRow.svelte';
+	import type { PageData } from './$types';
 
-	export let data;
+	let { data }: { data: PageData } = $props();
 
 	let user: User | null = null;
-	let loading = true;
+	let loading = $derived(!data.authenticated);
 
 	onMount(async () => {
-		try {
-			user = await getUser();
-			if (!user) {
-				await login();
-			} else {
-				loading = false;
-				console.log('Fetched Members:', data.members);
-			}
-		} catch (err) {
-			console.error('Auth check failed:', err);
+		if (!data.authenticated) {
+			console.log('user not logged in');
+			await login();
 		}
 	});
 </script>
