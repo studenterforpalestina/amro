@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { _ } from 'svelte-i18n';
+
 	import { enhance } from '$app/forms';
 	import { X } from '@lucide/svelte';
 	import type { Member } from '$lib/types';
@@ -8,9 +10,9 @@
 	let dialog: HTMLDialogElement;
 
 	$effect(() => {
-		if (open) {
+		if (open && !dialog.open) {
 			dialog.showModal();
-		} else {
+		} else if (!open && dialog.open) {
 			dialog.close();
 		}
 	});
@@ -18,15 +20,33 @@
 	function close() {
 		open = false;
 	}
+
+	type FormField = {
+		label: string;
+		key: keyof Member;
+		type: 'text' | 'email' | 'tel' | 'number';
+	};
+	const formFields: FormField[] = [
+		{ label: 'Full Name', key: 'name', type: 'text' },
+		{ label: 'Email', key: 'email', type: 'email' },
+		{ label: 'Phone Number', key: 'phoneNumber', type: 'tel' },
+		{ label: 'Graduation Year', key: 'graduationYear', type: 'number' },
+		{ label: 'Birth Year', key: 'birthYear', type: 'number' }
+	];
+	const errors = $derived(form?.errors as Record<string, string> | undefined);
+	const getError = (field: string) => errors?.[field];
+	const inputClass =
+		'w-full rounded-xl border border-gray-400/40 bg-transparent p-2.5 transition-all outline-none focus:border-(--color-green) focus:ring-2 focus:ring-(--color-green)';
+	const errorInputClass =
+		'border-(--color-red) focus:border-(--color-red) focus:ring-(--color-red)';
 </script>
 
 <dialog
 	bind:this={dialog}
-	class="fixed inset-0 m-auto w-full max-w-md rounded-2xl border bg-(--background) p-6 text-(--body-text) shadow-2xl"
+	class="fixed inset-0 m-auto w-full max-w-md rounded-2xl border border-gray-400/40 bg-(--background) p-6 text-(--body-text) shadow-2xl"
 >
 	<div class="mb-6 flex items-center justify-between">
 		<h3 class="text-xl font-bold">Edit {member.name}</h3>
-
 		<button
 			type="button"
 			onclick={close}
@@ -50,7 +70,8 @@
 		<input type="hidden" name="id" value={member.id} />
 
 		<div class="flex flex-col gap-4">
-			{#each [['Full Name', 'name', 'text'], ['Email', 'email', 'email'], ['Phone Number', 'phoneNumber', 'tel'], ['Graduation Year', 'graduationYear', 'number'], ['Birth Year', 'birthYear', 'number']] as [label, key, type] (key)}
+			{#each formFields as { label, key, type } (key)}
+				{@const error = getError(key)}
 				<label class="flex w-full flex-col gap-1">
 					<span class="ml-1 text-sm font-semibold opacity-70">{label}</span>
 					<input
@@ -58,9 +79,13 @@
 						{type}
 						value={member[key as keyof Member]}
 						step={type === 'number' ? '1' : null}
-						required={key === 'name'}
-						class="w-full rounded-xl border border-gray-500/20 bg-transparent p-2.5 transition-all outline-none focus:border-(--color-red) focus:ring-2 focus:ring-red-500/20"
+						inputmode={type === 'number' ? 'numeric' : null}
+						required={true}
+						class={`${inputClass} ${error ? errorInputClass : ''}`}
 					/>
+					{#if error}
+						<span class="mt-1 ml-1 text-sm text-(--color-red)">{$_(error)}</span>
+					{/if}
 				</label>
 			{/each}
 		</div>

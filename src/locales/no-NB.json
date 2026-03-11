@@ -23,7 +23,7 @@
 		"admin": {
 			"title": "Medlemmer",
 			"loading": "Sender deg til innloggingssiden...",
-			"logged_in": "Logget inn som: ",
+			"logged_in": "Logget inn som",
 			"logout": "Logg ut",
 			"name": "Navn",
 			"email": "E-post",
