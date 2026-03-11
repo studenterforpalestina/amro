@@ -23,7 +23,7 @@
 		"admin": {
 			"title": "Members",
 			"loading": "Redirecting you to the login page...",
-			"logged_in": "Logged in as: ",
+			"logged_in": "Logged in as",
 			"logout": "Logout",
 			"name": "Name",
 			"email": "Email",
