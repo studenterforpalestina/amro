@@ -8,14 +8,14 @@
 	let editOpen = $state(false);
 </script>
 
-<li class="grid grid-cols-[1fr_1fr_1fr_0.8fr_0.8fr_0.5fr] items-center p-2">
-	<span>{member.name}</span>
-	<span>{member.email}</span>
-	<span>{member.phoneNumber}</span>
-	<span>{member.graduationYear}</span>
-	<span>{member.birthYear}</span>
+<tr class="border-b border-gray-400/20">
+	<td class="p-2">{member.name}</td>
+	<td class="p-2">{member.email}</td>
+	<td class="p-2">{member.phoneNumber}</td>
+	<td class="p-2">{member.graduationYear}</td>
+	<td class="p-2">{member.birthYear}</td>
 
-	<div class="flex">
+	<td class="flex p-2">
 		<button
 			onclick={() => (editOpen = true)}
 			aria-label="Edit {member.name}"
@@ -34,7 +34,7 @@
 				<Trash2 />
 			</button>
 		</form>
-	</div>
-</li>
+	</td>
+</tr>
 
 <EditMemberModal {member} bind:open={editOpen} />
