@@ -31,7 +31,8 @@
 			"graduation_year": "Utmatrikuleringsår",
 			"birth_year": "Fødselsår",
 			"action": "Rediger",
-			"no_members_found": "Ingen medlemmer funnet"
+			"no_members_found": "Ingen medlemmer funnet",
+			"delete": "Slett"
 		}
 	},
 	"components": {
