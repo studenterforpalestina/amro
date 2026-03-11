@@ -5,7 +5,11 @@
 	import { X } from '@lucide/svelte';
 	import type { Member } from '$lib/types';
 
-	let { member, open = $bindable(false) }: { member: Member; open: boolean } = $props();
+	let {
+		member,
+		open = $bindable(false),
+		form
+	}: { member: Member; open: boolean; form: any } = $props();
 
 	let dialog: HTMLDialogElement;
 
