@@ -42,25 +42,26 @@
 			</div>
 		</div>
 
-		<div
-			class="mt-5 grid grid-cols-[1fr_1fr_1fr_0.8fr_0.8fr_0.5fr] rounded-md p-2 font-bold text-(--color-red)"
-		>
-			<h3 class="">{$_('page.admin.name')}</h3>
-			<h3>{$_('page.admin.email')}</h3>
-			<h3>{$_('page.admin.phone_number')}</h3>
-			<h3>{$_('page.admin.graduation_year')}</h3>
-			<h3>{$_('page.admin.birth_year')}</h3>
-			<h3>{$_('page.admin.action')}</h3>
-		</div>
-
-		{#if data.members && data.members.length > 0}
-			<ul class="divide-y divide-gray-400/20 overflow-auto">
-				{#each data.members as member (member.id)}
-					<MemberRow {member} />
-				{/each}
-			</ul>
-		{:else}
-			<p>{$_('page.admin.no_members_found')}</p>
-		{/if}
+		<table class="mt-5 w-full table-auto border-collapse border-spacing-20">
+			<thead class="m-200 text-left font-bold text-(--color-red)">
+				<tr>
+					<th scope="col" class="p-2">{$_('page.admin.name')}</th>
+					<th scope="col" class="p-2">{$_('page.admin.email')}</th>
+					<th scope="col" class="p-2">{$_('page.admin.phone_number')}</th>
+					<th scope="col" class="p-2">{$_('page.admin.graduation_year')}</th>
+					<th scope="col" class="p-2">{$_('page.admin.birth_year')}</th>
+					<th scope="col" class="p-2">{$_('page.admin.action')}</th>
+				</tr>
+			</thead>
+			<tbody>
+				{#if data.members && data.members.length > 0}
+					{#each data.members as member (member.id)}
+						<MemberRow {member} />
+					{/each}
+				{:else}
+					<p>{$_('page.admin.no_members_found')}</p>
+				{/if}
+			</tbody>
+		</table>
 	</div>
 {/if}
