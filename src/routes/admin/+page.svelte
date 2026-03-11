@@ -59,7 +59,11 @@
 						<MemberRow {member} />
 					{/each}
 				{:else}
-					<p>{$_('page.admin.no_members_found')}</p>
+					<tr>
+						<td colspan="6" class="p-2 text-center">
+							{$_('page.admin.no_members_found')}
+						</td>
+					</tr>
 				{/if}
 			</tbody>
 		</table>
