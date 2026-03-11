@@ -58,6 +58,17 @@
 		"email": "E-post",
 		"email_address": "E-post {email}",
 		"show_less": "Vis mindre",
-		"show_more": "Vis mer"
+		"show_more": "Vis mer",
+		"form": {
+			"errors": {
+				"required_fields": "Vennligst fyll inn alle feltene.",
+				"email_invalid": "Vennligst skriv inn en gyldig e-postadresse.",
+				"phone_invalid": "Vennligst skriv inn et gyldig telefonnummer.",
+				"birth_year_invalid": "Vennligst skriv inn et gyldig fødselsår.",
+				"graduation_year_invalid": "Vennligst skriv inn et gyldig utmatrikuleringsår.",
+				"email_exists": "Denne e-postadressen er allerede i bruk.",
+				"update_failed": "Kunne ikke oppdatere medlemsinformasjon."
+			}
+		}
 	}
 }

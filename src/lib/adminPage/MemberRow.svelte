@@ -4,7 +4,7 @@
 	import DeleteMemberModal from '$lib/adminPage/DeleteMemberModal.svelte';
 	import type { Member } from '$lib/types';
 
-	let { member }: { member: Member } = $props();
+	let { member, form }: { member: Member; form: any } = $props();
 	let editOpen = $state(false);
 	let deleteOpen = $state(false);
 </script>
@@ -35,5 +35,5 @@
 	</td>
 </tr>
 
-<EditMemberModal {member} bind:open={editOpen} />
+<EditMemberModal {member} {form} bind:open={editOpen} />
 <DeleteMemberModal {member} bind:open={deleteOpen} />
