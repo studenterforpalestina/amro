@@ -85,37 +85,43 @@ export const actions: Actions = {
 			throw redirect(302, '/');
 		}
 		const formData = await event.request.formData();
-		const name = formData.get('name')?.toString();
-		const email = formData.get('email')?.toString();
-		const phone = formData.get('phone')?.toString().trim() ?? '';
+		const name = formData.get('name')?.toString() ?? '';
+		const email = formData.get('email')?.toString() ?? '';
+		const phone = formData.get('phoneNumber')?.toString().trim() ?? '';
 		const birthYear = Number(formData.get('birthYear'));
 		const graduationYear = Number(formData.get('graduationYear'));
 		const errors: Record<string, string> = {};
 
 		if (!name || !email || !phone || Number.isNaN(birthYear) || Number.isNaN(graduationYear)) {
+			console.error(
+				'Validation failed: Missing required fields',
+				!name,
+				!email,
+				!phone,
+				Number.isNaN(birthYear),
+				Number.isNaN(graduationYear)
+			);
 			return fail(422, {
-				...formData,
-				errors: { form: 'page.join.errors.required_fields' }
+				errors: { form: 'common.form.errors.required_fields' }
 			});
 		}
 		if (!EMAIL_REGEX.test(email)) {
-			errors.email = 'page.join.errors.email_invalid';
+			errors.email = 'common.form.errors.email_invalid';
 		}
 
 		if (!PHONE_REGEX.test(phone)) {
-			errors.phone = 'page.join.errors.phone_invalid';
+			errors.phone = 'common.form.errors.phone_invalid';
 		}
 
 		if (birthYear < 1900 || birthYear > CURRENT_YEAR) {
-			errors.birthYear = 'page.join.errors.birth_year_invalid';
+			errors.birthYear = 'common.form.errors.birth_year_invalid';
 		}
 
 		if (graduationYear < 1900 || graduationYear > CURRENT_YEAR + 10) {
-			errors.graduationYear = 'page.join.errors.graduation_year_invalid';
+			errors.graduationYear = 'common.form.errors.graduation_year_invalid';
 		}
 		if (Object.keys(errors).length > 0) {
 			return fail(422, {
-				...formData,
 				errors
 			});
 		}
@@ -143,17 +149,14 @@ export const actions: Actions = {
 			if (errno === '23505') {
 				console.error('Duplicate email detected:', error);
 				return fail(422, {
-					...formData,
-					email: '',
 					errors: {
-						email: 'page.join.errors.email_exists'
+						email: 'common.form.errors.email_exists'
 					}
 				});
 			}
 			console.error('Update failed:', error);
 			return fail(500, {
-				...formData,
-				errors: { form: 'page.join.errors.update_failed' }
+				errors: { form: 'common.form.errors.update_failed' }
 			});
 		}
 		return { success: true };

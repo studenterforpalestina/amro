@@ -57,6 +57,17 @@
 		"email": "Email",
 		"email_address": "Email {email}",
 		"show_less": "Show less",
-		"show_more": "Show more"
+		"show_more": "Show more",
+		"form": {
+			"errors": {
+				"required_fields": "Please fill in all required fields.",
+				"email_invalid": "Please enter a valid email address.",
+				"phone_invalid": "Please enter a valid phone number.",
+				"birth_year_invalid": "Please enter a valid birth year.",
+				"graduation_year_invalid": "Please enter a valid graduation year.",
+				"email_exists": "This email is already in use.",
+				"update_failed": "Failed to update member information."
+			}
+		}
 	}
 }

@@ -59,14 +59,23 @@
 			<X size={20} />
 		</button>
 	</div>
+	{#if getError('form')}
+		<p
+			class="mb-6 rounded-xl border border-(--color-red) bg-(--color-red)/10 px-4 py-3 text-sm text-(--color-red)"
+		>
+			{$_(getError('form') || '')}
+		</p>
+	{/if}
 
 	<form
 		method="POST"
 		action="?/editMember"
 		use:enhance={() => {
-			return async ({ update }) => {
+			return async ({ result, update }) => {
 				await update({ reset: false });
-				close();
+				if (result.type === 'success') {
+					close();
+				}
 			};
 		}}
 		class="space-y-4"
