@@ -1,11 +1,12 @@
 <script lang="ts">
-	import { enhance } from '$app/forms';
 	import { Trash2, SquarePen } from '@lucide/svelte';
 	import EditMemberModal from '$lib/adminPage/EditMemberModal.svelte';
+	import DeleteMemberModal from '$lib/adminPage/DeleteMemberModal.svelte';
 	import type { Member } from '$lib/types';
 
 	let { member }: { member: Member } = $props();
 	let editOpen = $state(false);
+	let deleteOpen = $state(false);
 </script>
 
 <tr class="border-b border-gray-400/20">
@@ -24,17 +25,15 @@
 			<SquarePen />
 		</button>
 
-		<form method="POST" action="?/softDelete" use:enhance>
-			<input type="hidden" name="id" value={member.id} />
-
-			<button
-				type="submit"
-				class="mx-2 rounded-xl p-2 text-(--color-red) transition-colors duration-200 hover:bg-(--color-red)/10"
-			>
-				<Trash2 />
-			</button>
-		</form>
+		<button
+			onclick={() => (deleteOpen = true)}
+			aria-label="Delete {member.name}"
+			class="mx-2 rounded-xl p-2 text-(--color-red) transition-colors duration-200 hover:bg-(--color-red)/10"
+		>
+			<Trash2 />
+		</button>
 	</td>
 </tr>
 
 <EditMemberModal {member} bind:open={editOpen} />
+<DeleteMemberModal {member} bind:open={deleteOpen} />
