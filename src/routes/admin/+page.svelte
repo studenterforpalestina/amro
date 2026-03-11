@@ -5,7 +5,7 @@
 	import MemberRow from '$lib/adminPage/MemberRow.svelte';
 	import type { PageData } from './$types';
 
-	let { data }: { data: PageData } = $props();
+	let { data, form }: { data: PageData; form: any } = $props();
 
 	let loading = $derived(!data.authenticated);
 
@@ -56,7 +56,7 @@
 			<tbody>
 				{#if data.members && data.members.length > 0}
 					{#each data.members as member (member.id)}
-						<MemberRow {member} />
+						<MemberRow {member} {form} />
 					{/each}
 				{:else}
 					<tr>
