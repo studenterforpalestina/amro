@@ -2,13 +2,13 @@
 	import { _ } from 'svelte-i18n';
 	import { enhance } from '$app/forms';
 	import { X } from '@lucide/svelte';
-	import type { Member } from '$lib/types';
+	import type { Member, AdminActionData } from '$lib/types';
 
 	let {
 		member,
 		open = $bindable(false),
 		form
-	}: { member: Member; open: boolean; form: any } = $props();
+	}: { member: Member; open: boolean; form: AdminActionData } = $props();
 
 	let dialog: HTMLDialogElement;
 

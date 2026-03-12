@@ -1,3 +1,4 @@
+export type { ActionData as AdminActionData } from '../routes/admin/$types';
 export interface Member {
 	id: string;
 	name: string;
