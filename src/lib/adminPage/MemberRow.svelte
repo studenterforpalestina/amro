@@ -2,9 +2,9 @@
 	import { Trash2, SquarePen } from '@lucide/svelte';
 	import EditMemberModal from '$lib/adminPage/EditMemberModal.svelte';
 	import DeleteMemberModal from '$lib/adminPage/DeleteMemberModal.svelte';
-	import type { Member } from '$lib/types';
+	import type { Member, AdminActionData } from '$lib/types';
 
-	let { member, form }: { member: Member; form: any } = $props();
+	let { member, form }: { member: Member; form: AdminActionData } = $props();
 	let editOpen = $state(false);
 	let deleteOpen = $state(false);
 </script>
