@@ -11,7 +11,7 @@ const settings: UserManagerSettings = {
 	client_id: PUBLIC_OAUTH_CLIENT_ID,
 	redirect_uri: PUBLIC_OAUTH_REDIRECT_URI,
 	response_type: 'code',
-	scope: 'openid profile email',
+	scope: 'openid profile email offline_access',
 	post_logout_redirect_uri: PUBLIC_OAUTH_POST_LOGOUT_REDIRECT_URI
 };
 
@@ -24,10 +24,6 @@ export async function login() {
 export async function logout() {
 	await fetch('/api/auth', { method: 'DELETE' });
 	return userManager.signoutRedirect();
-}
-
-export async function getUser() {
-	return userManager.getUser();
 }
 
 userManager.events.addUserLoaded(async (user) => {
