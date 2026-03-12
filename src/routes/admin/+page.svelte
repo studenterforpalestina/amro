@@ -3,9 +3,9 @@
 	import { _ } from 'svelte-i18n';
 	import { logout, login } from '$lib/auth/UserManager';
 	import MemberRow from '$lib/adminPage/MemberRow.svelte';
-	import type { PageData } from './$types';
+	import type { PageProps } from './$types';
 
-	let { data, form }: { data: PageData; form: any } = $props();
+	let { data, form }: PageProps = $props();
 
 	let loading = $derived(!data.authenticated);
 
