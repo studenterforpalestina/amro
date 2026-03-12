@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { _ } from 'svelte-i18n';
-
 	import { enhance } from '$app/forms';
 	import { X } from '@lucide/svelte';
 	import type { Member } from '$lib/types';
