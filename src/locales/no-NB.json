@@ -32,7 +32,10 @@
 			"birth_year": "Fødselsår",
 			"action": "Rediger",
 			"no_members_found": "Ingen medlemmer funnet",
-			"delete": "Slett"
+			"delete": "Slett",
+			"edit": "Redigerer",
+			"member_updated": "Medlem oppdatert.",
+			"member_deleted": "Medlem slettet."
 		}
 	},
 	"components": {
@@ -59,6 +62,8 @@
 		"email_address": "E-post {email}",
 		"show_less": "Vis mindre",
 		"show_more": "Vis mer",
+		"cancel": "Avbryt",
+		"save_changes": "Lagre endringer",
 		"form": {
 			"errors": {
 				"required_fields": "Vennligst fyll inn alle feltene.",
@@ -67,7 +72,8 @@
 				"birth_year_invalid": "Vennligst skriv inn et gyldig fødselsår.",
 				"graduation_year_invalid": "Vennligst skriv inn et gyldig utmatrikuleringsår.",
 				"email_exists": "Denne e-postadressen er allerede i bruk.",
-				"update_failed": "Kunne ikke oppdatere medlemsinformasjon."
+				"update_failed": "Kunne ikke oppdatere medlemsinformasjon.",
+				"delete_failed": "Kunne ikke slette medlem."
 			}
 		}
 	}
