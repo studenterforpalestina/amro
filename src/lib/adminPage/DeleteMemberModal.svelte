@@ -32,6 +32,7 @@
 			type="button"
 			onclick={close}
 			class="rounded-full p-1 transition-colors hover:bg-gray-500/10"
+			aria-label="Close delete dialog"
 		>
 			<X size={20} />
 		</button>
@@ -43,13 +44,13 @@
 			onclick={close}
 			class="flex-1 rounded-xl border border-gray-500/20 py-2.5 font-medium hover:bg-gray-500/5"
 		>
-			Cancel
+			{$_('common.cancel')}
 		</button>
 		<button
 			type="submit"
 			class="flex-1 rounded-xl bg-(--color-red) py-2.5 font-medium text-white shadow-sm hover:brightness-110"
 		>
-			Delete
+			{$_('page.admin.delete')}
 		</button>
 	</form>
 </dialog>
