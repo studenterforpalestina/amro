@@ -10,11 +10,11 @@
 </script>
 
 <tr class="border-b border-gray-400/20">
-	<td class="p-2">{member.name}</td>
-	<td class="p-2">{member.email}</td>
-	<td class="p-2">{member.phoneNumber}</td>
-	<td class="p-2">{member.graduationYear}</td>
-	<td class="p-2">{member.birthYear}</td>
+	<td class="p-1 md:p-2">{member.name}</td>
+	<td class="p-1 md:p-2">{member.email}</td>
+	<td class="p-1 md:p-2">{member.phoneNumber}</td>
+	<td class="p-1 md:p-2">{member.graduationYear}</td>
+	<td class="p-1 md:p-2">{member.birthYear}</td>
 
 	<td class="flex p-2">
 		<button
