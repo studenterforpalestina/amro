@@ -45,7 +45,7 @@
 
 		{#if form?.success && form?.notice}
 			<p
-				class="mt-4 rounded-xl border border-(--color-green) bg-(--color-green)/10 px-4 py-3 text-sm text-(--color-green)"
+				class="mt-4 rounded-xl border border-(--color-green) bg-(--color-green)/20 px-4 py-3 text-sm"
 			>
 				{$_(form.notice)}
 			</p>
