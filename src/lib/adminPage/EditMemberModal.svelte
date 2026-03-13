@@ -37,7 +37,7 @@
 		{ label: $_('page.admin.birth_year'), key: 'birthYear', type: 'number' }
 	];
 	const errors = $derived(
-		form && form.memberId === member.id ? (form.errors as Record<string, string>) : undefined
+		form && form.memberId == member.id ? (form.errors as Record<string, string>) : undefined
 	);
 	const getError = (field: string) => errors?.[field];
 	const inputClass =
