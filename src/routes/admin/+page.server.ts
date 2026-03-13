@@ -65,7 +65,11 @@ export const actions: Actions = {
 		const formData = await event.request.formData();
 		const id = formData.get('id')?.toString();
 
-		if (!id) return { success: false };
+		if (!id) {
+			return fail(400, {
+				errors: { form: 'common.form.errors.required_fields' }
+			});
+		}
 
 		try {
 			await sql`
@@ -73,10 +77,13 @@ export const actions: Actions = {
                 SET "isActive" = false, "updatedAt" = now()
                 WHERE id = ${id}
             `;
-			return { success: true };
+			return { success: true, memberId: id, notice: 'page.admin.member_deleted' };
 		} catch (err) {
 			console.error(err);
-			return { success: false };
+			return fail(500, {
+				memberId: id,
+				errors: { form: 'common.form.errors.delete_failed' }
+			});
 		}
 	},
 	editMember: async (event) => {
@@ -85,6 +92,13 @@ export const actions: Actions = {
 			throw redirect(302, '/');
 		}
 		const formData = await event.request.formData();
+		const id = formData.get('id')?.toString();
+		if (!id) {
+			return fail(400, {
+				errors: { form: 'common.form.errors.required_fields' }
+			});
+		}
+
 		const name = formData.get('name')?.toString() ?? '';
 		const email = formData.get('email')?.toString() ?? '';
 		const phone = formData.get('phoneNumber')?.toString().trim() ?? '';
@@ -102,6 +116,7 @@ export const actions: Actions = {
 				Number.isNaN(graduationYear)
 			);
 			return fail(422, {
+				memberId: id,
 				errors: { form: 'common.form.errors.required_fields' }
 			});
 		}
@@ -110,7 +125,7 @@ export const actions: Actions = {
 		}
 
 		if (!PHONE_REGEX.test(phone)) {
-			errors.phone = 'common.form.errors.phone_invalid';
+			errors.phoneNumber = 'common.form.errors.phone_invalid';
 		}
 
 		if (birthYear < 1900 || birthYear > CURRENT_YEAR) {
@@ -122,12 +137,10 @@ export const actions: Actions = {
 		}
 		if (Object.keys(errors).length > 0) {
 			return fail(422, {
+				memberId: id,
 				errors
 			});
 		}
-
-		const id = formData.get('id')?.toString();
-		if (!id) return fail(400, { error: 'Missing member ID' });
 
 		const updates = {
 			name,
@@ -149,6 +162,7 @@ export const actions: Actions = {
 			if (errno === '23505') {
 				console.error('Duplicate email detected:', error);
 				return fail(422, {
+					memberId: id,
 					errors: {
 						email: 'common.form.errors.email_exists'
 					}
@@ -156,9 +170,10 @@ export const actions: Actions = {
 			}
 			console.error('Update failed:', error);
 			return fail(500, {
+				memberId: id,
 				errors: { form: 'common.form.errors.update_failed' }
 			});
 		}
-		return { success: true };
+		return { success: true, memberId: id, notice: 'page.admin.member_updated' };
 	}
 };
