@@ -42,29 +42,15 @@
 			"description": "Become a member of Students for Palestine Trondheim",
 			"header": "Become a member",
 			"signup_lead": "Sign up to become a member of Students for Palestine Trondheim. By joining, you will receive updates on our activities and events, and you will be part of a community that stands in solidarity with the Palestinian cause.",
-			"name_label": "Full name",
 			"name_placeholder": "Your full name",
-			"email_label": "Email",
 			"email_placeholder": "you@example.com",
-			"phone_label": "Phone number",
 			"phone_placeholder": "+47 123 45 678",
-			"birth_year_label": "Birth year",
 			"birth_year_placeholder": "e.g. 2002",
-			"graduation_year_label": "Graduation year",
 			"graduation_year_placeholder": "e.g. 2028",
 			"consent_label": "By joining, you consent to Students for Palestine storing this information to process your membership.",
 			"submit_button": "Submit",
 			"newsletter_label": "I consent to Students for Palestine sending me the newsletter once a week",
-			"success_message": "Thank you for joining! You will receive a confirmation email soon.",
-			"errors": {
-				"required_fields": "All fields are required.",
-				"email_invalid": "Invalid email format.",
-				"phone_invalid": "Invalid phone number format.",
-				"email_exists": "This email is already registered.",
-				"birth_year_invalid": "Please enter a valid birth year.",
-				"graduation_year_invalid": "Please enter a valid graduation year.",
-				"submit_failed": "An error occurred while processing your membership. Please try again later."
-			}
+			"success_message": "Thank you for joining! You will receive a confirmation email soon."
 		}
 	},
 	"components": {
@@ -94,6 +80,13 @@
 		"cancel": "Cancel",
 		"save_changes": "Save Changes",
 		"form": {
+			"labels": {
+				"name": "Full name",
+				"email": "Email",
+				"phone_number": "Phone number",
+				"birth_year": "Birth year",
+				"graduation_year": "Graduation year"
+			},
 			"errors": {
 				"required_fields": "Please fill in all required fields.",
 				"email_invalid": "Please enter a valid email address.",
@@ -101,6 +94,7 @@
 				"birth_year_invalid": "Please enter a valid birth year.",
 				"graduation_year_invalid": "Please enter a valid graduation year.",
 				"email_exists": "This email is already in use.",
+				"submit_failed": "An error occurred while processing your membership. Please try again later.",
 				"update_failed": "Failed to update member information.",
 				"delete_failed": "Failed to delete member."
 			}
