@@ -27,7 +27,7 @@
 			name: 'name',
 			type: 'text',
 			autocomplete: 'name',
-			labelKey: 'page.join.name_label',
+			labelKey: 'common.form.labels.name',
 			placeholderKey: 'page.join.name_placeholder'
 		},
 		{
@@ -35,7 +35,7 @@
 			name: 'email',
 			type: 'email',
 			autocomplete: 'email',
-			labelKey: 'page.join.email_label',
+			labelKey: 'common.form.labels.email',
 			placeholderKey: 'page.join.email_placeholder'
 		},
 		{
@@ -43,7 +43,7 @@
 			name: 'phone',
 			type: 'tel',
 			autocomplete: 'tel',
-			labelKey: 'page.join.phone_label',
+			labelKey: 'common.form.labels.phone_number',
 			placeholderKey: 'page.join.phone_placeholder'
 		}
 	];
@@ -52,13 +52,13 @@
 		{
 			id: 'birthYear',
 			name: 'birthYear',
-			labelKey: 'page.join.birth_year_label',
+			labelKey: 'common.form.labels.birth_year',
 			placeholderKey: 'page.join.birth_year_placeholder'
 		},
 		{
 			id: 'graduationYear',
 			name: 'graduationYear',
-			labelKey: 'page.join.graduation_year_label',
+			labelKey: 'common.form.labels.graduation_year',
 			placeholderKey: 'page.join.graduation_year_placeholder'
 		}
 	];
@@ -89,7 +89,9 @@
 	{/if}
 
 	{#if form?.success}
-		<p class="mb-8 rounded-xl border border-(--color-green) bg-(--color-green)/10 px-4 py-3 font-bold">
+		<p
+			class="mb-8 rounded-xl border border-(--color-green) bg-(--color-green)/10 px-4 py-3 font-bold"
+		>
 			{$_('page.join.success_message')}
 		</p>
 	{/if}
@@ -104,7 +106,7 @@
 			};
 		}}
 	>
-		{#each textFields as field}
+		{#each textFields as field (field.id)}
 			{@const fieldError = getError(field.name)}
 			<div class="space-y-2">
 				<label for={field.id} class="text-sm font-medium">{$_(field.labelKey)}</label>
@@ -127,7 +129,7 @@
 		{/each}
 
 		<div class="grid gap-5 md:grid-cols-2">
-			{#each yearFields as field}
+			{#each yearFields as field (field.id)}
 				{@const fieldError = getError(field.name)}
 				<div class="space-y-2">
 					<label for={field.id} class="text-sm font-medium">{$_(field.labelKey)}</label>
@@ -157,7 +159,7 @@
 				type="checkbox"
 				id="newsletter"
 				name="newsletter"
-				checked={(form as Record<string, unknown>)?.newsletter === true}
+				checked={form?.newsletter === true}
 				class="mt-1 h-4 w-4 rounded border-gray-400 text-(--color-green) focus:ring-(--color-green)"
 			/>
 			<span>{$_('page.join.newsletter_label')}</span>

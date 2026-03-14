@@ -42,29 +42,16 @@
 			"description": "Bli medlem i Studenter for Palestina Trondheim",
 			"header": "Bli medlem",
 			"signup_lead": "Meld deg på for å bli medlem i Studenter for Palestina Trondheim. Ved å bli med, vil du motta oppdateringer om våre aktiviteter og arrangementer, og du vil være en del av et fellesskap som står i solidaritet med den palestinske saken.",
-			"name_label": "Fullt navn",
 			"name_placeholder": "Ditt fulle navn",
-			"email_label": "E-post",
 			"email_placeholder": "deg@eksempel.no",
-			"phone_label": "Telefonnummer",
 			"phone_placeholder": "123 45 678",
-			"birth_year_label": "Fødselsår",
 			"birth_year_placeholder": "f.eks. 2002",
 			"graduation_year_label": "Avgangsår",
 			"graduation_year_placeholder": "f.eks. 2028",
 			"consent_label": "Ved å bli med samtykker du til at Studenter for Palestina lagrer denne informasjonen for å behandle medlemskapet ditt.",
 			"submit_button": "Send inn",
 			"newsletter_label": "Jeg samtykker til at Studenter for Palestina sender meg medlemsbrev på mail",
-			"success_message": "Takk for at du meldte deg inn! Du får snart en bekreftelse på e-post.",
-			"errors": {
-				"required_fields": "Alle felter må fylles ut.",
-				"email_invalid": "Ugyldig e-postformat.",
-				"phone_invalid": "Ugyldig telefonnummerformat.",
-				"email_exists": "Denne e-postadressen er allerede registrert.",
-				"birth_year_invalid": "Vennligst oppgi et gyldig fødselsår.",
-				"graduation_year_invalid": "Vennligst oppgi et gyldig avgangsår.",
-				"submit_failed": "Det oppstod en feil under behandling av medlemskapet. Prøv igjen senere."
-			}
+			"success_message": "Takk for at du meldte deg inn! Du får snart en bekreftelse på e-post."
 		}
 	},
 	"components": {
@@ -94,6 +81,13 @@
 		"cancel": "Avbryt",
 		"save_changes": "Lagre endringer",
 		"form": {
+			"labels": {
+				"name": "Fullt navn",
+				"email": "E-post",
+				"phone_number": "Telefonnummer",
+				"birth_year": "Fødselsår",
+				"graduation_year": "Utmatrikuleringsår"
+			},
 			"errors": {
 				"required_fields": "Vennligst fyll inn alle feltene.",
 				"email_invalid": "Vennligst skriv inn en gyldig e-postadresse.",
@@ -101,6 +95,7 @@
 				"birth_year_invalid": "Vennligst skriv inn et gyldig fødselsår.",
 				"graduation_year_invalid": "Vennligst skriv inn et gyldig utmatrikuleringsår.",
 				"email_exists": "Denne e-postadressen er allerede i bruk.",
+				"submit_failed": "Det oppstod en feil under behandling av medlemskapet. Prøv igjen senere.",
 				"update_failed": "Kunne ikke oppdatere medlemsinformasjon.",
 				"delete_failed": "Kunne ikke slette medlem."
 			}
