@@ -30,11 +30,11 @@
 		type: 'text' | 'email' | 'tel' | 'number';
 	};
 	const formFields: FormField[] = [
-		{ label: $_('page.admin.name'), key: 'name', type: 'text' },
-		{ label: $_('page.admin.email'), key: 'email', type: 'email' },
-		{ label: $_('page.admin.phone_number'), key: 'phoneNumber', type: 'tel' },
-		{ label: $_('page.admin.graduation_year'), key: 'graduationYear', type: 'number' },
-		{ label: $_('page.admin.birth_year'), key: 'birthYear', type: 'number' }
+		{ label: $_('common.form.labels.name'), key: 'name', type: 'text' },
+		{ label: $_('common.form.labels.email'), key: 'email', type: 'email' },
+		{ label: $_('common.form.labels.phone_number'), key: 'phoneNumber', type: 'tel' },
+		{ label: $_('common.form.labels.graduation_year'), key: 'graduationYear', type: 'number' },
+		{ label: $_('common.form.labels.birth_year'), key: 'birthYear', type: 'number' }
 	];
 	const errors = $derived(
 		form && form.memberId == member.id ? (form.errors as Record<string, string>) : undefined
