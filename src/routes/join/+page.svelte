@@ -5,64 +5,97 @@
 	let { form } = $props();
 	let submitting = $state(false);
 
-	type TextField = {
-		id: 'name' | 'email' | 'phone';
-		name: 'name' | 'email' | 'phone';
-		type: 'text' | 'email' | 'tel';
-		autocomplete: HTMLInputAttributes['autocomplete'];
+	type FieldName = 'name' | 'email' | 'phone' | 'birthYear' | 'graduationYear' | 'committees';
+
+	type InputField = {
+		kind: 'input';
+		id: FieldName;
+		name: FieldName;
+		inputType: 'text' | 'email' | 'tel' | 'number';
+		autocomplete?: HTMLInputAttributes['autocomplete'];
 		labelKey: string;
 		placeholderKey: string;
+		inputmode?: HTMLInputAttributes['inputmode'];
+		min?: string;
+		max?: string;
 	};
 
-	type YearField = {
-		id: 'birthYear' | 'graduationYear';
-		name: 'birthYear' | 'graduationYear';
+	type SelectField = {
+		kind: 'select';
+		id: FieldName;
+		name: FieldName;
 		labelKey: string;
-		placeholderKey: string;
+		options: { value: string; labelKey: string }[];
 	};
 
-	const textFields: TextField[] = [
+	type FormField = InputField | SelectField;
+
+	const fields: FormField[] = [
 		{
+			kind: 'input',
 			id: 'name',
 			name: 'name',
-			type: 'text',
+			inputType: 'text',
 			autocomplete: 'name',
 			labelKey: 'common.form.labels.name',
 			placeholderKey: 'page.join.name_placeholder'
 		},
 		{
+			kind: 'input',
 			id: 'email',
 			name: 'email',
-			type: 'email',
+			inputType: 'email',
 			autocomplete: 'email',
 			labelKey: 'common.form.labels.email',
 			placeholderKey: 'page.join.email_placeholder'
 		},
 		{
+			kind: 'input',
 			id: 'phone',
 			name: 'phone',
-			type: 'tel',
+			inputType: 'tel',
 			autocomplete: 'tel',
 			labelKey: 'common.form.labels.phone_number',
 			placeholderKey: 'page.join.phone_placeholder'
-		}
-	];
-
-	const yearFields: YearField[] = [
-		{
-			id: 'birthYear',
-			name: 'birthYear',
-			labelKey: 'common.form.labels.birth_year',
-			placeholderKey: 'page.join.birth_year_placeholder'
 		},
 		{
+			kind: 'input',
+			id: 'birthYear',
+			name: 'birthYear',
+			inputType: 'number',
+			labelKey: 'common.form.labels.birth_year',
+			placeholderKey: 'page.join.birth_year_placeholder',
+			inputmode: 'numeric',
+			min: '1900',
+			max: '2100'
+		},
+		{
+			kind: 'input',
 			id: 'graduationYear',
 			name: 'graduationYear',
+			inputType: 'number',
 			labelKey: 'common.form.labels.graduation_year',
-			placeholderKey: 'page.join.graduation_year_placeholder'
+			placeholderKey: 'page.join.graduation_year_placeholder',
+			inputmode: 'numeric',
+			min: '1900',
+			max: '2100'
+		},
+		{
+			kind: 'select',
+			id: 'committees',
+			name: 'committees',
+			labelKey: 'page.join.committee_label',
+			options: [
+				{ value: 'none', labelKey: 'page.join.committee_none' },
+				{ value: 'event', labelKey: 'page.join.committee_event' },
+				{ value: 'design', labelKey: 'page.join.committee_design' },
+				{ value: 'it', labelKey: 'page.join.committee_it' },
+				{ value: 'writing', labelKey: 'page.join.committee_writing' },
+				{ value: 'stand', labelKey: 'page.join.committee_stand' },
+				{ value: 'action', labelKey: 'page.join.committee_action' }
+			]
 		}
 	];
-
 	const errors = $derived(form?.errors as Record<string, string> | undefined);
 	const getError = (field: string) => errors?.[field];
 
@@ -106,49 +139,59 @@
 			};
 		}}
 	>
-		{#each textFields as field (field.id)}
-			{@const fieldError = getError(field.name)}
-			<div class="space-y-2">
-				<label for={field.id} class="text-sm font-medium">{$_(field.labelKey)}</label>
-				<input
-					id={field.id}
-					name={field.name}
-					type={field.type}
-					class={`${inputClass} ${fieldError ? errorInputClass : ''}`}
-					placeholder={$_(field.placeholderKey)}
-					aria-invalid={fieldError ? 'true' : undefined}
-					aria-describedby={fieldError ? `${field.id}-error` : undefined}
-					autocomplete={field.autocomplete}
-					value={form?.[field.name] || ''}
-					required
-				/>
-				{#if fieldError}
-					<p id="{field.id}-error" class="text-sm text-(--color-red)">{$_(fieldError)}</p>
-				{/if}
-			</div>
-		{/each}
-
 		<div class="grid gap-5 md:grid-cols-2">
-			{#each yearFields as field (field.id)}
+			{#each fields as field (field.id)}
 				{@const fieldError = getError(field.name)}
-				<div class="space-y-2">
+				<div
+					class={`space-y-2 ${field.kind === 'input' && field.inputmode === 'numeric' ? 'col-span-1' : 'col-span-2'}`}
+				>
 					<label for={field.id} class="text-sm font-medium">{$_(field.labelKey)}</label>
-					<input
-						id={field.id}
-						name={field.name}
-						type="number"
-						class={`${inputClass} ${fieldError ? errorInputClass : ''}`}
-						placeholder={$_(field.placeholderKey)}
-						inputmode="numeric"
-						min="1900"
-						max="2100"
-						aria-invalid={fieldError ? 'true' : undefined}
-						aria-describedby={fieldError ? `${field.id}-error` : undefined}
-						required
-						value={form?.[field.name] || ''}
-					/>
+					{#if field.kind === 'input'}
+						<input
+							id={field.id}
+							name={field.name}
+							type={field.inputType}
+							class={`${inputClass} ${fieldError ? errorInputClass : ''}`}
+							placeholder={$_(field.placeholderKey)}
+							inputmode={field.inputmode}
+							min={field.min}
+							max={field.max}
+							autocomplete={field.autocomplete}
+							aria-invalid={fieldError ? 'true' : undefined}
+							aria-describedby={fieldError ? `${field.id}-error` : undefined}
+							required
+							value={form?.[field.name] || ''}
+						/>
+					{:else}
+						<details class="group relative">
+							<summary
+								id={field.id}
+								class={`${inputClass} ${fieldError ? errorInputClass : ''} flex cursor-pointer list-none items-center justify-between`}
+							>
+								<span class="truncate"> Select committees (you can select multiple) </span>
+								<span class="ml-3 text-sm text-gray-500 transition-transform group-open:rotate-180"
+									>▾</span
+								>
+							</summary>
+							<div
+								class="absolute z-10 mt-2 w-full rounded-xl border border-gray-400 bg-(--background) p-2 shadow-sm"
+							>
+								{#each field.options as option (option.value)}
+									<label class="flex items-center gap-2 rounded-lg px-2 py-1.5">
+										<input
+											type="checkbox"
+											name={field.name}
+											value={option.value}
+											class="h-4 w-4 rounded border-gray-400 text-(--color-green) focus:ring-(--color-green)"
+										/>
+										<span>{$_(option.labelKey)}</span>
+									</label>
+								{/each}
+							</div>
+						</details>
+					{/if}
 					{#if fieldError}
-						<p id="{field.id}-error" class="text-sm text-(--color-red)">{$_(fieldError)}</p>
+						<p id={`${field.id}-error`} class="text-sm text-(--color-red)">{$_(fieldError)}</p>
 					{/if}
 				</div>
 			{/each}
