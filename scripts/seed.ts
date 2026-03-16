@@ -11,18 +11,13 @@ await sql`
 await sql`
   INSERT INTO "Member" (name, "phoneNumber", "birthYear", "graduationYear", "isActive", email)
   VALUES
-    ('Alb B', '+4740000000', 2001, 2026, true, 'alb@yazidi.com'),
-    ('sim Naveed iqbal', '+92 000 33 222', 2001, 2026, true, 'øqbal@saim.com'),
-    ('lusy', '+55 123 45 678', 2001, 2028, false, 'llc@na.com' ),
-    ('Tor Grande', '+47976 16 918', 1963, 2007, true, 'opd@mfer.com'),
-    ('Morgan', '+479152241', 2001, 2026, true, 'a1b@yazidi.com'),
-    ('Hk 47', '+92 900 33 222', 2001, 2026, true, 'idbal@saim.com'),
-    ('Natasha', '+55 123 45 678', 2001, 2028, false, 'luc@na.com' ),
-    ('Abi', '+4740000000', 2001, 2026, true, '1b@yazidi.com'),
-    ('Magnus THE Besh', '+92 000 33 222', 2001, 2026, true, 'iql@saim.com'),
-    ('Elias', '+64 126 48 680', 2001, 2028, false, 'luc@na.com' ),
-    ('Mio', '+4740000004', 1995, 2026, true, 'alb@yazidi.com'),
-    ('Natasha', '+93 002 33 222', 197, 2023, true, 'bicbal@saim.com')
+    ('Ola Nordmann', '+4712345678', 1990, 2015, true, 'ola@eksempel.no'),
+    ('Kari Nordmann', '+4787654321', 1992, 2016, true, 'kari@eksempel.no'),
+    ('Alice Smith', '+155512345', 1985, 2010, false, 'alice@example.com'),
+    ('Bob Johnson', '+155567890', 1988, 2012, false, 'bob@example.com'),
+    ('Max Mustermann', '+4955598765', 1995, 2020, true, 'max@beispiel.de'),
+    ('Erika Mustermann', '+4955554321', 1993, 2018, true, 'erika@beispiel.de')
+
   ON CONFLICT (email) DO NOTHING;
 `;
 
