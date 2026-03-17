@@ -36,7 +36,29 @@ just dev
 The default configuration in `.env.example` should work out of the box. If your
 local Docker setup uses different ports, adjust them in your `.env` file.
 
-For getting the admin page to work you need to set up Authentik, as described in the bottom of this document.
+## Setting up Authentik
+
+[Authentik](https://goauthentik.io) is the identity provider used for
+authenticating access to the admin panel. If you need to work on the admin page
+locally, follow these steps after running `just docker`:
+
+1. Open `localhost/if/flow/initial-setup/` in your browser
+2. Create a user — this is only for your local development environment
+3. Click on "Create a new application" and fill in the following:
+   - Application
+     - **Application Name:** sfp-admin
+     - **Slug:** sfp-admin
+   - Choose a Provider
+     - OAuth2/OpenID Provider
+   - Configure Provider
+     - **Provider Name:** sfp-admin
+     - **Authorization flow:** default-provider-authorization-explicit-consent
+       (Authorize Application)
+     - Protocol settings
+       - **Client type:** public
+       - **Redirect URIs/Origins (Regex):** `http://localhost:3000/callback`
+4. Copy the generated client ID into `PUBLIC_OAUTH_CLIENT_ID` in your `.env`
+   file
 
 ## Making Changes
 
@@ -70,26 +92,3 @@ ways to get help:
   for discussion
 
 We're happy to help you get started or work through any problems you encounter.
-
-## Setting up Authentik
-
-After running docker compose up:
-
-1. In your browser open `localhost/if/flow/initial-setup/` (remember the trailing forward slash!)
-2. Create a user. This will only be for your own local setup.
-3. Click on "Create a new application" and fill in the following data:
-
-- Application:
-  Application Name: sfp-admin
-  Slug: sfp-admin
-
-- Choose a Provider Type:
-  OAuth2/OpenID Provider
-
-- Configure OAuth2 Provider:
-  Provider Name: sfp-admin
-  Authorization flow: default-provider-authorization-explicit-consent (Authorize Application)
-  Client type: public
-  Redirect URIs/Origins: http://localhost:3000/callback
-
-4. Add the Client ID to your .env
