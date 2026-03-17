@@ -75,7 +75,7 @@ We're happy to help you get started or work through any problems you encounter.
 
 After running docker compose up:
 
-1. In your browser open localhost/if/flow/initial-setup/
+1. In your browser open `localhost/if/flow/initial-setup/` (remember the trailing forward slash!)
 2. Create a user. This will only be for your own local setup.
 3. Click on "Create a new application" and fill in the following data:
 
