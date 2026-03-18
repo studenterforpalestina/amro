@@ -2,11 +2,20 @@ import { sql } from 'bun';
 import type { Actions } from './$types';
 import { fail } from '@sveltejs/kit';
 import { LISTMONK_API_KEY } from '$env/static/private';
+import { dev } from '$app/environment';
 
 const EMAIL_REGEX = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 const PHONE_REGEX = /^[+0-9() -]{8,20}$/;
 const CURRENT_YEAR = new Date().getFullYear();
 const ALLOWED_COMMITTEES = new Set(['none', 'event', 'design', 'it', 'writing', 'stand', 'action']);
+const COMMITTEE_ZULIP_GROUP_IDS: Record<string, number> = {
+	event: 1479776,
+	design: 1479778,
+	it: 1469866,
+	writing: 1479779,
+	stand: 1470380,
+	action: 1479773
+};
 
 export const actions: Actions = {
 	default: async ({ request }) => {
@@ -95,23 +104,49 @@ export const actions: Actions = {
 				}
 			});
 		}
-		// Subscribe to newsletter if opted in
-		await fetch('listmonk.studenterforpalestina.no/api/subscribers', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-				Authorization: `token ${LISTMONK_API_KEY}`
-			},
-			body: JSON.stringify({
-				email: formState.email,
-				name: formState.name,
-				status: 'enabled',
-				lists: newsletter ? [1, 3] : [3], //3 is the "All members" list, 1 is the newsletter list
-				preconfirm_subscriptions: true
-			})
-		});
-		// Invite to Zulip
-
+		if (!dev) {
+			// Subscribe to newsletter if opted in
+			const listmonkResponse = await fetch(
+				'https://listmonk.studenterforpalestina.no/api/subscribers',
+				{
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+						Authorization: `token ${LISTMONK_API_KEY}`
+					},
+					body: JSON.stringify({
+						email: formState.email,
+						name: formState.name,
+						status: 'enabled',
+						lists: newsletter ? [1, 3] : [3], //3 is the "All members" list, 1 is the newsletter list
+						preconfirm_subscriptions: true
+					})
+				}
+			);
+			if (!listmonkResponse.ok) {
+				console.error('Failed to subscribe to newsletter:', await listmonkResponse.text());
+			}
+			// Invite to Zulip
+			const zulipResponse = await fetch(
+				'https://studenterforpalestina.zulipchat.com/api/v1/invites',
+				{
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+						Authorization: `Basic ${`amro-bot:${process.env.ZULIP_API_KEY}`}`
+					},
+					body: JSON.stringify({
+						invitee_emails: [formState.email],
+						group_ids: committees.map((committee) => COMMITTEE_ZULIP_GROUP_IDS[committee]),
+						stream_ids: [],
+						include_realm_default_subscriptions: true
+					})
+				}
+			);
+			if (!zulipResponse.ok) {
+				console.error('Failed to invite to Zulip:', await zulipResponse.text());
+			}
+		}
 		return {
 			success: true
 		};
