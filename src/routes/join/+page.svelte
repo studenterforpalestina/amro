@@ -130,7 +130,7 @@
 			{#each inputFields as field (field.id)}
 				{@const error = getError(field.id)}
 				<div class={`col-span-1 min-w-0 space-y-2 ${field.fullWidth ? 'md:col-span-2' : ''}`}>
-					<label for={field.id} class="text-sm font-medium">{$_(field.labelKey)}</label>
+					<label for={field.id} class="font-medium">{$_(field.labelKey)}</label>
 					<input
 						id={field.id}
 						name={field.id}
@@ -153,8 +153,7 @@
 			{/each}
 
 			<div class="col-span-1 min-w-0 space-y-2 md:col-span-2">
-				<label for="committees" class="text-sm font-medium">{$_('page.join.committee_label')}</label
-				>
+				<label for="committees" class="font-medium">{$_('page.join.committee_label')}</label>
 				<CommitteeSelect
 					id="committees"
 					name="committees"
