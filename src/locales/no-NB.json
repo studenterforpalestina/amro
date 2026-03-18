@@ -48,6 +48,7 @@
 			"birth_year_placeholder": "f.eks. 2002",
 			"graduation_year_placeholder": "f.eks. 2028",
 			"committee_label": "Hvilke komiteer er du interessert i å bli med i?",
+			"committee_placeholder": "Velg komiteer (du kan velge flere)",
 			"committee_none": "Ikke sikker",
 			"committee_event": "Arrangementskomiteen",
 			"committee_design": "Design- og sosiale medier",
