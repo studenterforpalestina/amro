@@ -13,12 +13,12 @@
 
 <section
 	class={[
-		'flex items-center justify-center px-8 py-24',
+		'px-8 py-24 flex items-center justify-center',
 		fullHeight && 'h-lvh',
 		green && 'bg-(--color-green)/80 text-(--color-text-light)'
 	]}
 >
-	<div class={['w-[80svw] max-w-300', clas]}>
+	<div class={['max-w-300 w-[80svw]', clas]}>
 		{@render children?.()}
 	</div>
 </section>
