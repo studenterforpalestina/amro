@@ -17,22 +17,68 @@ const COMMITTEE_ZULIP_GROUP_IDS: Record<string, number> = {
 	action: 1479773
 };
 
+const parseText = (formData: FormData, key: string) => formData.get(key)?.toString().trim() ?? '';
+
+const parseNumber = (formData: FormData, key: string) => Number(formData.get(key));
+
+const submitToListmonk = async (name: string, email: string, newsletter: boolean) => {
+	const response = await fetch('https://listmonk.studenterforpalestina.no/api/subscribers', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+			Authorization: `token ${LISTMONK_API_KEY}`
+		},
+		body: JSON.stringify({
+			email,
+			name,
+			status: 'enabled',
+			lists: newsletter ? [1, 3] : [3],
+			preconfirm_subscriptions: true
+		})
+	});
+
+	if (!response.ok) {
+		console.error('Failed to subscribe to newsletter:', await response.text());
+	}
+};
+
+const inviteToZulip = async (email: string, committees: string[]) => {
+	const groupIds = committees
+		.map((committee) => COMMITTEE_ZULIP_GROUP_IDS[committee])
+		.filter((value): value is number => value !== undefined);
+
+	const response = await fetch('https://studenterforpalestina.zulipchat.com/api/v1/invites', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+			Authorization: `Basic ${ZULIP_API_EMAIL}:${ZULIP_API_KEY}`
+		},
+		body: JSON.stringify({
+			invitee_emails: [email],
+			group_ids: groupIds,
+			stream_ids: [],
+			include_realm_default_subscriptions: true
+		})
+	});
+
+	if (!response.ok) {
+		console.error('Failed to invite to Zulip:', await response.text());
+	}
+};
+
 export const actions: Actions = {
 	default: async ({ request }) => {
 		const formData = await request.formData();
-		const name = formData.get('name')?.toString().trim() ?? '';
-		const email = formData.get('email')?.toString().trim() ?? '';
-		const phone = formData.get('phone')?.toString().trim() ?? '';
-		const committeesRaw = formData
+		const name = parseText(formData, 'name');
+		const email = parseText(formData, 'email');
+		const phone = parseText(formData, 'phone');
+		const committees = formData
 			.getAll('committees')
 			.map((value) => value.toString().trim())
 			.filter(Boolean);
-		const hasNoneCommittee = committeesRaw.includes('none');
-		const committees = hasNoneCommittee
-			? committeesRaw.filter((value) => value !== 'none')
-			: committeesRaw;
-		const birthYear = Number(formData.get('birthYear'));
-		const graduationYear = Number(formData.get('graduationYear'));
+		const selectedCommittees = committees.filter((committee) => committee !== 'none');
+		const birthYear = parseNumber(formData, 'birthYear');
+		const graduationYear = parseNumber(formData, 'graduationYear');
 		const newsletter = formData.get('newsletter') === 'on';
 		const errors: Record<string, string> = {};
 
@@ -42,7 +88,7 @@ export const actions: Actions = {
 			!name ||
 			!email ||
 			!phone ||
-			committeesRaw.length === 0 ||
+			committees.length === 0 ||
 			Number.isNaN(birthYear) ||
 			Number.isNaN(graduationYear)
 		) {
@@ -68,7 +114,7 @@ export const actions: Actions = {
 			errors.graduationYear = 'common.form.errors.graduation_year_invalid';
 		}
 
-		if (committeesRaw.some((committee) => !ALLOWED_COMMITTEES.has(committee))) {
+		if (committees.some((committee) => !ALLOWED_COMMITTEES.has(committee))) {
 			errors.committees = 'common.form.errors.required_fields';
 		}
 
@@ -105,47 +151,10 @@ export const actions: Actions = {
 			});
 		}
 		if (!dev) {
-			// Subscribe to newsletter if opted in
-			const listmonkResponse = await fetch(
-				'https://listmonk.studenterforpalestina.no/api/subscribers',
-				{
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json',
-						Authorization: `token ${LISTMONK_API_KEY}`
-					},
-					body: JSON.stringify({
-						email: formState.email,
-						name: formState.name,
-						status: 'enabled',
-						lists: newsletter ? [1, 3] : [3], //3 is the "All members" list, 1 is the newsletter list
-						preconfirm_subscriptions: true
-					})
-				}
-			);
-			if (!listmonkResponse.ok) {
-				console.error('Failed to subscribe to newsletter:', await listmonkResponse.text());
-			}
-			// Invite to Zulip
-			const zulipResponse = await fetch(
-				'https://studenterforpalestina.zulipchat.com/api/v1/invites',
-				{
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json',
-						Authorization: `Basic ${`amro-bot:${process.env.ZULIP_API_KEY}`}`
-					},
-					body: JSON.stringify({
-						invitee_emails: [formState.email],
-						group_ids: committees.map((committee) => COMMITTEE_ZULIP_GROUP_IDS[committee]),
-						stream_ids: [],
-						include_realm_default_subscriptions: true
-					})
-				}
-			);
-			if (!zulipResponse.ok) {
-				console.error('Failed to invite to Zulip:', await zulipResponse.text());
-			}
+			await Promise.all([
+				submitToListmonk(formState.name, formState.email, newsletter),
+				inviteToZulip(formState.email, selectedCommittees)
+			]);
 		}
 		return {
 			success: true
