@@ -103,6 +103,36 @@
 		'w-full rounded-xl border border-gray-400 bg-transparent p-2.5 placeholder-gray-400 transition-all outline-none focus:border-(--color-green) focus:ring-2 focus:ring-(--color-green)';
 	const errorInputClass =
 		'border-(--color-red) focus:border-(--color-red) focus:ring-(--color-red)';
+	let selectedCommittees = $state<string[]>([]);
+	let committeeDetailsElement = $state<HTMLDetailsElement | null>(null);
+
+	const onSelectCommittee = (event: Event) => {
+		const target = event.currentTarget as HTMLInputElement;
+
+		if (target.value === 'none' && target.checked) {
+			selectedCommittees = ['none'];
+			return;
+		}
+
+		if (target.value !== 'none' && target.checked) {
+			selectedCommittees = selectedCommittees.filter((committee) => committee !== 'none');
+		}
+	};
+
+	$effect(() => {
+		const onClickOutside = (event: MouseEvent) => {
+			if (
+				committeeDetailsElement?.open &&
+				event.target instanceof Node &&
+				!committeeDetailsElement.contains(event.target)
+			) {
+				committeeDetailsElement.open = false;
+			}
+		};
+
+		document.addEventListener('click', onClickOutside);
+		return () => document.removeEventListener('click', onClickOutside);
+	});
 </script>
 
 <svelte:head>
@@ -139,11 +169,11 @@
 			};
 		}}
 	>
-		<div class="grid gap-5 md:grid-cols-2">
+		<div class="grid grid-cols-1 gap-5 md:grid-cols-2">
 			{#each fields as field (field.id)}
 				{@const fieldError = getError(field.name)}
 				<div
-					class={`space-y-2 ${field.kind === 'input' && field.inputmode === 'numeric' ? 'col-span-1' : 'col-span-2'}`}
+					class={`col-span-1 min-w-0 space-y-2 ${field.kind === 'input' && field.inputmode === 'numeric' ? 'md:col-span-1' : 'md:col-span-2'}`}
 				>
 					<label for={field.id} class="text-sm font-medium">{$_(field.labelKey)}</label>
 					{#if field.kind === 'input'}
@@ -163,13 +193,22 @@
 							value={form?.[field.name] || ''}
 						/>
 					{:else}
-						<details class="group relative">
+						<details class="group relative w-full" bind:this={committeeDetailsElement}>
 							<summary
 								id={field.id}
-								class={`${inputClass} ${fieldError ? errorInputClass : ''} flex cursor-pointer list-none items-center justify-between`}
+								class={`${inputClass} ${fieldError ? errorInputClass : ''} flex cursor-pointer list-none items-center justify-between overflow-hidden`}
 							>
-								<span class="truncate"> Select committees (you can select multiple) </span>
-								<span class="ml-3 text-sm text-gray-500 transition-transform group-open:rotate-180"
+								<span class="block flex-1 truncate">
+									{field.options.filter((option) => selectedCommittees.includes(option.value))
+										.length
+										? field.options
+												.filter((option) => selectedCommittees.includes(option.value))
+												.map((option) => $_(option.labelKey))
+												.join(', ')
+										: 'Select committees (you can select multiple)'}
+								</span>
+								<span
+									class="ml-3 shrink-0 text-sm text-gray-500 transition-transform group-open:rotate-180"
 									>▾</span
 								>
 							</summary>
@@ -182,6 +221,8 @@
 											type="checkbox"
 											name={field.name}
 											value={option.value}
+											bind:group={selectedCommittees}
+											onchange={onSelectCommittee}
 											class="h-4 w-4 rounded border-gray-400 text-(--color-green) focus:ring-(--color-green)"
 										/>
 										<span>{$_(option.labelKey)}</span>
@@ -211,7 +252,7 @@
 		<button
 			type="submit"
 			disabled={submitting}
-			class="w-30 rounded-xl bg-(--color-green) px-4 py-2 text-white transition-all hover:bg-(--color-green)/60 disabled:cursor-not-allowed disabled:opacity-50"
+			class="w-full rounded-xl bg-(--color-green) px-4 py-2.5 font-medium text-white transition-all hover:bg-(--color-green)/60 disabled:cursor-not-allowed disabled:opacity-50 md:w-30"
 		>
 			{$_('page.join.submit_button')}
 		</button>
