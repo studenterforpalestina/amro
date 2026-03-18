@@ -11,8 +11,8 @@
 <Section class="flex flex-col items-start">
 	<div class="flex flex-col items-start">
 		<h1 class="text-6xl font-bold md:text-8xl">{$_('components.homepage.join')}</h1>
-		<div class="flex flex-col gap-16 xl:flex-row">
-			<div class="flex flex-col gap-8">
+		<div class="gap-16 xl:flex-row flex flex-col">
+			<div class="gap-8 flex flex-col">
 				<h1 class="text-6xl font-bold md:text-8xl md:text-nowrap">
 					{$_('components.homepage.for_palestina')}
 				</h1>
@@ -31,11 +31,11 @@
 		</div>
 	</div>
 </Section>
-<Section green class="flex flex-col items-center justify-between gap-4">
+<Section green class="gap-4 flex flex-col items-center justify-between">
 	<HomepageEvents events={data.events} />
 </Section>
-<Section class="flex flex-col gap-12 lg:flex-row">
-	<div class="flex grow-0 flex-col gap-6 lg:basis-5/12">
+<Section class="gap-12 lg:flex-row flex flex-col">
+	<div class="gap-6 lg:basis-5/12 flex grow-0 flex-col">
 		<h2 class="max-w-xl text-5xl font-bold">{$_('components.homepage.about_us')}</h2>
 		<p class="text-lg">
 			{$_('components.homepage.about_us_paragraph_1')}
@@ -47,7 +47,7 @@
 	<img
 		src="/images/hovedbygget_demo.webp"
 		alt="Studenter for Palestina på demonstrasjon"
-		class="w-full grow-0 lg:basis-7/12"
+		class="lg:basis-7/12 w-full grow-0"
 		width="960"
 		height="720"
 		decoding="async"
