@@ -14,7 +14,7 @@
 </script>
 
 <nav
-	class="sticky top-0 left-0 z-50 flex w-full items-center justify-between gap-2 bg-(--background) px-10 py-6"
+	class="sticky top-0 left-0 z-50 flex w-full items-center justify-between gap-2 bg-(--background) px-4 py-2 md:px-10 md:py-6"
 >
 	<div class="flex w-full items-center justify-between">
 		<a href={resolve('/')}>

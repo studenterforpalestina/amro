@@ -5,6 +5,7 @@ export type Event = {
 	end_time?: Date;
 	description?: string;
 	place?: string;
+	image_url?: string;
 };
 interface ApiResponse {
 	data: EventData[];
@@ -18,6 +19,9 @@ interface EventData {
 	place?: {
 		name?: string;
 	};
+	cover?: {
+		source?: string;
+	};
 }
 
 export function parseEvents(json: ApiResponse): Event[] {
@@ -27,6 +31,7 @@ export function parseEvents(json: ApiResponse): Event[] {
 		start_time: new Date(event.start_time),
 		end_time: event.end_time ? new Date(event.end_time) : undefined,
 		description: event.description,
-		place: event.place?.name
+		place: event.place?.name,
+		image_url: event.cover?.source
 	}));
 }

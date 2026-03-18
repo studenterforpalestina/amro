@@ -11,7 +11,7 @@ export async function fetchFacebookEvents() {
 	const apiURL = new URL(`https://graph.facebook.com/v24.0/${FB_PAGE_ID}/events`);
 	apiURL.search = new URLSearchParams({
 		access_token: FB_ACCESS_TOKEN,
-		fields: 'id,name,description,start_time,end_time,place',
+		fields: 'id,name,description,start_time,end_time,place,cover',
 		limit: EVENTS_LIMIT.toString()
 	}).toString();
 
