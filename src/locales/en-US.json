@@ -48,6 +48,7 @@
 			"birth_year_placeholder": "e.g. 2002",
 			"graduation_year_placeholder": "e.g. 2028",
 			"committee_label": "What groups are you interested in joining?",
+			"committee_placeholder": "Select committees (you can select multiple)",
 			"committee_none": "Not sure yet",
 			"committee_event": "Event",
 			"committee_design": "Design and Social Media",
