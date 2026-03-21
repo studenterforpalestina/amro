@@ -53,28 +53,28 @@
 	}
 </script>
 
-<div class="gap-2 md:grid-cols-[12px_7rem_6fr] md:gap-4 grid grid-cols-[12px_4rem_6fr] items-start">
-	<div class="w-20 col-span-2 self-center">
-		<p class="text-2xl font-bold md:text-4xl col-span-2 text-(--color-red)">
+<div class="grid grid-cols-[12px_4rem_6fr] items-start gap-2 md:grid-cols-[12px_7rem_6fr] md:gap-4">
+	<div class="col-span-2 w-20 self-center">
+		<p class="col-span-2 text-2xl font-bold text-(--color-red) md:text-4xl">
 			{getDate(event.start_time)}
 		</p>
 	</div>
 
 	<p class="text-xl font-bold md:text-2xl">{event.name}</p>
-	<div class="gap-1 flex flex-col items-start">
+	<div class="flex flex-col items-start gap-1">
 		<p class="text-xs md:text-sm">🕔</p>
 		<p class="text-xs md:text-sm">📍</p>
 	</div>
-	<div class="gap-1 flex flex-col items-start">
+	<div class="flex flex-col items-start gap-1">
 		<p class="text-xs font-bold md:text-sm">{getTime(event.start_time)}</p>
-		<p class="text-xs font-bold md:text-sm md:wrap-break-word wrap-anywhere">{event.place}</p>
+		<p class="text-xs font-bold wrap-anywhere md:text-sm md:wrap-break-word">{event.place}</p>
 	</div>
 	<div>
 		{#if event.description}
 			<p
 				id={'desc-' + event.id}
 				bind:this={descriptionElement}
-				class="max-h-30 text-sm ease-in-out md:text-base overflow-hidden text-ellipsis whitespace-pre-line transition-all duration-300"
+				class="max-h-30 overflow-hidden text-sm text-ellipsis whitespace-pre-line transition-all duration-300 ease-in-out md:text-base"
 				class:overflow-auto={isExpanded}
 				class:max-h-256={isExpanded}
 			>
@@ -99,7 +99,7 @@
 		{#if isOverflowing}
 			<button
 				type="button"
-				class="text-md font-semibold block text-(--color-red) duration-200 hover:opacity-50"
+				class="text-md block font-semibold text-(--color-red) duration-200 hover:opacity-50"
 				aria-expanded={isExpanded}
 				on:click={toggleExpanded}
 			>
@@ -110,7 +110,7 @@
 
 		<a
 			href={getFacebookEventUrl(event.id)}
-			class="mt-2 text-lg font-bold block text-(--color-red) duration-200 hover:opacity-50"
+			class="mt-2 block text-lg font-bold text-(--color-red) duration-200 hover:opacity-50"
 			rel="external noopener noreferrer"
 			target="_blank"
 		>

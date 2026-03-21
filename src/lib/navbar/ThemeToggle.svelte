@@ -13,7 +13,7 @@
 
 <button
 	class={c(
-		`rounded-md px-3 py-2 cursor-pointer border-0 bg-transparent
+		`cursor-pointer rounded-md border-0 bg-transparent px-3 py-2
             transition-colors duration-200 hover:bg-(--color-red)/15
             hover:text-(--color-red) active:bg-(--color-red)/40`,
 		clas
