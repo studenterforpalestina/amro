@@ -7,7 +7,7 @@
 	import ThemeToggle from './ThemeToggle.svelte';
 	import LanguageSwapper from '$lib/components/LanguageSwitcher.svelte';
 
-	let data = ['events' as const, 'groups' as const, 'press' as const];
+	let data = ['events' as const];
 
 	let menuOpen = $state(false);
 </script>
