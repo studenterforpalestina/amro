@@ -1,5 +1,7 @@
 <script lang="ts">
-	export let member: any;
+	import type { Member } from '$lib/types';
+
+	let { member }: { member: Member } = $props();
 </script>
 
 <li class="grid grid-cols-6 items-center p-2 text-center">
