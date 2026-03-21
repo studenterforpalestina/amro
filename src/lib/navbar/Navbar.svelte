@@ -7,7 +7,6 @@
 	import ThemeToggle from './ThemeToggle.svelte';
 	import LanguageSwapper from '$lib/components/LanguageSwitcher.svelte';
 
-	import { darkMode } from '$lib/stores/darkMode';
 	let data = ['events' as const, 'groups' as const, 'press' as const];
 
 	let menuOpen = $state(false);
@@ -18,11 +17,20 @@
 >
 	<div class="flex w-full items-center justify-between">
 		<a href={resolve('/')}>
-			{#if $darkMode}
-				<img class="w-16" src="/images/logo_darkmode.webp" alt="logo" width="959" height="959" />
-			{:else}
-				<img class="w-16" src="/images/logo.webp" alt="logo" width="959" height="959" />
-			{/if}
+			<img
+				class="w-16 dark:hidden"
+				src="/images/logo.webp"
+				alt="Studenter for Palestina logo"
+				width="959"
+				height="959"
+			/>
+			<img
+				class="w-16 hidden dark:block"
+				src="/images/logo_darkmode.webp"
+				alt="Studenter for Palestina logo"
+				width="959"
+				height="959"
+			/>
 		</a>
 		<button
 			class="rounded-md px-3 py-2 text-lg sm:hidden cursor-pointer
