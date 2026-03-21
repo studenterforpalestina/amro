@@ -1,0 +1,12 @@
+node_modules
+Dockerfile*
+docker-compose*
+.dockerignore
+.git
+.gitignore
+.svelte-kit
+.jj
+.env
+README.md
+LICENSE
+CONTRIBUTING.md
