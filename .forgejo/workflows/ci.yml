@@ -43,4 +43,5 @@ jobs:
         env:
           FB_ACCESS_TOKEN: ${{ secrets.FB_ACCESS_TOKEN }}
           LISTMONK_API_KEY: ${{ secrets.LISTMONK_API_KEY }}
+          PUBLIC_OAUTH_CLIENT_AUTHORITY: ${{ secrets.PUBLIC_OAUTH_CLIENT_AUTHORITY }}
         run: just build
