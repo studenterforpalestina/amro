@@ -6,8 +6,8 @@ install:
     bun install
 
 # start docker services from compose
-docker:
-    docker compose up
+docker *args="":
+    docker compose up {{ args }}
 
 # shuts down compose and wipes stored data
 down-wipe:
