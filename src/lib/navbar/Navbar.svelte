@@ -8,7 +8,7 @@
 	import LanguageSwapper from '$lib/components/LanguageSwitcher.svelte';
 
 	import { darkMode } from '$lib/stores/darkMode';
-	let data = ['events' as const, 'groups' as const, 'press' as const];
+	let data = ['events' as const];
 
 	let menuOpen = $state(false);
 </script>
