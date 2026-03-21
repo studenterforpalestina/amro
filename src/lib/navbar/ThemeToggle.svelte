@@ -1,32 +1,31 @@
 <script lang="ts">
 	import { MoonStar, Sun } from '@lucide/svelte';
 	import type { HTMLButtonAttributes } from 'svelte/elements';
+	import { darkMode } from '$lib/stores/darkMode';
 	import { c } from '../../utils/classes';
 
 	const { class: clas, ...props }: HTMLButtonAttributes = $props();
-
 	function toggleDarkMode() {
-		const isDark = document.documentElement.classList.toggle('dark');
-		localStorage.setItem('theme', isDark ? 'dark' : 'light');
+		darkMode.update((v) => !v);
+		document.documentElement.classList.toggle('dark');
 	}
 </script>
 
 <button
 	class={c(
 		`rounded-md px-3 py-2 cursor-pointer border-0 bg-transparent
-         transition-colors duration-200 hover:bg-(--color-red)/15
-         hover:text-(--color-red) active:bg-(--color-red)/40`,
+            transition-colors duration-200 hover:bg-(--color-red)/15
+            hover:text-(--color-red) active:bg-(--color-red)/40`,
 		clas
 	)}
 	{...props}
-	onclick={toggleDarkMode}
-	aria-label="Toggle theme"
+	onclick={() => {
+		toggleDarkMode();
+	}}
 >
-	<div class="contents dark:hidden">
-		<Sun />
-	</div>
-
-	<div class="contents hidden dark:block">
+	{#if $darkMode}
 		<MoonStar />
-	</div>
+	{:else}
+		<Sun />
+	{/if}
 </button>
