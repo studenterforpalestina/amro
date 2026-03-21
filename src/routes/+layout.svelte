@@ -11,6 +11,15 @@
 </script>
 
 <svelte:head>
+	<script>
+		(function () {
+			const theme = localStorage.getItem('theme');
+			const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+			if (theme === 'dark' || (!theme && systemDark)) {
+				document.documentElement.classList.add('dark');
+			}
+		})();
+	</script>
 	<title>Studenter for Palestina Trondheim</title>
 	<link rel="icon" href="/images/logo.png" />
 </svelte:head>
