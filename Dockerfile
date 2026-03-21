@@ -19,8 +19,6 @@ RUN cd /temp/prod && bun install --frozen-lockfile --production
 FROM base AS prerelease
 COPY --from=install /temp/dev/node_modules node_modules
 COPY . .
-ARG FB_ACCESS_TOKEN
-ENV FB_ACCESS_TOKEN=$FB_ACCESS_TOKEN
 ENV NODE_ENV=production
 RUN bun run build
 
