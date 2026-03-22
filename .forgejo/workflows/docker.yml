@@ -8,24 +8,35 @@ on:
 
 jobs:
   build-and-push:
-    runs-on: codeberg-small
+    runs-on: codeberg-medium-lazy
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
 
-      - name: Login to Codeberg Container Registry
-        uses: docker/login-action@v4
-        with:
-          registry: codeberg.org
-          username: ${{ secrets.REGISTRY_USER }}
-          password: ${{ secrets.REGISTRY_TOKEN }}
+      - name: Install buildah
+        run: apt-get update && apt-get install -y buildah
 
-      - name: Build and push Docker image
-        uses: docker/build-push-action@v7
-        with:
-          context: .
-          push: true
-          tags: |
-            codeberg.org/studenterforpalestina/amro:latest
-            codeberg.org/studenterforpalestina/amro:${{ github.sha }}
+      - name: Build image
+        env:
+          STORAGE_DRIVER: vfs
+          BUILDAH_ISOLATION: chroot
+        run: |
+          buildah --storage-driver="$STORAGE_DRIVER" \
+            bud --isolation="$BUILDAH_ISOLATION" \
+            -t codeberg.org/studenterforpalestina/amro:latest \
+            -t codeberg.org/studenterforpalestina/amro:${{ github.sha }} .
+
+      - name: Push image
+        if: github.event_name == 'push'
+        env:
+          STORAGE_DRIVER: vfs
+        run: |
+          buildah --storage-driver="$STORAGE_DRIVER" \
+            login -u ${{ secrets.REGISTRY_USER }} -p ${{ secrets.REGISTRY_TOKEN }} codeberg.org
+
+          buildah --storage-driver="$STORAGE_DRIVER" \
+            push codeberg.org/studenterforpalestina/amro:latest
+
+          buildah --storage-driver="$STORAGE_DRIVER" \
+            push codeberg.org/studenterforpalestina/amro:${{ github.sha }}
