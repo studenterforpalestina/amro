@@ -5,10 +5,10 @@
 	"license": "AGPL-3.0-only",
 	"type": "module",
 	"scripts": {
+		"dev": "vite --port 3000",
 		"build": "vite build",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"dev": "bun --bun vite dev --port 3000",
 		"format": "prettier --write .",
 		"lint": "prettier --check . && eslint .",
 		"prepare": "svelte-kit sync || echo ''",
