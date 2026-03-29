@@ -27,7 +27,7 @@ dev:
 
 # build for production
 build:
-    bun --bun run build
+    bun run build
 
 # preview production build
 preview:

@@ -1,0 +1,7 @@
+[run]
+bun = true
+silent = true
+
+[test]
+timeout = 2000
+coverage = true
