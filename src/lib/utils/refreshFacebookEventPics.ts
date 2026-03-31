@@ -1,7 +1,7 @@
 import { type Event } from '$lib/utils/eventParser';
 import { hash } from 'bun';
 import sharp from 'sharp';
-import { readdir, writeFile, exists, unlink } from 'node:fs/promises';
+import { readdir, writeFile, exists, unlink, mkdir } from 'node:fs/promises';
 
 export function normalizeUrl(url: string) {
 	try {
@@ -13,6 +13,7 @@ export function normalizeUrl(url: string) {
 }
 
 async function saveFacebookEventImages(events: Event[]) {
+	await mkdir('/data/eventpics', { recursive: true });
 	await Promise.all(
 		events.map(async (event) => {
 			const normalizedImageUrl = normalizeUrl(event?.image_url || '');
@@ -21,7 +22,7 @@ async function saveFacebookEventImages(events: Event[]) {
 			}
 
 			const image_url_hash = hash(normalizedImageUrl).toString();
-			const imageExists = await exists(`./src/lib/assets/eventpics/${image_url_hash}.webp`);
+			const imageExists = await exists(`/data/eventpics/${image_url_hash}.webp`);
 			if (event.image_url && !imageExists) {
 				try {
 					const response = await fetch(event.image_url);
@@ -40,7 +41,7 @@ async function saveFacebookEventImages(events: Event[]) {
 						.resize({ width: 800, fit: 'inside' })
 						.webp({ quality: 80 })
 						.toBuffer();
-					await writeFile(`./src/lib/assets/eventpics/${image_url_hash}.webp`, optimizedBuffer);
+					await writeFile(`/data/eventpics/${image_url_hash}.webp`, optimizedBuffer);
 				} catch (error) {
 					console.error(`Error processing image for event ${event.id}:`, error);
 				}
@@ -54,12 +55,12 @@ async function deleteOldEventImages(currentEvents: Event[]) {
 	const currentImageHashes = new Set(
 		currentEvents.map((event) => hash(normalizeUrl(event?.image_url || '')).toString())
 	);
-	const files = await readdir('./src/lib/assets/eventpics');
+	const files = await readdir('/data/eventpics');
 	for (const file of files) {
 		const fileHash = file.split('.')[0];
 		if (!currentImageHashes.has(fileHash)) {
 			try {
-				await unlink(`./src/lib/assets/eventpics/${file}`);
+				await unlink(`/data/eventpics/${file}`);
 			} catch (error) {
 				console.error(`Error deleting old image ${file}:`, error);
 			}

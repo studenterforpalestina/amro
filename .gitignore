@@ -26,4 +26,4 @@ vite.config.ts.timestamp-*
 /../generated/prisma
 
 # Temp images
-src/lib/assets/eventpics/*
+data/eventpics/*

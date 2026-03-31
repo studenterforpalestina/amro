@@ -8,7 +8,7 @@ export const GET = async ({ url }) => {
 	}
 	const normalizedUrl = normalizeUrl(imageUrl);
 	const imageHash = hash(normalizedUrl).toString();
-	const filePath = `./src/lib/assets/eventpics/${imageHash}.webp`;
+	const filePath = `/data/eventpics/${imageHash}.webp`;
 	if (await exists(filePath)) {
 		const imageBuffer = await readFile(filePath);
 		return new Response(imageBuffer, {
