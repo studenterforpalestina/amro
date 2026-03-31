@@ -27,10 +27,10 @@ export async function getFacebookEvents() {
 	}
 	try {
 		const freshData = await fetchFacebookEvents();
-		const refreshedData = await refreshFacebookEventPictures(freshData);
+		await refreshFacebookEventPictures(freshData);
 		await sql`
             INSERT INTO "EventsCache" (key, payload, "fetchedAt")
-            VALUES (${CACHE_KEY}, ${refreshedData}, now())
+            VALUES (${CACHE_KEY}, ${freshData}, now())
             ON CONFLICT (key) DO UPDATE
             SET payload = EXCLUDED.payload,
                 "fetchedAt" = EXCLUDED."fetchedAt";
