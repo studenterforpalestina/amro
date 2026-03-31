@@ -18,6 +18,14 @@
 		const month = String(eventDate.getMonth() + 1).padStart(2, '0');
 		return `${day}.${month}`;
 	}
+
+	function getEventImageSrc(imageUrl?: string | null) {
+		const basePath = resolve('/events/image');
+		if (!imageUrl) {
+			return basePath;
+		}
+		return `${basePath}?${new URLSearchParams({ url: imageUrl }).toString()}`;
+	}
 </script>
 
 <h2 class="self-start text-center text-5xl font-bold">{$_('components.navbar.events')}</h2>
@@ -31,7 +39,7 @@
 			>
 				<div class="h-full bg-(--color-text-light)/10 p-2 backdrop-blur-sm md:p-4">
 					<img
-						src={event.image_url}
+						src={getEventImageSrc(event.image_url)}
 						alt={event.name}
 						class="mb-4 h-36 w-full rounded-md object-cover md:h-36 lg:h-48"
 						decoding="async"
