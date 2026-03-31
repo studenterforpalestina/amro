@@ -17,7 +17,13 @@
 >
 	<div class="flex w-full items-center justify-between">
 		<a href={resolve('/')}>
-			<img class="w-16 dark:hidden" src="/images/logo.webp" alt="logo" width="959" height="959" />
+			<img
+				class="block w-16 dark:hidden"
+				src="/images/logo.webp"
+				alt="logo"
+				width="959"
+				height="959"
+			/>
 			<img
 				class="hidden w-16 dark:block"
 				src="/images/logo_darkmode.webp"
