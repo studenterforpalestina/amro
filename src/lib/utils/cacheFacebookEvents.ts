@@ -1,6 +1,7 @@
 import { sql } from 'bun';
 import { fetchFacebookEvents } from './fetchFacebookEvents';
 import { type Event } from '$lib/utils/eventParser';
+import { refreshFacebookEventPictures } from './refreshFacebookEventPics';
 const CACHE_KEY = 'events';
 const CACHE_LIFETIME_MS = 60 * 60 * 1000; // 60 minutes
 
@@ -26,9 +27,10 @@ export async function getFacebookEvents() {
 	}
 	try {
 		const freshData = await fetchFacebookEvents();
+		const refreshedData = await refreshFacebookEventPictures(freshData);
 		await sql`
             INSERT INTO "EventsCache" (key, payload, "fetchedAt")
-            VALUES (${CACHE_KEY}, ${freshData}, now())
+            VALUES (${CACHE_KEY}, ${refreshedData}, now())
             ON CONFLICT (key) DO UPDATE
             SET payload = EXCLUDED.payload,
                 "fetchedAt" = EXCLUDED."fetchedAt";
