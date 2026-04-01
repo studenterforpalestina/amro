@@ -2,7 +2,9 @@ import { type Event } from '$lib/utils/eventParser';
 import { hash } from 'bun';
 import sharp from 'sharp';
 import { readdir, writeFile, exists, unlink, mkdir } from 'node:fs/promises';
+import { IMAGE_DIR } from '$env/static/private';
 
+const image_path = IMAGE_DIR || '/data/eventpics';
 export function normalizeUrl(url: string) {
 	try {
 		const urlObj = new URL(url);
@@ -13,7 +15,7 @@ export function normalizeUrl(url: string) {
 }
 
 async function saveFacebookEventImages(events: Event[]) {
-	await mkdir('/data/eventpics', { recursive: true });
+	await mkdir(image_path, { recursive: true });
 	await Promise.all(
 		events.map(async (event) => {
 			const normalizedImageUrl = normalizeUrl(event?.image_url || '');
@@ -22,7 +24,7 @@ async function saveFacebookEventImages(events: Event[]) {
 			}
 
 			const image_url_hash = hash(normalizedImageUrl).toString();
-			const imageExists = await exists(`/data/eventpics/${image_url_hash}.webp`);
+			const imageExists = await exists(`${image_path}/${image_url_hash}.webp`);
 			if (event.image_url && !imageExists) {
 				try {
 					const response = await fetch(event.image_url);
@@ -41,7 +43,7 @@ async function saveFacebookEventImages(events: Event[]) {
 						.resize({ width: 800, fit: 'inside' })
 						.webp({ quality: 80 })
 						.toBuffer();
-					await writeFile(`/data/eventpics/${image_url_hash}.webp`, optimizedBuffer);
+					await writeFile(`${image_path}/${image_url_hash}.webp`, optimizedBuffer);
 				} catch (error) {
 					console.error(`Error processing image for event ${event.id}:`, error);
 				}
@@ -55,12 +57,12 @@ async function deleteOldEventImages(currentEvents: Event[]) {
 	const currentImageHashes = new Set(
 		currentEvents.map((event) => hash(normalizeUrl(event?.image_url || '')).toString())
 	);
-	const files = await readdir('/data/eventpics');
+	const files = await readdir(image_path);
 	for (const file of files) {
 		const fileHash = file.split('.')[0];
 		if (!currentImageHashes.has(fileHash)) {
 			try {
-				await unlink(`/data/eventpics/${file}`);
+				await unlink(`${image_path}/${file}`);
 			} catch (error) {
 				console.error(`Error deleting old image ${file}:`, error);
 			}
