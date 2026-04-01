@@ -1,6 +1,10 @@
 import { readFile, exists } from 'node:fs/promises';
 import { hash } from 'bun';
 import { normalizeUrl } from '$lib/utils/refreshFacebookEventPics';
+import { IMAGE_DIR } from '$env/static/private';
+
+const image_path = IMAGE_DIR || '/data/eventpics';
+
 export const GET = async ({ url }) => {
 	const imageUrl = url.searchParams.get('url');
 	if (!imageUrl) {
@@ -8,7 +12,7 @@ export const GET = async ({ url }) => {
 	}
 	const normalizedUrl = normalizeUrl(imageUrl);
 	const imageHash = hash(normalizedUrl).toString();
-	const filePath = `/data/eventpics/${imageHash}.webp`;
+	const filePath = `${image_path}/${imageHash}.webp`;
 	if (await exists(filePath)) {
 		const imageBuffer = await readFile(filePath);
 		return new Response(imageBuffer, {
