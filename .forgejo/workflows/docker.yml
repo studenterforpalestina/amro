@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v6
 
       - name: Install buildah
-        run: apt-get update && apt-get install -y buildah qemu-user-static
+        run: apt-get update && apt-get install -y buildah
 
       - name: Build image
         env:
