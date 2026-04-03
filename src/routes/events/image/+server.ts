@@ -1,9 +1,9 @@
 import { readFile, exists } from 'node:fs/promises';
 import { hash } from 'bun';
 import { normalizeUrl } from '$lib/utils/refreshFacebookEventPics';
-import { IMAGE_DIR } from '$env/static/private';
+import { dev } from '$app/environment';
 
-const image_path = IMAGE_DIR || '/data/eventpics';
+const image_path = dev ? './src/lib/assets/eventpics' : '/data/eventpics';
 
 export const GET = async ({ url }) => {
 	const imageUrl = url.searchParams.get('url');
