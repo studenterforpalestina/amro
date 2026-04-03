@@ -2,9 +2,9 @@ import { type Event } from '$lib/utils/eventParser';
 import { hash } from 'bun';
 import sharp from 'sharp';
 import { readdir, writeFile, exists, unlink, mkdir } from 'node:fs/promises';
-import { IMAGE_DIR } from '$env/static/private';
+import { dev } from '$app/environment';
 
-const image_path = IMAGE_DIR || '/data/eventpics';
+const image_path = dev ? './src/lib/assets/eventpics' : '/data/eventpics';
 export function normalizeUrl(url: string) {
 	try {
 		const urlObj = new URL(url);
