@@ -8,7 +8,7 @@ on:
 
 jobs:
   build-and-push:
-    runs-on: jaffa-runner
+    runs-on: jaffa
 
     steps:
       - name: Checkout code
