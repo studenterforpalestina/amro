@@ -8,36 +8,32 @@ on:
 
 jobs:
   build-and-push:
-    runs-on: codeberg-medium-lazy
+    runs-on: jaffa-runner
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
 
-      - name: Install buildah
-        run: apt-get update && apt-get install -y buildah
+      - name: Setup Buildx builder
+        run: |
+          docker buildx create --name multi --use --driver docker-container || docker buildx use multi
+          docker run --privileged --rm tonistiigi/binfmt --install arm64
+          docker buildx inspect --bootstrap
 
       - name: Build image
-        env:
-          STORAGE_DRIVER: vfs
-          BUILDAH_ISOLATION: chroot
         run: |
-          buildah --storage-driver="$STORAGE_DRIVER" \
-            build --isolation="$BUILDAH_ISOLATION" \
+          docker buildx build \
             --platform linux/arm64 \
             -t codeberg.org/studenterforpalestina/amro:latest \
-            -t codeberg.org/studenterforpalestina/amro:${{ github.sha }} .
+            -t codeberg.org/studenterforpalestina/amro:${{ github.sha }} \
 
       - name: Push image
         if: github.event_name == 'push'
-        env:
-          STORAGE_DRIVER: vfs
         run: |
-          buildah --storage-driver="$STORAGE_DRIVER" \
-            login -u ${{ secrets.REGISTRY_USER }} -p ${{ secrets.REGISTRY_TOKEN }} codeberg.org
+          docker login -u ${{ secrets.REGISTRY_USER }} -p ${{ secrets.REGISTRY_TOKEN }} codeberg.org
 
-          buildah --storage-driver="$STORAGE_DRIVER" \
-            push codeberg.org/studenterforpalestina/amro:latest
-
-          buildah --storage-driver="$STORAGE_DRIVER" \
-            push codeberg.org/studenterforpalestina/amro:${{ github.sha }}
+          docker buildx build \
+            --platform linux/arm64 \
+            -t codeberg.org/studenterforpalestina/amro:latest \
+            -t codeberg.org/studenterforpalestina/amro:${{ github.sha }} \
+            --push .
