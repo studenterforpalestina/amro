@@ -9,8 +9,8 @@ on:
 jobs:
   build-and-push:
     runs-on: jaffa
-    container:
-      image: ghcr.io/catthehacker/ubuntu:act-latest
+    # container:
+    #   image: ghcr.io/catthehacker/ubuntu:act-latest
 
     steps:
       - name: Checkout code
