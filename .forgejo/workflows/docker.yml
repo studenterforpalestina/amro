@@ -9,6 +9,8 @@ on:
 jobs:
   build-and-push:
     runs-on: jaffa
+    container:
+      image: docker:latest
 
     steps:
       - name: Checkout code
