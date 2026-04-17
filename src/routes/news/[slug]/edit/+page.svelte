@@ -23,7 +23,7 @@
 
 		<div class="flex gap-2 pt-2">
 			<button type="button" class="rounded bg-(--color-green) px-4 py-2 text-white"> Lagre </button>
-			<StandardButton asLink={true} href="/press" size="medium">Avbryt</StandardButton>
+			<StandardButton asLink={true} href="/news" size="medium">Avbryt</StandardButton>
 		</div>
 	</form>
 </div>

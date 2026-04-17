@@ -3,7 +3,7 @@
 </script>
 
 <a
-	href="/press/{slug}/edit"
+	href="/news/{slug}/edit"
 	class="text-lg text-(--color-green) duration-200 hover:text-(--color-green)/60"
 >
 	Rediger

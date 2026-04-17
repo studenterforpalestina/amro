@@ -14,11 +14,11 @@
 			"description": "Explore the groups in Students for Palestine Trondheim",
 			"header": "Groups"
 		},
-		"press": {
-			"title": "Press",
-			"description": "Read recent press releases from Students for Palestine",
-			"header": "Press Releases",
-			"lead": "Here you can find all our press releases. \n The press can contact us at "
+		"news": {
+			"title": "News",
+			"description": "Read recent news from Students for Palestine",
+			"header": "News",
+			"lead": "Here you can find all our articles. \n The press can contact us at "
 		},
 		"admin": {
 			"title": "Members",
@@ -42,7 +42,7 @@
 		"navbar": {
 			"events": "What's happening?",
 			"groups": "Groups",
-			"press": "Press",
+			"news": "News",
 			"join": "Become a member"
 		},
 		"homepage": {
