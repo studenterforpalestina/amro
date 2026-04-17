@@ -1,19 +1,19 @@
 import { sql } from 'bun';
 
 await sql`
-  INSERT INTO "PressPost"(slug, title, date, content, authors)
+  INSERT INTO "PressPost"(slug, title, date, content, authors, tag)
   VALUES
-    ('first-post', 'My First Press Post', '2024-01-01', 'Solo ride until I die',ARRAY['me','myself','I']),
-    ('second-post', 'Another Press Update', '2024-02-01', 'I''m a weirdo.',ARRAY['me','myself','I']),
-    ('post', 'My  Press Post', '2024-01-01', 'I''m a creep.',ARRAY['I']),
-    ('post', 'My st Press Post', '224-01-01', 'Noen andre''m a creep.',ARRAY['me','myself','I'])
+    ('first-post', 'My First Press Post', '2024-01-01', 'Solo ride until I die',ARRAY['me','myself','I'], 'pressrelease'),
+    ('second-post', 'Another Press Update', '2024-02-01', 'I''m a weirdo.',ARRAY['me','myself','I'], 'presscoverage'),
+    ('post', 'My  Press Post', '2024-01-01', 'I''m a creep.',ARRAY['I'], 'article'),
+    ('post', 'My st Press Post', '224-01-01', 'Noen andre''m a creep.',ARRAY['me','myself','I'], 'speech')
   ON CONFLICT (slug) DO NOTHING;
 `;
 
 await sql`
-  INSERT INTO "PressPost"(slug, title, date, content)
+  INSERT INTO "PressPost"(slug, title, date, content, tag)
   VALUES
-    ('third-post', 'THIS IS ANON', '2024-01-01', 'I''m a creep.')
+    ('third-post', 'THIS IS ANON', '2024-01-01', 'I''m a creep.', 'pressrelease')
   ON CONFLICT (slug) DO NOTHING;
 `;
 
