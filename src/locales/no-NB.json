@@ -14,11 +14,11 @@
 			"description": "Utforsk de forskjellige komiteene i Studenter for Palestina Trondheim",
 			"header": "Komiteer"
 		},
-		"press": {
-			"title": "Presse",
-			"description": "Les nylige pressemeldinger fra Studenter for Palestina",
-			"header": "Pressemeldinger",
-			"lead": "Her finner du alle våre pressemeldinger. \n Presse kan kontakte oss på"
+		"news": {
+			"title": "Nyheter",
+			"description": "Les nylige artikler fra Studenter for Palestina",
+			"header": "Nyheter",
+			"lead": "Her finner du alle våre artikler. \n Presse kan kontakte oss på"
 		},
 		"admin": {
 			"title": "Medlemmer",
@@ -42,7 +42,7 @@
 		"navbar": {
 			"events": "Hva skjer?",
 			"groups": "Komiteer",
-			"press": "Presse",
+			"news": "Nyheter",
 			"join": "Bli medlem"
 		},
 		"homepage": {

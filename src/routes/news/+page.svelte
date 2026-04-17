@@ -9,14 +9,14 @@
 </script>
 
 <svelte:head>
-	<title>{$_('page.press.title')}</title>
-	<meta name="description" content={$_('page.press.description')} />
+	<title>{$_('page.news.title')}</title>
+	<meta name="description" content={$_('page.news.description')} />
 	<link rel="icon" href="/images/logo.png" />
 </svelte:head>
 <div class="mx-auto max-w-5xl p-4 font-sans md:p-8">
-	<h1 class="mb-8 text-3xl font-bold md:text-7xl">{$_(`page.press.header`)}</h1>
+	<h1 class="mb-8 text-3xl font-bold md:text-7xl">{$_(`page.news.header`)}</h1>
 	<p class="mb-12 text-lg whitespace-pre-line md:text-xl">
-		{$_(`page.press.lead`)}
+		{$_(`page.news.lead`)}
 		<a
 			href="mailto:styret@studenterforpalestina.no"
 			class="200 text-(--color-red) transition hover:text-(--color-dark-red)"
@@ -29,7 +29,7 @@
 			<div class="mx-8 max-w-2xl py-8 md:max-w-3xl">
 				<time class="text-(--color-red)">{new Date(post.date).toLocaleDateString()}</time>
 				<a
-					href={resolve(`/press/${post.slug}`)}
+					href={resolve(`/news/${post.slug}`)}
 					class="mb-6 block cursor-pointer rounded-md
              transition-colors
         duration-200 hover:text-(--color-red) active:bg-(--color-red)/40"

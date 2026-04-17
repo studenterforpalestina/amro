@@ -8,18 +8,18 @@
 </script>
 
 <svelte:head>
-	<title>{$_('page.press.title')}</title>
-	<meta name="description" content={$_('page.press.description')} />
+	<title>{$_('page.news.title')}</title>
+	<meta name="description" content={$_('page.news.description')} />
 	<link rel="icon" href="/images/logo.png" />
 </svelte:head>
 
 <a
-	href={resolve('/press')}
+	href={resolve('/news')}
 	class="mx-8 my-4 rounded-md px-3 py-2 text-lg underline
 	       transition-colors duration-200
 	       hover:bg-(--color-red)/10 hover:text-(--color-red)"
 >
-	← Alle pressemeldinger
+	← Alle nyheter
 </a>
 
 <article class="mx-8 my-8 md:mx-auto md:max-w-3xl">
