@@ -18,7 +18,13 @@
 			"title": "Nyheter",
 			"description": "Les nylige artikler fra Studenter for Palestina",
 			"header": "Nyheter",
-			"lead": "Her finner du alle våre artikler. \n Presse kan kontakte oss på"
+			"lead": "Her finner du alle våre artikler. \n Presse kan kontakte oss på",
+			"tags": {
+				"pressrelease": "Pressemelding",
+				"presscoverage": "Presseomtale",
+				"article": "Artikkel",
+				"speech": "Tale"
+			}
 		},
 		"admin": {
 			"title": "Medlemmer",

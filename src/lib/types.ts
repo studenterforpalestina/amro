@@ -1,3 +1,5 @@
+export type Tag = 'pressrelease' | 'presscoverage' | 'article' | 'speech';
+
 export interface Post {
 	id: string;
 	slug: string;
@@ -6,6 +8,7 @@ export interface Post {
 	content: string;
 	createdAt: Date;
 	updatedAt: Date;
+	tag: Tag;
 	authors: string[];
 }
 export type { ActionData as AdminActionData } from '../routes/admin/$types';

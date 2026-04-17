@@ -18,7 +18,13 @@
 			"title": "News",
 			"description": "Read recent news from Students for Palestine",
 			"header": "News",
-			"lead": "Here you can find all our articles. \n The press can contact us at "
+			"lead": "Here you can find all our articles. \n The press can contact us at ",
+			"tags": {
+				"pressrelease": "Press release",
+				"presscoverage": "Press coverage",
+				"article": "Article",
+				"speech": "Speech"
+			}
 		},
 		"admin": {
 			"title": "Members",

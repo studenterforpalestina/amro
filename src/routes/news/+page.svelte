@@ -36,6 +36,9 @@
 				>
 					<h2 class="text-3xl font-semibold">{post.title}</h2>
 				</a>
+				<p class="text-md whitespace-pre-line md:text-lg">
+					{$_(`page.news.tags.${post.tag}`)}
+				</p>
 				<div class="my-2 flex items-baseline gap-4">
 					<EditButton slug={post.slug} />
 					<Delete id={post.id} />
