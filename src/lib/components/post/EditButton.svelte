@@ -1,9 +1,10 @@
 <script lang="ts">
 	export let slug: string;
+	import { resolve } from '$app/paths';
 </script>
 
 <a
-	href="/news/{slug}/edit"
+	href={resolve(`/news/${slug}/edit`)}
 	class="text-lg text-(--color-green) duration-200 hover:text-(--color-green)/60"
 >
 	Rediger
