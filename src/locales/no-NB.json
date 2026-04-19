@@ -98,6 +98,7 @@
 				"update_failed": "Kunne ikke oppdatere medlemsinformasjon.",
 				"delete_failed": "Kunne ikke slette medlem."
 			}
-		}
+		},
+		"read_more": "Les mer"
 	}
 }

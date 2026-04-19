@@ -77,13 +77,26 @@
 			"learn_more": "Read more about us and our history here"
 		}
 	},
-	"common": {
-		"sfp": "Students for Palestine",
-		"facebook": "Facebook",
-		"instagram": "Instagram",
-		"email": "Email",
-		"email_address": "Email {email}",
-		"show_less": "Show less",
-		"show_more": "Show more"
-	}
+	"sfp": "Students for Palestine",
+	"facebook": "Facebook",
+	"instagram": "Instagram",
+	"email": "Email",
+	"email_address": "Email {email}",
+	"show_less": "Show less",
+	"show_more": "Show more",
+	"cancel": "Cancel",
+	"save_changes": "Save Changes",
+	"form": {
+		"errors": {
+			"required_fields": "Please fill in all required fields.",
+			"email_invalid": "Please enter a valid email address.",
+			"phone_invalid": "Please enter a valid phone number.",
+			"birth_year_invalid": "Please enter a valid birth year.",
+			"graduation_year_invalid": "Please enter a valid graduation year.",
+			"email_exists": "This email is already in use.",
+			"update_failed": "Failed to update member information.",
+			"delete_failed": "Failed to delete member."
+		}
+	},
+	"read_more": "Read more"
 }
