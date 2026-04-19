@@ -1,8 +1,6 @@
 <script lang="ts">
-	import { resolve } from '$app/paths';
 	import { _ } from 'svelte-i18n';
-	import Delete from '$lib/components/post/Delete.svelte';
-	import EditButton from '$lib/components/post/EditButton.svelte';
+	import PostItem from '$lib/components/PostItem.svelte';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
@@ -26,24 +24,7 @@
 	</p>
 	<div>
 		{#each data.posts as post (post.slug)}
-			<div class="mx-8 max-w-2xl py-8 md:max-w-3xl">
-				<time class="text-(--color-red)">{new Date(post.date).toLocaleDateString()}</time>
-				<a
-					href={resolve(`/news/${post.slug}`)}
-					class="mb-6 block cursor-pointer rounded-md
-             transition-colors
-        duration-200 hover:text-(--color-red) active:bg-(--color-red)/40"
-				>
-					<h2 class="text-3xl font-semibold">{post.title}</h2>
-				</a>
-				<p class="text-md whitespace-pre-line md:text-lg">
-					{$_(`page.news.tags.${post.tag}`)}
-				</p>
-				<div class="my-2 flex items-baseline gap-4">
-					<EditButton slug={post.slug} />
-					<Delete id={post.id} />
-				</div>
-			</div>
+			<PostItem {post} />
 		{/each}
 	</div>
 </div>
