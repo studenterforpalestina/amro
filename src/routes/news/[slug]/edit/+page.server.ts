@@ -25,18 +25,14 @@ export const actions: Actions = {
 	default: async (event) => {
 		const formData = await event.request.formData();
 		const title = formData.get('title')?.toString();
-		const authors = formData
-			.get('author')
-			?.toString()
-			.split(',')
-			.map((a) => a.trim());
+		const author = formData.get('author')?.toString();
 		const tag = formData.get('tag')?.toString();
 		const content = formData.get('content')?.toString();
 
 		try {
 			await sql`
 				UPDATE "PressPost"
-				SET title = ${title}, authors = ${sql.array(authors)}, tag = ${tag}, content = ${content}, "updatedAt" = now()
+				SET title = ${title}, author = ${author}, tag = ${tag}, content = ${content}, "updatedAt" = now()
 				WHERE slug = ${event.params.slug}
 			`;
 			return { success: true, notice: 'page.news.post_updated' };
