@@ -1,31 +1,36 @@
 import { sql } from 'bun';
-import type { Actions } from './$types';
+import type { Actions, PageServerLoad } from './$types';
 import { fail } from '@sveltejs/kit';
 import { redirect } from '@sveltejs/kit';
 import type { NewsTag } from '$lib/types';
 
 const createBaseSlug = (title: string): string => {
-	const slug = title
+	const firstThreeWords = title.trim().split(/\s+/).slice(0, 3).join(' ');
+
+	const slug = firstThreeWords
 		.normalize('NFKD')
 		.replace(/[\u0300-\u036f]/g, '')
 		.toLowerCase()
 		.replace(/[^a-z0-9]+/g, '-')
 		.replace(/^-+|-+$/g, '');
-
 	return slug;
+};
+
+export const load: PageServerLoad = async (event) => {
+	const user = event.locals.user;
+	if (!user) {
+		throw redirect(302, '/news');
+	}
 };
 
 export const actions: Actions = {
 	default: async (event) => {
-		console.log('Creating new press post');
-
 		const formData = await event.request.formData();
 		const title = formData.get('title')?.toString().trim() ?? '';
 		const author = formData.get('author')?.toString().trim() ?? '';
 		const tag = (formData.get('tag')?.toString().trim() ?? 'article') as NewsTag;
 		const content = formData.get('content')?.toString().trim() ?? '';
 
-		console.log({ title, author, tag, content });
 		if (!title || !content) {
 			return fail(400, {
 				errors: { form: 'common.form.errors.required_fields' }
@@ -33,7 +38,6 @@ export const actions: Actions = {
 		}
 
 		const baseSlug = createBaseSlug(title);
-		console.log({ baseSlug });
 
 		try {
 			for (let attempt = 0; attempt < 100; attempt++) {
@@ -59,7 +63,6 @@ export const actions: Actions = {
 			if (err.status === 303) {
 				throw err;
 			}
-			console.log('Error creating press post:', err);
 			console.error(err);
 			return fail(500, {
 				errors: { form: 'common.form.errors.update_failed' }
