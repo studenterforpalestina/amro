@@ -17,7 +17,7 @@
 	<div class="mb-8 flex items-center justify-between gap-4">
 		<h1 class="text-3xl font-bold md:text-7xl">{$_(`page.news.header`)}</h1>
 		{#if 'authorized' in data && data.authorized}
-			<StandardButton>{$_('page.news.new_post')}</StandardButton>
+			<StandardButton asLink href="/news/new">{$_('page.news.new_post')}</StandardButton>
 		{/if}
 	</div>
 	<p class="mb-12 text-lg whitespace-pre-line md:text-xl">

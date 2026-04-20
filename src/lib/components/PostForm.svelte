@@ -3,7 +3,7 @@
 	import StandardButton from '$lib/components/StandardButton.svelte';
 	import { newsTags, type Post } from '$lib/types';
 	import { enhance } from '$app/forms';
-	let { postData, newPost }: { postData: Post; newPost: boolean } = $props();
+	let { postData, newPost }: { postData?: Post; newPost: boolean } = $props();
 </script>
 
 <div class="mx-auto max-w-2xl p-8">
@@ -17,7 +17,7 @@
 			<input
 				type="text"
 				name="title"
-				value={postData.title}
+				value={postData?.title}
 				class="rounded border p-2 text-black"
 			/>
 		</label>
@@ -26,7 +26,7 @@
 			<span class="font-medium">{$_('page.news.form.category')}</span>
 			<select name="tag" class="rounded border p-2 text-black">
 				{#each newsTags as tag (tag)}
-					<option value={tag} selected={postData.tag === tag}>
+					<option value={tag} selected={postData?.tag === tag}>
 						{$_(`page.news.tags.${tag}`)}
 					</option>
 				{/each}
@@ -37,14 +37,14 @@
 				<input
 					type="text"
 					name="author"
-					value={postData.authors?.join(', ')}
+					value={postData?.author}
 					class="rounded border p-2 text-black"
 				/>
 			</label>
 			<label class="flex flex-col gap-1">
 				<span class="font-medium">{$_('page.news.form.content')}</span>
 				<textarea name="content" rows="10" class="rounded border bg-white p-2 text-black">
-					{postData.content}
+					{postData?.content}
 				</textarea>
 			</label>
 
