@@ -1,4 +1,5 @@
-export type Tag = 'pressrelease' | 'presscoverage' | 'article' | 'speech';
+export const newsTags = ['pressrelease', 'presscoverage', 'article', 'speech'] as const;
+export type NewsTag = (typeof newsTags)[number];
 
 export interface Post {
 	id: string;

@@ -1,88 +1,90 @@
 {
-  "page": {
-    "home": {
-      "title": "Homepage"
-    },
-    "events": {
-      "title": "Events",
-      "description": "Upcoming events",
-      "header": "Upcoming Events",
-      "no_events": "No upcoming events, check back later!"
-    },
-    "groups": {
-      "title": "Groups",
-      "description": "Explore the groups in Students for Palestine Trondheim",
-      "header": "Groups"
-    },
-    "news": {
-      "title": "News",
-      "description": "Read recent news from Students for Palestine",
-      "header": "News",
-      "lead": "Here you can find all our articles. \n The press can contact us at ",
-      "tags": {
-        "pressrelease": "Press release",
-        "presscoverage": "Press coverage",
-        "article": "Article",
-        "speech": "Speech"
-      }
-    },
-    "admin": {
-      "title": "Members",
-      "loading": "Redirecting you to the login page...",
-      "logged_in": "Logged in as",
-      "logout": "Logout",
-      "name": "Name",
-      "email": "Email",
-      "phone_number": "Phone Number",
-      "graduation_year": "Graduation Year",
-      "birth_year": "Birth Year",
-      "action": "Edit",
-      "no_members_found": "No members found",
-      "delete": "Delete",
-      "edit": "Editing",
-      "member_updated": "Member updated successfully.",
-      "member_deleted": "Member deleted successfully."
-    }
-  },
-  "components": {
-    "navbar": {
-      "events": "What's happening?",
-      "groups": "Groups",
-      "news": "News",
-      "join": "Become a member"
-    },
-    "homepage": {
-      "for_palestina": "for Palestine",
-      "join": "Join Students",
-      "about_us": "About us",
-      "newsletter": "Sign up for our newsletter",
-      "see_events": "See upcoming events",
-      "about_us_paragraph_1": "Students for Palestine is a student organization dedicated to raising awareness about the Palestinian people's struggle for freedom, justice, and self-determination.",
-      "about_us_paragraph_2": "We consist of students from various studies and backgrounds united in our solidarity with Palestine. We organize lectures, film screenings, and other events to spread information."
-    }
-  },
-  "common": {
-    "sfp": "Students for Palestine",
-    "facebook": "Facebook",
-    "instagram": "Instagram",
-    "email": "Email",
-    "email_address": "Email {email}",
-    "show_less": "Show less",
-    "show_more": "Show more",
-    "cancel": "Cancel",
-    "save_changes": "Save Changes",
-    "form": {
-      "errors": {
-        "required_fields": "Please fill in all required fields.",
-        "email_invalid": "Please enter a valid email address.",
-        "phone_invalid": "Please enter a valid phone number.",
-        "birth_year_invalid": "Please enter a valid birth year.",
-        "graduation_year_invalid": "Please enter a valid graduation year.",
-        "email_exists": "This email is already in use.",
-        "update_failed": "Failed to update member information.",
-        "delete_failed": "Failed to delete member."
-      }
-    },
-    "read_more": "Read more"
-  }
+	"page": {
+		"home": {
+			"title": "Homepage"
+		},
+		"events": {
+			"title": "Events",
+			"description": "Upcoming events",
+			"header": "Upcoming Events",
+			"no_events": "No upcoming events, check back later!"
+		},
+		"groups": {
+			"title": "Groups",
+			"description": "Explore the groups in Students for Palestine Trondheim",
+			"header": "Groups"
+		},
+		"news": {
+			"title": "News",
+			"description": "Read recent news from Students for Palestine",
+			"header": "News",
+			"lead": "Here you can find all our articles. \n The press can contact us at ",
+			"tags": {
+				"pressrelease": "Press release",
+				"presscoverage": "Press coverage",
+				"article": "Article",
+				"speech": "Speech"
+			},
+			"all": "All",
+			"categories": "Categories"
+		},
+		"admin": {
+			"title": "Members",
+			"loading": "Redirecting you to the login page...",
+			"logged_in": "Logged in as",
+			"logout": "Logout",
+			"name": "Name",
+			"email": "Email",
+			"phone_number": "Phone Number",
+			"graduation_year": "Graduation Year",
+			"birth_year": "Birth Year",
+			"action": "Edit",
+			"no_members_found": "No members found",
+			"delete": "Delete",
+			"edit": "Editing",
+			"member_updated": "Member updated successfully.",
+			"member_deleted": "Member deleted successfully."
+		}
+	},
+	"components": {
+		"navbar": {
+			"events": "What's happening?",
+			"groups": "Groups",
+			"news": "News",
+			"join": "Become a member"
+		},
+		"homepage": {
+			"for_palestina": "for Palestine",
+			"join": "Join Students",
+			"about_us": "About us",
+			"newsletter": "Sign up for our newsletter",
+			"see_events": "See upcoming events",
+			"about_us_paragraph_1": "Students for Palestine is a student organization dedicated to raising awareness about the Palestinian people's struggle for freedom, justice, and self-determination.",
+			"about_us_paragraph_2": "We consist of students from various studies and backgrounds united in our solidarity with Palestine. We organize lectures, film screenings, and other events to spread information."
+		}
+	},
+	"common": {
+		"sfp": "Students for Palestine",
+		"facebook": "Facebook",
+		"instagram": "Instagram",
+		"email": "Email",
+		"email_address": "Email {email}",
+		"show_less": "Show less",
+		"show_more": "Show more",
+		"cancel": "Cancel",
+		"save_changes": "Save Changes",
+		"form": {
+			"errors": {
+				"required_fields": "Please fill in all required fields.",
+				"email_invalid": "Please enter a valid email address.",
+				"phone_invalid": "Please enter a valid phone number.",
+				"birth_year_invalid": "Please enter a valid birth year.",
+				"graduation_year_invalid": "Please enter a valid graduation year.",
+				"email_exists": "This email is already in use.",
+				"update_failed": "Failed to update member information.",
+				"delete_failed": "Failed to delete member."
+			}
+		},
+		"read_more": "Read more"
+	}
 }

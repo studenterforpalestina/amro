@@ -1,88 +1,90 @@
 {
-  "page": {
-    "home": {
-      "title": "Hjemmeside"
-    },
-    "events": {
-      "title": "Arrangementer",
-      "description": "Kommende arrangementer",
-      "header": "Kommende arrangementer",
-      "no_events": "Ingen kommende arrangementer for øyeblikket. Sjekk igjen senere!"
-    },
-    "groups": {
-      "title": "Komiteer",
-      "description": "Utforsk de forskjellige komiteene i Studenter for Palestina Trondheim",
-      "header": "Komiteer"
-    },
-    "news": {
-      "title": "Nyheter",
-      "description": "Les nylige artikler fra Studenter for Palestina",
-      "header": "Nyheter",
-      "lead": "Her finner du alle våre artikler. \n Presse kan kontakte oss på",
-      "tags": {
-        "pressrelease": "Pressemelding",
-        "presscoverage": "Presseomtale",
-        "article": "Artikkel",
-        "speech": "Tale"
-      }
-    },
-    "admin": {
-      "title": "Medlemmer",
-      "loading": "Sender deg til innloggingssiden...",
-      "logged_in": "Logget inn som",
-      "logout": "Logg ut",
-      "name": "Navn",
-      "email": "E-post",
-      "phone_number": "Telefonnummer",
-      "graduation_year": "Utmatrikuleringsår",
-      "birth_year": "Fødselsår",
-      "action": "Rediger",
-      "no_members_found": "Ingen medlemmer funnet",
-      "delete": "Slett",
-      "edit": "Redigerer",
-      "member_updated": "Medlem oppdatert.",
-      "member_deleted": "Medlem slettet."
-    }
-  },
-  "components": {
-    "navbar": {
-      "events": "Hva skjer?",
-      "groups": "Komiteer",
-      "news": "Nyheter",
-      "join": "Bli medlem"
-    },
-    "homepage": {
-      "for_palestina": "for Palestina",
-      "join": "Bli med i Studenter",
-      "about_us": "Om oss",
-      "newsletter": "Meld deg på nyhetsbrevet",
-      "see_events": "Se kommende arrangementer",
-      "about_us_paragraph_1": "Studenter for Palestina er en studentorganisasjon dedikert til å øke bevisstheten om det palestinske folkets kamp for frihet, rettferdighet og selvbestemmelse.",
-      "about_us_paragraph_2": "Vi består av studenter fra ulike studieretninger og bakgrunner som er forent i vår solidaritet med Palestina. Vi arrangerer foredrag, filmvisniger og andre arrangementer for å spre informasjon."
-    }
-  },
-  "common": {
-    "sfp": "Studenter for Palestina",
-    "facebook": "Facebook",
-    "instagram": "Instagram",
-    "email": "E-post",
-    "email_address": "E-post {email}",
-    "show_less": "Vis mindre",
-    "show_more": "Vis mer",
-    "cancel": "Avbryt",
-    "save_changes": "Lagre endringer",
-    "form": {
-      "errors": {
-        "required_fields": "Vennligst fyll inn alle feltene.",
-        "email_invalid": "Vennligst skriv inn en gyldig e-postadresse.",
-        "phone_invalid": "Vennligst skriv inn et gyldig telefonnummer.",
-        "birth_year_invalid": "Vennligst skriv inn et gyldig fødselsår.",
-        "graduation_year_invalid": "Vennligst skriv inn et gyldig utmatrikuleringsår.",
-        "email_exists": "Denne e-postadressen er allerede i bruk.",
-        "update_failed": "Kunne ikke oppdatere medlemsinformasjon.",
-        "delete_failed": "Kunne ikke slette medlem."
-      }
-    },
-    "read_more": "Les mer"
-  }
+	"page": {
+		"home": {
+			"title": "Hjemmeside"
+		},
+		"events": {
+			"title": "Arrangementer",
+			"description": "Kommende arrangementer",
+			"header": "Kommende arrangementer",
+			"no_events": "Ingen kommende arrangementer for øyeblikket. Sjekk igjen senere!"
+		},
+		"groups": {
+			"title": "Komiteer",
+			"description": "Utforsk de forskjellige komiteene i Studenter for Palestina Trondheim",
+			"header": "Komiteer"
+		},
+		"news": {
+			"title": "Nyheter",
+			"description": "Les nylige artikler fra Studenter for Palestina",
+			"header": "Nyheter",
+			"lead": "Her finner du alle våre artikler. \n Presse kan kontakte oss på",
+			"tags": {
+				"pressrelease": "Pressemelding",
+				"presscoverage": "Presseomtale",
+				"article": "Artikkel",
+				"speech": "Tale"
+			},
+			"all": "Alle",
+			"categories": "Kategorier"
+		},
+		"admin": {
+			"title": "Medlemmer",
+			"loading": "Sender deg til innloggingssiden...",
+			"logged_in": "Logget inn som",
+			"logout": "Logg ut",
+			"name": "Navn",
+			"email": "E-post",
+			"phone_number": "Telefonnummer",
+			"graduation_year": "Utmatrikuleringsår",
+			"birth_year": "Fødselsår",
+			"action": "Rediger",
+			"no_members_found": "Ingen medlemmer funnet",
+			"delete": "Slett",
+			"edit": "Redigerer",
+			"member_updated": "Medlem oppdatert.",
+			"member_deleted": "Medlem slettet."
+		}
+	},
+	"components": {
+		"navbar": {
+			"events": "Hva skjer?",
+			"groups": "Komiteer",
+			"news": "Nyheter",
+			"join": "Bli medlem"
+		},
+		"homepage": {
+			"for_palestina": "for Palestina",
+			"join": "Bli med i Studenter",
+			"about_us": "Om oss",
+			"newsletter": "Meld deg på nyhetsbrevet",
+			"see_events": "Se kommende arrangementer",
+			"about_us_paragraph_1": "Studenter for Palestina er en studentorganisasjon dedikert til å øke bevisstheten om det palestinske folkets kamp for frihet, rettferdighet og selvbestemmelse.",
+			"about_us_paragraph_2": "Vi består av studenter fra ulike studieretninger og bakgrunner som er forent i vår solidaritet med Palestina. Vi arrangerer foredrag, filmvisniger og andre arrangementer for å spre informasjon."
+		}
+	},
+	"common": {
+		"sfp": "Studenter for Palestina",
+		"facebook": "Facebook",
+		"instagram": "Instagram",
+		"email": "E-post",
+		"email_address": "E-post {email}",
+		"show_less": "Vis mindre",
+		"show_more": "Vis mer",
+		"cancel": "Avbryt",
+		"save_changes": "Lagre endringer",
+		"form": {
+			"errors": {
+				"required_fields": "Vennligst fyll inn alle feltene.",
+				"email_invalid": "Vennligst skriv inn en gyldig e-postadresse.",
+				"phone_invalid": "Vennligst skriv inn et gyldig telefonnummer.",
+				"birth_year_invalid": "Vennligst skriv inn et gyldig fødselsår.",
+				"graduation_year_invalid": "Vennligst skriv inn et gyldig utmatrikuleringsår.",
+				"email_exists": "Denne e-postadressen er allerede i bruk.",
+				"update_failed": "Kunne ikke oppdatere medlemsinformasjon.",
+				"delete_failed": "Kunne ikke slette medlem."
+			}
+		},
+		"read_more": "Les mer"
+	}
 }
