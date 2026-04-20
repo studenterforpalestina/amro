@@ -18,13 +18,7 @@
 	<form class="space-y-4" method="POST" use:enhance>
 		<label class="flex flex-col gap-1">
 			<span class={labelClass}>{$_('page.news.form.title')}</span>
-			<input
-				type="text"
-				name="title"
-				value={postData?.title}
-				required={true}
-				class={inputClass}
-			/>
+			<input type="text" name="title" value={postData?.title} required={true} class={inputClass} />
 		</label>
 
 		<label class="flex flex-col gap-1">
@@ -40,22 +34,14 @@
 
 		<label class="flex flex-col gap-1">
 			<span class={labelClass}>{$_('page.news.form.author')}</span>
-			<input
-				type="text"
-				name="author"
-				value={postData?.author}
-				class={inputClass}
-			/>
+			<input type="text" name="author" value={postData?.author} class={inputClass} />
 		</label>
 
 		<label class="flex flex-col gap-1">
 			<span class={labelClass}>{$_('page.news.form.content')}</span>
-			<textarea
-				name="content"
-				rows="10"
-				required={true}
-				class={`${inputClass} resize-y`}
-			>{postData?.content}</textarea>
+			<textarea name="content" rows="10" required={true} class={`${inputClass} resize-y`}
+				>{postData?.content}</textarea
+			>
 		</label>
 
 		<div class="flex gap-3 pt-2">
