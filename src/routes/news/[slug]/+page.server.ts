@@ -8,7 +8,7 @@ export const load: PageServerLoad = async ({ params }) => {
 
 	const pressRelease = (
 		await sql<Post[]>`
-		SELECT id, slug, title, date, content, authors
+		SELECT *
 		FROM "PressPost"
 		WHERE slug = ${slug}
 	`
