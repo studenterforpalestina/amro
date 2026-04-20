@@ -27,7 +27,15 @@
 				"speech": "Tale"
 			},
 			"all": "Alle",
-			"categories": "Kategorier"
+			"categories": "Kategorier",
+			"edit_post": "Rediger innlegg",
+			"create_post": "Nytt innlegg",
+			"form": {
+				"title": "Tittel",
+				"category": "Kategori",
+				"author": "Forfatter",
+				"content": "Innhold"
+			}
 		},
 		"admin": {
 			"title": "Medlemmer",

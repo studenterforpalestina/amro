@@ -27,7 +27,15 @@
 				"speech": "Speech"
 			},
 			"all": "All",
-			"categories": "Categories"
+			"categories": "Categories",
+			"edit_post": "Edit post",
+			"create_post": "New post",
+			"form": {
+				"title": "Title",
+				"category": "Category",
+				"author": "Author",
+				"content": "Content"
+			}
 		},
 		"admin": {
 			"title": "Members",
