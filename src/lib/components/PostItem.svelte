@@ -11,7 +11,7 @@
 	};
 </script>
 
-<div class="mx-8 max-w-2xl py-4 md:max-w-3xl">
+<div class="mb-8 max-w-2xl md:max-w-3xl">
 	<time class="text-lg font-bold opacity-60"
 		>{new Date(post.date).toLocaleDateString('no-NB', dateOptions)}</time
 	>
@@ -21,7 +21,7 @@
              transition-colors
         duration-200 hover:text-(--color-red) active:bg-(--color-red)/40"
 	>
-		<h2 class="text-2xl font-semibold md:text-3xl">{post.title}</h2>
+		<h2 class="text-2xl font-semibold md:text-4xl">{post.title}</h2>
 	</a>
 	<p class="text-(--color-red) italic">
 		{$_(`page.news.tags.${post.tag}`)}

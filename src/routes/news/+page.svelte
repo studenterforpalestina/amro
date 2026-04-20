@@ -1,9 +1,10 @@
 <script lang="ts">
 	import { _ } from 'svelte-i18n';
 	import PostItem from '$lib/components/PostItem.svelte';
+	import NewsFilter from '$lib/components/NewsFilter.svelte';
 	import type { PageData } from './$types';
-
-	export let data: PageData;
+	let { data }: { data: PageData } = $props();
+	let posts = $derived(data.posts ?? []);
 </script>
 
 <svelte:head>
@@ -22,9 +23,12 @@
 			styret@studenterforpalestina.no
 		</a>
 	</p>
-	<div>
-		{#each data.posts as post (post.slug)}
-			<PostItem {post} />
-		{/each}
+	<div class="mx-8 flex flex-row place-content-between">
+		<div>
+			{#each posts as post (post.slug)}
+				<PostItem {post} />
+			{/each}
+		</div>
+		<NewsFilter activeFilter={data.activeFilter ?? 'none'} />
 	</div>
 </div>
