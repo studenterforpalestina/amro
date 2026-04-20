@@ -31,7 +31,7 @@
 		{data.post.title}
 	</h1>
 
-	<Authors authors={data.post.authors} />
+	<Authors author={data.post.author} />
 
 	<p class="text-md whitespace-pre-line md:text-lg">
 		{data.post.content}
