@@ -35,7 +35,8 @@
 				"category": "Kategori",
 				"author": "Forfatter",
 				"content": "Innhold"
-			}
+			},
+			"byline": "Av"
 		},
 		"admin": {
 			"title": "Medlemmer",
