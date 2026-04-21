@@ -34,9 +34,11 @@
 				"title": "Tittel",
 				"category": "Kategori",
 				"author": "Forfatter",
-				"content": "Innhold"
+				"content": "Innhold",
+				"url": "URL"
 			},
-			"byline": "Av"
+			"byline": "Av",
+			"originally_posted_on": "Opprinnelig publisert på"
 		},
 		"admin": {
 			"title": "Medlemmer",
