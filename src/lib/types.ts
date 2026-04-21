@@ -10,6 +10,7 @@ export interface Post {
 	createdAt: Date;
 	updatedAt: Date;
 	tag: Tag;
+	url?: string;
 	author: string;
 }
 export type { ActionData as AdminActionData } from '../routes/admin/$types';

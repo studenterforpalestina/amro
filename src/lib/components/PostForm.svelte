@@ -1,13 +1,19 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
+	import { onMount } from 'svelte';
 	import { _ } from 'svelte-i18n';
-	import { newsTags, type Post } from '$lib/types';
+	import { newsTags, type NewsTag, type Post } from '$lib/types';
 	import { enhance } from '$app/forms';
 	let { postData, newPost }: { postData?: Post; newPost: boolean } = $props();
 
 	const inputClass =
 		'w-full rounded-xl border border-gray-400/40 bg-transparent p-2.5 transition-all outline-none focus:border-(--color-green) focus:ring-2 focus:ring-(--color-green)';
 	const labelClass = 'ml-1 text-sm font-semibold opacity-70';
+	let selectedTag = $state<NewsTag>(newsTags[0]);
+
+	onMount(() => {
+		selectedTag = postData?.tag ?? newsTags[0];
+	});
 </script>
 
 <div class="mx-auto max-w-2xl p-8 text-(--body-text)">
@@ -23,13 +29,24 @@
 
 		<label class="flex flex-col gap-1">
 			<span class={labelClass}>{$_('page.news.form.category')}</span>
-			<select name="tag" class={inputClass}>
+			<select name="tag" class={inputClass} bind:value={selectedTag}>
 				{#each newsTags as tag (tag)}
-					<option value={tag} selected={postData?.tag === tag}>
+					<option value={tag}>
 						{$_(`page.news.tags.${tag}`)}
 					</option>
 				{/each}
 			</select>
+		</label>
+
+		<label class="flex flex-col gap-1" class:hidden={selectedTag !== 'presscoverage'}>
+			<span class={labelClass}>{$_('page.news.form.url')}</span>
+			<input
+				type="url"
+				name="url"
+				value={postData?.url}
+				required={selectedTag === 'presscoverage'}
+				class={inputClass}
+			/>
 		</label>
 
 		<label class="flex flex-col gap-1">
@@ -37,9 +54,13 @@
 			<input type="text" name="author" value={postData?.author} class={inputClass} />
 		</label>
 
-		<label class="flex flex-col gap-1">
+		<label class="flex flex-col gap-1" class:hidden={selectedTag === 'presscoverage'}>
 			<span class={labelClass}>{$_('page.news.form.content')}</span>
-			<textarea name="content" rows="10" required={true} class={`${inputClass} resize-y`}
+			<textarea
+				name="content"
+				rows="10"
+				required={selectedTag !== 'presscoverage'}
+				class={`${inputClass} resize-y`}
 				>{postData?.content}</textarea
 			>
 		</label>

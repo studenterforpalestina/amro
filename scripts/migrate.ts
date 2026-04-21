@@ -12,6 +12,7 @@ await sql.begin(async (tx) => {
       content TEXT NOT NULL,
       author TEXT NOT NULL DEFAULT '',
       tag TEXT NOT NULL,
+      url TEXT,
       "createdAt" TIMESTAMPTZ DEFAULT now() NOT NULL,
       "updatedAt" TIMESTAMPTZ DEFAULT now() NOT NULL
     );

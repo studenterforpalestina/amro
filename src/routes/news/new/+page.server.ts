@@ -30,12 +30,26 @@ export const actions: Actions = {
 		const author = formData.get('author')?.toString().trim() ?? '';
 		const tag = (formData.get('tag')?.toString().trim() ?? 'article') as NewsTag;
 		const content = formData.get('content')?.toString().trim() ?? '';
+		const url = formData.get('url')?.toString().trim() ?? '';
 
-		if (!title || !content) {
+		if (!title || (tag === 'presscoverage' && !url) || (tag !== 'presscoverage' && !content)) {
 			return fail(400, {
 				errors: { form: 'common.form.errors.required_fields' }
 			});
 		}
+
+		if (url) {
+			try {
+				new URL(url);
+			} catch {
+				return fail(400, {
+					errors: { form: 'common.form.errors.required_fields' }
+				});
+			}
+		}
+
+		const storedContent = tag === 'presscoverage' ? '' : content;
+		const storedUrl = tag === 'presscoverage' ? url : '';
 
 		const baseSlug = createBaseSlug(title);
 
@@ -44,14 +58,14 @@ export const actions: Actions = {
 				const slug = attempt === 0 ? baseSlug : `${baseSlug}-${attempt + 1}`;
 
 				const [inserted] = await sql<{ slug: string }[]>`
-					INSERT INTO "PressPost"(slug, title, date, content, author, tag)
-					VALUES(${slug}, ${title}, now(), ${content}, ${author}, ${tag})
+					INSERT INTO "PressPost"(slug, title, date, content, author, tag, url)
+					VALUES(${slug}, ${title}, now(), ${storedContent}, ${author}, ${tag}, ${storedUrl})
 					ON CONFLICT (slug) DO NOTHING
 					RETURNING slug
 				`;
 
 				if (inserted?.slug) {
-					throw redirect(303, `/news/${inserted.slug}`);
+					throw redirect(303, tag === 'presscoverage' ? `/news` : `/news/${inserted.slug}`);
 					return { success: true, notice: 'page.news.post_created', slug: inserted.slug };
 				}
 			}

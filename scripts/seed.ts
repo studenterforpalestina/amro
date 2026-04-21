@@ -3,17 +3,15 @@ import { sql } from 'bun';
 await sql`
   INSERT INTO "PressPost"(slug, title, date, content, author, tag)
   VALUES
-    ('first-post', 'My First Press Post', '2024-01-01', 'Solo ride until I die','me, myself, I', 'pressrelease'),
-    ('second-post', 'Another Press Update', '2024-02-01', 'I''m a weirdo.','me, myself, I', 'presscoverage'),
-    ('post', 'My  Press Post', '2024-01-01', 'I''m a creep.','I', 'article'),
-    ('post', 'My st Press Post', '2024-01-01', 'Noen andre''m a creep.','me, myself, I', 'speech')
+    ('first-post', 'Long title for an article we wrote ourselves', '2024-01-01', 'I''m a creep.', '', 'article'),
+    ('second-post', 'Wow look we held a speech last demo', '2024-02-01', 'I''m a weirdo.', '', 'speech'),
+    ('woohoo', 'This is a press release we have written', '2024-01-01', 'Solo ride until I die','me, myself, I', 'pressrelease')
   ON CONFLICT (slug) DO NOTHING;
 `;
-
 await sql`
-  INSERT INTO "PressPost"(slug, title, date, content, tag)
+  INSERT INTO "PressPost"(slug, title, date, content, tag, url)
   VALUES
-    ('third-post', 'THIS IS ANON', '2024-01-01', 'I''m a creep.', 'pressrelease')
+    ('third-post', 'This is a press coverage about us', '2024-01-01', '', 'presscoverage', 'https://www.nrk.no/')
   ON CONFLICT (slug) DO NOTHING;
 `;
 
