@@ -1,5 +1,5 @@
 import { sql } from 'bun';
-import { error, redirect } from '@sveltejs/kit';
+import { error, redirect, fail } from '@sveltejs/kit';
 import type { PageServerLoad, Actions } from './$types';
 import type { Post } from '$lib/types';
 
