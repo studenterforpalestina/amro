@@ -9,7 +9,7 @@ export interface Post {
 	content: string;
 	createdAt: Date;
 	updatedAt: Date;
-	tag: Tag;
+	tag: NewsTag;
 	url?: string;
 	author: string;
 }
