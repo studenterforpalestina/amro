@@ -22,7 +22,7 @@ export async function requireAuth(event: RequestEvent) {
 		});
 
 		if (!response.ok) {
-			throw new Error('Failed to fetch user info');
+			throw new Error('Failed to fetch user info: ' + response.statusText);
 		}
 
 		user = (await response.json()) as AuthUser;

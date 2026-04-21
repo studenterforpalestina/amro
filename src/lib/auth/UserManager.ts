@@ -1,4 +1,5 @@
 import { UserManager, type UserManagerSettings } from 'oidc-client-ts';
+import { invalidate } from '$app/navigation';
 import {
 	PUBLIC_OAUTH_CLIENT_AUTHORITY,
 	PUBLIC_OAUTH_CLIENT_ID,
@@ -23,6 +24,7 @@ export async function login() {
 
 export async function logout() {
 	await fetch('/api/auth', { method: 'DELETE' });
+	await invalidate('app:auth');
 	return userManager.signoutRedirect();
 }
 
@@ -32,11 +34,14 @@ userManager.events.addUserLoaded(async (user) => {
 		headers: { 'Content-Type': 'application/json' },
 		body: JSON.stringify({ access_token: user.access_token })
 	});
+	await invalidate('app:auth');
 });
 userManager.events.addAccessTokenExpired(async () => {
 	await fetch('/api/auth', { method: 'DELETE' });
+	await invalidate('app:auth');
 });
 userManager.events.addUserSignedOut(async () => {
 	await fetch('/api/auth', { method: 'DELETE' });
+	await invalidate('app:auth');
 	window.location.href = '/';
 });

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { goto } from '$app/navigation';
+	import { goto, invalidate } from '$app/navigation';
 	import { resolve } from '$app/paths';
 	import { userManager } from '$lib/auth/UserManager';
 
@@ -12,6 +12,7 @@
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({ access_token: user.access_token })
 			});
+			await invalidate('app:auth');
 			goto(resolve('/admin'));
 		} catch (error) {
 			console.error('Authentication callback failed:', error);
