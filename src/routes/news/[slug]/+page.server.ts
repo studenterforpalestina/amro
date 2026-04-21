@@ -1,5 +1,5 @@
 import { sql } from 'bun';
-import { error } from '@sveltejs/kit';
+import { error, redirect } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 import type { Post } from '$lib/types';
 
@@ -16,6 +16,10 @@ export const load: PageServerLoad = async ({ params }) => {
 
 	if (!pressRelease) {
 		throw error(404, 'Press release not found');
+	}
+
+	if (pressRelease.tag === 'presscoverage' && pressRelease.url) {
+		throw redirect(302, pressRelease.url);
 	}
 
 	return { post: pressRelease };

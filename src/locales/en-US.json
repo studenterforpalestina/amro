@@ -34,9 +34,11 @@
 				"title": "Title",
 				"category": "Category",
 				"author": "Author",
-				"content": "Content"
+				"content": "Content",
+				"url": "URL"
 			},
-			"byline": "By"
+			"byline": "By",
+			"originally_posted_on": "Originally posted on"
 		},
 		"admin": {
 			"title": "Members",

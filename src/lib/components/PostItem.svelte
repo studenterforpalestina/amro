@@ -26,10 +26,24 @@
 	<p class="text-(--color-red) italic">
 		{$_(`page.news.tags.${post.tag}`)}
 	</p>
-	<a
-		href={resolve(`/news/${post.slug}`)}
-		class="transition-colors duration-200 hover:text-(--color-red)/80"
-	>
-		{$_('common.read_more')}
-	</a>
+	{#if post.tag == 'presscoverage' && post.url}
+		<!-- eslint-disable svelte/no-navigation-without-resolve -->
+		<a
+			href={`${post.url}`}
+			target="_blank"
+			rel="external noopener noreferrer"
+			class="block transition-colors duration-200 hover:text-(--color-red)/80"
+		>
+			{$_('page.news.originally_posted_on')}
+			{new URL(post.url).hostname.replace('www.', '')}
+		</a>
+		<!-- eslint-enable svelte/no-navigation-without-resolve -->
+	{:else}
+		<a
+			href={resolve(`/news/${post.slug}`)}
+			class="transition-colors duration-200 hover:text-(--color-red)/80"
+		>
+			{$_('common.read_more')}
+		</a>
+	{/if}
 </div>
