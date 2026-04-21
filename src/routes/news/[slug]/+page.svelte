@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
 	import { _ } from 'svelte-i18n';
-	import Authors from '$lib/components/post/Authors.svelte';
 	import type { Post } from '$lib/types';
 
 	export let data: { post: Post };
@@ -27,11 +26,14 @@
 		{new Date(data.post.date).toLocaleDateString()}
 	</time>
 
-	<h1 class="mb-4 text-2xl font-bold md:text-3xl">
+	<h1 class="text-2xl font-bold md:text-3xl">
 		{data.post.title}
 	</h1>
 
-	<Authors author={data.post.author} />
+	<p class="mb-4 text-lg text-gray-400">
+		{$_('page.news.byline')}
+		{data.post.author ? data.post.author : $_('common.sfp')}
+	</p>
 
 	<p class="text-md whitespace-pre-line md:text-lg">
 		{data.post.content}
