@@ -2,8 +2,15 @@
 	import { resolve } from '$app/paths';
 	import { _ } from 'svelte-i18n';
 	import type { Post } from '$lib/types';
+	import EditButton from '$lib/components/post/EditButton.svelte';
+	import Delete from '$lib/components/post/Delete.svelte';
 
 	export let data: { post: Post };
+	const dateOptions: Intl.DateTimeFormatOptions = {
+		year: 'numeric',
+		month: '2-digit',
+		day: '2-digit'
+	};
 </script>
 
 <svelte:head>
@@ -23,7 +30,7 @@
 
 <article class="mx-8 my-8 md:mx-auto md:max-w-3xl">
 	<time class="text-(--color-red)">
-		{new Date(data.post.date).toLocaleDateString()}
+		{new Date(data.post.date).toLocaleDateString('no-NB', dateOptions)}
 	</time>
 
 	<h1 class="text-2xl font-bold md:text-3xl">
@@ -34,6 +41,13 @@
 		{$_('page.news.byline')}
 		{data.post.author ? data.post.author : $_('common.sfp')}
 	</p>
+
+	{#if 'authorized' in data && data.authorized}
+		<div class="mb-4 flex gap-4">
+			<EditButton slug={data.post.slug} />
+			<Delete id={data.post.id} title={data.post.title} />
+		</div>
+	{/if}
 
 	<p class="text-md whitespace-pre-line md:text-lg">
 		{data.post.content}
