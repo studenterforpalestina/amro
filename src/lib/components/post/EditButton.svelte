@@ -1,11 +1,6 @@
 <script lang="ts">
-	export let slug: string;
+	let { slug }: { slug: string } = $props();
 	import { resolve } from '$app/paths';
 </script>
 
-<a
-	href={resolve(`/news/${slug}/edit`)}
-	class="text-lg text-(--color-green) duration-200 hover:text-(--color-green)/60"
->
-	Rediger
-</a>
+<a href={resolve(`/news/${slug}/edit`)} class="text-lg duration-200 hover:opacity-60"> Rediger </a>
