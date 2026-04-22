@@ -52,6 +52,7 @@ export const actions: Actions = {
 		const storedUrl = tag === 'presscoverage' ? url : '';
 
 		const baseSlug = createBaseSlug(title);
+		let createdSlug: string | null = null;
 
 		try {
 			for (let attempt = 0; attempt < 100; attempt++) {
@@ -65,22 +66,23 @@ export const actions: Actions = {
 				`;
 
 				if (inserted?.slug) {
-					throw redirect(303, tag === 'presscoverage' ? `/news` : `/news/${inserted.slug}`);
-					return { success: true, notice: 'page.news.post_created', slug: inserted.slug };
+					createdSlug = inserted.slug;
+					break;
 				}
 			}
-
-			return fail(500, {
-				errors: { form: 'common.form.errors.update_failed' }
-			});
 		} catch (err) {
-			if (err.status === 303) {
-				throw err;
-			}
 			console.error(err);
 			return fail(500, {
 				errors: { form: 'common.form.errors.update_failed' }
 			});
 		}
+
+		if (!createdSlug) {
+			return fail(500, {
+				errors: { form: 'common.form.errors.update_failed' }
+			});
+		}
+
+		throw redirect(303, `/news/${createdSlug}`);
 	}
 };

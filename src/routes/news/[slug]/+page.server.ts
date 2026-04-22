@@ -39,15 +39,12 @@ export const actions: Actions = {
 				DELETE FROM "PressPost"
 				WHERE id = ${id}
 			`;
-			throw redirect(303, '/news');
 		} catch (err) {
-			if (err.status === 303) {
-				throw err;
-			}
 			console.error('Failed to delete post:', err);
 			return fail(500, {
 				id: id
 			});
 		}
+		throw redirect(303, '/news');
 	}
 };

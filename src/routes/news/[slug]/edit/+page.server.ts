@@ -2,7 +2,7 @@ import { sql } from 'bun';
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad, Actions } from './$types';
 import { fail } from '@sveltejs/kit';
-import type { NewsTag } from '$lib/types';
+import type { NewsTag, Post } from '$lib/types';
 
 export const load: PageServerLoad = async ({ params }) => {
 	const { slug } = params;
