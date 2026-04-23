@@ -38,7 +38,10 @@
 				"url": "URL"
 			},
 			"byline": "By",
-			"originally_posted_on": "Originally posted on"
+			"originally_posted_on": "Originally posted on",
+			"all_posts": "All news",
+			"newer_posts": "Newer posts",
+			"older_posts": "Older posts"
 		},
 		"admin": {
 			"title": "Members",

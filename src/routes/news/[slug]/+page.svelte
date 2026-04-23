@@ -25,7 +25,7 @@
 	       transition-colors duration-200
 	       hover:bg-(--color-red)/10 hover:text-(--color-red)"
 >
-	← Alle nyheter
+	← {$_('page.news.all_posts')}
 </a>
 
 <article class="mx-8 my-8 md:mx-auto md:max-w-3xl">
