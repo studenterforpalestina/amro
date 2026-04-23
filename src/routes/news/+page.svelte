@@ -6,6 +6,8 @@
 	import type { PageData } from './$types';
 	let { data }: { data: PageData } = $props();
 	let posts = $derived(data.posts ?? []);
+	let totalPages = $derived(data.totalPages ?? 0);
+	let page = $derived(data.page ?? 0);
 </script>
 
 <svelte:head>
@@ -35,6 +37,30 @@
 				<PostItem {post} />
 			{/each}
 		</div>
-		<NewsFilter activeFilter={data.activeFilter ?? 'none'} />
+		<NewsFilter activeFilter={data.activeFilter ?? undefined} />
 	</div>
+	{#if totalPages > page + 1 || page > 0}
+		<div class="mt-8 flex justify-center gap-4">
+			{#if page > 0}
+				<StandardButton
+					asLink
+					href={data.activeFilter
+						? `/news?tag=${data.activeFilter}&p=${page - 1}`
+						: `/news?p=${page - 1}`}
+				>
+					← {$_('page.news.newer_posts')}
+				</StandardButton>
+			{/if}
+			{#if totalPages > page + 1}
+				<StandardButton
+					asLink
+					href={data.activeFilter
+						? `/news?tag=${data.activeFilter}&p=${page + 1}`
+						: `/news?p=${page + 1}`}
+				>
+					{$_('page.news.older_posts')} →
+				</StandardButton>
+			{/if}
+		</div>
+	{/if}
 </div>

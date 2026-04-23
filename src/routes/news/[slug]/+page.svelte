@@ -25,7 +25,7 @@
                             underline transition-colors duration-200
                             hover:bg-(--contrast-bg-red)/10 hover:text-(--contrast-text-red) active:bg-(--contrast-bg-red)/40"
 >
-	← Alle nyheter
+	← {$_('page.news.all_posts')}
 </a>
 
 <article class="mx-8 my-8 md:mx-auto md:max-w-3xl">

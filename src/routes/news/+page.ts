@@ -5,18 +5,27 @@ import { error } from '@sveltejs/kit';
 export const load: PageLoad = async ({ fetch, url, parent }) => {
 	const { authorized } = await parent();
 	const tag = url.searchParams.get('tag');
-	const activeFilter: 'none' | NewsTag =
-		tag && newsTags.includes(tag as NewsTag) ? (tag as NewsTag) : 'none';
+	const page = url.searchParams.get('p') || '0';
+	const activeFilter: undefined | NewsTag =
+		tag && newsTags.includes(tag as NewsTag) ? (tag as NewsTag) : undefined;
+	const params = new URLSearchParams();
+	if (activeFilter) {
+		params.set('tag', activeFilter);
+	}
+	if (page) {
+		params.set('p', page);
+	}
 
-	const endpoint = activeFilter === 'none' ? '/news/posts' : `/news/posts?tag=${activeFilter}`;
-	const response = await fetch(endpoint);
+	const response = await fetch(`/news/posts?${params.toString()}`);
 	if (!response.ok) {
 		throw error(response.status, `Could not load news posts: ${response.statusText}`);
 	}
-	const posts = (await response.json()) as Post[];
+	const payload = (await response.json()) as { posts: Post[]; totalPages: number };
 	return {
 		authorized,
-		posts,
-		activeFilter
+		posts: payload.posts,
+		activeFilter,
+		totalPages: payload.totalPages,
+		page: Number.parseInt(page) || 0
 	};
 };
