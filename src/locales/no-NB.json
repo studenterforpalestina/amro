@@ -38,7 +38,10 @@
 				"url": "URL"
 			},
 			"byline": "Av",
-			"originally_posted_on": "Opprinnelig publisert på"
+			"originally_posted_on": "Opprinnelig publisert på",
+			"all_posts": "Alle artikler",
+			"newer_posts": "Nyere artikler",
+			"older_posts": "Eldre artikler"
 		},
 		"admin": {
 			"title": "Medlemmer",
