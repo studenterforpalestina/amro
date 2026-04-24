@@ -6,7 +6,7 @@
 	let { activeFilter = 'none' }: { activeFilter?: 'none' | NewsTag } = $props();
 </script>
 
-<div class="flex flex-col items-start gap-4">
+<div class="flex flex-col items-start gap-4 md:flex-row md:flex-wrap">
 	<p class="text-lg">{$_('page.news.categories')}</p>
 	<a
 		class={`rounded-md px-4 py-2 text-white transition-colors duration-200 ${
