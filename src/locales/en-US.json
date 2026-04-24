@@ -35,7 +35,8 @@
 				"category": "Category",
 				"author": "Author",
 				"content": "Content",
-				"url": "URL"
+				"url": "URL",
+        "saved":"Saved"
 			},
 			"byline": "By",
 			"originally_posted_on": "Originally posted on",
