@@ -20,6 +20,14 @@
 			"header": "Pressemeldinger",
 			"lead": "Her finner du alle våre pressemeldinger. \n Presse kan kontakte oss på"
 		},
+		"about": {
+			"header": "Om oss",
+			"title": "Om oss",
+			"history_header": "Palestinaaktivisme ved NTNU",
+			"wiki_link": "Vår interne wiki-side",
+			"bylaws": "Vedtektene våre (oppdatert 2026)",
+			"other_resources": "Andre ressurser"
+		},
 		"admin": {
 			"title": "Medlemmer",
 			"loading": "Sender deg til innloggingssiden...",

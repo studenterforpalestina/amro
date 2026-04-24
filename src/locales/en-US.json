@@ -20,6 +20,11 @@
 			"header": "Press Releases",
 			"lead": "Here you can find all our press releases. \n The press can contact us at "
 		},
+		"about": {
+			"header": "About us",
+			"title": "About us",
+			"other_resources": "More resources"
+		},
 		"admin": {
 			"title": "Members",
 			"loading": "Redirecting you to the login page...",
