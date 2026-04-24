@@ -35,7 +35,8 @@
 				"category": "Kategori",
 				"author": "Forfatter",
 				"content": "Innhold",
-				"url": "URL"
+				"url": "URL",
+        "saved":"Lagret"
 			},
 			"byline": "Av",
 			"originally_posted_on": "Opprinnelig publisert på",
