@@ -31,12 +31,8 @@
 			styret@studenterforpalestina.no
 		</a>
 	</p>
-	<div class="mx-2 flex flex-row justify-between gap-4 md:flex-col">
-		<div class="order-2 md:order-1">
-			<NewsFilter activeFilter={data.activeFilter ?? undefined} />
-		</div>
-
-		<div class="order-1 flex-1 md:order-2">
+	<div class="flex flex-col-reverse place-content-between md:mx-8 md:flex-row">
+		<div>
 			{#each posts as post (post.slug)}
 				<PostItem {post} />
 			{/each}
