@@ -6,10 +6,12 @@
 	let { activeFilter = 'none' }: { activeFilter?: 'none' | NewsTag } = $props();
 </script>
 
-<div class="flex flex-col items-start gap-4 md:flex-row md:flex-wrap">
-	<p class="text-lg">{$_('page.news.categories')}</p>
+<div
+	class="mb-8 flex flex-row flex-wrap items-start gap-2 md:mb-0 md:flex-col md:flex-nowrap md:gap-4"
+>
+	<p class="basis-1/1 md:text-lg">{$_('page.news.categories')}</p>
 	<a
-		class={`rounded-md px-4 py-2 text-white transition-colors duration-200 ${
+		class={`rounded-md px-2 py-1 text-sm text-white transition-colors duration-200 md:px-4 md:py-2 md:text-base ${
 			activeFilter === 'none'
 				? 'bg-(--color-dark-red)'
 				: 'bg-(--color-red) hover:bg-(--color-dark-red)'
@@ -20,7 +22,7 @@
 	</a>
 	{#each newsTags as filter (filter)}
 		<a
-			class={`rounded-md px-4 py-2 text-white transition-colors duration-200 ${
+			class={`rounded-md px-2 py-1 text-sm text-white transition-colors duration-200 md:px-4 md:py-2 md:text-base ${
 				activeFilter === filter
 					? 'bg-(--color-dark-red)'
 					: 'bg-(--color-red) hover:bg-(--color-dark-red)'

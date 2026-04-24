@@ -21,14 +21,14 @@
 
 <a
 	href={resolve('/news')}
-	class="mx-8 my-4 rounded-md px-3 py-2 text-lg underline
-	       transition-colors duration-200
-	       hover:bg-(--color-red)/10 hover:text-(--color-red)"
+	class="mx-2 rounded-md px-3 py-2 text-lg underline transition-colors duration-200
+	       hover:bg-(--color-red)/10 hover:text-(--color-red)
+	       md:mx-8 md:my-4"
 >
 	← {$_('page.news.all_posts')}
 </a>
 
-<article class="mx-8 my-8 md:mx-auto md:max-w-3xl">
+<article class="mx-4 my-4 md:mx-auto md:my-8 md:max-w-3xl">
 	<time class="text-(--color-red)">
 		{new Date(data.post.date).toLocaleDateString('no-NB', dateOptions)}
 	</time>
