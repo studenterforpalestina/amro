@@ -22,15 +22,12 @@ Once you have these installed, setting up the project is straightforward:
 # Create your local environment configuration
 cp .env.example .env
 
-# Start the database and run migrations
-just docker
-
-# Populate the database with sample data
-just seed
-
 # Install dependencies and start the development server
 just install
 just dev
+
+# Populate the database with sample data
+just seed
 ```
 
 The default configuration in `.env.example` should work out of the box. If your
