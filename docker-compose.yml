@@ -28,7 +28,14 @@ services:
     command: ['bun', 'run', 'scripts/migrate.ts']
 
   app:
-    build: .
+    build:
+      context: .
+      args:
+        PUBLIC_OAUTH_CLIENT_AUTHORITY: ${PUBLIC_OAUTH_CLIENT_AUTHORITY}
+        PUBLIC_OAUTH_CLIENT_ID: ${PUBLIC_OAUTH_CLIENT_ID}
+        PUBLIC_OAUTH_REDIRECT_URI: ${PUBLIC_OAUTH_REDIRECT_URI}
+        PUBLIC_OAUTH_POST_LOGOUT_REDIRECT_URI: ${PUBLIC_OAUTH_POST_LOGOUT_REDIRECT_URI}
+        PUBLIC_OAUTH_USERINFO_ENDPOINT: http://server:9000/application/o/userinfo/
     depends_on:
       migrate:
         condition: service_completed_successfully
