@@ -27,6 +27,11 @@ jobs:
         run: |
           docker buildx build \
             --platform linux/arm64 \
+            --build-arg PUBLIC_OAUTH_CLIENT_AUTHORITY="${{ vars.PUBLIC_OAUTH_CLIENT_AUTHORITY }}" \
+            --build-arg PUBLIC_OAUTH_CLIENT_ID="${{ vars.PUBLIC_OAUTH_CLIENT_ID }}" \
+            --build-arg PUBLIC_OAUTH_REDIRECT_URI="${{ vars.PUBLIC_OAUTH_REDIRECT_URI }}" \
+            --build-arg PUBLIC_OAUTH_POST_LOGOUT_REDIRECT_URI="${{ vars.PUBLIC_OAUTH_POST_LOGOUT_REDIRECT_URI }}" \
+            --build-arg PUBLIC_OAUTH_USERINFO_ENDPOINT="${{ vars.PUBLIC_OAUTH_USERINFO_ENDPOINT }}" \
             -t codeberg.org/studenterforpalestina/amro:latest \
             -t codeberg.org/studenterforpalestina/amro:${{ github.sha }} \
             --load .
@@ -38,6 +43,11 @@ jobs:
 
           docker buildx build \
             --platform linux/arm64 \
+            --build-arg PUBLIC_OAUTH_CLIENT_AUTHORITY="${{ vars.PUBLIC_OAUTH_CLIENT_AUTHORITY }}" \
+            --build-arg PUBLIC_OAUTH_CLIENT_ID="${{ vars.PUBLIC_OAUTH_CLIENT_ID }}" \
+            --build-arg PUBLIC_OAUTH_REDIRECT_URI="${{ vars.PUBLIC_OAUTH_REDIRECT_URI }}" \
+            --build-arg PUBLIC_OAUTH_POST_LOGOUT_REDIRECT_URI="${{ vars.PUBLIC_OAUTH_POST_LOGOUT_REDIRECT_URI }}" \
+            --build-arg PUBLIC_OAUTH_USERINFO_ENDPOINT="${{ vars.PUBLIC_OAUTH_USERINFO_ENDPOINT }}" \
             -t codeberg.org/studenterforpalestina/amro:latest \
             -t codeberg.org/studenterforpalestina/amro:${{ github.sha }} \
             --push .
