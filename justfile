@@ -21,13 +21,17 @@ down:
 seed:
     bun run scripts/seed.ts
 
-# start dev server
+# start dev server with the required docker services
 dev:
-    bun run dev
+    docker compose up -d db migrate && bun run dev
 
-# build for production
+# run production build
 build:
     bun run build
+
+# run docker build for production
+docker-build:
+    docker compose up --build
 
 # preview production build
 preview:
