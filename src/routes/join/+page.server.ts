@@ -1,7 +1,7 @@
 import { sql } from 'bun';
 import type { Actions } from './$types';
 import { fail } from '@sveltejs/kit';
-import { LISTMONK_API_KEY } from '$env/static/private';
+import { LISTMONK_API_KEY, ZULIP_API_KEY, ZULIP_API_EMAIL } from '$env/static/private';
 import { dev } from '$app/environment';
 
 const EMAIL_REGEX = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
