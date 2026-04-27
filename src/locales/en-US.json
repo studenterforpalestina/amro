@@ -23,7 +23,8 @@
 		"about": {
 			"header": "About us",
 			"title": "About us",
-			"other_resources": "More resources"
+			"other_resources": "More resources",
+			"drive": "Google Drive"
 		}
 	},
 	"components": {
