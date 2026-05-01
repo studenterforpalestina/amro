@@ -1,7 +1,12 @@
 import { sql } from 'bun';
 import type { Actions } from './$types';
 import { fail } from '@sveltejs/kit';
-import { LISTMONK_API_KEY, ZULIP_API_KEY, ZULIP_API_EMAIL } from '$env/static/private';
+import {
+	LISTMONK_API_USER,
+	LISTMONK_API_KEY,
+	ZULIP_API_KEY,
+	ZULIP_API_EMAIL
+} from '$env/static/private';
 import { dev } from '$app/environment';
 
 const EMAIL_REGEX = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
@@ -26,13 +31,13 @@ const submitToListmonk = async (name: string, email: string, newsletter: boolean
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
-			Authorization: `token ${LISTMONK_API_KEY}`
+			Authorization: `token ${LISTMONK_API_USER}:${LISTMONK_API_KEY}`
 		},
 		body: JSON.stringify({
 			email,
 			name,
 			status: 'enabled',
-			lists: newsletter ? [1, 3] : [3],
+			lists: newsletter ? [1, 3] : [3], //List 1 is the newsletter, list 3 is the general list for all members
 			preconfirm_subscriptions: true
 		})
 	});
