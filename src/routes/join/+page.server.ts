@@ -55,17 +55,16 @@ const inviteToZulip = async (email: string, committees: string[]) => {
 	const response = await fetch('https://studenterforpalestina.zulipchat.com/api/v1/invites', {
 		method: 'POST',
 		headers: {
-			'Content-Type': 'application/json',
-			Authorization: `Basic ${ZULIP_API_EMAIL}:${ZULIP_API_KEY}`
+			'Content-Type': 'application/x-www-form-urlencoded',
+			Authorization: `Basic ` + btoa(ZULIP_API_EMAIL + ':' + ZULIP_API_KEY)
 		},
-		body: JSON.stringify({
-			invitee_emails: [email],
-			group_ids: groupIds,
-			stream_ids: [],
-			include_realm_default_subscriptions: true
+		body: new URLSearchParams({
+			invitee_emails: email,
+			group_ids: JSON.stringify(groupIds),
+			stream_ids: '[]',
+			include_realm_default_subscriptions: 'true'
 		})
 	});
-
 	if (!response.ok) {
 		console.error('Failed to invite to Zulip:', await response.text());
 	}
@@ -155,12 +154,12 @@ export const actions: Actions = {
 				}
 			});
 		}
-		if (!dev) {
-			await Promise.all([
-				submitToListmonk(formState.name, formState.email, newsletter),
-				inviteToZulip(formState.email, selectedCommittees)
-			]);
-		}
+		// if (!dev) {
+		await Promise.all([
+			submitToListmonk(formState.name, formState.email, newsletter),
+			inviteToZulip(formState.email, selectedCommittees)
+		]);
+		// }
 		return {
 			success: true
 		};
