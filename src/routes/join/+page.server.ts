@@ -154,12 +154,12 @@ export const actions: Actions = {
 				}
 			});
 		}
-		// if (!dev) {
-		await Promise.all([
-			submitToListmonk(formState.name, formState.email, newsletter),
-			inviteToZulip(formState.email, selectedCommittees)
-		]);
-		// }
+		if (!dev) {
+			await Promise.all([
+				submitToListmonk(formState.name, formState.email, newsletter),
+				inviteToZulip(formState.email, selectedCommittees)
+			]);
+		}
 		return {
 			success: true
 		};
