@@ -5,6 +5,7 @@ export interface Member {
 	email: string;
 	phoneNumber: string;
 	graduationYear: number;
+	school: 'NTNU' | 'DMMH' | 'BI' | 'Fotofagskolen' | 'other';
 	birthYear: number;
 	isActive: boolean;
 }

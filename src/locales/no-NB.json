@@ -59,7 +59,9 @@
 			"consent_label": "Ved å bli med samtykker du til at Studenter for Palestina lagrer denne informasjonen for å behandle medlemskapet ditt.",
 			"submit_button": "Send inn",
 			"newsletter_label": "Jeg samtykker til at Studenter for Palestina sender meg medlemsbrev på mail",
-			"success_message": "Takk for at du meldte deg inn! Du får snart en bekreftelse på e-post."
+			"success_message": "Takk for at du meldte deg inn! Du får snart en bekreftelse på e-post.",
+			"school_other": "Annet",
+			"school_label": "Studiested"
 		}
 	},
 	"components": {

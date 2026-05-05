@@ -21,6 +21,7 @@ const COMMITTEE_ZULIP_GROUP_IDS: Record<string, number> = {
 	stand: 1470380,
 	action: 1479773
 };
+const ALLOWED_SCHOOLS = new Set(['NTNU', 'DMMH', 'BI', 'Fotofagskolen', 'other']);
 
 const parseText = (formData: FormData, key: string) => formData.get(key)?.toString().trim() ?? '';
 
@@ -83,15 +84,26 @@ export const actions: Actions = {
 		const selectedCommittees = committees.filter((committee) => committee !== 'none');
 		const birthYear = parseNumber(formData, 'birthYear');
 		const graduationYear = parseNumber(formData, 'graduationYear');
+		const school = parseText(formData, 'school');
 		const newsletter = formData.get('newsletter') === 'on';
 		const errors: Record<string, string> = {};
 
-		const formState = { name, email, phone, committees, birthYear, graduationYear, newsletter };
+		const formState = {
+			name,
+			email,
+			phone,
+			committees,
+			birthYear,
+			graduationYear,
+			school,
+			newsletter
+		};
 
 		if (
 			!name ||
 			!email ||
 			!phone ||
+			!school ||
 			committees.length === 0 ||
 			Number.isNaN(birthYear) ||
 			Number.isNaN(graduationYear)
@@ -122,6 +134,10 @@ export const actions: Actions = {
 			errors.committees = 'common.form.errors.required_fields';
 		}
 
+		if (!ALLOWED_SCHOOLS.has(school)) {
+			errors.school = 'common.form.errors.required_fields';
+		}
+
 		if (Object.keys(errors).length > 0) {
 			return fail(422, {
 				...formState,
@@ -131,8 +147,8 @@ export const actions: Actions = {
 
 		try {
 			await sql`
-                INSERT INTO "Member" (name, email, "phoneNumber", "birthYear", "graduationYear", "isActive")
-                VALUES (${name}, ${email}, ${phone}, ${birthYear}, ${graduationYear}, true)
+                INSERT INTO "Member" (name, email, "phoneNumber", "birthYear", "graduationYear", "school", "isActive")
+                VALUES (${name}, ${email}, ${phone}, ${birthYear}, ${graduationYear}, ${school}, true)
             `;
 		} catch (error: unknown) {
 			const errno = (error as { errno?: string })?.errno;

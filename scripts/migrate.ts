@@ -23,7 +23,8 @@ await sql.begin(async (tx) => {
       "birthYear" INTEGER,
       "graduationYear" INTEGER,
       "isActive" BOOLEAN DEFAULT true NOT NULL, 
-      "email" TEXT UNIQUE, 
+      "email" TEXT UNIQUE,
+      "school" TEXT DEFAULT "NTNU", 
       "createdAt" TIMESTAMPTZ DEFAULT now() NOT NULL,
       "updatedAt" TIMESTAMPTZ DEFAULT now() NOT NULL
     );

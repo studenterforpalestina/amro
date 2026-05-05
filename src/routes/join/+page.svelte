@@ -15,10 +15,17 @@
 		{ value: 'stand', labelKey: 'page.join.committee_stand' },
 		{ value: 'action', labelKey: 'page.join.committee_action' }
 	];
+	const schoolOptions = [
+		{ value: 'NTNU', label: 'NTNU' },
+		{ value: 'DMMH', label: 'DMMH' },
+		{ value: 'BI', label: 'BI' },
+		{ value: 'Fotofagskolen', label: 'Fotofagskolen' },
+		{ value: 'other', label: $_('page.join.school_other') }
+	];
 
 	type InputField = {
 		id: 'name' | 'email' | 'phone' | 'birthYear' | 'graduationYear';
-		type: 'text' | 'email' | 'tel' | 'number';
+		type: 'text' | 'email' | 'tel' | 'number' | 'select';
 		labelKey: string;
 		placeholderKey: string;
 		autocomplete?: 'name' | 'email' | 'tel';
@@ -26,6 +33,7 @@
 		min?: string;
 		max?: string;
 		fullWidth?: boolean;
+		options?: { value: string; labelKey: string }[];
 	};
 
 	const inputFields: InputField[] = [
@@ -151,7 +159,23 @@
 					{/if}
 				</div>
 			{/each}
-
+			<div class="col-span-1 min-w-0 space-y-2 md:col-span-2">
+				<label for="school" class="font-medium">{$_('page.join.school_label')}</label>
+				<select
+					id="school"
+					name="school"
+					class={`${inputClass} ${getError('school') ? errorInputClass : ''}`}
+					aria-invalid={getError('school') ? 'true' : undefined}
+					aria-describedby={getError('school') ? 'school-error' : undefined}
+				>
+					{#each schoolOptions as option (option.value)}
+						<option value={option.value}>{option.label}</option>
+					{/each}
+				</select>
+				{#if getError('school')}
+					<p id="school-error" class="text-sm text-(--color-red)">{$_(getError('school') || '')}</p>
+				{/if}
+			</div>
 			<div class="col-span-1 min-w-0 space-y-2 md:col-span-2">
 				<label for="committees" class="font-medium">{$_('page.join.committee_label')}</label>
 				<CommitteeSelect

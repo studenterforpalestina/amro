@@ -9,14 +9,14 @@ await sql`
 `;
 
 await sql`
-  INSERT INTO "Member" (name, "phoneNumber", "birthYear", "graduationYear", "isActive", email)
+  INSERT INTO "Member" (name, "phoneNumber", "birthYear", "graduationYear", "school","isActive", email)
   VALUES
-    ('Ola Nordmann', '+4712345678', 1990, 2015, true, 'ola@eksempel.no'),
-    ('Kari Nordmann', '+4787654321', 1992, 2016, true, 'kari@eksempel.no'),
-    ('Alice Smith', '+155512345', 1985, 2010, false, 'alice@example.com'),
-    ('Bob Johnson', '+155567890', 1988, 2012, false, 'bob@example.com'),
-    ('Max Mustermann', '+4955598765', 1995, 2020, true, 'max@beispiel.de'),
-    ('Erika Mustermann', '+4955554321', 1993, 2018, true, 'erika@beispiel.de')
+    ('Ola Nordmann', '+4712345678', 1990, 2015, 'NTNU', true, 'ola@eksempel.no'),
+    ('Kari Nordmann', '+4787654321', 1992, 2016, 'NTNU', true, 'kari@eksempel.no'),
+    ('Alice Smith', '+155512345', 1985, 2010, 'NTNU', true, 'alice@example.com'),
+    ('Bob Johnson', '+155567890', 1988, 2012, 'DMMH', true, 'bob@example.com'),
+    ('Max Mustermann', '+4955598765', 1995, 2020, 'BI', true, 'max@beispiel.de'),
+    ('Erika Mustermann', '+4955554321', 1993, 2018, 'NTNU', true, 'erika@beispiel.de')
 
   ON CONFLICT (email) DO NOTHING;
 `;
