@@ -22,7 +22,7 @@
 			<StandardButton asLink href="/news/new">{$_('page.news.new_post')}</StandardButton>
 		{/if}
 	</div>
-	<p class="mb-12 text-lg whitespace-pre-line md:text-xl">
+	<p class="mb-4 text-lg whitespace-pre-line md:text-xl">
 		{$_(`page.news.lead`)}
 		<a
 			href="mailto:styret@studenterforpalestina.no"
@@ -31,12 +31,13 @@
 			styret@studenterforpalestina.no
 		</a>
 	</p>
-	<div class="flex flex-col-reverse place-content-between md:mx-8 md:flex-row">
+	<div class="flex flex-col-reverse place-content-between">
 		<div>
 			{#each posts as post (post.slug)}
 				<PostItem {post} />
 			{/each}
 		</div>
+		<NewsFilter activeFilter={data.activeFilter} />
 	</div>
 	{#if totalPages > page + 1 || page > 0}
 		<div class="mt-8 flex justify-center gap-4">
