@@ -1,12 +1,7 @@
 import { sql } from 'bun';
 import type { Actions } from './$types';
 import { fail } from '@sveltejs/kit';
-import {
-	LISTMONK_API_USER,
-	LISTMONK_API_KEY,
-	ZULIP_API_KEY,
-	ZULIP_API_EMAIL
-} from '$env/static/private';
+import { env } from '$env/dynamic/private';
 import { dev } from '$app/environment';
 
 const EMAIL_REGEX = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
@@ -21,6 +16,7 @@ const COMMITTEE_ZULIP_GROUP_IDS: Record<string, number> = {
 	stand: 1470380,
 	action: 1479773
 };
+
 const ALLOWED_SCHOOLS = new Set(['NTNU', 'DMMH', 'BI', 'Fotofagskolen', 'other']);
 
 const parseText = (formData: FormData, key: string) => formData.get(key)?.toString().trim() ?? '';
@@ -28,11 +24,15 @@ const parseText = (formData: FormData, key: string) => formData.get(key)?.toStri
 const parseNumber = (formData: FormData, key: string) => Number(formData.get(key));
 
 const submitToListmonk = async (name: string, email: string, newsletter: boolean) => {
+	if (!env.LISTMONK_API_USER || !env.LISTMONK_API_KEY) {
+		console.warn('Listmonk API credentials are not set. Newsletter subscriptions will be skipped.');
+		return;
+	}
 	const response = await fetch('https://listmonk.studenterforpalestina.no/api/subscribers', {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
-			Authorization: `token ${LISTMONK_API_USER}:${LISTMONK_API_KEY}`
+			Authorization: `token ${env.LISTMONK_API_USER}:${env.LISTMONK_API_KEY}`
 		},
 		body: JSON.stringify({
 			email,
@@ -49,6 +49,10 @@ const submitToListmonk = async (name: string, email: string, newsletter: boolean
 };
 
 const inviteToZulip = async (email: string, committees: string[]) => {
+	if (!env.ZULIP_API_EMAIL || !env.ZULIP_API_KEY) {
+		console.warn('Zulip API credentials are not set. Zulip invitations will be skipped.');
+		return;
+	}
 	const groupIds = committees
 		.map((committee) => COMMITTEE_ZULIP_GROUP_IDS[committee])
 		.filter((value): value is number => value !== undefined);
@@ -57,7 +61,7 @@ const inviteToZulip = async (email: string, committees: string[]) => {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/x-www-form-urlencoded',
-			Authorization: `Basic ` + btoa(ZULIP_API_EMAIL + ':' + ZULIP_API_KEY)
+			Authorization: `Basic ` + btoa(env.ZULIP_API_EMAIL + ':' + env.ZULIP_API_KEY)
 		},
 		body: new URLSearchParams({
 			invitee_emails: email,
