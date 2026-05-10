@@ -23,7 +23,7 @@ seed:
 
 # start dev server with the required docker services
 dev:
-    docker compose up -d db migrate && bun run dev
+    docker compose up -d db migrate authentik_db worker server && bun run dev
 
 # run production build
 build:

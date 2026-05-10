@@ -37,7 +37,7 @@ local Docker setup uses different ports, adjust them in your `.env` file.
 
 [Authentik](https://goauthentik.io) is the identity provider used for
 authenticating access to the admin panel. If you need to work on the admin page
-locally, follow these steps after running `just docker`:
+locally, follow these steps after running `just dev`:
 
 1. Open `localhost/if/flow/initial-setup/` in your browser
 2. Create a user — this is only for your local development environment
