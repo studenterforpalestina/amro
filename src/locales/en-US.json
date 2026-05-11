@@ -33,23 +33,6 @@
 			"actions_subtitle": "Actions",
 			"actions": "In 2025 SfP continued its work for primarily two demands: to freeze the institutional cooperation with Kongsberggruppen and to end all cooperation with Israel through Horizon Europe. In May 2025, 9 activists took action, breaking into the principles office and staying until they were carried out by the police. The escalation continued in 2026, when 50 students performed a blockade of Hovedbygget, and blocked all the office entrances in the two lower most floors.",
 			"drive": "Google Drive"
-		},
-		"admin": {
-			"title": "Members",
-			"loading": "Redirecting you to the login page...",
-			"logged_in": "Logged in as",
-			"logout": "Logout",
-			"name": "Name",
-			"email": "Email",
-			"phone_number": "Phone Number",
-			"graduation_year": "Graduation Year",
-			"birth_year": "Birth Year",
-			"action": "Edit",
-			"no_members_found": "No members found",
-			"delete": "Delete",
-			"edit": "Editing",
-			"member_updated": "Member updated successfully.",
-			"member_deleted": "Member deleted successfully."
 		}
 	},
 	"components": {
@@ -75,20 +58,6 @@
 		"email": "Email",
 		"email_address": "Email {email}",
 		"show_less": "Show less",
-		"show_more": "Show more",
-		"cancel": "Cancel",
-		"save_changes": "Save Changes",
-		"form": {
-			"errors": {
-				"required_fields": "Please fill in all required fields.",
-				"email_invalid": "Please enter a valid email address.",
-				"phone_invalid": "Please enter a valid phone number.",
-				"birth_year_invalid": "Please enter a valid birth year.",
-				"graduation_year_invalid": "Please enter a valid graduation year.",
-				"email_exists": "This email is already in use.",
-				"update_failed": "Failed to update member information.",
-				"delete_failed": "Failed to delete member."
-			}
-		}
+		"show_more": "Show more"
 	}
 }
