@@ -4,6 +4,7 @@
 	import HomepageEvents from '$lib/components/HomepageEvents.svelte';
 	import Section from '$lib/components/Section.svelte';
 	import type { PageProps } from './$types';
+	import { resolve } from '$app/paths';
 
 	let { data }: PageProps = $props();
 </script>
@@ -43,11 +44,17 @@
 		<p class="text-lg">
 			{$_('components.homepage.about_us_paragraph_2')}
 		</p>
+		<a
+			href={resolve('/about')}
+			class="text-lg font-bold text-(--color-red) duration-200 hover:opacity-50"
+		>
+			{$_('components.homepage.learn_more')}
+		</a>
 	</div>
 	<img
 		src="/images/hovedbygget_demo.webp"
 		alt="Studenter for Palestina på demonstrasjon"
-		class="w-full grow-0 lg:basis-7/12"
+		class="h-auto w-full grow-0 lg:basis-7/12"
 		width="960"
 		height="720"
 		decoding="async"
