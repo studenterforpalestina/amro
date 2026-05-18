@@ -15,19 +15,19 @@
 		{$_(`page.press.lead`)}
 		<a
 			href="mailto:styret@studenterforpalestina.no"
-			class="200 text-(--color-red) transition hover:text-(--color-dark-red)"
+			class="200 text-(--contrast-text-red) transition hover:text-(--color-red-dark)"
 		>
 			styret@studenterforpalestina.no
 		</a>
 	</p>
 	{#each data.posts as post (post.slug)}
 		<div class="mx-8 mb-8 max-w-2xl md:max-w-3xl">
-			<time class="text-(--color-red)">{post.date}</time>
+			<time class="text-(--contrast-text-red)">{post.date}</time>
 			<a
 				href={resolve(`/press/${post.slug}`)}
 				class="mb-6 block cursor-pointer rounded-md
              transition-colors
-        duration-200 hover:text-(--color-red) active:bg-(--color-red)/40"
+        duration-200 hover:text-(--contrast-text-red) active:bg-(--contrast-bg-red)/40"
 			>
 				<h2 class="text-3xl font-semibold">{post.title}</h2>
 				<p class="mt-2 text-lg text-(--body-text)/60 duration-200">Les mer</p>

@@ -43,8 +43,8 @@
 	});
 
 	const classes = $derived([
-		`px-4 py-2 text-(--color-text-light) rounded-lg bg-(--color-red)
-	    hover:bg-red-800 active:bg-red-900 text-nowrap
+		`px-4 py-2 text-(--color-text-light) rounded-lg bg-(--contrast-bg-red)
+	    hover:bg-(--color-red-dark) active:bg-(--color-red-dark) text-nowrap
 	    transition-colors duration-200 cursor-pointer w-fit`,
 		sizes[size],
 		clas

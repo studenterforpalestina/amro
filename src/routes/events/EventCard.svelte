@@ -55,7 +55,7 @@
 
 <div class="grid grid-cols-[12px_4rem_6fr] items-start gap-2 md:grid-cols-[12px_7rem_6fr] md:gap-4">
 	<div class="col-span-2 w-20 self-center">
-		<p class="col-span-2 text-2xl font-bold text-(--color-red) md:text-4xl">
+		<p class="col-span-2 text-2xl font-bold text-(--contrast-text-red) md:text-4xl">
 			{getDate(event.start_time)}
 		</p>
 	</div>
@@ -82,7 +82,7 @@
 					{#if isUrl(segment)}
 						<!-- eslint-disable svelte/no-navigation-without-resolve -->
 						<a
-							class="text-(--color-red) duration-200 hover:opacity-50"
+							class="text-(--contrast-text-red) duration-200 hover:opacity-50"
 							href={segment}
 							rel="external noopener noreferrer"
 							target="_blank"
@@ -99,7 +99,7 @@
 		{#if isOverflowing}
 			<button
 				type="button"
-				class="text-md block font-semibold text-(--color-red) duration-200 hover:opacity-50"
+				class="text-md block font-semibold text-(--contrast-text-red) duration-200 hover:opacity-50"
 				aria-expanded={isExpanded}
 				on:click={toggleExpanded}
 			>
@@ -110,7 +110,7 @@
 
 		<a
 			href={getFacebookEventUrl(event.id)}
-			class="mt-2 block text-lg font-bold text-(--color-red) duration-200 hover:opacity-50"
+			class="mt-2 block text-lg font-bold text-(--contrast-text-red) duration-200 hover:opacity-50"
 			rel="external noopener noreferrer"
 			target="_blank"
 		>

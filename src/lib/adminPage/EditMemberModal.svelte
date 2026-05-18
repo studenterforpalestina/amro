@@ -41,9 +41,9 @@
 	);
 	const getError = (field: string) => errors?.[field];
 	const inputClass =
-		'w-full rounded-xl border border-gray-400/40 bg-transparent p-2.5 transition-all outline-none focus:border-(--color-green) focus:ring-2 focus:ring-(--color-green)';
+		'w-full rounded-xl border border-gray-400/40 bg-transparent p-2.5 transition-all outline-none focus:border-(--contrast-text-green) focus:ring-2 focus:ring-(--contrast-text-green)';
 	const errorInputClass =
-		'border-(--color-red) focus:border-(--color-red) focus:ring-(--color-red)';
+		'border-(--contrast-text-red) focus:border-(--contrast-text-red) focus:ring-(--contrast-text-red)';
 </script>
 
 <dialog
@@ -63,7 +63,7 @@
 	</div>
 	{#if getError('form')}
 		<p
-			class="mb-6 rounded-xl border border-(--color-red) bg-(--color-red)/10 px-4 py-3 text-sm text-(--color-red)"
+			class="mb-6 rounded-xl border border-(--contrast-text-red) bg-(--contrast-bg-red)/10 px-4 py-3 text-sm text-(--contrast-text-red)"
 		>
 			{$_(getError('form') || '')}
 		</p>
@@ -99,7 +99,7 @@
 						class={`${inputClass} ${error ? errorInputClass : ''}`}
 					/>
 					{#if error}
-						<span class="mt-1 ml-1 text-sm text-(--color-red)">{$_(error)}</span>
+						<span class="mt-1 ml-1 text-sm text-(--contrast-text-red)">{$_(error)}</span>
 					{/if}
 				</label>
 			{/each}
@@ -115,7 +115,7 @@
 			</button>
 			<button
 				type="submit"
-				class="flex-1 rounded-xl bg-(--color-red) py-2.5 font-medium text-white shadow-sm hover:brightness-110"
+				class="flex-1 rounded-xl bg-(--contrast-bg-red) py-2.5 font-medium text-white shadow-sm hover:brightness-110"
 			>
 				{$_('common.save_changes')}
 			</button>

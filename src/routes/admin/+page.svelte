@@ -68,8 +68,8 @@
 
 				<button
 					onclick={logout}
-					class="max-w-24 rounded-md bg-(--color-red) px-2 py-2 text-sm text-nowrap
-		text-white transition-colors duration-200 hover:bg-red-800 active:bg-red-900"
+					class="max-w-24 rounded-md bg-(--contrast-bg-red) px-2 py-2 text-sm text-nowrap
+		text-white transition-colors duration-200 hover:bg-(--color-red-dark) active:bg-(--color-red-dark)"
 					aria-label="Logout"
 				>
 					{$_('page.admin.logout')}
@@ -82,14 +82,14 @@
 
 		{#if form?.success && form?.notice}
 			<p
-				class="mt-4 rounded-xl border border-(--color-green) bg-(--color-green)/20 px-4 py-3 text-sm"
+				class="mt-4 rounded-xl border border-(--contrast-text-green) bg-(--contrast-text-green)/20 px-4 py-3 text-sm"
 			>
 				{$_(form.notice)}
 			</p>
 		{/if}
 
 		<table class="mt-5 w-full table-auto">
-			<thead class="m-200 text-left font-bold text-(--color-red)">
+			<thead class="m-200 text-left font-bold text-(--contrast-text-red)">
 				<tr>
 					<ColumnHeader
 						label={$_('page.admin.name')}

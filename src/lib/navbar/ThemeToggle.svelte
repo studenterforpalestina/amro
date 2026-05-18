@@ -14,8 +14,8 @@
 <button
 	class={c(
 		`cursor-pointer rounded-md border-0 bg-transparent px-3 py-2
-            transition-colors duration-200 hover:bg-(--color-red)/15
-            hover:text-(--color-red) active:bg-(--color-red)/40`,
+			transition-colors duration-200 hover:bg-(--contrast-bg-red)/15
+			hover:text-(--contrast-text-red) active:bg-(--contrast-bg-red)/40`,
 		clas
 	)}
 	{...props}

@@ -20,7 +20,7 @@
 		<button
 			onclick={() => (editOpen = true)}
 			aria-label="Edit {member.name}"
-			class="mx-2 rounded-xl p-2 transition-colors duration-200 hover:bg-(--color-red)/10"
+			class="mx-2 rounded-xl p-2 transition-colors duration-200 hover:bg-(--contrast-bg-red)/10"
 		>
 			<SquarePen />
 		</button>
@@ -28,7 +28,7 @@
 		<button
 			onclick={() => (deleteOpen = true)}
 			aria-label="Delete {member.name}"
-			class="mx-2 rounded-xl p-2 text-(--color-red) transition-colors duration-200 hover:bg-(--color-red)/10"
+			class="mx-2 rounded-xl p-2 text-(--contrast-text-red) transition-colors duration-200 hover:bg-(--contrast-bg-red)/10"
 		>
 			<Trash2 />
 		</button>

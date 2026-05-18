@@ -34,8 +34,8 @@
 		</a>
 		<button
 			class="cursor-pointer rounded-md px-3 py-2 text-lg text-nowrap
-                    text-(--color-red) transition-colors
-                    duration-200 hover:bg-(--color-red)/10 active:bg-(--color-red)/40 md:hidden"
+					text-(--contrast-text-red) transition-colors
+					duration-200 hover:bg-(--contrast-bg-red)/10 active:bg-(--contrast-bg-red)/40 md:hidden"
 			onclick={() => (menuOpen = true)}
 		>
 			<Menu />
@@ -53,7 +53,7 @@
 					href={resolve(`/${item}`)}
 					class="flex rounded-md px-3 py-2 text-lg text-nowrap
                             transition-colors duration-200
-                            hover:bg-(--color-red)/10 hover:text-(--color-red) active:bg-(--color-red)/40"
+							hover:bg-(--contrast-bg-red)/10 hover:text-(--contrast-text-red) active:bg-(--contrast-bg-red)/40"
 				>
 					{$_(`components.navbar.${item}`)}
 				</a>
@@ -82,8 +82,8 @@
 			<li class="mb-4 flex w-full items-center justify-between gap-1">
 				<button
 					class="flex cursor-pointer items-center rounded-md py-2 pr-5 pl-2
-                text-lg text-(--color-red)
-                transition-colors duration-200 hover:bg-(--color-red)/10 active:bg-(--color-red)/40"
+						text-lg text-(--contrast-text-red)
+						transition-colors duration-200 hover:bg-(--contrast-bg-red)/10 active:bg-(--contrast-bg-red)/40"
 					onclick={() => (menuOpen = false)}
 				>
 					<ChevronLeft />
@@ -99,7 +99,7 @@
 						href={resolve(`/${item}`)}
 						class="flex rounded-md px-3 py-2 text-lg text-nowrap
                                 transition-colors duration-200
-                                hover:bg-(--color-red)/20 hover:text-(--color-red) active:bg-(--color-red)/50"
+								hover:bg-(--contrast-bg-red)/20 hover:text-(--contrast-text-red) active:bg-(--contrast-bg-red)/50"
 					>
 						{$_(`components.navbar.${item}`)}
 					</a>

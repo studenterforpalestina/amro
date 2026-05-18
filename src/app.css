@@ -8,16 +8,24 @@
 	--color-bg-dark: #1f1a16;
 	--color-text-dark: #212121;
 	--color-text-light: #fff9eb;
-	--color-red: #c52128;
-	--color-dark-red: #91161b;
-	--color-green: #074825;
+	--color-red-light: #f94b4b;
+	--color-red-medium: #c52128;
+	--color-red-dark: #91161b;
+	--color-green-light: #03a74a;
+	--color-green-dark: #074825;
 	--background: var(--color-bg-light);
 	--body-text: var(--color-text-dark);
+	--contrast-text-red: var(--color-red-medium);
+	--contrast-bg-red: var(--color-red-medium);
+	--contrast-text-green: var(--color-green-dark);
 }
 
 .dark {
 	--background: var(--color-bg-dark);
 	--body-text: var(--color-text-light);
+	--contrast-text-red: var(--color-red-light);
+	--contrast-bg-red: var(--color-red-medium);
+	--contrast-text-green: var(--color-green-light);
 }
 
 body {
