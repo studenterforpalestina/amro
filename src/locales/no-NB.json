@@ -35,7 +35,8 @@
 			"delete": "Slett",
 			"edit": "Redigerer",
 			"member_updated": "Medlem oppdatert.",
-			"member_deleted": "Medlem slettet."
+			"member_deleted": "Medlem slettet.",
+			"member_count": "Antall medlemmer:"
 		}
 	},
 	"components": {

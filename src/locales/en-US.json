@@ -35,7 +35,8 @@
 			"delete": "Delete",
 			"edit": "Editing",
 			"member_updated": "Member updated successfully.",
-			"member_deleted": "Member deleted successfully."
+			"member_deleted": "Member deleted successfully.",
+			"member_count": "Members: "
 		}
 	},
 	"components": {
