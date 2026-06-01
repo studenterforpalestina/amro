@@ -4,6 +4,7 @@
 	import { logout, login } from '$lib/auth/UserManager';
 	import MemberRow from '$lib/adminPage/MemberRow.svelte';
 	import ColumnHeader from '$lib/adminPage/ColumnHeader.svelte';
+	import PageWrapper from '$lib/components/PageWrapper.svelte';
 	import type { PageProps } from './$types';
 
 	let { data, form }: PageProps = $props();
@@ -65,7 +66,7 @@
 		<p>{$_('page.admin.loading')}</p>
 	</div>
 {:else}
-	<div class="mx-4 p-4 md:mx-24 md:p-8">
+	<PageWrapper>
 		<div class="flex flex-row items-baseline">
 			<h1 class=" text-3xl font-bold md:text-5xl">{$_('page.admin.title')}</h1>
 
@@ -157,5 +158,5 @@
 				{/if}
 			</tbody>
 		</table>
-	</div>
+	</PageWrapper>
 {/if}

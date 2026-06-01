@@ -1,6 +1,10 @@
 <script lang="ts">
+	import PageMeta from './PageMeta.svelte';
+
 	import { _ } from 'svelte-i18n';
 	import EventCard from './EventCard.svelte';
+	import PageHeader from '$lib/components/PageHeader.svelte';
+	import PageWrapper from '$lib/components/PageWrapper.svelte';
 	import type { PageProps } from './$types';
 	let { data }: PageProps = $props();
 </script>
@@ -11,10 +15,10 @@
 	<link rel="icon" href="/images/logo.png" />
 </svelte:head>
 
-<div class="mx-auto max-w-5xl p-4 font-sans md:p-8">
-	<h1 class="mb-4 text-3xl font-bold md:mb-8 md:text-7xl">
+<PageWrapper>
+	<PageHeader>
 		{$_('page.events.header')}
-	</h1>
+	</PageHeader>
 
 	<div class="mx-auto max-w-3xl space-y-6">
 		{#if data.events.length > 0}
@@ -29,4 +33,4 @@
 			</div>
 		{/if}
 	</div>
-</div>
+</PageWrapper>
