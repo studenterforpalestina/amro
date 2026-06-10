@@ -17,13 +17,13 @@
 	>
 	<a
 		href={resolve(`/news/${post.slug}`)}
-		class="block cursor-pointer rounded-md
+		class="-m-1 block cursor-pointer rounded-md p-1
              transition-colors
-        duration-200 hover:text-(--contrast-text-red) active:bg-(--contrast-text-red)/40"
+        duration-200 hover:bg-(--contrast-bg-red)/10 hover:text-(--contrast-text-red) active:bg-(--contrast-bg-red)/40"
 	>
 		<h2 class="text-2xl font-semibold md:text-4xl">{post.title}</h2>
 	</a>
-	<p class="text-(--color-red) italic">
+	<p class="text-(--contrast-text-red) italic">
 		{$_(`page.news.tags.${post.tag}`)}
 	</p>
 	{#if post.tag == 'presscoverage' && post.url}
@@ -32,7 +32,7 @@
 			href={`${post.url}`}
 			target="_blank"
 			rel="external noopener noreferrer"
-			class="block transition-colors duration-200 hover:text-(--color-red)/80"
+			class="block transition-colors duration-200 hover:text-(--contrast-text-red)"
 		>
 			{$_('page.news.originally_posted_on')}
 			{new URL(post.url).hostname.replace('www.', '')}
@@ -41,7 +41,7 @@
 	{:else}
 		<a
 			href={resolve(`/news/${post.slug}`)}
-			class="transition-colors duration-200 hover:text-(--color-red)/80"
+			class="transition-colors duration-200 hover:text-(--contrast-text-red)"
 		>
 			{$_('common.read_more')}
 		</a>

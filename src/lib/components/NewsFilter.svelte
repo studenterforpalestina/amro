@@ -11,8 +11,8 @@
 	<a
 		class={`mt-0 rounded-md px-2 py-1 text-sm text-white transition-colors duration-200 md:px-4 md:py-2 md:text-base ${
 			activeFilter === 'none'
-				? 'bg-(--color-dark-red)'
-				: 'bg-(--color-red) hover:bg-(--color-dark-red)'
+				? 'bg-(--color-red-dark)'
+				: 'bg-(--contrast-bg-red) hover:bg-(--color-red-dark)'
 		}`}
 		href={resolve('/news')}
 	>
@@ -22,8 +22,8 @@
 		<a
 			class={`rounded-md px-2 py-1 text-sm text-white transition-colors duration-200 md:px-4 md:py-2 md:text-base ${
 				activeFilter === filter
-					? 'bg-(--color-dark-red)'
-					: 'bg-(--color-red) hover:bg-(--color-dark-red)'
+					? 'bg-(--color-red-dark)'
+					: 'bg-(--contrast-bg-red) hover:bg-(--color-red-dark)'
 			}`}
 			href={resolve(`/news?tag=${filter}` as unknown as '/news')}
 		>
