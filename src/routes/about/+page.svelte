@@ -36,7 +36,7 @@
 	</h2>
 	<a
 		href="https://wiki.studenterforpalestina.no"
-		class="mt-2 block text-lg font-bold text-(--color-red) duration-200 hover:opacity-50"
+		class="mt-2 block text-lg font-bold text-(--contrast-text-red) duration-200 hover:opacity-50"
 		rel="external noopener noreferrer"
 		target="_blank"
 	>
@@ -44,7 +44,7 @@
 	</a>
 	<a
 		href="https://drive.google.com/file/d/1f3i9gIFnyeqBSwiQ753XGKqv8jHai_8M/view"
-		class="mt-2 block text-lg font-bold text-(--color-red) duration-200 hover:opacity-50"
+		class="mt-2 block text-lg font-bold text-(--contrast-text-red) duration-200 hover:opacity-50"
 		rel="external noopener noreferrer"
 		target="_blank"
 	>
@@ -52,7 +52,7 @@
 	</a>
 	<a
 		href="https://drive.google.com/drive/u/0/folders/1KmFsa8f2CcaXcEd8AwuQqCWF5yLmlLoT"
-		class="mt-2 block text-lg font-bold text-(--color-red) duration-200 hover:opacity-50"
+		class="mt-2 block text-lg font-bold text-(--contrast-text-red) duration-200 hover:opacity-50"
 		rel="external noopener noreferrer"
 		target="_blank"
 	>

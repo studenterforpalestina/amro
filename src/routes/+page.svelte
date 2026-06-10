@@ -46,7 +46,7 @@
 		</p>
 		<a
 			href={resolve('/about')}
-			class="text-lg font-bold text-(--color-red) duration-200 hover:opacity-50"
+			class="text-lg font-bold text-(--contrast-text-red) duration-200 hover:opacity-50"
 		>
 			{$_('components.homepage.learn_more')}
 		</a>
