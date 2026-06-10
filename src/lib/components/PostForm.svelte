@@ -109,7 +109,7 @@
 			</a>
 			<button
 				type="submit"
-				class="flex-1 rounded-xl bg-(--color-red) py-2.5 font-medium text-white shadow-sm hover:brightness-110"
+				class="flex-1 rounded-xl bg-(--contrast-bg-red) py-2.5 font-medium text-white shadow-sm hover:brightness-110"
 			>
 				{$_('common.save_changes')}
 			</button>

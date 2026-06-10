@@ -23,8 +23,9 @@
 	let detailsElement = $state<HTMLDetailsElement | null>(null);
 
 	const baseClass =
-		'w-full rounded-xl border border-gray-400 bg-transparent p-2.5 placeholder-gray-400 transition-all outline-none focus:border-(--color-green) focus:ring-2 focus:ring-(--color-green)';
-	const errorClass = 'border-(--color-red) focus:border-(--color-red) focus:ring-(--color-red)';
+		'w-full rounded-xl border border-gray-400 bg-transparent p-2.5 placeholder-gray-400 transition-all outline-none focus:border-(--contrast-text-green) focus:ring-2 focus:ring-(--contrast-text-green)';
+	const errorClass =
+		'border-(--contrast-text-red) focus:border-(--contrast-text-red) focus:ring-(--contrast-text-red)';
 
 	const onSelectCommittee = (event: Event) => {
 		const target = event.currentTarget as HTMLInputElement;
@@ -86,7 +87,7 @@
 					value={option.value}
 					bind:group={selected}
 					onchange={onSelectCommittee}
-					class="h-4 w-4 rounded border-gray-400 text-(--color-green) focus:ring-(--color-green)"
+					class="h-4 w-4 rounded border-gray-400 text-(--contrast-text-green) focus:ring-(--contrast-text-green)"
 				/>
 				<span>{$_(option.labelKey)}</span>
 			</label>

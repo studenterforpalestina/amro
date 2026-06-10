@@ -23,7 +23,7 @@
 
 <button
 	type="button"
-	class="text-lg text-(--color-red) duration-200 hover:text-(--color-red)/60"
+	class="text-lg text-(--contrast-text-red) duration-200 hover:text-(--contrast-text-red)/60"
 	onclick={() => (open = true)}>Slett</button
 >
 
@@ -54,7 +54,7 @@
 		</button>
 		<button
 			type="submit"
-			class="flex-1 rounded-xl bg-(--color-red) py-2.5 font-medium text-white shadow-sm hover:brightness-110"
+			class="flex-1 rounded-xl bg-(--contrast-bg-red) py-2.5 font-medium text-white shadow-sm hover:brightness-110"
 		>
 			{$_('page.admin.delete')}
 		</button>

@@ -85,9 +85,9 @@
 	const getError = (field: string) => errors?.[field];
 
 	const inputClass =
-		'w-full rounded-xl border border-gray-400 bg-transparent p-2.5 placeholder-gray-400 transition-all outline-none focus:border-(--color-green) focus:ring-2 focus:ring-(--color-green)';
+		'w-full rounded-xl border border-gray-400 bg-transparent p-2.5 placeholder-gray-400 transition-all outline-none focus:border-(--contrast-text-green) focus:ring-2 focus:ring-(--contrast-text-green)';
 	const errorInputClass =
-		'border-(--color-red) focus:border-(--color-red) focus:ring-(--color-red)';
+		'border-(--contrast-text-red) focus:border-(--contrast-text-red) focus:ring-(--contrast-text-red)';
 	const fieldValues = $derived({
 		name: form?.name || '',
 		email: form?.email || '',
@@ -110,7 +110,7 @@
 	<p class="mb-8 text-lg">{$_('page.join.signup_lead')}</p>
 	{#if getError('form')}
 		<p
-			class="mb-6 rounded-xl border border-(--color-red) bg-(--color-red)/10 px-4 py-3 text-sm text-(--color-red)"
+			class="mb-6 rounded-xl border border-(--contrast-text-red) bg-(--contrast-text-red)/10 px-4 py-3 text-sm text-(--contrast-text-red)"
 		>
 			{$_(getError('form') || '')}
 		</p>
@@ -118,7 +118,7 @@
 
 	{#if form?.success}
 		<p
-			class="mb-8 rounded-xl border border-(--color-green) bg-(--color-green)/10 px-4 py-3 font-bold"
+			class="mb-8 rounded-xl border border-(--contrast-text-green) bg-(--contrast-text-green)/10 px-4 py-3 font-bold"
 		>
 			{$_('page.join.success_message')}
 		</p>
@@ -155,7 +155,7 @@
 						aria-describedby={error ? `${field.id}-error` : undefined}
 					/>
 					{#if error}
-						<p id={`${field.id}-error`} class="text-sm text-(--color-red)">{$_(error)}</p>
+						<p id={`${field.id}-error`} class="text-sm text-(--contrast-text-red)">{$_(error)}</p>
 					{/if}
 				</div>
 			{/each}
@@ -173,7 +173,9 @@
 					{/each}
 				</select>
 				{#if getError('school')}
-					<p id="school-error" class="text-sm text-(--color-red)">{$_(getError('school') || '')}</p>
+					<p id="school-error" class="text-sm text-(--contrast-text-red)">
+						{$_(getError('school') || '')}
+					</p>
 				{/if}
 			</div>
 			<div class="col-span-1 min-w-0 space-y-2 md:col-span-2">
@@ -186,7 +188,7 @@
 					bind:selected={selectedCommittees}
 				/>
 				{#if getError('committees')}
-					<p id="committees-error" class="text-sm text-(--color-red)">
+					<p id="committees-error" class="text-sm text-(--contrast-text-red)">
 						{$_(getError('committees') || '')}
 					</p>
 				{/if}
@@ -199,7 +201,7 @@
 				id="newsletter"
 				name="newsletter"
 				checked={form?.newsletter === true}
-				class="mt-1 h-4 w-4 rounded border-gray-400 text-(--color-green) focus:ring-(--color-green)"
+				class="mt-1 h-4 w-4 rounded border-gray-400 text-(--contrast-text-green) focus:ring-(--contrast-text-green)"
 			/>
 			<span>{$_('page.join.newsletter_label')}</span>
 		</label>
@@ -207,7 +209,7 @@
 		<button
 			type="submit"
 			disabled={submitting}
-			class="w-full rounded-xl bg-(--color-green) px-4 py-2.5 font-medium text-white transition-all hover:bg-(--color-green)/60 disabled:cursor-not-allowed disabled:opacity-50 md:w-30"
+			class="w-full rounded-xl bg-(--contrast-text-green) px-4 py-2.5 font-medium text-white transition-all hover:bg-(--contrast-text-green)/60 disabled:cursor-not-allowed disabled:opacity-50 md:w-30"
 		>
 			{$_('page.join.submit_button')}
 		</button>
