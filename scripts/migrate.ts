@@ -61,6 +61,14 @@ await sql.begin(async (tx) => {
     FOR EACH ROW
     EXECUTE FUNCTION update_timestamp();
   `;
+
+	await tx`
+    CREATE TABLE IF NOT EXISTS "FacebookToken" (
+    key TEXT PRIMARY KEY,
+    token TEXT NOT NULL,
+    "updatedAt" TIMESTAMPTZ DEFAULT now() NOT NULL
+  );
+  `;
 });
 
 console.log('Migration complete.');
