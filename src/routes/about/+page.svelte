@@ -34,28 +34,30 @@
 	<h2 class="mt-12 text-2xl font-bold md:text-4xl">
 		{$_(`page.about.other_resources`)}
 	</h2>
-	<a
-		href="https://wiki.studenterforpalestina.no"
-		class="mt-2 block text-lg font-bold text-(--contrast-text-red) duration-200 hover:opacity-50"
-		rel="external noopener noreferrer"
-		target="_blank"
-	>
-		{$_(`page.about.wiki_link`)}
-	</a>
-	<a
-		href="https://drive.google.com/file/d/1f3i9gIFnyeqBSwiQ753XGKqv8jHai_8M/view"
-		class="mt-2 block text-lg font-bold text-(--contrast-text-red) duration-200 hover:opacity-50"
-		rel="external noopener noreferrer"
-		target="_blank"
-	>
-		{$_(`page.about.bylaws`)}
-	</a>
-	<a
-		href="https://drive.google.com/drive/u/0/folders/1KmFsa8f2CcaXcEd8AwuQqCWF5yLmlLoT"
-		class="mt-2 block text-lg font-bold text-(--contrast-text-red) duration-200 hover:opacity-50"
-		rel="external noopener noreferrer"
-		target="_blank"
-	>
-		{$_('page.about.drive')}
-	</a>
+	<div class="flex flex-col items-start gap-2">
+		<a
+			href="https://wiki.studenterforpalestina.no"
+			class="mt-2 inline-block text-lg font-bold text-(--contrast-text-red) duration-200 hover:opacity-50"
+			rel="external noopener noreferrer"
+			target="_blank"
+		>
+			{$_(`page.about.wiki_link`)}
+		</a>
+		<a
+			href="https://drive.google.com/file/d/1f3i9gIFnyeqBSwiQ753XGKqv8jHai_8M/view"
+			class="mt-2 inline-block text-lg font-bold text-(--contrast-text-red) duration-200 hover:opacity-50"
+			rel="external noopener noreferrer"
+			target="_blank"
+		>
+			{$_(`page.about.bylaws`)}
+		</a>
+		<a
+			href="https://drive.google.com/drive/u/0/folders/1KmFsa8f2CcaXcEd8AwuQqCWF5yLmlLoT"
+			class="mt-2 inline-block text-lg font-bold text-(--contrast-text-red) duration-200 hover:opacity-50"
+			rel="external noopener noreferrer"
+			target="_blank"
+		>
+			{$_('page.about.drive')}
+		</a>
+	</div>
 </div>
