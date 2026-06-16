@@ -28,11 +28,4 @@ await sql`
   ON CONFLICT (email) DO NOTHING;
 `;
 
-await sql`
-  INSERT INTO "FacebookToken" (key, token)
-  VALUES
-    ('page_access_token', 'initial_dummy_token')
-  ON CONFLICT (key) DO NOTHING;
-`;
-
 console.log('Seed complete.');

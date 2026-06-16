@@ -1,29 +1,45 @@
-import { env } from '$env/dynamic/private';
-const FB_PAGE_ID = '109908495259354';
-const FB_ACCESS_TOKEN = env.FB_ACCESS_TOKEN;
+import { sql } from 'bun';
+const FB_APP_ID = '1897990914127322';
+const FB_APP_SECRET = process.env.FB_APP_SECRET;
+if (!FB_APP_SECRET) {
+	throw new Error('FB_APP_SECRET environment variable is not set');
+}
+const [{ token: FB_TOKEN }] = await sql`
+	SELECT token
+	FROM "FacebookToken"
+	WHERE id = 1
+`;
+if (!FB_TOKEN) {
+	throw new Error(
+		'No existing token found in database. Please run the migration script to create the "FacebookToken" table and insert the initial token.'
+	);
+}
 
-const url = new URL('https://graph.facebook.com/v19.0/oauth/access_token');
+const url = new URL('https://graph.facebook.com/v25.0/oauth/access_token');
 url.search = new URLSearchParams({
 	grant_type: 'fb_exchange_token',
-	client_id: env.FB_APP_ID,
-	client_secret: env.FB_APP_SECRET,
-	fb_exchange_token: FB_ACCESS_TOKEN || ''
+	client_id: FB_APP_ID,
+	client_secret: FB_APP_SECRET ?? '',
+	fb_exchange_token: FB_TOKEN
 }).toString();
 
-try {
-	const res = await fetch(url, {
-		headers: {
-			Accept: 'application/json'
-		}
-	});
-	if (!res.ok) {
-		const errorPayload = await res.json();
-		console.error('API Error Details:', JSON.stringify(errorPayload, null, 2));
-		throw new Error(`API Error: ${errorPayload.error?.message || res.statusText}`);
+const res = await fetch(url, {
+	headers: {
+		Accept: 'application/json'
 	}
-	const data = await res.json();
-	process.env.FB_ACCESS_TOKEN = data.access_token;
-} catch (error) {
-	const err = error instanceof Error ? error : new Error('Unknown error while refreshing token');
-	console.error('Error refreshing token:', err.message);
+});
+if (!res.ok) {
+	const error = await res.json();
+	console.error('Error refreshing Facebook token:', error);
+	throw new Error(error.error?.message ?? res.statusText);
 }
+
+const { access_token, expires_in } = await res.json();
+console.log(`New token expires in ${expires_in} seconds`);
+await sql`
+		UPDATE "FacebookToken"
+  		SET token = ${access_token},
+    		"updatedAt" = now()
+  		WHERE id = 1
+	`;
+console.log('Token refreshed successfully');

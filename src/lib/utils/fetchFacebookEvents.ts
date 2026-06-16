@@ -1,17 +1,18 @@
-import { env } from '$env/dynamic/private';
 import { type Event, parseEvents } from '$lib/utils/eventParser';
+import { sql } from 'bun';
 const FB_PAGE_ID = '109908495259354';
 const EVENTS_LIMIT = 10;
 
 export async function fetchFacebookEvents() {
-	if (!env.FB_ACCESS_TOKEN) {
-		console.error('Missing Facebook access token.');
-		return { events: [] };
-	}
+	const [{ token: FB_ACCESS_TOKEN }] = await sql`
+	SELECT token
+	FROM "FacebookToken"
+	WHERE id = 1
+`;
 
 	const apiURL = new URL(`https://graph.facebook.com/v24.0/${FB_PAGE_ID}/events`);
 	apiURL.search = new URLSearchParams({
-		access_token: env.FB_ACCESS_TOKEN,
+		access_token: FB_ACCESS_TOKEN,
 		fields: 'id,name,description,start_time,end_time,place,cover',
 		limit: EVENTS_LIMIT.toString()
 	}).toString();

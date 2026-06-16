@@ -68,11 +68,18 @@ await sql.begin(async (tx) => {
 
 	await tx`
     CREATE TABLE IF NOT EXISTS "FacebookToken" (
-    key TEXT PRIMARY KEY,
+    id INTEGER PRIMARY KEY,
     token TEXT NOT NULL,
     "updatedAt" TIMESTAMPTZ DEFAULT now() NOT NULL
   );
   `;
+	await tx`
+    INSERT INTO "FacebookToken" (id, token)
+    VALUES (1, ${process.env.FB_ACCESS_TOKEN})
+    ON CONFLICT (id) DO UPDATE
+    SET token = EXCLUDED.token,
+        "updatedAt" = now();
+    `;
 });
 
 console.log('Migration complete.');
