@@ -1,4 +1,5 @@
 import { sql } from 'bun';
+import { dev } from '$app/environment';
 import { fetchFacebookEvents } from './fetchFacebookEvents';
 import { type Event } from '$lib/utils/eventParser';
 import { refreshFacebookEventPictures } from './refreshFacebookEventPics';
@@ -6,6 +7,29 @@ const CACHE_KEY = 'events';
 const CACHE_LIFETIME_MS = 60 * 60 * 1000; // 60 minutes
 
 export async function getFacebookEvents() {
+	if (dev) {
+		// Return dummy events
+		return {
+			events: [
+				{
+					id: '1',
+					name: 'Dummy Event 1',
+					description: 'This is a dummy event for development.',
+					start_time: new Date(Date.now() + 24 * 60 * 60 * 1000), // Tomorrow
+					end_time: new Date(Date.now() + 25 * 60 * 60 * 1000), // Tomorrow + 1 hour
+					place: 'Gløshaugen'
+				},
+				{
+					id: '2',
+					name: 'Dummy Event 2',
+					description: 'This is another dummy event for development.',
+					start_time: new Date(Date.now() + 48 * 60 * 60 * 1000), // Day after tomorrow
+					end_time: new Date(Date.now() + 49 * 60 * 60 * 1000), // Day after tomorrow + 1 hour
+					place: 'Dragvoll'
+				}
+			]
+		};
+	}
 	const now = Date.now();
 	const [cached] = await sql`
         SELECT payload, "fetchedAt"
