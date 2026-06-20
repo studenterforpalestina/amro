@@ -5,11 +5,15 @@ const EVENTS_LIMIT = 10;
 
 export async function fetchFacebookEvents() {
 	const [{ token: FB_ACCESS_TOKEN }] = await sql`
-	SELECT token
-	FROM "FacebookToken"
-	WHERE id = 1
-`;
-
+		SELECT token
+		FROM "FacebookToken"
+		WHERE id = 1
+	`;
+	if (!FB_ACCESS_TOKEN) {
+		throw new Error(
+			'No Facebook access token found in database. Please run the migration script to create the "FacebookToken" table and check if the token is set in .env.'
+		);
+	}
 	const apiURL = new URL(`https://graph.facebook.com/v24.0/${FB_PAGE_ID}/events`);
 	apiURL.search = new URLSearchParams({
 		access_token: FB_ACCESS_TOKEN,
@@ -33,7 +37,6 @@ export async function fetchFacebookEvents() {
 		const data = await res.json();
 		const events: Event[] = parseEvents(data);
 		const now = new Date();
-
 		// Sort events by start date, earliest first
 		events.sort((a, b) => a.start_time.getTime() - b.start_time.getTime());
 
