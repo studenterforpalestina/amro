@@ -15,6 +15,8 @@
 	<td class="p-1 md:p-2">{member.phoneNumber}</td>
 	<td class="p-1 md:p-2">{member.graduationYear}</td>
 	<td class="p-1 md:p-2">{member.birthYear}</td>
+	<td class="p-1 md:p-2">{member.school}</td>
+	<td class="p-1 md:p-2">{member.createdAt.toLocaleDateString('no-NB')}</td>
 
 	<td class="flex p-2">
 		<button

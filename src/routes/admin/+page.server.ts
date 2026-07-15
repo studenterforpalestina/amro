@@ -15,7 +15,7 @@ export const load: PageServerLoad = async (event) => {
 
 	try {
 		const members = await sql`
-            SELECT id, name, "phoneNumber", "birthYear", "graduationYear", "isActive", email
+            SELECT id, name, "phoneNumber", "birthYear", "graduationYear", "isActive", school, email, "createdAt"
             FROM "Member"
             WHERE "isActive" = true
             ORDER BY name ASC

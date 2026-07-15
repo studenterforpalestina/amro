@@ -20,6 +20,7 @@ export interface Member {
 	email: string;
 	phoneNumber: string;
 	graduationYear: number;
+	createdAt: Date;
 	school: 'NTNU' | 'DMMH' | 'BI' | 'Fotofagskolen' | 'other';
 	birthYear: number;
 	isActive: boolean;

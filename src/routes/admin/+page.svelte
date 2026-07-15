@@ -9,7 +9,7 @@
 	let { data, form }: PageProps = $props();
 
 	let loading = $derived(!data.authenticated);
-	let sortKey = $state<'name' | 'email' | 'graduationYear'>('name');
+	let sortKey = $state<'name' | 'email' | 'graduationYear' | 'school' | 'createdAt'>('name');
 	let sortDirection = $state<1 | -1>(1);
 
 	const members = $derived.by(() => {
@@ -27,13 +27,19 @@
 				case 'graduationYear':
 					comparison = a.graduationYear - b.graduationYear;
 					break;
+				case 'school':
+					comparison = a.school.localeCompare(b.school);
+					break;
+				case 'createdAt':
+					comparison = a.createdAt.getTime() - b.createdAt.getTime();
+					break;
 			}
 
 			return comparison * sortDirection;
 		});
 	});
 
-	function toggleSort(key: 'name' | 'email' | 'graduationYear') {
+	function toggleSort(key: 'name' | 'email' | 'graduationYear' | 'school' | 'createdAt') {
 		if (sortKey === key) {
 			sortDirection = sortDirection * -1;
 			return;
@@ -118,6 +124,22 @@
 						onclick={() => toggleSort('graduationYear')}
 					/>
 					<ColumnHeader label={$_('page.admin.birth_year')} sortable={false} />
+					<ColumnHeader
+						label={$_('page.admin.institution')}
+						sortable={true}
+						columnKey="school"
+						activeSortKey={sortKey}
+						{sortDirection}
+						onclick={() => toggleSort('school')}
+					/>
+					<ColumnHeader
+						label={$_('page.admin.registered_since')}
+						sortable={true}
+						columnKey="createdAt"
+						activeSortKey={sortKey}
+						{sortDirection}
+						onclick={() => toggleSort('createdAt')}
+					/>
 					<ColumnHeader label={$_('page.admin.action')} sortable={false} />
 				</tr>
 			</thead>

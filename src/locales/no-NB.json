@@ -74,7 +74,9 @@
 			"edit": "Redigerer",
 			"member_updated": "Medlem oppdatert.",
 			"member_deleted": "Medlem slettet.",
-			"member_count": "Antall medlemmer:"
+			"member_count": "Antall medlemmer:",
+			"institution": "Studiested",
+			"registered_since": "Medlem siden"
 		},
 		"join": {
 			"title": "Bli medlem",
