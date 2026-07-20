@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { _ } from 'svelte-i18n';
+	import { resolve } from '$app/paths';
 	import { enhance } from '$app/forms';
 	import PageWrapper from '$lib/components/common/PageWrapper.svelte';
 	import PageHeader from '$lib/components/common/PageHeader.svelte';
@@ -8,6 +9,7 @@
 	import FormField from '$lib/components/common/FormField.svelte';
 	import StandardParagraph from '$lib/components/common/StandardParagraph.svelte';
 	import StandardButton from '$lib/components/common/StandardButton.svelte';
+	import StandardLink from '$lib/components/common/StandardLink.svelte';
 	let { form } = $props();
 	let submitting = $state(false);
 
@@ -199,6 +201,13 @@
 		>
 			{$_('page.join.submit_button')}
 		</StandardButton>
-		<p class="text-sm text-gray-500">{$_('page.join.consent_label')}</p>
+		<p class="text-sm text-gray-500">
+			{$_('page.join.consent_label')}
+			<a
+				href={resolve('/privacy')}
+				class="font-bold text-(--contrast-text-green) duration-100 hover:opacity-50"
+				>{$_('page.join.privacy_policy')}</a
+			>.
+		</p>
 	</form>
 </PageWrapper>

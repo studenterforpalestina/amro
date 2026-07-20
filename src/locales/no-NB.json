@@ -97,12 +97,34 @@
 			"committee_writing": "Skrivegruppa",
 			"committee_stand": "Standkomiteen",
 			"committee_action": "Aksjonskomiteen",
-			"consent_label": "Ved å bli med samtykker du til at Studenter for Palestina lagrer denne informasjonen for å behandle medlemskapet ditt.",
+			"consent_label": "Ved å bli med samtykker du til at Studenter for Palestina lagrer denne informasjonen for å behandle medlemskapet ditt, i henhold til vår",
+			"privacy_policy": "personvernserklæring",
 			"submit_button": "Send inn",
 			"newsletter_label": "Jeg samtykker til at Studenter for Palestina sender meg medlemsbrev på mail",
 			"success_message": "Takk for at du meldte deg inn! Du får snart en bekreftelse på e-post.",
 			"school_other": "Annet",
 			"school_label": "Studiested"
+		},
+		"privacy": {
+			"title": "Personvernserklæring",
+			"description": "Personvernserklæring for Studenter for Palestina",
+			"header": "Personvernserklæring",
+			"introduction": "Vi i Studenter for Palestina behandler medlemmers personopplysninger som en del av driften vår. Studenter for Palestina Trondheim er behandlingsansvarlig for personopplysningene som beskrives i denne erklæringen. Her forklarer vi hvilke opplysninger vi behandler, hvorfor vi gjør det, og hvilke rettigheter du har.",
+			"data_collection": "Når samler vi inn personopplysninger, og hvilke?",
+			"data_collection_details": "Vi behandler opplysninger om deg når du melder deg inn i Studenter for Palestina eller samtykker til å motta nyhetsbrev. Opplysningene kommer fra deg selv via innmeldingsskjema. Behandlingsgrunnlaget er samtykke, jf. personvernforordningen artikkel 6 nr. 1 bokstav a. Du kan når som helst trekke samtykket tilbake. Vi lagrer kun informasjonen du selv gir oss, det vil si:",
+			"data_handling": "Hvordan lagres og håndteres dine personopplysninger?",
+			"data_handling_details_1": "Alle personopplysninger lagres kun på våre egne servere. Tilgang til medlemsopplysninger er begrenset til styremedlemmer med behov. Vi lagrer opplysningene så lenge medlemskapet er aktivt, og i inntil 12 måneder etter at medlemskapet avsluttes, med mindre du ber om sletting tidligere.",
+			"data_handling_details_2": "Vi deler ikke identifiserbare personopplysninger med eksterne aktører. Vi kan dele aggregert og anonymisert statistikk, for eksempel medlemstall, for å dokumentere aktivitet og søke støtte.",
+			"your_rights": "Dine rettigheter",
+			"your_rights_details": "I henhold til personopplysningsloven har du rett til:",
+			"rights": {
+				"access": "Innsyn i opplysningene vi har lagret om deg",
+				"correction": "Retting av uriktige opplysninger",
+				"deletion": "Sletting av opplysningene dine",
+				"restriction": "Begrensning av behandlingen",
+				"objection": "Å protestere på behandlingen",
+				"contact": "For å utøve dine rettigheter kan du kontakte oss på e-post til"
+			}
 		}
 	},
 	"components": {

@@ -97,12 +97,34 @@
 			"committee_writing": "Writing",
 			"committee_stand": "Stand",
 			"committee_action": "Action",
-			"consent_label": "By joining, you consent to Students for Palestine storing this information to process your membership.",
+			"consent_label": "By joining, you consent to Students for Palestine storing this information to process your membership, according to our",
 			"submit_button": "Submit",
 			"newsletter_label": "I consent to Students for Palestine sending me the newsletter once a week",
 			"success_message": "Thank you for joining! You will receive a confirmation email soon.",
 			"school_other": "Other",
-			"school_label": "Institution"
+			"school_label": "Institution",
+			"privacy_policy": "privacy policy"
+		},
+		"privacy": {
+			"title": "Privacy policy",
+			"description": "Privacy policy for Students for Palestine",
+			"header": "Privacy policy",
+			"introduction": "Students for Palestine collects and processes personal data of our members. Students for Palestine Trondheim is responsible for the personal data described in this policy. Here we explain what data we process, why we process it, and which rights you have.",
+			"data_collection": "When do we collect personal data, and which data?",
+			"data_collection_details": "We process your data when you join Students for Palestine or consent to receive our newsletter. The data mainly comes directly from you through the signup form. The legal basis is consent under GDPR article 6(1)(a). You may withdraw consent at any time. We only store information you provide yourself, namely:",
+			"data_handling": "How is your personal data stored and handled?",
+			"data_handling_details_1": "All data is stored solely on our own servers. Access to member data is limited to board members with a legitimate operational need. We store your data while your membership is active and for up to 12 months after membership ends.",
+			"data_handling_details_2": "We do not share identifiable personal data with external parties. We may share aggregated and anonymized statistics, such as total member counts, to document activity and apply for funding.",
+			"your_rights": "Your rights",
+			"your_rights_details": "Under data protection law, you have the right to:",
+			"rights": {
+				"access": "Access the personal data we store about you",
+				"correction": "Correct inaccurate personal data",
+				"deletion": "Delete your personal data",
+				"restriction": "Restrict processing",
+				"objection": "Object to processing",
+				"contact": "To exercise your rights, contact us by email at"
+			}
 		}
 	},
 	"components": {
