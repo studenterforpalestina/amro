@@ -1,10 +1,10 @@
 <script lang="ts">
-	import PageMeta from '$lib/components/PageMeta.svelte';
-
 	import { _ } from 'svelte-i18n';
-	import EventCard from './EventCard.svelte';
-	import PageHeader from '$lib/components/PageHeader.svelte';
-	import PageWrapper from '$lib/components/PageWrapper.svelte';
+	import PageMeta from '$lib/components/common/PageMeta.svelte';
+	import PageHeader from '$lib/components/common/PageHeader.svelte';
+	import PageWrapper from '$lib/components/common/PageWrapper.svelte';
+
+	import EventCard from '../../lib/components/events/EventCard.svelte';
 	import type { PageProps } from './$types';
 	let { data }: PageProps = $props();
 </script>

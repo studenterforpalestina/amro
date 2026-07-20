@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { ExtendHTML } from '../../utils/types';
+	import type { ExtendHTML } from '../../../utils/types';
 
 	export type StandardLinkProps = ExtendHTML<
 		'a',

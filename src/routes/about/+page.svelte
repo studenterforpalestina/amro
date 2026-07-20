@@ -1,8 +1,8 @@
 <script>
 	import { _ } from 'svelte-i18n';
-	import PageWrapper from '$lib/components/PageWrapper.svelte';
-	import PageMeta from '$lib/components/PageMeta.svelte';
-	import PageHeader from '$lib/components/PageHeader.svelte';
+	import PageWrapper from '$lib/components/common/PageWrapper.svelte';
+	import PageMeta from '$lib/components/common/PageMeta.svelte';
+	import PageHeader from '$lib/components/common/PageHeader.svelte';
 </script>
 
 <PageMeta pagename="about" />

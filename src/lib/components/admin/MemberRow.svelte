@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Trash2, SquarePen } from '@lucide/svelte';
-	import EditMemberModal from '$lib/adminPage/EditMemberModal.svelte';
-	import DeleteMemberModal from '$lib/adminPage/DeleteMemberModal.svelte';
+	import EditMemberModal from '$lib/components/admin/EditMemberModal.svelte';
+	import DeleteMemberModal from '$lib/components/admin/DeleteMemberModal.svelte';
 	import type { Member, AdminActionData } from '$lib/types';
 
 	let { member, form }: { member: Member; form: AdminActionData } = $props();

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import './layout.css';
-	import Footer from '$lib/footer/Footer.svelte';
-	import Navbar from '$lib/navbar/Navbar.svelte';
+	import Footer from '$lib/components/footer/Footer.svelte';
+	import Navbar from '$lib/components/navbar/Navbar.svelte';
 	import '../i18n';
 	import { isLoading } from 'svelte-i18n';
 

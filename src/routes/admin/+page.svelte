@@ -2,10 +2,10 @@
 	import { onMount } from 'svelte';
 	import { _ } from 'svelte-i18n';
 	import { logout, login } from '$lib/auth/UserManager';
-	import MemberRow from '$lib/adminPage/MemberRow.svelte';
-	import ColumnHeader from '$lib/adminPage/ColumnHeader.svelte';
-	import PageWrapper from '$lib/components/PageWrapper.svelte';
-	import PageMeta from '$lib/components/PageMeta.svelte';
+	import MemberRow from '$lib/components/admin/MemberRow.svelte';
+	import ColumnHeader from '$lib/components/admin/ColumnHeader.svelte';
+	import PageWrapper from '$lib/components/common/PageWrapper.svelte';
+	import PageMeta from '$lib/components/common/PageMeta.svelte';
 	import type { PageProps } from './$types';
 
 	let { data, form }: PageProps = $props();

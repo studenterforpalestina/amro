@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { _ } from 'svelte-i18n';
 	import { enhance } from '$app/forms';
-	import PageWrapper from '$lib/components/PageWrapper.svelte';
-	import PageHeader from '$lib/components/PageHeader.svelte';
-	import PageMeta from '$lib/components/PageMeta.svelte';
+	import PageWrapper from '$lib/components/common/PageWrapper.svelte';
+	import PageHeader from '$lib/components/common/PageHeader.svelte';
+	import PageMeta from '$lib/components/common/PageMeta.svelte';
 	import CommitteeSelect from '$lib/components/join/CommitteeSelect.svelte';
 	let { form } = $props();
 	let submitting = $state(false);
