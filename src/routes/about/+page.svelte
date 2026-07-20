@@ -1,15 +1,16 @@
 <script>
 	import { _ } from 'svelte-i18n';
+	import PageWrapper from '$lib/components/PageWrapper.svelte';
+	import PageMeta from '$lib/components/PageMeta.svelte';
+	import PageHeader from '$lib/components/PageHeader.svelte';
 </script>
 
-<svelte:head>
-	<title>{$_('page.about.title')}</title>
-	<meta name="description" content={$_('page.about.description')} />
-	<link rel="icon" href="/images/logo.png" />
-</svelte:head>
+<PageMeta pagename="about" />
 
-<div class="mx-auto max-w-3xl p-4 font-sans md:max-w-4xl md:p-8">
-	<h1 class="mb-8 text-3xl font-bold md:text-7xl">{$_(`page.about.header`)}</h1>
+<PageWrapper>
+	<PageHeader>
+		{$_(`page.about.header`)}
+	</PageHeader>
 	<p class="text-md whitespace-pre-line md:text-lg">
 		{$_(`components.homepage.about_us_paragraph_1`)}
 	</p>
@@ -58,4 +59,4 @@
 	>
 		{$_('page.about.drive')}
 	</a>
-</div>
+</PageWrapper>

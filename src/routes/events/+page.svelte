@@ -1,5 +1,5 @@
 <script lang="ts">
-	import PageMeta from './PageMeta.svelte';
+	import PageMeta from '$lib/components/PageMeta.svelte';
 
 	import { _ } from 'svelte-i18n';
 	import EventCard from './EventCard.svelte';
@@ -9,11 +9,7 @@
 	let { data }: PageProps = $props();
 </script>
 
-<svelte:head>
-	<title>{$_('page.events.title')}</title>
-	<meta name="description" content={$_('page.events.description')} />
-	<link rel="icon" href="/images/logo.png" />
-</svelte:head>
+<PageMeta pagename="events" />
 
 <PageWrapper>
 	<PageHeader>

@@ -1,12 +1,14 @@
 <script>
 	import { _ } from 'svelte-i18n';
+	import PageMeta from '$lib/components/PageMeta.svelte';
+	import PageWrapper from '$lib/components/PageWrapper.svelte';
+	import PageHeader from '$lib/components/PageHeader.svelte';
 </script>
 
-<svelte:head>
-	<title>{$_('page.groups.title')}</title>
-	<meta name="description" content={$_('page.groups.description')} />
-	<link rel="icon" href="/images/logo.png" />
-</svelte:head>
-<div>
-	<h1>{$_('page.groups.header')}</h1>
-</div>
+<PageMeta pagename="groups" />
+
+<PageWrapper>
+	<PageHeader>
+		{$_('page.groups.header')}
+	</PageHeader>
+</PageWrapper>

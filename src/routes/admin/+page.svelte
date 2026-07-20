@@ -5,6 +5,7 @@
 	import MemberRow from '$lib/adminPage/MemberRow.svelte';
 	import ColumnHeader from '$lib/adminPage/ColumnHeader.svelte';
 	import PageWrapper from '$lib/components/PageWrapper.svelte';
+	import PageMeta from '$lib/components/PageMeta.svelte';
 	import type { PageProps } from './$types';
 
 	let { data, form }: PageProps = $props();
@@ -57,9 +58,7 @@
 	});
 </script>
 
-<svelte:head>
-	<title>{$_('page.admin.title')}</title>
-</svelte:head>
+<PageMeta pagename="admin" />
 
 {#if loading}
 	<div class="flex h-screen items-center justify-center">

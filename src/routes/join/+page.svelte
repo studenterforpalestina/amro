@@ -1,8 +1,10 @@
 <script lang="ts">
 	import { _ } from 'svelte-i18n';
 	import { enhance } from '$app/forms';
+	import PageWrapper from '$lib/components/PageWrapper.svelte';
+	import PageHeader from '$lib/components/PageHeader.svelte';
+	import PageMeta from '$lib/components/PageMeta.svelte';
 	import CommitteeSelect from '$lib/components/join/CommitteeSelect.svelte';
-
 	let { form } = $props();
 	let submitting = $state(false);
 
@@ -100,13 +102,11 @@
 	);
 </script>
 
-<svelte:head>
-	<title>{$_('page.join.title')}</title>
-	<meta name="description" content={$_('page.join.description')} />
-	<link rel="icon" href="/images/logo.png" />
-</svelte:head>
-<div class="mx-auto max-w-5xl p-4 font-sans md:p-8">
-	<h1 class="mb-4 text-3xl font-bold md:mb-8 md:text-7xl">{$_('page.join.header')}</h1>
+<PageMeta pagename="join" />
+<PageWrapper>
+	<PageHeader>
+		{$_('page.join.header')}
+	</PageHeader>
 	<p class="mb-8 text-lg">{$_('page.join.signup_lead')}</p>
 	{#if getError('form')}
 		<p
@@ -215,4 +215,4 @@
 		</button>
 		<p class="text-sm text-gray-500">{$_('page.join.consent_label')}</p>
 	</form>
-</div>
+</PageWrapper>
