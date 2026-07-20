@@ -2,6 +2,7 @@
 	import { resolve } from '$app/paths';
 	import { _ } from 'svelte-i18n';
 	import type { Post } from '$lib/types';
+	import PageMeta from '$lib/components/common/PageMeta.svelte';
 	import EditButton from '$lib/components/post/EditButton.svelte';
 	import Delete from '$lib/components/post/Delete.svelte';
 
@@ -13,11 +14,7 @@
 	};
 </script>
 
-<svelte:head>
-	<title>{$_('page.news.title')}</title>
-	<meta name="description" content={$_('page.news.description')} />
-	<link rel="icon" href="/images/logo.png" />
-</svelte:head>
+<PageMeta pagename="news" />
 
 <a
 	href={resolve('/news')}

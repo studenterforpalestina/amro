@@ -1,8 +1,11 @@
 <script lang="ts">
 	import { _ } from 'svelte-i18n';
-	import PostItem from '$lib/components/PostItem.svelte';
-	import NewsFilter from '$lib/components/NewsFilter.svelte';
-	import StandardButton from '$lib/components/StandardButton.svelte';
+	import PostItem from '$lib/components/news/PostItem.svelte';
+	import NewsFilter from '$lib/components/news/NewsFilter.svelte';
+	import StandardButton from '$lib/components/common/StandardButton.svelte';
+	import StandardLink from '$lib/components/common/StandardLink.svelte';
+	import PageMeta from '$lib/components/common/PageMeta.svelte';
+	import PageWrapper from '$lib/components/common/PageWrapper.svelte';
 	import type { PageData } from './$types';
 	let { data }: { data: PageData } = $props();
 	let posts = $derived(data.posts ?? []);
@@ -10,12 +13,8 @@
 	let page = $derived(data.page ?? 0);
 </script>
 
-<svelte:head>
-	<title>{$_('page.news.title')}</title>
-	<meta name="description" content={$_('page.news.description')} />
-	<link rel="icon" href="/images/logo.png" />
-</svelte:head>
-<div class="mx-auto max-w-5xl p-4 font-sans md:p-8">
+<PageMeta pagename="news" />
+<PageWrapper>
 	<div class="mb-8 flex items-center justify-between gap-4">
 		<h1 class="text-3xl font-bold md:text-7xl">{$_(`page.news.header`)}</h1>
 		{#if 'authorized' in data && data.authorized}
@@ -24,12 +23,9 @@
 	</div>
 	<p class="mb-4 text-lg whitespace-pre-line md:text-xl">
 		{$_(`page.news.lead`)}
-		<a
-			href="mailto:styret@studenterforpalestina.no"
-			class="200 text-(--contrast-text-red) transition hover:text-(--color-red-dark)"
-		>
+		<StandardLink href="mailto:styret@studenterforpalestina.no" color="red">
 			styret@studenterforpalestina.no
-		</a>
+		</StandardLink>
 	</p>
 	<div class="flex flex-col-reverse place-content-between">
 		<div>
@@ -63,4 +59,4 @@
 			{/if}
 		</div>
 	{/if}
-</div>
+</PageWrapper>

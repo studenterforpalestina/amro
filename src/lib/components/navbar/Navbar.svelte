@@ -3,7 +3,7 @@
 	import { resolve } from '$app/paths';
 	import { ChevronLeft, Menu } from '@lucide/svelte';
 	import BecomeAMember from '$lib/components/BecomeAMember.svelte';
-	import { c } from '../../utils/classes';
+	import { c } from '$lib/utils/classes';
 	import ThemeToggle from './ThemeToggle.svelte';
 	import LanguageSwapper from '$lib/components/LanguageSwitcher.svelte';
 

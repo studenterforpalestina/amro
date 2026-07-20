@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { _ } from 'svelte-i18n';
 	import type { Event } from '$lib/utils/eventParser';
+	import StandardLink from '$lib/components/common/StandardLink.svelte';
 	export let event: Event;
 
 	const urlRegex = /(https?:\/\/[\S]+)/;
@@ -80,16 +81,9 @@
 			>
 				{#each descriptionSegments as segment (segment)}
 					{#if isUrl(segment)}
-						<!-- eslint-disable svelte/no-navigation-without-resolve -->
-						<a
-							class="text-(--contrast-text-red) duration-200 hover:opacity-50"
-							href={segment}
-							rel="external noopener noreferrer"
-							target="_blank"
-						>
+						<StandardLink href={segment} color="red" external>
 							{segment}
-						</a>
-						<!-- eslint-enable svelte/no-navigation-without-resolve -->
+						</StandardLink>
 					{:else}
 						<span>{segment}</span>
 					{/if}
@@ -106,16 +100,9 @@
 				{isExpanded ? $_(`common.show_less`) : $_('common.show_more')}
 			</button>
 		{/if}
-		<!-- eslint-disable svelte/no-navigation-without-resolve -->
 
-		<a
-			href={getFacebookEventUrl(event.id)}
-			class="mt-2 block text-lg font-bold text-(--contrast-text-red) duration-200 hover:opacity-50"
-			rel="external noopener noreferrer"
-			target="_blank"
-		>
+		<StandardLink href={getFacebookEventUrl(event.id)} color="red" external>
 			Facebook-event
-		</a>
-		<!-- eslint-enable svelte/no-navigation-without-resolve -->
+		</StandardLink>
 	</div>
 </div>

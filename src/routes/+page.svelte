@@ -2,10 +2,10 @@
 	import { _ } from 'svelte-i18n';
 	import BecomeAMember from '$lib/components/BecomeAMember.svelte';
 	import HomepageEvents from '$lib/components/HomepageEvents.svelte';
+	import StandardLink from '$lib/components/common/StandardLink.svelte';
 	import Section from '$lib/components/Section.svelte';
 	import type { PageProps } from './$types';
 	import { resolve } from '$app/paths';
-
 	let { data }: PageProps = $props();
 </script>
 
@@ -44,12 +44,9 @@
 		<p class="text-lg">
 			{$_('components.homepage.about_us_paragraph_2')}
 		</p>
-		<a
-			href={resolve('/about')}
-			class="text-lg font-bold text-(--contrast-text-red) duration-200 hover:opacity-50"
-		>
+		<StandardLink href={resolve('/about')} color="red">
 			{$_('components.homepage.learn_more')}
-		</a>
+		</StandardLink>
 	</div>
 	<img
 		src="/images/hovedbygget_demo.webp"
