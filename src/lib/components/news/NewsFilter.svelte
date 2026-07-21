@@ -7,7 +7,7 @@
 </script>
 
 <div class="mb-8 flex flex-row flex-wrap items-start gap-2 md:gap-4">
-	<p class="mb-0 basis-1/1 md:text-lg">{$_('page.news.categories')}</p>
+	<p class="mb-0 basis-1/1 text-sm md:text-base">{$_('page.news.categories')}</p>
 	<a
 		class={`mt-0 rounded-md px-2 py-1 text-sm text-white transition-colors duration-200 md:px-4 md:py-2 md:text-base ${
 			activeFilter === 'none'

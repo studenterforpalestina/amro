@@ -5,6 +5,7 @@
 	import PageMeta from '$lib/components/common/PageMeta.svelte';
 	import EditButton from '$lib/components/post/EditButton.svelte';
 	import Delete from '$lib/components/post/Delete.svelte';
+	import StandardParagraph from '$lib/components/common/StandardParagraph.svelte';
 
 	export let data: { post: Post };
 	const dateOptions: Intl.DateTimeFormatOptions = {
@@ -46,7 +47,7 @@
 		</div>
 	{/if}
 
-	<p class="text-md whitespace-pre-line md:text-lg">
+	<StandardParagraph>
 		{data.post.content}
-	</p>
+	</StandardParagraph>
 </article>

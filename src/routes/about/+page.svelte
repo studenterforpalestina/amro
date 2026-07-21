@@ -4,6 +4,7 @@
 	import PageMeta from '$lib/components/common/PageMeta.svelte';
 	import PageHeader from '$lib/components/common/PageHeader.svelte';
 	import StandardLink from '$lib/components/common/StandardLink.svelte';
+	import StandardParagraph from '$lib/components/common/StandardParagraph.svelte';
 </script>
 
 <PageMeta pagename="about" />
@@ -12,26 +13,26 @@
 	<PageHeader>
 		{$_(`page.about.header`)}
 	</PageHeader>
-	<p class="text-md whitespace-pre-line md:text-lg">
+	<StandardParagraph>
 		{$_(`components.homepage.about_us_paragraph_1`)}
-	</p>
-	<p class="text-md mt-4 whitespace-pre-line md:text-lg">
+	</StandardParagraph>
+	<StandardParagraph>
 		{$_(`components.homepage.about_us_paragraph_2`)}
-	</p>
+	</StandardParagraph>
 	<h2 class="mt-12 text-2xl font-bold md:text-4xl">
 		{$_(`page.about.history_header`)}
 	</h2>
-	<p class="text-md mt-4 whitespace-pre-line md:text-lg">
+	<StandardParagraph>
 		{$_(`page.about.history`)}
-	</p>
+	</StandardParagraph>
 	<h3 class="mt-6 text-xl font-bold md:text-2xl">{$_('page.about.encampment_subtitle')}</h3>
-	<p class="text-md mt-4 whitespace-pre-line md:text-lg">
+	<StandardParagraph>
 		{$_(`page.about.encampment`)}
-	</p>
+	</StandardParagraph>
 	<h3 class="mt-6 text-xl font-bold md:text-2xl">{$_('page.about.actions_subtitle')}</h3>
-	<p class="text-md mt-4 whitespace-pre-line md:text-lg">
+	<StandardParagraph>
 		{$_(`page.about.actions`)}
-	</p>
+	</StandardParagraph>
 
 	<h2 class="mt-12 text-2xl font-bold md:text-4xl">
 		{$_(`page.about.other_resources`)}

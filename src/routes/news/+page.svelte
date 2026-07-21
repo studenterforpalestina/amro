@@ -6,6 +6,7 @@
 	import StandardLink from '$lib/components/common/StandardLink.svelte';
 	import PageMeta from '$lib/components/common/PageMeta.svelte';
 	import PageWrapper from '$lib/components/common/PageWrapper.svelte';
+	import StandardParagraph from '$lib/components/common/StandardParagraph.svelte';
 	import type { PageData } from './$types';
 	let { data }: { data: PageData } = $props();
 	let posts = $derived(data.posts ?? []);
@@ -21,13 +22,13 @@
 			<StandardButton asLink href="/news/new">{$_('page.news.new_post')}</StandardButton>
 		{/if}
 	</div>
-	<p class="mb-4 text-lg whitespace-pre-line md:text-xl">
+	<StandardParagraph>
 		{$_(`page.news.lead`)}
 		<StandardLink href="mailto:styret@studenterforpalestina.no" color="red">
 			styret@studenterforpalestina.no
 		</StandardLink>
-	</p>
-	<div class="flex flex-col-reverse place-content-between">
+	</StandardParagraph>
+	<div class="mt-4 flex flex-col-reverse place-content-between">
 		<div>
 			{#each posts as post (post.slug)}
 				<PostItem {post} />

@@ -7,6 +7,7 @@
 	import type { PageProps } from './$types';
 	import { resolve } from '$app/paths';
 	let { data }: PageProps = $props();
+	import StandardParagraph from '$lib/components/common/StandardParagraph.svelte';
 </script>
 
 <Section class="flex flex-col items-start">
@@ -38,12 +39,12 @@
 <Section class="flex flex-col gap-12 lg:flex-row">
 	<div class="flex grow-0 flex-col gap-6 lg:basis-5/12">
 		<h2 class="max-w-xl text-5xl font-bold">{$_('components.homepage.about_us')}</h2>
-		<p class="text-lg">
+		<StandardParagraph>
 			{$_('components.homepage.about_us_paragraph_1')}
-		</p>
-		<p class="text-lg">
+		</StandardParagraph>
+		<StandardParagraph>
 			{$_('components.homepage.about_us_paragraph_2')}
-		</p>
+		</StandardParagraph>
 		<StandardLink href={resolve('/about')} color="red">
 			{$_('components.homepage.learn_more')}
 		</StandardLink>

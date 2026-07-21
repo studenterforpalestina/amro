@@ -5,6 +5,7 @@
 	import PageHeader from '$lib/components/common/PageHeader.svelte';
 	import PageMeta from '$lib/components/common/PageMeta.svelte';
 	import CommitteeSelect from '$lib/components/join/CommitteeSelect.svelte';
+	import StandardParagraph from '$lib/components/common/StandardParagraph.svelte';
 	let { form } = $props();
 	let submitting = $state(false);
 
@@ -107,7 +108,9 @@
 	<PageHeader>
 		{$_('page.join.header')}
 	</PageHeader>
-	<p class="mb-8 text-lg">{$_('page.join.signup_lead')}</p>
+	<StandardParagraph>
+		{$_('page.join.signup_lead')}
+	</StandardParagraph>
 	{#if getError('form')}
 		<p
 			class="mb-6 rounded-xl border border-(--contrast-text-red) bg-(--contrast-text-red)/10 px-4 py-3 text-sm text-(--contrast-text-red)"
