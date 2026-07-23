@@ -3,6 +3,7 @@
 	import { enhance } from '$app/forms';
 	import { X } from '@lucide/svelte';
 	import type { Member, AdminActionData } from '$lib/types';
+	import FormField from '$lib/components/common/FormField.svelte';
 
 	let {
 		member,
@@ -24,12 +25,12 @@
 		open = false;
 	}
 
-	type FormField = {
+	type EditableField = {
 		label: string;
-		key: keyof Member;
+		key: 'name' | 'email' | 'phoneNumber' | 'graduationYear' | 'birthYear';
 		type: 'text' | 'email' | 'tel' | 'number';
 	};
-	const formFields: FormField[] = [
+	const formFields: EditableField[] = [
 		{ label: $_('common.form.labels.name'), key: 'name', type: 'text' },
 		{ label: $_('common.form.labels.email'), key: 'email', type: 'email' },
 		{ label: $_('common.form.labels.phone_number'), key: 'phoneNumber', type: 'tel' },
@@ -40,10 +41,6 @@
 		form && form.memberId == member.id ? (form.errors as Record<string, string>) : undefined
 	);
 	const getError = (field: string) => errors?.[field];
-	const inputClass =
-		'w-full rounded-xl border border-gray-400/40 bg-transparent p-2.5 transition-all outline-none focus:border-(--contrast-text-green) focus:ring-2 focus:ring-(--contrast-text-green)';
-	const errorInputClass =
-		'border-(--contrast-text-red) focus:border-(--contrast-text-red) focus:ring-(--contrast-text-red)';
 </script>
 
 <dialog
@@ -87,21 +84,18 @@
 		<div class="flex flex-col gap-4">
 			{#each formFields as { label, key, type } (key)}
 				{@const error = getError(key)}
-				<label class="flex w-full flex-col gap-1">
-					<span class="ml-1 text-sm font-semibold opacity-70">{label}</span>
-					<input
-						name={key}
-						{type}
-						value={member[key as keyof Member]}
-						step={type === 'number' ? '1' : null}
-						inputmode={type === 'number' ? 'numeric' : null}
-						required={true}
-						class={`${inputClass} ${error ? errorInputClass : ''}`}
-					/>
-					{#if error}
-						<span class="mt-1 ml-1 text-sm text-(--contrast-text-red)">{$_(error)}</span>
-					{/if}
-				</label>
+				<FormField
+					id={key}
+					name={key}
+					{label}
+					error={error ? $_(error) : undefined}
+					{type}
+					value={member[key]}
+					step={type === 'number' ? '1' : undefined}
+					inputmode={type === 'number' ? 'numeric' : undefined}
+					required
+					class="border-gray-400/40"
+				/>
 			{/each}
 		</div>
 

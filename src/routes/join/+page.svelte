@@ -5,6 +5,7 @@
 	import PageHeader from '$lib/components/common/PageHeader.svelte';
 	import PageMeta from '$lib/components/common/PageMeta.svelte';
 	import CommitteeSelect from '$lib/components/join/CommitteeSelect.svelte';
+	import FormField from '$lib/components/common/FormField.svelte';
 	import StandardParagraph from '$lib/components/common/StandardParagraph.svelte';
 	import StandardButton from '$lib/components/common/StandardButton.svelte';
 	let { form } = $props();
@@ -29,7 +30,7 @@
 
 	type InputField = {
 		id: 'name' | 'email' | 'phone' | 'birthYear' | 'graduationYear';
-		type: 'text' | 'email' | 'tel' | 'number' | 'select';
+		type: 'text' | 'email' | 'tel' | 'number';
 		labelKey: string;
 		placeholderKey: string;
 		autocomplete?: 'name' | 'email' | 'tel';
@@ -88,10 +89,6 @@
 	const errors = $derived(form?.errors as Record<string, string> | undefined);
 	const getError = (field: string) => errors?.[field];
 
-	const inputClass =
-		'w-full rounded-xl border border-gray-400 bg-transparent p-2.5 placeholder-gray-400 transition-all outline-none focus:border-(--contrast-text-green) focus:ring-2 focus:ring-(--contrast-text-green)';
-	const errorInputClass =
-		'border-(--contrast-text-red) focus:border-(--contrast-text-red) focus:ring-(--contrast-text-red)';
 	const fieldValues = $derived({
 		name: form?.name || '',
 		email: form?.email || '',
@@ -141,47 +138,31 @@
 		<div class="grid grid-cols-1 gap-5 md:grid-cols-2">
 			{#each inputFields as field (field.id)}
 				{@const error = getError(field.id)}
-				<div class={`col-span-1 min-w-0 space-y-2 ${field.fullWidth ? 'md:col-span-2' : ''}`}>
-					<label for={field.id} class="font-medium">{$_(field.labelKey)}</label>
-					<input
-						id={field.id}
-						name={field.id}
-						type={field.type}
-						autocomplete={field.autocomplete}
-						inputmode={field.inputmode}
-						min={field.min}
-						max={field.max}
-						required
-						placeholder={$_(field.placeholderKey)}
-						value={fieldValues[field.id]}
-						class={`${inputClass} ${error ? errorInputClass : ''}`}
-						aria-invalid={error ? 'true' : undefined}
-						aria-describedby={error ? `${field.id}-error` : undefined}
-					/>
-					{#if error}
-						<p id={`${field.id}-error`} class="text-sm text-(--contrast-text-red)">{$_(error)}</p>
-					{/if}
-				</div>
+				<FormField
+					id={field.id}
+					name={field.id}
+					label={$_(field.labelKey)}
+					error={error ? $_(error) : undefined}
+					fullWidth={field.fullWidth}
+					type={field.type}
+					autocomplete={field.autocomplete}
+					inputmode={field.inputmode}
+					min={field.min}
+					max={field.max}
+					required
+					placeholder={$_(field.placeholderKey)}
+					value={fieldValues[field.id]}
+				/>
 			{/each}
-			<div class="col-span-1 min-w-0 space-y-2 md:col-span-2">
-				<label for="school" class="font-medium">{$_('page.join.school_label')}</label>
-				<select
-					id="school"
-					name="school"
-					class={`${inputClass} ${getError('school') ? errorInputClass : ''}`}
-					aria-invalid={getError('school') ? 'true' : undefined}
-					aria-describedby={getError('school') ? 'school-error' : undefined}
-				>
-					{#each schoolOptions as option (option.value)}
-						<option value={option.value}>{option.label}</option>
-					{/each}
-				</select>
-				{#if getError('school')}
-					<p id="school-error" class="text-sm text-(--contrast-text-red)">
-						{$_(getError('school') || '')}
-					</p>
-				{/if}
-			</div>
+			<FormField
+				id="school"
+				name="school"
+				label={$_('page.join.school_label')}
+				error={getError('school') ? $_(getError('school') || '') : undefined}
+				fullWidth
+				type="select"
+				options={schoolOptions}
+			/>
 			<div class="col-span-1 min-w-0 space-y-2 md:col-span-2">
 				<label for="committees" class="font-medium">{$_('page.join.committee_label')}</label>
 				<CommitteeSelect
