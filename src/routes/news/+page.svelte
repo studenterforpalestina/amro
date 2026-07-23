@@ -7,6 +7,7 @@
 	import PageMeta from '$lib/components/common/PageMeta.svelte';
 	import PageWrapper from '$lib/components/common/PageWrapper.svelte';
 	import StandardParagraph from '$lib/components/common/StandardParagraph.svelte';
+	import PageHeader from '$lib/components/common/PageHeader.svelte';
 	import type { PageData } from './$types';
 	let { data }: { data: PageData } = $props();
 	let posts = $derived(data.posts ?? []);
@@ -17,7 +18,7 @@
 <PageMeta pagename="news" />
 <PageWrapper>
 	<div class="mb-8 flex items-center justify-between gap-4">
-		<h1 class="text-3xl font-bold md:text-7xl">{$_(`page.news.header`)}</h1>
+		<PageHeader>{$_(`page.news.header`)}</PageHeader>
 		{#if 'authorized' in data && data.authorized}
 			<StandardButton asLink href="/news/new">{$_('page.news.new_post')}</StandardButton>
 		{/if}

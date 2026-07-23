@@ -4,13 +4,19 @@
 	import { newsTags, type NewsTag, type Post } from '$lib/types';
 	import { enhance } from '$app/forms';
 	import type { SubmitFunction } from '@sveltejs/kit';
-	import type { ActionData } from './$types';
+
+	type ActionData = {
+		success?: boolean;
+		errors?: {
+			form?: string;
+		};
+	} | null;
 
 	let { postData, newPost, form }: { postData?: Post; newPost: boolean; form?: ActionData } =
 		$props();
 
 	const inputClass =
-		'w-full rounded-xl border border-gray-400/40 bg-transparent p-2.5 transition-all outline-none focus:border-(--color-green) focus:ring-2 focus:ring-(--color-green)';
+		'w-full rounded-xl border border-gray-400/40 bg-transparent p-2.5 transition-all outline-none focus:border-(--contrast-text-green) focus:ring-2 focus:ring-(--contrast-text-green)';
 	const labelClass = 'ml-1 text-sm font-semibold opacity-70';
 
 	let selectedTag = $state<NewsTag>(newsTags[0]);

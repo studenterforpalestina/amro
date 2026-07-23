@@ -1,5 +1,5 @@
 <script lang="ts">
-	import PostForm from '$lib/components/PostForm.svelte';
+	import PostForm from '$lib/components/news/PostForm.svelte';
 	import type { PageData, ActionData } from './$types';
 
 	let { data, form }: { data: PageData; form: ActionData } = $props();
