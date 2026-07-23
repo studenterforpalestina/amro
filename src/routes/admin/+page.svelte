@@ -6,6 +6,8 @@
 	import ColumnHeader from '$lib/components/admin/ColumnHeader.svelte';
 	import PageWrapper from '$lib/components/common/PageWrapper.svelte';
 	import PageMeta from '$lib/components/common/PageMeta.svelte';
+	import PageHeader from '$lib/components/common/PageHeader.svelte';
+	import StandardButton from '$lib/components/common/StandardButton.svelte';
 	import type { PageProps } from './$types';
 
 	let { data, form }: PageProps = $props();
@@ -67,19 +69,14 @@
 {:else}
 	<PageWrapper>
 		<div class="flex flex-row items-baseline">
-			<h1 class=" text-3xl font-bold md:text-5xl">{$_('page.admin.title')}</h1>
+			<PageHeader>{$_('page.admin.title')}</PageHeader>
 
 			<div class="ml-auto flex items-center">
 				<p class="mr-3 py-3">{$_('page.admin.logged_in')}: {data.user?.preferred_username}</p>
 
-				<button
-					onclick={logout}
-					class="max-w-24 rounded-md bg-(--contrast-bg-red) px-2 py-2 text-sm text-nowrap
-		text-white transition-colors duration-200 hover:bg-(--color-red-dark) active:bg-(--color-red-dark)"
-					aria-label="Logout"
-				>
+				<StandardButton onclick={logout} aria-label="Logout">
 					{$_('page.admin.logout')}
-				</button>
+				</StandardButton>
 			</div>
 		</div>
 		<h3 class=" text-lg text-(--color-gray)">

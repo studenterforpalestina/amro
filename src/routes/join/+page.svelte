@@ -6,6 +6,7 @@
 	import PageMeta from '$lib/components/common/PageMeta.svelte';
 	import CommitteeSelect from '$lib/components/join/CommitteeSelect.svelte';
 	import StandardParagraph from '$lib/components/common/StandardParagraph.svelte';
+	import StandardButton from '$lib/components/common/StandardButton.svelte';
 	let { form } = $props();
 	let submitting = $state(false);
 
@@ -209,13 +210,14 @@
 			<span>{$_('page.join.newsletter_label')}</span>
 		</label>
 
-		<button
+		<StandardButton
 			type="submit"
 			disabled={submitting}
-			class="w-full rounded-xl bg-(--contrast-text-green) px-4 py-2.5 font-medium text-white transition-all hover:bg-(--contrast-text-green)/60 disabled:cursor-not-allowed disabled:opacity-50 md:w-30"
+			class="w-full rounded-xl px-8 md:w-30"
+			color="green"
 		>
 			{$_('page.join.submit_button')}
-		</button>
+		</StandardButton>
 		<p class="text-sm text-gray-500">{$_('page.join.consent_label')}</p>
 	</form>
 </PageWrapper>
