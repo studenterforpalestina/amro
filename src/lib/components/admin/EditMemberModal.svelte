@@ -1,25 +1,14 @@
 <script lang="ts">
 	import { _ } from 'svelte-i18n';
 	import { enhance } from '$app/forms';
-	import { X } from '@lucide/svelte';
 	import type { Member, AdminActionData } from '$lib/types';
 	import FormField from '$lib/components/common/FormField.svelte';
-
+	import ModalDialog from '$lib/components/common/ModalDialog.svelte';
 	let {
 		member,
 		open = $bindable(false),
 		form
 	}: { member: Member; open: boolean; form: AdminActionData } = $props();
-
-	let dialog: HTMLDialogElement;
-
-	$effect(() => {
-		if (open && !dialog.open) {
-			dialog.showModal();
-		} else if (!open && dialog.open) {
-			dialog.close();
-		}
-	});
 
 	function close() {
 		open = false;
@@ -43,21 +32,7 @@
 	const getError = (field: string) => errors?.[field];
 </script>
 
-<dialog
-	bind:this={dialog}
-	class="fixed inset-0 m-auto w-full max-w-md rounded-2xl border border-gray-400/40 bg-(--background) p-6 text-(--body-text) shadow-2xl"
->
-	<div class="mb-6 flex items-center justify-between">
-		<h3 class="text-xl font-bold">{$_('page.admin.edit')} {member.name}</h3>
-		<button
-			type="button"
-			onclick={close}
-			class="rounded-full p-1 transition-colors hover:bg-gray-500/10"
-			aria-label="Close edit dialog"
-		>
-			<X size={20} />
-		</button>
-	</div>
+<ModalDialog bind:open title={$_('page.admin.edit') + ' ' + member.name}>
 	{#if getError('form')}
 		<p
 			class="mb-6 rounded-xl border border-(--contrast-text-red) bg-(--contrast-bg-red)/10 px-4 py-3 text-sm text-(--contrast-text-red)"
@@ -115,4 +90,4 @@
 			</button>
 		</div>
 	</form>
-</dialog>
+</ModalDialog>

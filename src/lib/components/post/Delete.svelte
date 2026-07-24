@@ -1,20 +1,11 @@
 <script lang="ts">
 	import { _ } from 'svelte-i18n';
+	import ModalDialog from '$lib/components/common/ModalDialog.svelte';
 	import { enhance } from '$app/forms';
-	import { X } from '@lucide/svelte';
 
 	let { id, title }: { id: string; title: string } = $props();
 
 	let open = $state(false);
-	let dialog: HTMLDialogElement;
-
-	$effect(() => {
-		if (open && !dialog.open) {
-			dialog.showModal();
-		} else if (!open && dialog.open) {
-			dialog.close();
-		}
-	});
 
 	function close() {
 		open = false;
@@ -27,22 +18,7 @@
 	onclick={() => (open = true)}>Slett</button
 >
 
-<dialog
-	bind:this={dialog}
-	class="fixed inset-0 m-auto w-full max-w-md rounded-2xl border border-gray-400/40 bg-(--background) p-6 text-(--body-text) shadow-2xl"
->
-	<div class="mb-6 flex items-center justify-between">
-		<h3 class="text-xl font-bold">{$_('page.admin.delete')} {title}?</h3>
-		<button
-			type="button"
-			onclick={close}
-			class="rounded-full p-1 transition-colors hover:bg-gray-500/10"
-			aria-label="Close delete dialog"
-		>
-			<X size={20} />
-		</button>
-	</div>
-
+<ModalDialog bind:open title={$_('page.admin.delete') + ' ' + title}>
 	<form class="flex gap-3 pt-4" method="POST" action="?/delete" use:enhance>
 		<input type="hidden" name="id" value={id} />
 		<button
@@ -59,4 +35,4 @@
 			{$_('page.admin.delete')}
 		</button>
 	</form>
-</dialog>
+</ModalDialog>
