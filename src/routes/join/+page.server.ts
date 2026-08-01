@@ -3,6 +3,7 @@ import type { Actions } from './$types';
 import { fail } from '@sveltejs/kit';
 import { env } from '$env/dynamic/private';
 import { dev } from '$app/environment';
+import { getFacebookEvents } from '$lib/utils/cacheFacebookEvents';
 
 const EMAIL_REGEX = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 const PHONE_REGEX = /^[+0-9() -]{8,20}$/;
@@ -72,6 +73,51 @@ const inviteToZulip = async (email: string, committees: string[]) => {
 	});
 	if (!response.ok) {
 		console.error('Failed to invite to Zulip:', await response.text());
+	}
+};
+
+const sendWelcomeEmail = async (email: string, newsletter: boolean) => {
+	if (!env.LISTMONK_API_USER || !env.LISTMONK_API_KEY) {
+		console.warn('Listmonk API credentials are not set. Newsletter subscriptions will be skipped.');
+		return;
+	}
+
+	const { events } = await getFacebookEvents();
+	const firstEvent = events[0];
+	const eventName = firstEvent?.name ?? null;
+	const eventTime = firstEvent?.start_time.toLocaleTimeString(undefined, {
+		hour: '2-digit',
+		minute: '2-digit',
+		hour12: false
+	});
+	const eventDate = firstEvent?.start_time.toLocaleDateString('en-US', {
+		weekday: 'long',
+		month: 'long',
+		day: 'numeric'
+	});
+	const eventLocation = firstEvent?.place ?? null;
+	const response = await fetch('https://listmonk.studenterforpalestina.no/api/tx', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+			Authorization: `token ${env.LISTMONK_API_USER}:${env.LISTMONK_API_KEY}`
+		},
+		body: JSON.stringify({
+			subscriber_email: email,
+			template_id: 3,
+			subscriber_mode: 'fallback',
+			content_type: 'html',
+			data: {
+				newsletter: newsletter,
+				event: eventName,
+				time: eventTime,
+				day: eventDate,
+				location: eventLocation
+			}
+		})
+	});
+	if (!response.ok) {
+		console.error('Failed to send welcome email:', await response.text());
 	}
 };
 
@@ -177,7 +223,8 @@ export const actions: Actions = {
 		if (!dev) {
 			await Promise.all([
 				submitToListmonk(formState.name, formState.email, newsletter),
-				inviteToZulip(formState.email, selectedCommittees)
+				inviteToZulip(formState.email, selectedCommittees),
+				sendWelcomeEmail(formState.email, newsletter)
 			]);
 		}
 		return {
