@@ -77,9 +77,7 @@ await sql.begin(async (tx) => {
 	await tx`
     INSERT INTO "FacebookToken" (id, token)
     VALUES (1, ${process.env.FB_ACCESS_TOKEN})
-    ON CONFLICT (id) DO UPDATE
-    SET token = EXCLUDED.token,
-        "updatedAt" = now();
+    ON CONFLICT (id) DO NOTHING
     `;
 });
 
