@@ -9,7 +9,6 @@
 	import FormField from '$lib/components/common/FormField.svelte';
 	import StandardParagraph from '$lib/components/common/StandardParagraph.svelte';
 	import StandardButton from '$lib/components/common/StandardButton.svelte';
-	import StandardLink from '$lib/components/common/StandardLink.svelte';
 	let { form } = $props();
 	let submitting = $state(false);
 
