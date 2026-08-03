@@ -114,7 +114,7 @@
 			"data_collection_details": "We process your data when you join Students for Palestine or consent to receive our newsletter. The data mainly comes directly from you through the signup form. The legal basis is consent under GDPR article 6(1)(a). You may withdraw consent at any time. We only store information you provide yourself, namely:",
 			"data_handling": "How is your personal data stored and handled?",
 			"data_handling_details_1": "All data is stored solely on our own servers. Access to member data is limited to board members with a legitimate operational need. We store your data while your membership is active and for up to 12 months after membership ends.",
-			"data_handling_details_2": "We do not share identifiable personal data with external parties. We may share aggregated and anonymized statistics, such as total member counts, to document activity and apply for funding.",
+			"data_handling_details_2": "To send out our newsletter, we give emails to our mailing service. Beyond that, we do not share identifiable personal data with external parties. We use Google's SMPT server to send emails. We may share aggregated and anonymized statistics, such as total member counts, to document activity and apply for funding.",
 			"your_rights": "Your rights",
 			"your_rights_details": "Under data protection law, you have the right to:",
 			"rights": {
@@ -124,7 +124,10 @@
 				"restriction": "Restrict processing",
 				"objection": "Object to processing",
 				"contact": "To exercise your rights, contact us by email at"
-			}
+			},
+			"summary_header": "In short: ",
+			"summary": "We only collect what you give us through signup forms (like your name and email), in order to run SfP. We do not share or use this information for anything else than what is necessary, such as giving email addresses to our mailing provider, and we do our best to make sure this is always done in an anonymous manner. Any questions or requests for deletion can always be sent to ",
+			"details_below": " A more detailed privacy policy can be found below."
 		}
 	},
 	"components": {

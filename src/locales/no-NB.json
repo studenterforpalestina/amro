@@ -114,7 +114,7 @@
 			"data_collection_details": "Vi behandler opplysninger om deg når du melder deg inn i Studenter for Palestina eller samtykker til å motta nyhetsbrev. Opplysningene kommer fra deg selv via innmeldingsskjema. Behandlingsgrunnlaget er samtykke, jf. personvernforordningen artikkel 6 nr. 1 bokstav a. Du kan når som helst trekke samtykket tilbake. Vi lagrer kun informasjonen du selv gir oss, det vil si:",
 			"data_handling": "Hvordan lagres og håndteres dine personopplysninger?",
 			"data_handling_details_1": "Alle personopplysninger lagres kun på våre egne servere. Tilgang til medlemsopplysninger er begrenset til styremedlemmer med behov. Vi lagrer opplysningene så lenge medlemskapet er aktivt, og i inntil 12 måneder etter at medlemskapet avsluttes, med mindre du ber om sletting tidligere.",
-			"data_handling_details_2": "Vi deler ikke identifiserbare personopplysninger med eksterne aktører. Vi kan dele aggregert og anonymisert statistikk, for eksempel medlemstall, for å dokumentere aktivitet og søke støtte.",
+			"data_handling_details_2": "For å sende nyhetsbrevet vårt gir vi e-postadresser til vår e-posttjeneste. Vi bruker Googles SMPT-server for å sende e-post. Utover det deler vi ikke identifiserbare personopplysninger med eksterne aktører. Vi kan dele aggregert og anonymisert statistikk, for eksempel medlemstall, for å dokumentere aktivitet og søke støtte.",
 			"your_rights": "Dine rettigheter",
 			"your_rights_details": "I henhold til personopplysningsloven har du rett til:",
 			"rights": {
@@ -124,7 +124,10 @@
 				"restriction": "Begrensning av behandlingen",
 				"objection": "Å protestere på behandlingen",
 				"contact": "For å utøve dine rettigheter kan du kontakte oss på e-post til"
-			}
+			},
+			"summary_header": "Kort oppsummert:",
+			"summary": "Vi smaler kun inn det du selv oppgir gjennom påmeldingsskjema (som navn og e-post), for å drive SfP. Vi deler aldri informasjonen utover det som er nødvendig, som å gi e-postadresser til e-posttjenesten vår, og vi gjør vårt beste for å sikre at dette gjøres anonymt. Spørsmål eller ønsker om sletting kan sendes til ",
+			"details_below": "En mer detaljert forklaring av hvordan vi behandler personopplysninger finner du nedenfor."
 		}
 	},
 	"components": {
