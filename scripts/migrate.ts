@@ -79,6 +79,14 @@ await sql.begin(async (tx) => {
     VALUES (1, ${process.env.FB_ACCESS_TOKEN})
     ON CONFLICT (id) DO NOTHING
     `;
+	await tx`
+    CREATE TABLE IF NOT EXISTS "GraduationConfirmationTokens" (
+      id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+      "memberId" INTEGER REFERENCES "Member"(id) ON DELETE CASCADE,
+      "createdAt" TIMESTAMPTZ DEFAULT now() NOT NULL,
+      "isActive" BOOLEAN DEFAULT true NOT NULL
+    );
+    `;
 });
 
 console.log('Migration complete.');
