@@ -4,13 +4,6 @@ const FB_APP_SECRET = process.env.FB_APP_SECRET;
 if (!FB_APP_SECRET) {
 	throw new Error('FB_APP_SECRET environment variable is not set');
 }
-await sql`
-INSERT INTO "FacebookToken" (id, token)
-VALUES (1, ${process.env.FB_ACCESS_TOKEN})
-ON CONFLICT (id) DO UPDATE
-SET token = EXCLUDED.token,
-	"updatedAt" = now()
-`;
 
 const [{ token: FB_TOKEN }] = await sql`
 	SELECT token
