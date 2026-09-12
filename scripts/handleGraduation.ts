@@ -1,4 +1,5 @@
 import { sql } from 'bun';
+import { env } from 'bun';
 
 // This script is intended to be run yearly, to handle members who have graduated and should be removed from the active member list.
 async function askGraduationConfirmation() {
@@ -22,7 +23,7 @@ async function askGraduationConfirmation() {
 			SET "isActive" = false, "updatedAt" = now()
 			WHERE id = ${member.id}
 		`;
-		sendGraduationConfirmationEmail(member.email, confirmationToken.id, siteOrigin);
+		await sendGraduationConfirmationEmail(member.email, confirmationToken.id, siteOrigin);
 	}
 }
 
@@ -38,10 +39,32 @@ async function cleanGraduationConfirmationTokens() {
 }
 async function sendGraduationConfirmationEmail(email: string, token: string, siteOrigin: string) {
 	const confirmationUrl = new URL(`/confirm/${token}`, siteOrigin);
-	// Implement email sending logic here
-	console.log(
-		`Sending graduation confirmation email to ${email} with link ${confirmationUrl.toString()}`
-	);
+
+	if (!env.LISTMONK_API_USER || !env.LISTMONK_API_KEY) {
+		console.warn('Listmonk API credentials are not set. Newsletter subscriptions will be skipped.');
+		return;
+	}
+	const response = await fetch('https://listmonk.studenterforpalestina.no/api/tx', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+			Authorization: `token ${env.LISTMONK_API_USER}:${env.LISTMONK_API_KEY}`
+		},
+
+		body: JSON.stringify({
+			subscriber_email: email,
+			template_id: 9,
+			subscriber_mode: 'fallback',
+			content_type: 'html',
+			data: {
+				url: confirmationUrl.toString()
+			}
+		})
+	});
+	if (!response.ok) {
+		console.error('Failed to send welcome email:', await response.text());
+	}
+	return response.ok;
 }
 
 await cleanGraduationConfirmationTokens();

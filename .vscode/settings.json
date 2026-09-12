@@ -4,18 +4,5 @@
 	},
 	"i18n-ally.localesPaths": ["src/locales"],
 	"i18n-ally.sourceLanguage": "no-NB",
-	"i18n-ally.keystyle": "nested",
-	"sqltools.connections": [
-		{
-			"ssh": "Disabled",
-			"previewLimit": 50,
-			"server": "localhost",
-			"port": 5432,
-			"askForPassword": true,
-			"driver": "PostgreSQL",
-			"name": "amro",
-			"database": "DB",
-			"username": "USER"
-		}
-	]
+	"i18n-ally.keystyle": "nested"
 }
