@@ -24,7 +24,9 @@ async function askGraduationConfirmation() {
 			WHERE id = ${member.id}
 		`;
 		await sendGraduationConfirmationEmail(member.email, confirmationToken.id, siteOrigin);
+		console.log(`Sent graduation confirmation email to ${member.email}`);
 	}
+	console.log(`Processed ${expectedGraduatedMembers.length} members for graduation confirmation.`);
 }
 
 async function cleanMemberList() {
@@ -67,6 +69,6 @@ async function sendGraduationConfirmationEmail(email: string, token: string, sit
 	return response.ok;
 }
 
-await cleanGraduationConfirmationTokens();
 await askGraduationConfirmation();
+await cleanGraduationConfirmationTokens();
 await cleanMemberList();
