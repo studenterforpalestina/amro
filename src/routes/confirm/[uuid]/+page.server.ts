@@ -29,7 +29,7 @@ export const actions: Actions = {
 
 		if (
 			!Number.isInteger(graduationYear) ||
-			graduationYear < CURRENT_YEAR ||
+			graduationYear < CURRENT_YEAR + 1 ||
 			graduationYear > CURRENT_YEAR + 10
 		) {
 			return fail(422, {

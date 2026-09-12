@@ -24,8 +24,10 @@
 		<PageHeader>Confirm your membership</PageHeader>
 
 		<StandardParagraph>
-			Hi {data.member.name}. If you have not graduated yet, enter your new expected graduation year
-			to keep your membership active.
+			<span class="whitespace-normal">
+				Hi {data.member.name}. If you have not graduated yet, enter your new expected graduation
+				year to keep your membership active.
+			</span>
 		</StandardParagraph>
 
 		{#if form?.success}
