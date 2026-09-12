@@ -27,7 +27,11 @@ export const actions: Actions = {
 		const formData = await request.formData();
 		const graduationYear = Number(formData.get('graduationYear'));
 
-		if (!Number.isInteger(graduationYear) || graduationYear < CURRENT_YEAR + 1) {
+		if (
+			!Number.isInteger(graduationYear) ||
+			graduationYear < CURRENT_YEAR ||
+			graduationYear > CURRENT_YEAR + 10
+		) {
 			return fail(422, {
 				graduationYear,
 				errors: {
